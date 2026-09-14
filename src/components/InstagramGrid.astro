@@ -1,0 +1,47 @@
+---
+/**
+ * A static, curated grid that links to the profile. No third-party widget.
+ * Swap the six images in src/assets/placeholders/instagram-*.jpg for real posts.
+ */
+import { Image } from "astro:assets";
+import { SITE } from "@/site.config";
+import IconInstagram from "./icons/IconInstagram.astro";
+import ig1 from "@/assets/placeholders/instagram-1.jpg";
+import ig2 from "@/assets/placeholders/instagram-2.jpg";
+import ig3 from "@/assets/placeholders/instagram-3.jpg";
+import ig4 from "@/assets/placeholders/instagram-4.jpg";
+import ig5 from "@/assets/placeholders/instagram-5.jpg";
+import ig6 from "@/assets/placeholders/instagram-6.jpg";
+
+const images = [ig1, ig2, ig3, ig4, ig5, ig6];
+const { contact } = SITE;
+---
+
+<div class="grid grid-cols-3 gap-2 md:gap-3">
+  {
+    images.map((img, i) => (
+      <a
+        href={contact.instagramUrl}
+        target="_blank"
+        rel="noopener"
+        class="block aspect-square overflow-hidden bg-stone"
+        aria-label={`Open @${contact.instagramHandle} on Instagram`}
+      >
+        <Image
+          src={img}
+          alt={`Placeholder for an Instagram post, ${i + 1} of 6`}
+          width={540}
+          height={540}
+          widths={[240, 400, 540]}
+          sizes="(min-width: 768px) 200px, 33vw"
+          loading="lazy"
+          class="h-full w-full object-cover"
+        />
+      </a>
+    ))
+  }
+</div>
+<a href={contact.instagramUrl} target="_blank" rel="noopener" class="link-arrow mt-5 text-[0.95rem]">
+  <IconInstagram class="h-4.5 w-4.5" />
+  <span>@{contact.instagramHandle} on Instagram</span>
+</a>

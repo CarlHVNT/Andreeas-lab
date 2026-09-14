@@ -1,0 +1,33 @@
+---
+/**
+ * “How it works”. The one numbered list on the site, because it is the one
+ * genuine sequence.
+ */
+interface Step {
+  title: string;
+  text: string;
+}
+interface Props {
+  steps: Step[];
+}
+const { steps } = Astro.props;
+---
+
+<ol class="grid gap-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10" role="list">
+  {
+    steps.map((s, i) => (
+      <li class="grid grid-cols-[2.25rem_1fr] gap-3">
+        <span class="font-serif text-title text-lab tabular-nums" aria-hidden="true">
+          {i + 1}
+        </span>
+        <div>
+          <h3 class="text-title font-medium">
+            <span class="sr-only">Step {i + 1}: </span>
+            {s.title}
+          </h3>
+          <p class="mt-1.5 max-w-[40ch] text-graphite">{s.text}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

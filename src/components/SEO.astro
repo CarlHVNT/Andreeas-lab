@@ -1,0 +1,68 @@
+---
+import { SITE } from "@/site.config";
+import { trimSlash } from "@/lib/format";
+import { activeLocales, defaultLocale, localizePath } from "@/i18n/ui";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Path or absolute URL of the share image, 1200×630 */
+  image?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+}
+const {
+  title,
+  description = SITE.description,
+  image = SITE.seo.defaultOgImage,
+  type = "website",
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title.includes(SITE.name) ? title : `${title}${SITE.seo.titleSuffix}`;
+const path = trimSlash(Astro.url.pathname);
+const canonical = path === "/" ? `${SITE.url}/` : `${SITE.url}${path}`;
+const imageUrl = image.startsWith("http") ? image : `${SITE.url}${image}`;
+
+/** Strip a locale prefix so alternates point at the same page in each language */
+const unlocalised = path.replace(/^\/(ru|ar)(?=\/|$)/, "") || "/";
+const alternates =
+  activeLocales.length > 1
+    ? activeLocales.map((l) => ({
+        lang: l,
+        href: `${SITE.url}${localizePath(unlocalised, l)}`,
+      }))
+    : [];
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content="en_AE" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+{SITE.seo.twitterHandle && <meta name="twitter:site" content={SITE.seo.twitterHandle} />}
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+{alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+{
+  alternates.length > 0 && (
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={alternates.find((a) => a.lang === defaultLocale)?.href ?? canonical}
+    />
+  )
+}

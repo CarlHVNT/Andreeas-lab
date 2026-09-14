@@ -1,0 +1,95 @@
+---
+import { SITE } from "@/site.config";
+import Logo from "./Logo.astro";
+import IconInstagram from "./icons/IconInstagram.astro";
+import { getLocaleFromUrl, useTranslations, localizePath } from "@/i18n/ui";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+const { location, contact, footer } = SITE;
+
+const links = [
+  { href: localizePath("/treatments", locale), label: t("nav.treatments") },
+  { href: localizePath("/about", locale), label: t("nav.about") },
+  { href: localizePath("/results", locale), label: t("nav.results") },
+  { href: localizePath("/faq", locale), label: t("nav.faq") },
+  { href: localizePath("/contact", locale), label: t("nav.contact") },
+];
+---
+
+<footer class="border-t border-stone">
+  <div class="mx-auto max-w-content px-5 py-12 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:py-16">
+    <div class="md:col-span-5">
+      <Logo size="footer" />
+      <p class="mt-4 max-w-[36ch] text-meta text-graphite">{SITE.tagline}</p>
+      {
+        footer.showHostClinic && (
+          <p class="mt-2 max-w-[40ch] text-meta text-graphite">
+            {t("footer.inside")} {location.hostClinic}, {location.area}, {location.city}.
+          </p>
+        )
+      }
+      {footer.licenceLine && <p class="mt-2 max-w-[44ch] text-meta text-graphite">{footer.licenceLine}</p>}
+    </div>
+
+    <nav class="mt-10 md:col-span-3 md:col-start-7 md:mt-0" aria-label="Footer">
+      <ul class="grid gap-2.5">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="font-sans text-facts text-ink no-underline hover:text-lab">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="mt-10 md:col-span-3 md:mt-0">
+      <ul class="grid gap-2.5 text-facts">
+        <li>
+          <a
+            href={contact.instagramUrl}
+            class="inline-flex items-center gap-2 text-ink no-underline hover:text-lab"
+            target="_blank"
+            rel="noopener"
+          >
+            <IconInstagram class="h-4.5 w-4.5" />
+            <span>@{contact.instagramHandle}</span>
+          </a>
+        </li>
+        <li>
+          <a href={`tel:${contact.whatsappNumber}`} class="text-ink no-underline tabular-nums hover:text-lab">
+            {contact.whatsappDisplay}
+          </a>
+        </li>
+        {
+          contact.email && (
+            <li>
+              <a href={`mailto:${contact.email}`} class="text-ink no-underline hover:text-lab">
+                {contact.email}
+              </a>
+            </li>
+          )
+        }
+      </ul>
+      <ul class="mt-6 flex gap-5 text-meta text-graphite">
+        <li><a href={localizePath("/privacy", locale)} class="no-underline hover:text-lab">{t("footer.privacy")}</a></li>
+        <li><a href={localizePath("/terms", locale)} class="no-underline hover:text-lab">{t("footer.terms")}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-stone">
+    <div
+      class="mx-auto flex max-w-content flex-wrap gap-x-6 gap-y-1.5 px-5 py-4 text-meta text-graphite md:px-6"
+    >
+      <span>
+        © {year} {SITE.name}{SITE.established && `, est. ${SITE.established}`}. {location.city}.
+      </span>
+      {SITE.contentStatus === "sample" && <span class="max-w-[70ch]">{t("footer.sampleNotice")}</span>}
+    </div>
+  </div>
+</footer>

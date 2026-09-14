@@ -1,0 +1,29 @@
+---
+/**
+ * A plain reading page: title, optional lede, then Markdown-style prose.
+ * Used for the legal pages.
+ */
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  lede?: string;
+  updated?: string;
+  noindex?: boolean;
+}
+const { title, description, lede, updated, noindex = false } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noindex={noindex}>
+  <article class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:pt-16">
+    <header class="md:col-span-8">
+      <h1 class="text-statement">{title}</h1>
+      {lede && <p class="voice mt-5">{lede}</p>}
+      {updated && <p class="mt-4 text-meta text-graphite">Last updated {updated}</p>}
+    </header>
+    <div class="facts mt-10 md:col-span-8 md:mt-12">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

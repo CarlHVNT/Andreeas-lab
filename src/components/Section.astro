@@ -1,0 +1,32 @@
+---
+/**
+ * The site’s standard section: statement on the left (5 columns), evidence on
+ * the right (6 columns, starting at column 7). Stacks on phones.
+ *
+ * Sections carry top spacing only, so the gap between two sections is exactly
+ * one unit. A “mist” band carries spacing on both sides.
+ */
+interface Props {
+  id?: string;
+  title?: string;
+  as?: "h1" | "h2";
+  tone?: "porcelain" | "mist";
+  class?: string;
+}
+const { id, title, as: Tag = "h2", tone = "porcelain", class: cls = "" } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[tone === "mist" ? "mt-18 bg-mist py-18 md:mt-32 md:py-32" : "pt-18 md:pt-32", cls]}
+>
+  <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:gap-6 md:px-6">
+    <div class="md:col-span-5">
+      {title && <Tag class="text-statement">{title}</Tag>}
+      <slot name="statement" />
+    </div>
+    <div class="mt-8 md:col-span-6 md:col-start-7 md:mt-0">
+      <slot />
+    </div>
+  </div>
+</section>

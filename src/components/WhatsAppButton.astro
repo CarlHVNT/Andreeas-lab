@@ -1,0 +1,38 @@
+---
+/**
+ * The site’s one call to action. Opens WhatsApp with a pre-filled message.
+ * Pass `treatment` so the message names what the reader was looking at.
+ */
+import { SITE } from "@/site.config";
+import { whatsappLink } from "@/lib/whatsapp";
+import IconWhatsApp from "./icons/IconWhatsApp.astro";
+
+interface Props {
+  treatment?: string;
+  label?: string;
+  variant?: "primary" | "quiet" | "small" | "bar";
+  id?: string;
+  class?: string;
+}
+const {
+  treatment,
+  label = SITE.whatsapp.buttonLabel,
+  variant = "primary",
+  id,
+  class: cls = "",
+} = Astro.props;
+
+const href = whatsappLink(treatment);
+const variantClass = {
+  primary: "btn-primary",
+  quiet: "btn-quiet",
+  small: "btn-small",
+  bar: "btn-bar",
+}[variant];
+const iconClass = variant === "primary" ? "h-5 w-5" : "h-4.5 w-4.5";
+---
+
+<a id={id} href={href} class:list={[variantClass, cls]} target="_blank" rel="noopener">
+  <IconWhatsApp class={iconClass} />
+  <span>{label}</span>
+</a>

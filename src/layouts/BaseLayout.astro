@@ -1,0 +1,79 @@
+---
+/**
+ * Every page uses this layout: fonts, metadata, header, footer, WhatsApp bar.
+ */
+import "@fontsource-variable/newsreader/standard.css";
+import "@fontsource-variable/newsreader/standard-italic.css";
+import "@fontsource-variable/hanken-grotesk/index.css";
+import "@/styles/global.css";
+import newsreaderUrl from "@fontsource-variable/newsreader/files/newsreader-latin-standard-normal.woff2?url";
+import hankenUrl from "@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url";
+
+import SEO from "@/components/SEO.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import Analytics from "@/components/Analytics.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import StickyWhatsAppBar from "@/components/StickyWhatsAppBar.astro";
+import { businessJsonLd } from "@/lib/seo";
+import { getLocaleFromUrl, textDirection, useTranslations } from "@/i18n/ui";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  /** Treatment name carried into every WhatsApp message on this page */
+  treatment?: string;
+  /** True when the page has a #hero-cta button (hides the sticky bar until it scrolls away) */
+  hasHero?: boolean;
+  /** Extra structured data for this page */
+  jsonLd?: Record<string, unknown>[];
+}
+const {
+  title,
+  description,
+  image,
+  noindex = false,
+  treatment,
+  hasHero = false,
+  jsonLd = [],
+} = Astro.props;
+
+const locale = getLocaleFromUrl(Astro.url);
+const dir = textDirection(locale);
+const t = useTranslations(locale);
+---
+
+<!doctype html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f4f0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href={newsreaderUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={hankenUrl} as="font" type="font/woff2" crossorigin />
+    <SEO title={title} description={description} image={image} noindex={noindex} />
+    <JsonLd data={businessJsonLd()} />
+    {jsonLd.map((data) => <JsonLd data={data} />)}
+    <Analytics />
+  </head>
+  <body class="pb-20 md:pb-0">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-ui focus:bg-lab focus:px-4 focus:py-2 focus:text-white"
+    >
+      {t("nav.skip")}
+    </a>
+    <Header treatment={treatment} />
+    <main id="main" class="pb-18 md:pb-32">
+      <slot />
+    </main>
+    <Footer />
+    <StickyWhatsAppBar treatment={treatment} hasHero={hasHero} />
+  </body>
+</html>

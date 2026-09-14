@@ -1,0 +1,34 @@
+---
+/**
+ * One testimonial. The quote is Andreea’s clients speaking, so it is set in
+ * the serif. Sample quotes are labelled so nobody mistakes them for real ones.
+ */
+import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
+
+interface Props {
+  name: string;
+  area?: string;
+  treatment?: string;
+  date?: string;
+  placeholder?: boolean;
+}
+const { name, area, treatment, date, placeholder = false } = Astro.props;
+const t = useTranslations(getLocaleFromUrl(Astro.url));
+const meta = [name, area, treatment, date].filter(Boolean).join(" · ");
+---
+
+<figure class="border-t border-stone pt-6">
+  <blockquote class="voice text-ink">
+    <slot />
+  </blockquote>
+  <figcaption class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-meta text-graphite">
+    <span>{meta}</span>
+    {
+      placeholder && (
+        <span class="rounded-ui bg-stone px-1.5 py-0.5 text-[0.75rem] font-medium text-graphite">
+          {t("label.sampleQuote")}
+        </span>
+      )
+    }
+  </figcaption>
+</figure>

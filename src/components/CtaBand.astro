@@ -1,0 +1,43 @@
+---
+/**
+ * The closing call to action on every page. Left-aligned like everything else.
+ */
+import WhatsAppButton from "./WhatsAppButton.astro";
+import IconArrow from "./icons/IconArrow.astro";
+
+interface Props {
+  title?: string;
+  text?: string;
+  treatment?: string;
+  /** Hide the form link on the contact page itself */
+  showFormLink?: boolean;
+}
+const {
+  title = "Ready when you are.",
+  text = "Message Andreea with what you would like help with. She replies personally, usually the same day.",
+  treatment,
+  showFormLink = true,
+} = Astro.props;
+---
+
+<section class="pt-18 md:pt-32">
+  <div class="mx-auto max-w-content px-5 md:px-6">
+    <div class="border-t border-stone pt-10 md:grid md:grid-cols-12 md:gap-6 md:pt-14">
+      <div class="md:col-span-7">
+        <h2 class="text-statement">{title}</h2>
+        <p class="voice mt-4 max-w-[46ch]">{text}</p>
+      </div>
+      <div class="mt-8 flex flex-col items-start gap-4 md:col-span-4 md:col-start-9 md:mt-0 md:pt-2">
+        <WhatsAppButton treatment={treatment} />
+        {
+          showFormLink && (
+            <a href="/contact" class="link-arrow text-[0.95rem]">
+              <span>Or send a request</span>
+              <IconArrow class="h-4.5 w-4.5" />
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+/**
+ * Phone-only bar pinned to the bottom of the screen.
+ * On pages with a hero button (id="hero-cta") it stays hidden until that button
+ * scrolls out of view, so the first screen never shows two green buttons.
+ */
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+interface Props {
+  treatment?: string;
+  /** True when the page has a #hero-cta button */
+  hasHero?: boolean;
+}
+const { treatment, hasHero = false } = Astro.props;
+---
+
+<div
+  id="wa-bar"
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-stone bg-porcelain/95 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-sm md:hidden"
+  data-show={hasHero ? undefined : ""}
+>
+  <WhatsAppButton variant="bar" treatment={treatment} />
+</div>
+
+<script>
+  const bar = document.getElementById("wa-bar");
+  const anchor = document.getElementById("hero-cta");
+  if (bar && anchor && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) bar.removeAttribute("data-show");
+        else bar.setAttribute("data-show", "");
+      },
+      { rootMargin: "0px 0px -64px 0px" },
+    );
+    io.observe(anchor);
+  } else if (bar && anchor) {
+    bar.setAttribute("data-show", "");
+  }
+</script>

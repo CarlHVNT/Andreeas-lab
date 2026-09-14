@@ -1,0 +1,91 @@
+---
+import Logo from "./Logo.astro";
+import WhatsAppButton from "./WhatsAppButton.astro";
+import IconWhatsApp from "./icons/IconWhatsApp.astro";
+import { whatsappLink } from "@/lib/whatsapp";
+import { getLocaleFromUrl, useTranslations, localizePath } from "@/i18n/ui";
+import { trimSlash } from "@/lib/format";
+
+interface Props {
+  treatment?: string;
+}
+const { treatment } = Astro.props;
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+const current = trimSlash(Astro.url.pathname);
+
+const links = [
+  { href: localizePath("/treatments", locale), label: t("nav.treatments") },
+  { href: localizePath("/about", locale), label: t("nav.about") },
+  { href: localizePath("/results", locale), label: t("nav.results") },
+  { href: localizePath("/faq", locale), label: t("nav.faq") },
+  { href: localizePath("/contact", locale), label: t("nav.contact") },
+];
+const isActive = (href: string) => current === href || current.startsWith(`${href}/`);
+---
+
+<header class="relative z-30 border-b border-stone bg-porcelain">
+  <div class="mx-auto flex h-14 max-w-content items-center justify-between px-5 md:h-18 md:px-6">
+    <Logo />
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            aria-current={isActive(l.href) ? "page" : undefined}
+            class="font-sans text-[0.95rem] font-medium text-ink no-underline hover:text-lab aria-[current=page]:text-lab"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+      <WhatsAppButton variant="small" treatment={treatment} />
+    </nav>
+
+    <div class="flex items-center gap-5 md:hidden">
+      <a
+        href={whatsappLink(treatment)}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-1.5 font-sans text-[0.9rem] font-medium text-lab no-underline"
+      >
+        <IconWhatsApp class="h-4.5 w-4.5" />
+        <span>{t("cta.whatsappShort")}</span>
+      </a>
+
+      <details id="mobile-menu" class="group">
+        <summary
+          class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-ui text-ink"
+          aria-label={t("nav.menu")}
+        >
+          <span class="grid w-5 gap-[5px]" aria-hidden="true">
+            <span class="block h-[1.5px] bg-current transition-transform group-open:translate-y-[3.25px] group-open:rotate-45"></span>
+            <span class="block h-[1.5px] bg-current transition-transform group-open:-translate-y-[3.25px] group-open:-rotate-45"></span>
+          </span>
+        </summary>
+        <nav
+          class="absolute inset-x-0 top-full border-b border-stone bg-porcelain px-5 pb-4 pt-2"
+          aria-label="Main, phone"
+        >
+          <ul class="divide-y divide-stone">
+            {
+              links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    aria-current={isActive(l.href) ? "page" : undefined}
+                    class="block py-3.5 font-serif text-[1.25rem] text-ink no-underline aria-[current=page]:text-lab"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

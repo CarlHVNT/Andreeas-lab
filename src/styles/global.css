@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/*
+  Design tokens – see DESIGN.md.
+  Only these colours exist on the site. The default Tailwind palette is removed
+  on purpose so nothing off-palette can creep in.
+*/
+@theme {
+  --color-*: initial;
+  --color-porcelain: #f6f4f0;
+  --color-stone: #e5e0d8;
+  --color-stone-deep: #d8d0c4;
+  --color-ink: #1e2321;
+  --color-graphite: #5b655f;
+  --color-lab: #1b4d3e;
+  --color-lab-deep: #143a2f;
+  --color-mist: #e4ece7;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --font-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Hanken Grotesk Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Type scale: phone to desktop */
+  --text-display: clamp(2.5rem, 4.6vw + 1.2rem, 4rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.015em;
+  --text-statement: clamp(1.75rem, 2.4vw + 1rem, 2.75rem);
+  --text-statement--line-height: 1.1;
+  --text-statement--letter-spacing: -0.01em;
+  --text-title: clamp(1.375rem, 0.4vw + 1.25rem, 1.5rem);
+  --text-title--line-height: 1.2;
+  --text-voice: clamp(1.0625rem, 0.35vw + 0.95rem, 1.1875rem);
+  --text-voice--line-height: 1.55;
+  --text-facts: clamp(1rem, 0.2vw + 0.95rem, 1.0625rem);
+  --text-facts--line-height: 1.5;
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.4;
+
+  --radius-ui: 6px;
+  --container-content: 75rem;
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-porcelain);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    min-height: 100dvh;
+    font-size: var(--text-facts);
+    line-height: var(--text-facts--line-height);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-lab);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-mist);
+    color: var(--color-ink);
+  }
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  img,
+  picture,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+  img {
+    height: auto;
+  }
+}
+
+@layer components {
+  /* Buttons: one primary shape, three sizes. Labels say what happens. */
+  .btn-primary {
+    @apply inline-flex h-13 select-none items-center justify-center gap-2.5 rounded-ui bg-lab px-6 font-sans text-[1rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+  }
+  .btn-quiet {
+    @apply inline-flex h-12 select-none items-center justify-center gap-2.5 rounded-ui border border-lab bg-transparent px-5 font-sans text-[0.95rem] font-medium text-lab no-underline transition-colors duration-150 hover:bg-mist;
+  }
+  .btn-small {
+    @apply inline-flex h-10 select-none items-center justify-center gap-2 rounded-ui bg-lab px-4 font-sans text-[0.9rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+  }
+  .btn-bar {
+    @apply inline-flex h-12 w-full select-none items-center justify-center gap-2.5 rounded-ui bg-lab px-5 font-sans text-[0.95rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+  }
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-sans font-medium text-lab no-underline hover:underline;
+  }
+  .field {
+    @apply w-full rounded-ui border border-stone-deep bg-white px-3.5 py-3 text-facts text-ink placeholder:text-graphite/70 focus:border-lab focus:outline-2 focus:-outline-offset-1 focus:outline-lab;
+  }
+
+  /* “Voice”: Andreea speaking. Serif, generous measure. */
+  .voice {
+    font-family: var(--font-serif);
+    font-size: var(--text-voice);
+    line-height: var(--text-voice--line-height);
+    max-width: 62ch;
+  }
+  .voice p + p {
+    margin-top: 1em;
+  }
+
+  /* “Facts”: what the lab records. Sans, tighter measure. Used for Markdown bodies. */
+  .facts {
+    max-width: 68ch;
+  }
+  .facts p + p,
+  .facts ul + p,
+  .facts ol + p,
+  .facts p + ul,
+  .facts p + ol {
+    margin-top: 0.9em;
+  }
+  .facts ul {
+    list-style: disc;
+    padding-left: 1.25em;
+  }
+  .facts ol {
+    list-style: decimal;
+    padding-left: 1.25em;
+  }
+  .facts li + li {
+    margin-top: 0.35em;
+  }
+  .facts a {
+    color: var(--color-lab);
+    text-decoration: underline;
+  }
+  .facts h2 {
+    font-size: var(--text-title);
+    line-height: var(--text-title--line-height);
+    font-weight: 500;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+  }
+  .facts h3 {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin-top: 1.6em;
+    margin-bottom: 0.4em;
+  }
+  .facts strong {
+    font-weight: 600;
+  }
+}
+
+/* The one motion moment: the hero rises into place. Nothing else animates. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal > * {
+    animation: rise 600ms var(--ease-soft) both;
+  }
+  .reveal > *:nth-child(2) {
+    animation-delay: 80ms;
+  }
+  .reveal > *:nth-child(3) {
+    animation-delay: 160ms;
+  }
+  .reveal > *:nth-child(4) {
+    animation-delay: 240ms;
+  }
+  .reveal-late {
+    animation: rise 700ms var(--ease-soft) 200ms both;
+  }
+  #wa-bar {
+    transition: transform 200ms var(--ease-soft);
+  }
+}
+
+/* Sticky WhatsApp bar (phones only). Shown when data-show is present. */
+#wa-bar {
+  transform: translateY(110%);
+}
+#wa-bar[data-show] {
+  transform: translateY(0);
+}
