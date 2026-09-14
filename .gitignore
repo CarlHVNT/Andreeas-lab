@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+.netlify/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# tooling output
+lighthouse/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
