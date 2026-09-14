@@ -1,0 +1,69 @@
+---
+/**
+ * Background video for the home hero.
+ *
+ * The poster image is painted first and is the page’s largest image, so the
+ * page stays fast. The video files are attached only after the page has
+ * finished loading, and never when the visitor prefers reduced motion or has
+ * asked their browser to save data. The video is decorative and silent.
+ */
+interface Props {
+  poster: string;
+  mp4: string;
+  webm: string;
+  class?: string;
+}
+const { poster, mp4, webm, class: cls = "" } = Astro.props;
+---
+
+<div class:list={["absolute inset-0 overflow-hidden bg-stone", cls]} aria-hidden="true">
+  <img
+    src={poster}
+    alt=""
+    width="1280"
+    height="720"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <video
+    id="hero-video"
+    class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"
+    muted
+    loop
+    playsinline
+    autoplay
+    preload="none"
+    tabindex="-1"
+    data-mp4={mp4}
+    data-webm={webm}></video>
+</div>
+
+<script>
+  const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+  const saveData = connection?.saveData === true;
+
+  if (video && !reduceMotion && !saveData) {
+    const start = () => {
+      const webm = document.createElement("source");
+      webm.src = video.dataset.webm ?? "";
+      webm.type = "video/webm";
+      const mp4 = document.createElement("source");
+      mp4.src = video.dataset.mp4 ?? "";
+      mp4.type = "video/mp4";
+      video.append(webm, mp4);
+      video.addEventListener("playing", () => video.classList.remove("opacity-0"), { once: true });
+      video.load();
+      video.play().catch(() => {
+        /* autoplay refused: the poster stays */
+      });
+    };
+    if (document.readyState === "complete") {
+      window.setTimeout(start, 300);
+    } else {
+      window.addEventListener("load", () => window.setTimeout(start, 300), { once: true });
+    }
+  }
+</script>
