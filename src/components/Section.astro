@@ -6,14 +6,16 @@
  * Sections carry top spacing only, so the gap between two sections is exactly
  * one unit. A “mist” band carries spacing on both sides.
  */
-interface Props {
+export interface Props {
   id?: string;
   title?: string;
-  as?: "h1" | "h2";
+  /** Heading level for the title, h2 by default */
+  heading?: "h1" | "h2";
   tone?: "porcelain" | "mist";
   class?: string;
 }
-const { id, title, as: Tag = "h2", tone = "porcelain", class: cls = "" } = Astro.props;
+const { id, title, heading = "h2", tone = "porcelain", class: cls = "" } = Astro.props;
+const Tag = heading;
 ---
 
 <section

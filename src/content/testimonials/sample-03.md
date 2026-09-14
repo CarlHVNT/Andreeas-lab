@@ -2,7 +2,6 @@
 name: "L. K."
 area: "Downtown Dubai"
 treatmentSlug: "face"
-date: "Sample"
 placeholder: true
 featured: true
 order: 3

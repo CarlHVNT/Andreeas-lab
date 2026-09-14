@@ -8,3 +8,15 @@ export function trimSlash(path: string): string {
   if (path.length > 1 && path.endsWith("/")) return path.slice(0, -1);
   return path;
 }
+
+/**
+ * The public path of the current page.
+ * With `build.format: "file"`, Astro.url.pathname is "/about.html" or "/index.html"
+ * at build time; the site serves "/about" and "/". Use this everywhere a path is
+ * compared or printed (canonical URLs, active nav state).
+ */
+export function cleanPath(pathname: string): string {
+  const stripped = pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+  const trimmed = trimSlash(stripped);
+  return trimmed === "" ? "/" : trimmed;
+}

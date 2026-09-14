@@ -1,10 +1,8 @@
 ---
 import Logo from "./Logo.astro";
 import WhatsAppButton from "./WhatsAppButton.astro";
-import IconWhatsApp from "./icons/IconWhatsApp.astro";
-import { whatsappLink } from "@/lib/whatsapp";
 import { getLocaleFromUrl, useTranslations, localizePath } from "@/i18n/ui";
-import { trimSlash } from "@/lib/format";
+import { cleanPath } from "@/lib/format";
 
 interface Props {
   treatment?: string;
@@ -13,7 +11,7 @@ const { treatment } = Astro.props;
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
-const current = trimSlash(Astro.url.pathname);
+const current = cleanPath(Astro.url.pathname);
 
 const links = [
   { href: localizePath("/treatments", locale), label: t("nav.treatments") },
@@ -44,17 +42,8 @@ const isActive = (href: string) => current === href || current.startsWith(`${hre
       <WhatsAppButton variant="small" treatment={treatment} />
     </nav>
 
-    <div class="flex items-center gap-5 md:hidden">
-      <a
-        href={whatsappLink(treatment)}
-        target="_blank"
-        rel="noopener"
-        class="inline-flex items-center gap-1.5 font-sans text-[0.9rem] font-medium text-lab no-underline"
-      >
-        <IconWhatsApp class="h-4.5 w-4.5" />
-        <span>{t("cta.whatsappShort")}</span>
-      </a>
-
+    <!-- Phones: no WhatsApp link here on purpose. The hero button and the sticky bar carry it. -->
+    <div class="flex items-center md:hidden">
       <details id="mobile-menu" class="group">
         <summary
           class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-ui text-ink"

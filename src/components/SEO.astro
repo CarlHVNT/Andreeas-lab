@@ -1,6 +1,6 @@
 ---
 import { SITE } from "@/site.config";
-import { trimSlash } from "@/lib/format";
+import { cleanPath } from "@/lib/format";
 import { activeLocales, defaultLocale, localizePath } from "@/i18n/ui";
 
 interface Props {
@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const fullTitle = title.includes(SITE.name) ? title : `${title}${SITE.seo.titleSuffix}`;
-const path = trimSlash(Astro.url.pathname);
+const path = cleanPath(Astro.url.pathname);
 const canonical = path === "/" ? `${SITE.url}/` : `${SITE.url}${path}`;
 const imageUrl = image.startsWith("http") ? image : `${SITE.url}${image}`;
 

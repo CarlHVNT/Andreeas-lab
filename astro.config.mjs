@@ -30,6 +30,7 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()],
+    // The cast only reconciles Vite type versions between Astro 5 and @tailwindcss/vite; runtime is fine.
+    plugins: [/** @type {any} */ (tailwindcss())],
   },
 });
