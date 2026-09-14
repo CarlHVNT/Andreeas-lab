@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/install.sh",
+            "timeout": 300,
+            "statusMessage": "Installing dependencies for this cloud session"
+          }
+        ]
+      }
+    ]
+  }
+}
