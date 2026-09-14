@@ -9,7 +9,7 @@ import Gallery from "@/components/Gallery.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
-import { galleryExcluding } from "@/lib/photos";
+import { galleryFor } from "@/lib/photos";
 import { getTreatments, getFaqsBySlugs, treatmentSlug, treatmentPath } from "@/lib/content";
 import { formatPrice } from "@/lib/format";
 import { serviceJsonLd } from "@/lib/seo";
@@ -30,7 +30,7 @@ const faqs = await getFaqsBySlugs(data.faqSlugs);
 const waName = data.whatsappName ?? data.title;
 const url = `${SITE.url}${treatmentPath(treatment)}`;
 const price = data.priceFrom != null ? `from ${formatPrice(data.priceFrom)} per session` : "On request";
-const gallery = galleryExcluding(data.heroImage, 3);
+const gallery = galleryFor(data.heroImage, data.order, 3);
 const jsonLd = [
   serviceJsonLd({ name: data.title, description: data.promise, url, price: data.priceFrom }),
 ];

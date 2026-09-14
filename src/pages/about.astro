@@ -8,6 +8,7 @@ import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { venue } from "@/lib/address";
 
 const { practitioner, location } = SITE;
 ---
@@ -23,8 +24,8 @@ const { practitioner, location } = SITE;
       <div class="voice mt-6">
         <p>
           I have lived and worked in Dubai for more than ten years and opened Andreea’s Lab in {SITE.established}.
-          I run a single treatment room inside {location.hostClinic} in {location.area}, and I do a small number
-          of things properly rather than a long menu of things quickly.
+          I run a single treatment room at {venue} in {location.area}, and I do a small number of things
+          properly rather than a long menu of things quickly.
         </p>
         <p>
           The word lab is not decoration. I read the research, I measure, and I tell you what I see. Beauty with
@@ -75,7 +76,7 @@ const { practitioner, location } = SITE;
   </Section>
 
   <Section title="Why Icoone">
-    <PhotoPair slot="statement" first={photos.device} second={photos.mask} class="mt-8 max-w-[26rem]" />
+    <PhotoPair slot="statement" first={photos.device} second={photos.forehead} class="mt-8 max-w-[26rem]" />
     <div class="voice">
       <p>
         I chose Icoone because it does what it says. It moves fluid, softens tight tissue and encourages the skin
@@ -114,7 +115,7 @@ const { practitioner, location } = SITE;
         />
       </div>
       <figcaption class="mt-3 text-meta text-graphite">
-        The room at {location.hostClinic}, {location.area}.
+        The room at {venue}, {location.area}.
       </figcaption>
     </figure>
   </Section>
