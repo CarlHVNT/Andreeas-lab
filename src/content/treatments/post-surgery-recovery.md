@@ -17,8 +17,9 @@ contraindications:
   - "Blood clots or a history of thrombosis"
 contraindicationsConfirmed: false
 faqSlugs: ["after-surgery-when", "does-it-hurt", "how-many-sessions", "what-to-wear"]
-heroImage: "../../assets/placeholders/treatment-post-surgery-recovery.jpg"
-heroImageAlt: "Placeholder for a photograph of a gentle Icoone recovery session"
+heroImage: "../../assets/photos/treatment-device.jpg"
+heroImageAlt: "Andreea performing a gentle facial treatment with a handpiece"
+heroImagePosition: "center 32%"
 order: 4
 featured: true
 whatsappName: "post-surgery recovery"

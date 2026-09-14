@@ -1,0 +1,39 @@
+---
+/**
+ * Two photographs, staggered: an arched portrait and a square, set lower.
+ */
+import { Image } from "astro:assets";
+import type { Photo } from "@/lib/photos";
+
+interface Props {
+  first: Photo;
+  second: Photo;
+  class?: string;
+}
+const { first, second, class: cls = "" } = Astro.props;
+---
+
+<div class:list={["grid grid-cols-[1.15fr_1fr] items-end gap-3 md:gap-4", cls]}>
+  <figure class="arch aspect-[4/5] bg-stone">
+    <Image
+      src={first.src}
+      alt={first.alt}
+      widths={[320, 480, 720]}
+      sizes="(min-width: 768px) 22vw, 52vw"
+      loading="lazy"
+      class="h-full w-full object-cover"
+      style={`object-position:${first.position ?? "center"}`}
+    />
+  </figure>
+  <figure class="mb-8 aspect-square overflow-hidden bg-stone md:mb-12">
+    <Image
+      src={second.src}
+      alt={second.alt}
+      widths={[320, 480, 720]}
+      sizes="(min-width: 768px) 18vw, 44vw"
+      loading="lazy"
+      class="h-full w-full object-cover"
+      style={`object-position:${second.position ?? "center"}`}
+    />
+  </figure>
+</div>

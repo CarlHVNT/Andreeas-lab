@@ -15,6 +15,7 @@
   --color-lab: #1b4d3e;
   --color-lab-deep: #143a2f;
   --color-mist: #e4ece7;
+  --color-blush: #ebdccf;
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -171,6 +172,45 @@
   }
   .facts strong {
     font-weight: 600;
+  }
+
+  /* Signature shape: an arch, borrowed from the mirror in her clinic. For 4:5 portraits. */
+  .arch {
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    overflow: hidden;
+  }
+
+  /* Soft colour orbs behind the hero and the closing call to action. Decorative only. */
+  .orb {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+  }
+  .orb-mist {
+    background: radial-gradient(
+      closest-side,
+      var(--color-mist) 0%,
+      color-mix(in srgb, var(--color-mist) 55%, transparent) 55%,
+      transparent 100%
+    );
+  }
+  .orb-blush {
+    background: radial-gradient(
+      closest-side,
+      var(--color-blush) 0%,
+      color-mix(in srgb, var(--color-blush) 55%, transparent) 55%,
+      transparent 100%
+    );
+  }
+
+  /* Opening quotation mark above a testimonial */
+  .quote-mark {
+    display: block;
+    height: 2rem;
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    line-height: 0.62;
+    color: var(--color-stone-deep);
   }
 }
 

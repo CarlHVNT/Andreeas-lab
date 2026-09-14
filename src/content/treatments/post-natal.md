@@ -18,8 +18,9 @@ contraindications:
   - "A Caesarean scar that has not fully healed"
 contraindicationsConfirmed: false
 faqSlugs: ["does-it-hurt", "how-many-sessions", "what-to-wear", "who-should-not"]
-heroImage: "../../assets/placeholders/treatment-post-natal.jpg"
-heroImageAlt: "Placeholder for a photograph of a calm Icoone post-natal session"
+heroImage: "../../assets/photos/andreea-bowl.jpg"
+heroImageAlt: "Andreea in the treatment room, smiling, holding a bowl and brush"
+heroImagePosition: "center 35%"
 order: 5
 featured: true
 whatsappName: "post-natal treatment"

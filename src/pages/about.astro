@@ -2,11 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/Section.astro";
+import PhotoPair from "@/components/PhotoPair.astro";
 import InstagramGrid from "@/components/InstagramGrid.astro";
 import CtaBand from "@/components/CtaBand.astro";
+import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
-import portrait from "@/assets/placeholders/portrait.jpg";
-import room from "@/assets/placeholders/room.jpg";
+import { photos } from "@/lib/photos";
 
 const { practitioner, location } = SITE;
 ---
@@ -17,6 +18,7 @@ const { practitioner, location } = SITE;
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-5 md:pt-6">
+      <Mark class="mb-4" />
       <h1 class="text-statement">I’m Andreea. You will see me at every session.</h1>
       <div class="voice mt-6">
         <p>
@@ -30,15 +32,16 @@ const { practitioner, location } = SITE;
         </p>
       </div>
     </header>
-    <figure class="-mx-5 mt-10 md:col-span-6 md:col-start-7 md:mx-0 md:mt-0">
+    <figure class="arch mt-10 aspect-[4/5] bg-stone md:col-span-6 md:col-start-7 md:mt-0">
       <Image
-        src={portrait}
-        alt="Placeholder for a portrait of Andreea"
-        widths={[480, 768, 1200]}
+        src={photos.tunic.src}
+        alt={photos.tunic.alt}
+        widths={[480, 768, 1024, 1290]}
         sizes="(min-width: 768px) 50vw, 100vw"
         loading="eager"
         fetchpriority="high"
-        class="aspect-[3/4] w-full object-cover"
+        class="h-full w-full object-cover"
+        style={`object-position:${photos.tunic.position}`}
       />
     </figure>
   </section>
@@ -72,6 +75,7 @@ const { practitioner, location } = SITE;
   </Section>
 
   <Section title="Why Icoone">
+    <PhotoPair slot="statement" first={photos.device} second={photos.mask} class="mt-8 max-w-[26rem]" />
     <div class="voice">
       <p>
         I chose Icoone because it does what it says. It moves fluid, softens tight tissue and encourages the skin
@@ -98,14 +102,17 @@ const { practitioner, location } = SITE;
       </p>
     </div>
     <figure class="mt-10">
-      <Image
-        src={room}
-        alt="Placeholder for a photograph of the treatment room"
-        widths={[480, 768, 1024, 1600]}
-        sizes="(min-width: 768px) 50vw, 100vw"
-        loading="lazy"
-        class="aspect-[4/3] w-full object-cover"
-      />
+      <div class="aspect-[4/3] overflow-hidden bg-stone">
+        <Image
+          src={photos.clinic.src}
+          alt={photos.clinic.alt}
+          widths={[480, 768, 1024, 1290]}
+          sizes="(min-width: 768px) 50vw, 100vw"
+          loading="lazy"
+          class="h-full w-full object-cover"
+          style="object-position:center 45%"
+        />
+      </div>
       <figcaption class="mt-3 text-meta text-graphite">
         The room at {location.hostClinic}, {location.area}.
       </figcaption>

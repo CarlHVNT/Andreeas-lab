@@ -33,6 +33,8 @@ const treatments = defineCollection({
       faqSlugs: z.array(z.string()).default([]),
       heroImage: image(),
       heroImageAlt: z.string(),
+      /** Focal point when the photo is cropped, e.g. "center 30%" */
+      heroImagePosition: z.string().optional(),
       /** Sort order in lists */
       order: z.number(),
       /** Featured treatments appear on the home page */

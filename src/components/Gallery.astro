@@ -1,0 +1,42 @@
+---
+/**
+ * A small grid of photographs. Square tiles, hairline gaps, no captions.
+ */
+import { Image } from "astro:assets";
+import type { Photo } from "@/lib/photos";
+
+interface Props {
+  items: Photo[];
+  columns?: 2 | 3;
+  aspect?: "square" | "portrait" | "landscape";
+  class?: string;
+  sizes?: string;
+}
+const { items, columns = 3, aspect = "square", class: cls = "", sizes } = Astro.props;
+
+const aspectClass = {
+  square: "aspect-square",
+  portrait: "aspect-[4/5]",
+  landscape: "aspect-[4/3]",
+}[aspect];
+const columnsClass = columns === 2 ? "grid-cols-2" : "grid-cols-3";
+const defaultSizes = columns === 2 ? "(min-width: 768px) 30vw, 50vw" : "(min-width: 768px) 26vw, 33vw";
+---
+
+<ul class:list={["grid gap-2 md:gap-3", columnsClass, cls]} role="list">
+  {
+    items.map((p) => (
+      <li class:list={["overflow-hidden bg-stone", aspectClass]}>
+        <Image
+          src={p.src}
+          alt={p.alt}
+          widths={[320, 480, 720]}
+          sizes={sizes ?? defaultSizes}
+          loading="lazy"
+          class="h-full w-full object-cover"
+          style={`object-position:${p.position ?? "center"}`}
+        />
+      </li>
+    ))
+  }
+</ul>

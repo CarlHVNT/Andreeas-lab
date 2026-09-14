@@ -13,8 +13,9 @@ priceNote: "Sample price for the layout review. Deducted from your first course.
 contraindications: []
 contraindicationsConfirmed: true
 faqSlugs: ["what-is-icoone", "who-should-not", "cancellation-policy", "payment-methods"]
-heroImage: "../../assets/placeholders/treatment-consultation.jpg"
-heroImageAlt: "Placeholder for a photograph of Andreea in conversation with a client"
+heroImage: "../../assets/photos/andreea-clinic.jpg"
+heroImageAlt: "Andreea at the desk in the clinic, ready for a consultation"
+heroImagePosition: "center 28%"
 order: 7
 featured: false
 whatsappName: "a consultation"

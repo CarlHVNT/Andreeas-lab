@@ -1,22 +1,33 @@
 ---
 /**
- * Click-to-load Google Map. Nothing from Google loads until the reader asks,
- * which keeps the page fast and private.
+ * Click-to-load Google Map. Until the reader asks, the box shows a photograph
+ * of the clinic. Nothing from Google loads before that, which keeps the page
+ * fast and private.
  */
+import { Image } from "astro:assets";
 import { SITE } from "@/site.config";
+import { photos } from "@/lib/photos";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 
 const t = useTranslations(getLocaleFromUrl(Astro.url));
 const { location } = SITE;
+const photo = photos.clinic;
 ---
 
-<div
-  id="map"
-  class="relative aspect-[4/3] w-full overflow-hidden bg-stone"
-  data-query={location.mapsEmbedQuery}
->
-  <div class="absolute inset-0 flex flex-col items-start justify-end gap-3 p-5">
-    <p class="max-w-[32ch] text-meta text-graphite">
+<div id="map" class="relative aspect-[4/3] w-full overflow-hidden bg-stone" data-query={location.mapsEmbedQuery}>
+  <Image
+    src={photo.src}
+    alt={photo.alt}
+    widths={[480, 768, 1024]}
+    sizes="(min-width: 768px) 50vw, 100vw"
+    loading="lazy"
+    class="absolute inset-0 h-full w-full object-cover"
+    style={`object-position:${photo.position ?? "center"}`}
+  />
+  <div
+    class="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 bg-linear-to-t from-porcelain via-porcelain/90 to-porcelain/0 px-5 pb-5 pt-14"
+  >
+    <p class="max-w-[34ch] text-meta text-graphite">
       {location.hostClinic}, {location.streetAddress}, {location.area}, {location.city}.
     </p>
     <div class="flex flex-wrap gap-3">

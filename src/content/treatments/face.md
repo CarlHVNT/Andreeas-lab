@@ -17,8 +17,9 @@ contraindications:
   - "Recent laser or chemical peel on the area"
 contraindicationsConfirmed: false
 faqSlugs: ["does-it-hurt", "how-fast-results", "downtime"]
-heroImage: "../../assets/placeholders/treatment-face.jpg"
-heroImageAlt: "Placeholder for a photograph of an Icoone face session"
+heroImage: "../../assets/photos/face-sheet-mask.jpg"
+heroImageAlt: "A client wearing a sheet mask during a face treatment"
+heroImagePosition: "center 40%"
 order: 6
 featured: true
 whatsappName: "the Icoone face treatment"

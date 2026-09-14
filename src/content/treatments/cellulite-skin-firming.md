@@ -19,8 +19,9 @@ contraindications:
   - "Cancer under active treatment"
 contraindicationsConfirmed: false
 faqSlugs: ["how-many-sessions", "how-fast-results", "does-it-hurt", "downtime"]
-heroImage: "../../assets/placeholders/treatment-cellulite-skin-firming.jpg"
-heroImageAlt: "Placeholder for a photograph of an Icoone skin firming session"
+heroImage: "../../assets/photos/andreea-tunic.jpg"
+heroImageAlt: "Andreea in a white tunic, smiling"
+heroImagePosition: "center 22%"
 order: 2
 featured: true
 whatsappName: "cellulite and skin firming"

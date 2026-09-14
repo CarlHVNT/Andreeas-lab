@@ -3,6 +3,7 @@
  * Treatments as hairline rows, not cards. Serif title, sans promise, one arrow.
  */
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 import IconArrow from "./icons/IconArrow.astro";
 import { treatmentPath } from "@/lib/content";
 
@@ -10,8 +11,10 @@ interface Props {
   items: CollectionEntry<"treatments">[];
   /** Render titles as h3 (default) or h2 on the treatments overview */
   headingLevel?: "h2" | "h3";
+  /** Show each treatment’s photograph as a small thumbnail */
+  thumbnails?: boolean;
 }
-const { items, headingLevel: Heading = "h3" } = Astro.props;
+const { items, headingLevel: Heading = "h3", thumbnails = true } = Astro.props;
 ---
 
 <ul class="border-t border-stone" role="list">
@@ -20,13 +23,26 @@ const { items, headingLevel: Heading = "h3" } = Astro.props;
       <li class="border-b border-stone">
         <a
           href={treatmentPath(t)}
-          class="group grid grid-cols-[1fr_auto] items-start gap-4 py-5 no-underline md:py-6"
+          class:list={[
+            "group grid items-center gap-4 py-4 no-underline md:gap-5 md:py-5",
+            thumbnails ? "grid-cols-[3.5rem_1fr_auto] md:grid-cols-[4rem_1fr_auto]" : "grid-cols-[1fr_auto]",
+          ]}
         >
+          {thumbnails && (
+            <Image
+              src={t.data.heroImage}
+              alt=""
+              width={128}
+              height={160}
+              loading="lazy"
+              class="h-[4.375rem] w-14 object-cover md:h-20 md:w-16"
+            />
+          )}
           <div>
             <Heading class="text-title font-medium text-ink group-hover:text-lab">{t.data.title}</Heading>
             <p class="mt-1 max-w-[52ch] text-[0.95rem] leading-[1.45] text-graphite">{t.data.promise}</p>
           </div>
-          <IconArrow class="mt-1.5 h-5 w-5 text-lab" />
+          <IconArrow class="h-5 w-5 text-lab" />
         </a>
       </li>
     ))

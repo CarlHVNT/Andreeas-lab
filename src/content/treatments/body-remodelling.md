@@ -18,8 +18,9 @@ contraindications:
   - "Cancer under active treatment"
 contraindicationsConfirmed: false
 faqSlugs: ["how-many-sessions", "how-fast-results", "downtime"]
-heroImage: "../../assets/placeholders/treatment-body-remodelling.jpg"
-heroImageAlt: "Placeholder for a photograph of an Icoone body remodelling session"
+heroImage: "../../assets/photos/andreea-clinic.jpg"
+heroImageAlt: "Andreea at the desk in the clinic, with the treatment chair behind her"
+heroImagePosition: "center 28%"
 order: 3
 featured: true
 whatsappName: "body remodelling"

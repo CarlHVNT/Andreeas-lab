@@ -19,8 +19,9 @@ contraindications:
   - "Cancer under active treatment"
 contraindicationsConfirmed: false
 faqSlugs: ["does-it-hurt", "how-many-sessions", "how-fast-results", "what-to-wear"]
-heroImage: "../../assets/placeholders/treatment-lymphatic-drainage.jpg"
-heroImageAlt: "Placeholder for a photograph of an Icoone lymphatic drainage session"
+heroImage: "../../assets/photos/andreea-bowl.jpg"
+heroImageAlt: "Andreea in the treatment room, smiling, holding a bowl and brush"
+heroImagePosition: "center 35%"
 order: 1
 featured: true
 whatsappName: "lymphatic drainage"

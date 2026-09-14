@@ -5,9 +5,11 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/Section.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import FaqList from "@/components/FaqList.astro";
+import Gallery from "@/components/Gallery.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
+import { galleryExcluding } from "@/lib/photos";
 import { getTreatments, getFaqsBySlugs, treatmentSlug, treatmentPath } from "@/lib/content";
 import { formatPrice } from "@/lib/format";
 import { serviceJsonLd } from "@/lib/seo";
@@ -28,6 +30,7 @@ const faqs = await getFaqsBySlugs(data.faqSlugs);
 const waName = data.whatsappName ?? data.title;
 const url = `${SITE.url}${treatmentPath(treatment)}`;
 const price = data.priceFrom != null ? `from ${formatPrice(data.priceFrom)} per session` : "On request";
+const gallery = galleryExcluding(data.heroImage, 3);
 const jsonLd = [
   serviceJsonLd({ name: data.title, description: data.promise, url, price: data.priceFrom }),
 ];
@@ -59,15 +62,16 @@ const jsonLd = [
           <WhatsAppButton id="hero-cta" treatment={waName} />
         </div>
       </div>
-      <figure class="-mx-5 mt-10 md:col-span-6 md:col-start-7 md:mx-0 md:mt-0">
+      <figure class="arch mt-10 aspect-[4/5] bg-stone md:col-span-6 md:col-start-7 md:mt-0">
         <Image
           src={data.heroImage}
           alt={data.heroImageAlt}
-          widths={[480, 768, 1024, 1600]}
+          widths={[480, 768, 1024, 1290]}
           sizes="(min-width: 768px) 50vw, 100vw"
           loading="eager"
           fetchpriority="high"
-          class="aspect-[4/5] w-full object-cover"
+          class="h-full w-full object-cover"
+          style={`object-position:${data.heroImagePosition ?? "center 30%"}`}
         />
       </figure>
     </header>
@@ -87,6 +91,7 @@ const jsonLd = [
           </div>
         )
       }
+      <Gallery items={gallery} columns={3} class="mt-10" />
     </Section>
 
     <Section title="Course and pricing">
