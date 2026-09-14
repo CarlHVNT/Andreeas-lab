@@ -36,7 +36,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 | WhatsApp link builder | `src/lib/whatsapp.ts` |
 | Collection queries and slug helpers | `src/lib/content.ts` |
 | Structured data builders | `src/lib/seo.ts` |
-| Placeholder images | `src/assets/placeholders/` (generated, replace with real photos) |
+| Photographs, with alt text and focal points | `src/assets/photos/`, registry in `src/lib/photos.ts` |
+| Generated placeholders (now only share image and icons) | `src/assets/placeholders/`, `scripts/generate-placeholders.mjs` |
 | Content gaps to fill before launch | `CONTENT-TODO.md` |
 | Non-developer guide for Andreea | `README.md` |
 
@@ -48,8 +49,16 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Never a decorative background. `mist` is allowed for one band per page (`Section tone="mist"`).
 - **Only the palette.** The default Tailwind palette is removed in `@theme`. Do not add colours.
 - **Left aligned, one edge.** No centred text. Sections use `Section.astro` (5/7 split at `md`).
-- **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows,
-  gradients, icon sets or `rounded-*` beyond `rounded-ui` on buttons and inputs. Photos are square-cornered.
+- **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows and no
+  `rounded-*` beyond `rounded-ui` on buttons and inputs and the discs behind icons and step numbers.
+- **The arch is the signature shape.** `.arch` on 4:5 hero and portrait figures only. Galleries,
+  thumbnails and the About room photo stay square. Photos come from `src/lib/photos.ts`, each with
+  an `object-position` focal point; never crop a face out.
+- **Ornament is small and repeats one language.** `Mark` above section titles, `LineIcon` in mist
+  discs for the four “Why Andreea” facts, porcelain discs for step numbers, the `.quote-mark`, and the
+  `.orb` gradients behind the hero and `CtaBand`. Do not add new decorative motifs; reuse these.
+- **One `ImageBand` per site**, on the home page. Galleries are `Gallery` (squares) or `PhotoPair`
+  (arch plus square).
 - **Sentence case everywhere.** No all-caps labels, no eyebrows, no italic single words in headlines.
 - **Numbering only for real sequences.** Currently only “How it works”.
 - **One motion moment.** The hero `.reveal` / `.reveal-late`. Nothing else animates. Reduced motion respected.

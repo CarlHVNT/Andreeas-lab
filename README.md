@@ -51,14 +51,21 @@ To remove a treatment, delete its file.
 
 ## Swap a photo
 
-The quickest way is to keep the same file name: put your photo in `src/assets/placeholders/` with
-the same name as the placeholder it replaces (for example `hero.jpg`, `portrait.jpg`, `room.jpg`,
-`treatment-face.jpg`, `instagram-1.jpg`). The site resizes and compresses photos automatically, so
-upload the largest version you have.
+Your photos live in `src/assets/photos/`. Every place a photo appears on the site takes it from the
+list in `src/lib/photos.ts`, which gives each photo a name (for example `bowl`, `tunic`, `clinic`,
+`device`), a description for screen readers, and a focal point so faces stay in frame when the photo is
+cropped.
 
-Recommended shapes: hero and treatment photos portrait 4:5, your portrait 3:4, the room 4:3,
-Instagram tiles square. Then update the description of the photo (the `alt` text or
-`heroImageAlt` field) so it describes the real photo instead of saying “Placeholder”.
+- **To replace a photo everywhere it appears:** save the new photo over the old file with the same name
+  in `src/assets/photos/`. Done.
+- **To add a new photo:** put the file in `src/assets/photos/`, add a line for it in `src/lib/photos.ts`
+  following the pattern of the others, then use its name where you want it.
+- **To change a treatment page’s main photo:** open the treatment file in `src/content/treatments/` and
+  change `heroImage` to the file path, `heroImageAlt` to a short description, and `heroImagePosition`
+  to where the face is, for example `"center 30%"` for a face near the top.
+
+The site resizes and compresses photos automatically, so upload the largest version you have.
+Portrait photos (taller than wide) work best for the arched hero shapes; square ones for galleries.
 
 ## Add a testimonial
 

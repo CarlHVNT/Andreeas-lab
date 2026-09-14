@@ -71,17 +71,27 @@ Files marked `needsConfirmation: true` show a “to be confirmed” note on the 
 - [ ] Three sample quotes with invented initials and areas. Replace with real quotes, with written consent,
       and set `placeholder: false`. Delete the samples. Check outcome wording against DHA testimonial rules.
 
-## Photographs (`src/assets/placeholders/`)
+## Photographs (`src/assets/photos/`, listed in `src/lib/photos.ts`)
 
-All images are generated abstract placeholders with a “Placeholder” caption baked in. Replace and
-update each alt text (search the code for “Placeholder for”):
+Seven real photographs are in place (Andreea with the bowl, in the white tunic, at the clinic desk,
+performing a facial treatment, a client in a sheet mask, a pink product still life, a spa collage).
+Still to do:
 
-- [ ] `hero.jpg` (4:5) – the most characteristic image: her hands at work, skin, the rollers
-- [ ] `portrait.jpg` (3:4) – one good portrait of Andreea
-- [ ] `room.jpg` (4:3) – the treatment room
-- [ ] `treatment-*.jpg` (4:5) – one per treatment, seven files
-- [ ] `instagram-1.jpg` to `instagram-6.jpg` (1:1) – six curated posts for the static grid on the About page
-- [ ] `public/og-default.jpg` (1200×630) – the image shown when the site is shared
+- [ ] **Usage rights.** The product still life and the four-panel spa collage look like stock or
+      generated images. Confirm Andreea has the right to publish them, or replace them with her own.
+- [ ] **Client consent.** Two photos show clients (the sheet mask, the client under the handpiece).
+      Confirm written consent for use on the website.
+- [ ] **Body treatment photos.** The five body treatment pages reuse portraits of Andreea and the
+      clinic as their hero. Real photos of the Icoone device and body sessions would be better:
+      set `heroImage` and `heroImagePosition` in each `src/content/treatments/*.md`.
+- [ ] **A true hero.** The home hero shows a facial handpiece, not the Icoone device. Replace
+      `photos.device` in `src/lib/photos.ts` with her hands at work with Icoone when available.
+- [ ] `public/og-default.jpg` (1200×630) is still generated. Replace with a real share image
+      (a crop of one of the photographs with the wordmark).
+- [ ] Instagram grid tiles reuse the seven photos. Swap for six actual posts when convenient
+      (`instagramPhotos` in `src/lib/photos.ts`).
+- [ ] The generator in `scripts/generate-placeholders.mjs` and `src/assets/placeholders/` are now
+      only used for the share image and app icons. Delete once those are real.
 
 ## Logo and icons
 

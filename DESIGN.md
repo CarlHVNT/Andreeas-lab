@@ -20,7 +20,8 @@ Defined in `src/styles/global.css` (`@theme`). The default Tailwind palette is r
 | `graphite` | `#5B655F` | Secondary text: captions, durations, hours, footer | 5.4 : 1 |
 | `lab` | `#1B4D3E` | The single accent: WhatsApp buttons, links, focus rings, step numbers | 8.8 : 1, white on it 9.6 : 1 |
 | `lab-deep` | `#143A2F` | Button hover only | n/a |
-| `mist` | `#E4ECE7` | One tinted band per page (“How it works”), quiet-button hover | ink on mist 13.1 : 1 |
+| `mist` | `#E4ECE7` | One tinted band per page (“How it works”), quiet-button hover, icon discs, decorative orbs | ink on mist 13.1 : 1 |
+| `blush` | `#EBDCCF` | Decorative orbs only (the warm glow behind the hero). Never text, never a surface | n/a |
 | `white` | `#FFFFFF` | Button text, form fields | n/a |
 
 Why green: the lab is glass, not marble. Deep bottle green reads calm, precise and non-invasive,
@@ -67,18 +68,32 @@ one green button never more than a thumb away.
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure treatments, facts,
   FAQ, hours and pricing tables. No shadows, no gradients, no icon set beyond the WhatsApp glyph,
   an arrow and the Instagram mark.
-- **Radii.** `rounded-ui` (6 px) on buttons and inputs. None on photographs.
-- **Images.** Hero and treatment photos 4:5, portrait 3:4, room 4:3, Instagram tiles 1:1.
-  Astro `<Image>` with explicit `widths` and `sizes`; hero `loading="eager" fetchpriority="high"`,
-  everything else lazy.
+- **Radii.** `rounded-ui` (6 px) on buttons and inputs. Photographs are square-cornered, except the arch.
+- **The arch.** The signature shape, borrowed from the arched mirror in her clinic: `.arch` gives a 4:5
+  portrait a semicircular top. Used for the hero photograph on every page that has one, the portrait in
+  “Why Andreea”, and the first image of a `PhotoPair`. Galleries and thumbnails stay square so the arch
+  keeps its meaning.
+- **Photographs.** All in `src/lib/photos.ts` with alt text and a focal point (`object-position`) so
+  crops keep faces in frame. Hero and portraits 4:5, the About room photo 4:3, gallery tiles 1:1,
+  the home image band 21:9 on desktop and 4:3 on phones. Astro `<Image>` with explicit `widths` and
+  `sizes`; the first photograph on a page is `loading="eager" fetchpriority="high"`, all others lazy.
+- **Galleries.** `Gallery` (two or three square tiles) after “What Icoone is” on the home page and
+  after “What a session is like” on every treatment page; `PhotoPair` (an arch and a square, staggered)
+  in the statement column of the treatments, results and about pages; `InstagramGrid` (six tiles) on About.
+- **Small graphic elements.** The ring-and-point `Mark` sits above every section title. Treatment rows
+  carry a 4:5 thumbnail. The four “Why Andreea” facts each have a line icon in a mist disc. Step
+  numbers sit in porcelain discs on the mist band. Testimonials open with a large serif quotation mark
+  in stone. Two soft colour orbs (blush and mist) sit behind the hero, one mist orb behind the closing
+  call to action. One full-width photograph band with a statement over an ink scrim, on the home page only.
 
 ## Components
 
 `BaseLayout`, `ProsePage`, `Header` (details-based phone menu, no JS), `Footer`, `Logo`
-(placeholder mark), `WhatsAppButton` (primary / quiet / small / bar), `StickyWhatsAppBar`,
-`CtaBand`, `Section`, `TreatmentRows`, `Steps`, `Quote`, `FaqList` (details rows), `MapEmbed`
-(click to load), `ConsultationForm` (Netlify), `InstagramGrid` (static), `SEO`, `JsonLd`,
-`Analytics` (off until IDs exist), icons.
+(placeholder mark), `Mark` (ornament), `WhatsAppButton` (primary / quiet / small / bar),
+`StickyWhatsAppBar`, `CtaBand` (with orb), `Section` (with ornament), `TreatmentRows` (with
+thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `ImageBand`, `FaqList`
+(details rows), `MapEmbed` (photo until loaded), `ConsultationForm` (Netlify), `InstagramGrid`
+(static), `SEO`, `JsonLd`, `Analytics` (off until IDs exist), `LineIcon` and the three glyph icons.
 
 ## Motion and behaviour
 
@@ -94,11 +109,14 @@ one green button never more than a thumb away.
 ## What makes it hers
 
 - **Voice and facts.** Serif for what Andreea says, sans for what the lab records.
-- **One green thing per screen.** Green is the action, never decoration.
-- **Scale, not ornament.** One large statement per section, structured by space and hairlines.
-- **Skin, not spa.** Photographs should be close, matte and real: skin, her hands, the rollers, the
-  room. No petals, candles, stones or stock models. The generated placeholders are abstract and labelled.
-- **Boldness in one place.** The hero’s type. Everything around it stays quiet.
+- **One green thing per screen.** Green is the action, never decoration. The mark and the line icons
+  are the only other green, and they are small.
+- **Scale first, ornament sparingly.** One large statement per section, structured by space and
+  hairlines. The ornaments added after the first review (mark, icons, discs, orbs, quotation marks) are
+  quiet and repeat the same language: rings, points, soft circles.
+- **Her, in her room.** Photographs are of Andreea at work and of the clinic, in an arch or a square.
+  The two stock-style images (products, candles) live only in galleries, never as a hero.
+- **Boldness in two places.** The hero’s type and the hero photograph. Everything around them stays quiet.
 
 ## Self-critique after the first build
 
