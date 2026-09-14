@@ -1,0 +1,73 @@
+---
+import ProsePage from "@/layouts/ProsePage.astro";
+import { SITE } from "@/site.config";
+
+const { contact, location } = SITE;
+---
+
+<ProsePage
+  title="Privacy policy"
+  description="How Andreea’s Lab collects and uses your details when you use this website, the consultation form or WhatsApp."
+  lede="Short version: this site collects almost nothing. The form collects your name, WhatsApp number and message so Andreea can reply. WhatsApp conversations happen on WhatsApp."
+  updated="September 2026"
+>
+  <p>
+    <strong>Sample text for review.</strong> This policy is a draft written for the layout review. It must be
+    reviewed by a UAE-qualified adviser and by the licence holder at {location.hostClinic} before launch.
+  </p>
+
+  <h2>Who we are</h2>
+  <p>
+    {SITE.name} is run by {SITE.practitioner.fullName}, operating from a treatment room inside {location.hostClinic},{" "}
+    {location.area}, {location.city}, {location.country}. Questions about this policy: {contact.email}.
+  </p>
+
+  <h2>What we collect, and why</h2>
+  <ul>
+    <li>
+      <strong>Consultation request form.</strong> Your name, your WhatsApp number, what you would like help
+      with, and the treatment page you were on. We use this only to reply to you. Please do not include
+      medical details in the form. Those are discussed in person at your consultation.
+    </li>
+    <li>
+      <strong>WhatsApp.</strong> When you tap a WhatsApp button, you leave this website and message Andreea on
+      WhatsApp. Those conversations are handled by WhatsApp under Meta’s own terms and privacy policy, which
+      you can read on WhatsApp’s website. Andreea keeps your conversation on her business phone for as long as
+      you are a client and for a reasonable period afterwards.
+    </li>
+    <li>
+      <strong>Analytics.</strong> By default this site loads no analytics and sets no cookies. If analytics are
+      turned on in future, this section will be updated to say which service is used and what it records.
+    </li>
+  </ul>
+
+  <h2>Where your details are stored</h2>
+  <p>
+    Form submissions are received by Netlify, the company that hosts this website, and forwarded to Andreea.
+    Netlify stores submissions on its servers, which may be outside the UAE. Andreea deletes form submissions
+    once she has replied and, where you become a client, keeps only what is needed for your treatment record.
+  </p>
+
+  <h2>Your health information</h2>
+  <p>
+    Information about your health is collected only in person, at your consultation, and is kept by Andreea
+    as part of your treatment record under the policies of {location.hostClinic}. It is not collected through
+    this website.
+  </p>
+
+  <h2>Your rights</h2>
+  <p>
+    Under the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021) you can ask what personal
+    data we hold about you, ask us to correct it, ask us to delete it, and object to how we use it. To do any of
+    these, message Andreea on WhatsApp or email {contact.email}. We will respond within 30 days.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    This site does not set cookies by default. The optional Google Map on the contact page loads only when you
+    tap “Load the map”, at which point Google may set its own cookies.
+  </p>
+
+  <h2>Changes</h2>
+  <p>We will update this page when anything changes and show the date at the top.</p>
+</ProsePage>

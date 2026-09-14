@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+import FaqList from "@/components/FaqList.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import IconArrow from "@/components/icons/IconArrow.astro";
+import { SITE } from "@/site.config";
+import { getTreatments, getFaqsBySlugs, treatmentSlug, treatmentPath } from "@/lib/content";
+import { formatPrice } from "@/lib/format";
+import { serviceJsonLd } from "@/lib/seo";
+
+export async function getStaticPaths() {
+  const treatments = await getTreatments();
+  return treatments.map((t) => ({
+    params: { slug: treatmentSlug(t) },
+    props: { treatment: t },
+  }));
+}
+
+const { treatment } = Astro.props;
+const { data } = treatment;
+const { Content } = await render(treatment);
+const hasBody = (treatment.body ?? "").trim().length > 0;
+const faqs = await getFaqsBySlugs(data.faqSlugs);
+const waName = data.whatsappName ?? data.title;
+const url = `${SITE.url}${treatmentPath(treatment)}`;
+const price = data.priceFrom != null ? `from ${formatPrice(data.priceFrom)} per session` : "On request";
+const jsonLd = [
+  serviceJsonLd({ name: data.title, description: data.promise, url, price: data.priceFrom }),
+];
+---
+
+<BaseLayout
+  title={data.seoTitle ?? `${data.title} in Dubai`}
+  description={data.seoDescription ?? data.promise}
+  treatment={waName}
+  hasHero
+  jsonLd={jsonLd}
+>
+  <article>
+    <header class="mx-auto max-w-content px-5 pt-8 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-14">
+      <div class="md:col-span-5 md:pt-6">
+        <a href="/treatments" class="link-arrow text-meta text-graphite hover:text-lab">
+          <IconArrow class="h-4 w-4 rotate-180" />
+          <span>All treatments</span>
+        </a>
+        <h1 class="mt-4 text-[clamp(2.25rem,3.4vw+1rem,3.5rem)] leading-[1.05] tracking-[-0.015em]">{data.title}</h1>
+        <p class="voice mt-5">{data.promise}</p>
+        <dl class="mt-7 grid max-w-[26rem] grid-cols-2 gap-x-6 gap-y-1 text-meta text-graphite">
+          <dt>Session</dt>
+          <dt>Price</dt>
+          <dd class="text-facts text-ink tabular-nums">{data.duration}</dd>
+          <dd class="text-facts text-ink tabular-nums">{price}</dd>
+        </dl>
+        <div class="mt-8">
+          <WhatsAppButton id="hero-cta" treatment={waName} />
+        </div>
+      </div>
+      <figure class="-mx-5 mt-10 md:col-span-6 md:col-start-7 md:mx-0 md:mt-0">
+        <Image
+          src={data.heroImage}
+          alt={data.heroImageAlt}
+          widths={[480, 768, 1024, 1600]}
+          sizes="(min-width: 768px) 50vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-[4/5] w-full object-cover"
+        />
+      </figure>
+    </header>
+
+    <Section title="Who it’s for">
+      <ul class="divide-y divide-stone border-y border-stone text-facts" role="list">
+        {data.forWhom.map((item) => <li class="py-3.5">{item}</li>)}
+      </ul>
+    </Section>
+
+    <Section title="What a session is like">
+      <p class="voice">{data.whatHappens}</p>
+      {
+        hasBody && (
+          <div class="facts mt-8">
+            <Content />
+          </div>
+        )
+      }
+    </Section>
+
+    <Section title="Course and pricing">
+      <dl class="divide-y divide-stone border-y border-stone text-facts">
+        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+          <dt class="text-graphite">Session</dt>
+          <dd class="tabular-nums">{data.duration}</dd>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+          <dt class="text-graphite">Recommended course</dt>
+          <dd>{data.recommendedCourse}</dd>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+          <dt class="text-graphite">Price</dt>
+          <dd class="tabular-nums">{price}</dd>
+        </div>
+      </dl>
+      {data.priceNote && <p class="mt-4 max-w-[52ch] text-meta text-graphite">{data.priceNote}</p>}
+    </Section>
+
+    {
+      data.contraindications.length > 0 && (
+        <Section title="Who should not have it">
+          <ul class="divide-y divide-stone border-y border-stone text-facts" role="list">
+            {data.contraindications.map((item) => (
+              <li class="py-3.5">{item}</li>
+            ))}
+          </ul>
+          <p class="mt-4 max-w-[56ch] text-meta text-graphite">
+            {!data.contraindicationsConfirmed && "Sample list, to be confirmed by Andreea. "}
+            Suitability is always decided at your consultation. Andreea asks about your medical history before
+            any session, and will say plainly if Icoone is not right for you.
+          </p>
+        </Section>
+      )
+    }
+
+    {
+      faqs.length > 0 && (
+        <Section title="Questions">
+          <FaqList items={faqs} />
+          <a href="/faq" class="link-arrow mt-6 text-[0.95rem]">
+            <span>All questions</span>
+            <IconArrow class="h-4.5 w-4.5" />
+          </a>
+        </Section>
+      )
+    }
+
+    <CtaBand
+      title={`Ask Andreea about ${waName}.`}
+      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a course would look like and when she can see you."
+      treatment={waName}
+    />
+  </article>
+</BaseLayout>

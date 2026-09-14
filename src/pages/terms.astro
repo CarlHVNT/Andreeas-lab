@@ -1,0 +1,64 @@
+---
+import ProsePage from "@/layouts/ProsePage.astro";
+import { SITE } from "@/site.config";
+
+const { location, policies } = SITE;
+---
+
+<ProsePage
+  title="Terms"
+  description="Terms for using the Andreea’s Lab website and booking treatments."
+  lede="The plain-language terms for using this website and booking with Andreea."
+  updated="September 2026"
+>
+  <p>
+    <strong>Sample text for review.</strong> These terms are a draft written for the layout review. They must be
+    reviewed by a UAE-qualified adviser and by the licence holder at {location.hostClinic} before launch.
+  </p>
+
+  <h2>About this website</h2>
+  <p>
+    This website describes the treatments offered by {SITE.name}. It is information, not medical advice.
+    Nothing on it is a diagnosis, a promise of a result, or a substitute for a consultation. Whether a
+    treatment suits you is decided in person, after Andreea has asked about your health and looked at the area
+    you want to work on.
+  </p>
+
+  <h2>Treatments and the host clinic</h2>
+  <p>
+    Treatments take place in a treatment room inside {location.hostClinic}, a licensed clinic in{" "}
+    {location.area}, {location.city}. The clinic’s own policies on conduct, safety and records apply during
+    your visit.
+  </p>
+
+  <h2>Bookings and cancellations</h2>
+  <p>{policies.cancellation}</p>
+
+  <h2>Prices and payment</h2>
+  <p>
+    Prices are shown in UAE dirhams. Prices on this website are indicative and are confirmed at your
+    consultation. {policies.payment}
+  </p>
+
+  <h2>Results</h2>
+  <p>
+    Results vary from person to person and depend on following the plan agreed at your consultation. No
+    result is guaranteed. Testimonials on this site describe individual experiences and are published with
+    each client’s consent.
+  </p>
+
+  <h2>Your responsibilities</h2>
+  <p>
+    Tell Andreea about any medical condition, medication, pregnancy, recent surgery or anything else that
+    could affect your treatment, before it starts and whenever anything changes.
+  </p>
+
+  <h2>Content</h2>
+  <p>
+    The text, photographs and design of this website belong to {SITE.name} and may not be copied without
+    permission.
+  </p>
+
+  <h2>Law</h2>
+  <p>These terms are governed by the laws of the United Arab Emirates and the Emirate of Dubai.</p>
+</ProsePage>

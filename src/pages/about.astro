@@ -1,0 +1,126 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import InstagramGrid from "@/components/InstagramGrid.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { SITE } from "@/site.config";
+import portrait from "@/assets/placeholders/portrait.jpg";
+import room from "@/assets/placeholders/room.jpg";
+
+const { practitioner, location } = SITE;
+---
+
+<BaseLayout
+  title="About Andreea"
+  description={`Andreea is a ${practitioner.title.toLowerCase()} in Dubai. One expert, every session. How she trained, why Icoone, and how she plans a course.`}
+>
+  <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
+    <header class="md:col-span-5 md:pt-6">
+      <h1 class="text-statement">I’m Andreea. You will see me at every session.</h1>
+      <div class="voice mt-6">
+        <p>
+          I have lived and worked in Dubai for more than ten years and opened Andreea’s Lab in {SITE.established}.
+          I run a single treatment room inside {location.hostClinic} in {location.area}, and I do a small number
+          of things properly rather than a long menu of things quickly.
+        </p>
+        <p>
+          The word lab is not decoration. I read the research, I measure, and I tell you what I see. Beauty with
+          brain and heart, no hype.
+        </p>
+      </div>
+    </header>
+    <figure class="-mx-5 mt-10 md:col-span-6 md:col-start-7 md:mx-0 md:mt-0">
+      <Image
+        src={portrait}
+        alt="Placeholder for a portrait of Andreea"
+        widths={[480, 768, 1200]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="aspect-[3/4] w-full object-cover"
+      />
+    </figure>
+  </section>
+
+  <Section title="Where I trained">
+    <div class="voice">
+      <p>
+        I trained in aesthetics and body therapies in the United Kingdom and Romania, and I hold certifications
+        recognised by the Dubai Health Authority, the KHDA and the UAE Ministry of Health. I keep training every
+        year, and I go to the dermatology and aesthetics conferences in Dubai so that what I tell you is current.
+      </p>
+    </div>
+    <ul class="mt-8 divide-y divide-stone border-y border-stone text-facts" role="list">
+      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+        <span class="text-graphite">Role</span>
+        <span>{practitioner.title}</span>
+      </li>
+      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+        <span class="text-graphite">Certifications</span>
+        <span>{practitioner.credentials.join(", ")}</span>
+      </li>
+      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+        <span class="text-graphite">In Dubai since</span>
+        <span>{practitioner.yearsInDubai} years</span>
+      </li>
+      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+        <span class="text-graphite">Languages</span>
+        <span>{practitioner.languages.join(", ")}</span>
+      </li>
+    </ul>
+  </Section>
+
+  <Section title="Why Icoone">
+    <div class="voice">
+      <p>
+        I chose Icoone because it does what it says. It moves fluid, softens tight tissue and encourages the skin
+        to firm, without needles, heat or downtime. It suits the people who come to me: women who want to feel
+        lighter, smoother and more like themselves, and who would rather work with their body than against it.
+      </p>
+      <p>
+        I do not offer injectables, and I will never steer you towards them. If I think something outside my
+        room would serve you better, I will say so and point you to someone I trust.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="How I plan a course">
+    <div class="voice">
+      <p>
+        Every course starts with a thirty-minute consultation. I listen, I look, I measure, and I ask about your
+        health and your habits. Then I write down a plan: which areas, how many sessions, how often, and what you
+        can reasonably expect by when.
+      </p>
+      <p>
+        We measure again every few sessions. If something is not moving, I change the plan. If you have reached
+        what you came for, I tell you to stop and come back for maintenance instead of selling you more.
+      </p>
+    </div>
+    <figure class="mt-10">
+      <Image
+        src={room}
+        alt="Placeholder for a photograph of the treatment room"
+        widths={[480, 768, 1024, 1600]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        loading="lazy"
+        class="aspect-[4/3] w-full object-cover"
+      />
+      <figcaption class="mt-3 text-meta text-graphite">
+        The room at {location.hostClinic}, {location.area}.
+      </figcaption>
+    </figure>
+  </Section>
+
+  <Section title="On Instagram">
+    <p slot="statement" class="voice mt-4 max-w-[34ch]">
+      Case studies, real talk and what I am reading. No hype.
+    </p>
+    <InstagramGrid />
+  </Section>
+
+  <CtaBand
+    title="Come and meet me."
+    text="Message me with what you would like to change. I reply personally, usually the same day, and the first conversation is just that: a conversation."
+  />
+</BaseLayout>
