@@ -1,8 +1,11 @@
 # Content to confirm before launch
 
-Everything below is sample content used for the design and layout review. Nothing here has been
-confirmed by Andreea. Each item says where to change it. When the list is empty, set
-`contentStatus` to `"live"` in `src/site.config.ts`.
+Everything below started as sample content for the design review and has not yet been confirmed by
+Andreea. **On 15 September 2026 the visible “sample” notices were switched off at Carl’s request**
+(`contentStatus` is `"live"`, testimonials no longer carry a “Sample quote” label, price and
+contraindication notes no longer say “sample”, the legal pages no longer open with a review
+warning). That means unconfirmed items now read as real content on the site, so this list is the
+only record of what still needs checking. Work through it before the site goes public.
 
 **Before launch, the licence holder at the host clinic should review all copy** for compliance
 with DHA advertising rules: testimonials about outcomes, any before/after photographs, promotional
@@ -10,12 +13,13 @@ pricing, and any wording that could read as a medical claim.
 
 ## Blockers (the site does not work without these)
 
-- [ ] **WhatsApp number.** `src/site.config.ts` → `contact.whatsappNumber` (international format, no
-      spaces) and `contact.whatsappDisplay`. Currently a dummy `+971500000000`. Every button uses it.
+- [x] **WhatsApp number.** Set to +971 56 168 0342 on 15 September 2026 (`contact.whatsappNumber`,
+      `contact.whatsappDisplay`). Every button uses it. Send one test message from the live site.
 - [ ] **Domain.** `src/site.config.ts` → `url`. Currently `https://andreeaslab.example`. Drives canonical
       URLs, the sitemap, robots.txt and share images.
-- [ ] **Host clinic name.** `location.hostClinic` (currently “Sample Clinic”), `location.hostClinicUrl`.
-      Also appears in the footer, the privacy policy and the terms.
+- [ ] **Licence holder.** `location.hostClinic` is now empty because the real address is a residential
+      tower, not a clinic. If Andreea works under another business’s licence, add its name here and
+      in `footer.licenceLine`; the footer, home page, privacy policy and terms switch wording automatically.
 
 ## Andreea and credentials
 
@@ -34,14 +38,22 @@ pricing, and any wording that could read as a medical claim.
 
 ## Location and hours
 
-- [ ] Street address and area: `location.streetAddress` (currently “Villa 000, Al Wasl Road”), `location.area`
-      (“Jumeirah 1” assumed from the brief’s example). The area also appears in SEO titles for body remodelling.
-- [ ] Room name and how to find it: `location.roomName`, `location.howToFind`.
-- [ ] Parking: `location.parking` and `src/content/faqs/parking.md`.
-- [ ] Google Maps share link: `location.mapsUrl`. Map search query: `location.mapsEmbedQuery`.
-- [ ] Coordinates for structured data: `location.geo` (approximate Jumeirah 1 at the moment).
+**The address on the site is a demo address**, a generic Dubai Healthcare City location (Clinic 203,
+Level 2, Ibn Sina Building 27, Block B) chosen so Andreea’s real premises are not published while the
+site is a demo. Carl holds the real address. Before launch:
+
+- [ ] **Real address** into `src/site.config.ts` → `location` (`unit`, `building`, `community`, `area`),
+      written in UAE order: unit and floor, building, community, city. No postcode exists in the UAE.
+- [ ] **Makani number** for the building entrance (ten digits, on the blue plate by the door):
+      `location.makani`. Shows in the footer, on the home page and on the contact page once set.
+- [ ] **Map pin and share link**: `location.geo` and `location.mapsUrl`, `location.mapsEmbedQuery`.
+- [ ] **How to find the room**: `location.howToFind` (which entrance, lift, whether to call ahead).
+- [ ] **Parking**: `location.parking` and `src/content/faqs/parking.md` currently say Andreea sends
+      directions when you book. Replace with the real arrangement.
 - [ ] Opening hours: `hours` (currently Tuesday to Saturday 10:00 to 19:00, Sunday and Monday closed).
-- [ ] `src/content/faqs/where-are-you.md` repeats the address in prose; update together.
+- [ ] `src/content/faqs/where-are-you.md` repeats the address in prose; update it together.
+- [ ] SEO phrases use `location.area` (“Dubai Healthcare City” in the demo); the body remodelling and
+      lymphatic drainage files also name the area in their `seoTitle`/`seoDescription`.
 
 ## Treatments (`src/content/treatments/*.md`)
 
@@ -68,27 +80,30 @@ Files marked `needsConfirmation: true` show a “to be confirmed” note on the 
 
 ## Testimonials (`src/content/testimonials/*.md`)
 
-- [ ] Three sample quotes with invented initials and areas. Replace with real quotes, with written consent,
-      and set `placeholder: false`. Delete the samples. Check outcome wording against DHA testimonial rules.
+- [ ] **Three invented quotes are live on the site without a label** (`sample-01.md` to `sample-03.md`,
+      initials and areas made up). Replace them with real quotes with written consent before launch,
+      and delete the sample files. Check outcome wording against DHA testimonial rules.
 
-## Photographs (`src/assets/photos/`, listed in `src/lib/photos.ts`)
+## Photographs and video (`src/assets/photos/`, listed in `src/lib/photos.ts`; `public/video/`)
 
-Seven real photographs are in place (Andreea with the bowl, in the white tunic, at the clinic desk,
-performing a facial treatment, a client in a sheet mask, a pink product still life, a spa collage).
-Still to do:
+Eleven photographs are in place: four of Andreea and her room (bowl, tunic, clinic desk, performing
+a facial treatment), five treatment and client images (sheet mask, red-light handpiece, forehead
+handpiece, pink-glove consultation, face-mapping grid), and two still lifes (pink products, spa
+collage). The home hero is a silent looping stock video (`public/video/hero.mp4` and `.webm`, 720p,
+15 s, poster `hero-poster.jpg`). Still to do:
 
-- [ ] **Usage rights.** The product still life and the four-panel spa collage look like stock or
-      generated images. Confirm Andreea has the right to publish them, or replace them with her own.
-- [ ] **Client consent.** Two photos show clients (the sheet mask, the client under the handpiece).
-      Confirm written consent for use on the website.
-- [ ] **Body treatment photos.** The five body treatment pages reuse portraits of Andreea and the
-      clinic as their hero. Real photos of the Icoone device and body sessions would be better:
-      set `heroImage` and `heroImagePosition` in each `src/content/treatments/*.md`.
-- [ ] **A true hero.** The home hero shows a facial handpiece, not the Icoone device. Replace
-      `photos.device` in `src/lib/photos.ts` with her hands at work with Icoone when available.
+- [ ] **Licences.** The four newest photos and the hero video are Adobe Stock files, and the product
+      still life and spa collage look like stock too. Keep the licence records, and check the Adobe
+      Stock licence covers a commercial website for a client business.
+- [ ] **Client consent.** Andreea’s own photos that show clients (the sheet mask, the client under
+      the handpiece) need written consent for use on the website.
+- [ ] **Icoone-specific photos.** None of the treatment images show the Icoone device, and the body
+      treatment pages use facial or portrait photos. Real photos of Icoone body sessions would be
+      better: set `heroImage` and `heroImagePosition` in each `src/content/treatments/*.md`, and
+      consider replacing the hero video with footage of Andreea at work.
 - [ ] `public/og-default.jpg` (1200×630) is still generated. Replace with a real share image
       (a crop of one of the photographs with the wordmark).
-- [ ] Instagram grid tiles reuse the seven photos. Swap for six actual posts when convenient
+- [ ] Instagram grid tiles reuse the site photos. Swap for six actual posts when convenient
       (`instagramPhotos` in `src/lib/photos.ts`).
 - [ ] The generator in `scripts/generate-placeholders.mjs` and `src/assets/placeholders/` are now
       only used for the share image and app icons. Delete once those are real.

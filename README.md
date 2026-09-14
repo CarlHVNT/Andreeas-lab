@@ -93,7 +93,11 @@ Open `src/site.config.ts`.
   `"+971501234567"`. `whatsappDisplay` is how it looks on the page.
 - **WhatsApp message**: `messageTemplate`. Keep `{treatment}` where you want the treatment name to appear.
 - **Hours**: the `hours` list. Each row has a label, the days it covers, and opening and closing times.
-- **Host clinic, address, how to find the room, parking**: the `location` block.
+- **Address, how to find the room, parking**: the `location` block. The address is stored the way
+  addresses are written in the UAE: `unit` (for example “Clinic 203, Level 2”), `building`, `community`,
+  then `area` and `city`. The demo site uses a generic Dubai Healthcare City address; put the real one
+  here before launch. Add the building’s ten-digit Makani number to `makani` when you have it. If
+  Andreea works under another clinic’s licence, put its name in `hostClinic` and the wording adjusts.
 - **Cancellation and payment wording**: the `policies` block. Update the matching FAQ files too.
 - **Credentials and languages**: the `practitioner` block.
 
@@ -114,12 +118,19 @@ needed before turning them on.
 Only once the clinic’s licence holder has confirmed they are allowed. In `src/site.config.ts` set
 `showBeforeAfters: true` under `results`. The section on the Results page then appears.
 
+## Change the hero video
+
+The moving background on the home page is two video files and a still image in `public/video/`:
+`hero.mp4`, `hero.webm` and `hero-poster.jpg`. To change it, replace those three files with new ones
+of the same names. Keep the video short (10 to 15 seconds), silent, 1280 pixels wide and under about
+3 MB per file so the page stays fast. The still image is what people see first and what visitors who
+prefer less motion see instead of the video.
+
 ## Going live
 
-1. In `src/site.config.ts`, change `contentStatus: "sample"` to `"live"`. The grey footer note
-   about sample content disappears.
-2. Set `url` to your real domain, with `https://` and no trailing slash.
-3. Work through `CONTENT-TODO.md` until every line is done.
+1. Set `url` in `src/site.config.ts` to your real domain, with `https://` and no trailing slash.
+2. Work through `CONTENT-TODO.md` until every line is done. The sample labels are already switched
+   off, so anything still unconfirmed reads as real content on the site.
 
 ## How changes reach the website
 

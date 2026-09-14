@@ -97,9 +97,13 @@ thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `Im
 
 ## Motion and behaviour
 
-- One motion moment: the hero’s headline, subline and button rise 12 px and fade in over 600 ms,
-  staggered 80 ms, the photograph 200 ms later. Off entirely under `prefers-reduced-motion`.
-  Hover states change colour only.
+- The home hero is a silent, looping background video (stock footage, 720p, 15 s) behind a porcelain
+  scrim that runs left to right on desktop and top to bottom on phones, so the statement always sits on
+  a near-solid porcelain area. The poster frame paints first and is the largest image on the page;
+  the video attaches after the page has loaded, fades in when it plays, and is never fetched under
+  `prefers-reduced-motion` or Save-Data. The two orbs were removed from the hero when the video came in.
+- One text motion moment: the hero’s headline, subline and button rise 12 px and fade in over 600 ms,
+  staggered 80 ms. Off entirely under `prefers-reduced-motion`. Hover states change colour only.
 - Sticky WhatsApp bar, phones only. On pages with a `#hero-cta` it appears once that button has
   scrolled away, so the first screen never shows two green buttons. On other pages it is always shown.
 - Every WhatsApp link pre-fills “Hi Andreea, I found you via the website and would like to ask

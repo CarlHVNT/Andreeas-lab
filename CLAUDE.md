@@ -73,7 +73,12 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Sample values used for the layout review are marked (`PLACEHOLDER` comments in config,
   `placeholder: true` on testimonials, `contraindicationsConfirmed: false`, `needsConfirmation: true`,
   “Sample price” notes) and listed in `CONTENT-TODO.md`.
-- `SITE.contentStatus = "sample"` shows a footer notice. Set to `"live"` at launch.
+- `SITE.contentStatus` is `"live"` (the footer sample notice was switched off on 15 Sep 2026 at
+  Carl’s request), so unconfirmed content is not labelled on the site. `CONTENT-TODO.md` is the
+  record of what is still unverified; keep it current.
+- The home hero is a background video (`HeroVideo.astro`, files in `public/video/`). The poster
+  `<img>` is the LCP element; sources attach after `load`, never under reduced motion or Save-Data.
+  Keep the files at 720p, silent, under ~3 MB each.
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.
 - Before/after photos stay behind `SITE.results.showBeforeAfters` until DHA approval is confirmed.
