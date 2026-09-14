@@ -1,4 +1,5 @@
 import { SITE } from "@/site.config";
+import { streetAddress } from "@/lib/address";
 
 const BUSINESS_ID = `${SITE.url}/#business`;
 
@@ -18,9 +19,9 @@ export function businessJsonLd() {
     email: contact.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${location.hostClinic}, ${location.streetAddress}`,
+      streetAddress,
       addressLocality: location.city,
-      addressRegion: location.area,
+      addressRegion: location.city,
       addressCountry: location.countryCode,
     },
     geo: {

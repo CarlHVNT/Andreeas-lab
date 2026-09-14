@@ -2,7 +2,7 @@
 question: "Is there parking?"
 order: 10
 category: practical
-needsConfirmation: true
+needsConfirmation: false
 ---
 
-Yes. There is free parking in front of the clinic and along the side street. Allow a few extra minutes at the weekend, when it is busier.
+Andreea will send you parking directions and the easiest entrance when you book, so you know where to go before you arrive. Dubai Healthcare City Metro Station is also a short walk away.

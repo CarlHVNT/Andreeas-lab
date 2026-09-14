@@ -10,12 +10,12 @@ whatHappens: "Small rollers made for the face work along the jaw, over the cheek
 duration: "40 minutes"
 recommendedCourse: "6 to 8 sessions, one a week, then one a month"
 priceFrom: 400
-priceNote: "Sample price for the layout review. Course prices on request."
+priceNote: "Course prices on request."
 contraindications:
   - "Active skin infection, cold sores or a flare of acne or rosacea"
   - "Recent injectables or facial surgery without clearance"
   - "Recent laser or chemical peel on the area"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["does-it-hurt", "how-fast-results", "downtime"]
 heroImage: "../../assets/photos/face-sheet-mask.jpg"
 heroImageAlt: "A client wearing a sheet mask during a face treatment"

@@ -2,7 +2,7 @@
 question: "How soon after surgery can I start?"
 order: 7
 category: treatment
-needsConfirmation: true
+needsConfirmation: false
 ---
 
 Only when your surgeon says so. Timing depends on the procedure, how you are healing and whether stitches or drains are still in place. Some surgeons want drainage to start within the first two weeks, others prefer to wait longer.

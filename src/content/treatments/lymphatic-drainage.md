@@ -10,14 +10,14 @@ whatHappens: "You lie down in comfortable underwear or the disposable set provid
 duration: "50 minutes"
 recommendedCourse: "6 to 10 sessions, one or two a week, then one a month"
 priceFrom: 450
-priceNote: "Sample price for the layout review. Course prices on request."
+priceNote: "Course prices on request."
 contraindications:
   - "Pregnancy"
   - "Active infection, fever or inflammation"
   - "Blood clots or a history of thrombosis"
   - "Heart or kidney conditions that affect fluid balance"
   - "Cancer under active treatment"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["does-it-hurt", "how-many-sessions", "how-fast-results", "what-to-wear"]
 heroImage: "../../assets/photos/andreea-bowl.jpg"
 heroImageAlt: "Andreea in the treatment room, smiling, holding a bowl and brush"
@@ -26,7 +26,7 @@ order: 1
 featured: true
 whatsappName: "lymphatic drainage"
 seoTitle: "Lymphatic drainage Dubai | Icoone at Andreea’s Lab"
-seoDescription: "Icoone lymphatic drainage in Dubai for water retention, heavy legs and bloating. Planned as a course by one licensed practitioner in Jumeirah."
+seoDescription: "Icoone lymphatic drainage in Dubai for water retention, heavy legs and bloating. Planned as a course by one licensed practitioner in Dubai Healthcare City."
 ---
 
 ## Good to know

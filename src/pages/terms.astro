@@ -11,11 +11,6 @@ const { location, policies } = SITE;
   lede="The plain-language terms for using this website and booking with Andreea."
   updated="September 2026"
 >
-  <p>
-    <strong>Sample text for review.</strong> These terms are a draft written for the layout review. They must be
-    reviewed by a UAE-qualified adviser and by the licence holder at {location.hostClinic} before launch.
-  </p>
-
   <h2>About this website</h2>
   <p>
     This website describes the treatments offered by {SITE.name}. It is information, not medical advice.
@@ -24,12 +19,21 @@ const { location, policies } = SITE;
     you want to work on.
   </p>
 
-  <h2>Treatments and the host clinic</h2>
-  <p>
-    Treatments take place in a treatment room inside {location.hostClinic}, a licensed clinic in{" "}
-    {location.area}, {location.city}. The clinic’s own policies on conduct, safety and records apply during
-    your visit.
-  </p>
+  <h2>Where treatments take place</h2>
+  {
+    location.hostClinic ? (
+      <p>
+        Treatments take place in a treatment room inside {location.hostClinic}, a licensed clinic in{" "}
+        {location.area}, {location.city}. The clinic’s own policies on conduct, safety and records apply
+        during your visit.
+      </p>
+    ) : (
+      <p>
+        Treatments take place at {location.building}, {location.community}, {location.city}. Andreea’s own
+        policies on conduct, safety and records apply during your visit.
+      </p>
+    )
+  }
 
   <h2>Bookings and cancellations</h2>
   <p>{policies.cancellation}</p>

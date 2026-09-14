@@ -1,5 +1,6 @@
 ---
 import { SITE } from "@/site.config";
+import { addressInline } from "@/lib/address";
 import Logo from "./Logo.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
 import { getLocaleFromUrl, useTranslations, localizePath } from "@/i18n/ui";
@@ -24,9 +25,11 @@ const links = [
       <Logo size="footer" />
       <p class="mt-4 max-w-[36ch] text-meta text-graphite">{SITE.tagline}</p>
       {
-        footer.showHostClinic && (
-          <p class="mt-2 max-w-[40ch] text-meta text-graphite">
-            {t("footer.inside")} {location.hostClinic}, {location.area}, {location.city}.
+        footer.showAddress && (
+          <p class="mt-2 max-w-[44ch] text-meta text-graphite">
+            {location.hostClinic ? `${t("footer.inside")} ${location.hostClinic}, ` : ""}
+            {addressInline}.
+            {location.makani && <span class="tabular-nums"> Makani {location.makani}.</span>}
           </p>
         )
       }

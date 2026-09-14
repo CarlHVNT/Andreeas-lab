@@ -10,14 +10,14 @@ whatHappens: "Andreea works the rollers over each area in overlapping passes, ad
 duration: "50 minutes"
 recommendedCourse: "10 to 12 sessions, twice a week, then one a month"
 priceFrom: 500
-priceNote: "Sample price for the layout review. Course prices on request."
+priceNote: "Course prices on request."
 contraindications:
   - "Pregnancy"
   - "Active infection or a skin condition on the treatment area"
   - "Blood clots or a history of thrombosis"
   - "Recent surgery on the area without your surgeon’s clearance"
   - "Cancer under active treatment"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["how-many-sessions", "how-fast-results", "does-it-hurt", "downtime"]
 heroImage: "../../assets/photos/andreea-tunic.jpg"
 heroImageAlt: "Andreea in a white tunic, smiling"

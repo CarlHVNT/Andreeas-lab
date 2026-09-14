@@ -7,6 +7,7 @@
 import { Image } from "astro:assets";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { addressInlineWithUnit } from "@/lib/address";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 
 const t = useTranslations(getLocaleFromUrl(Astro.url));
@@ -27,9 +28,7 @@ const photo = photos.clinic;
   <div
     class="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 bg-linear-to-t from-porcelain via-porcelain/90 to-porcelain/0 px-5 pb-5 pt-14"
   >
-    <p class="max-w-[34ch] text-meta text-graphite">
-      {location.hostClinic}, {location.streetAddress}, {location.area}, {location.city}.
-    </p>
+    <p class="max-w-[36ch] text-meta text-graphite">{addressInlineWithUnit}.</p>
     <div class="flex flex-wrap gap-3">
       <button type="button" id="load-map" class="btn-quiet h-11 bg-porcelain">{t("cta.loadMap")}</button>
       <a href={location.mapsUrl} class="link-arrow h-11 px-1" target="_blank" rel="noopener">{t("cta.openMaps")}</a>

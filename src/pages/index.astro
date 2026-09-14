@@ -9,6 +9,7 @@ import Steps from "@/components/Steps.astro";
 import Quote from "@/components/Quote.astro";
 import Gallery from "@/components/Gallery.astro";
 import ImageBand from "@/components/ImageBand.astro";
+import HeroVideo from "@/components/HeroVideo.astro";
 import MapEmbed from "@/components/MapEmbed.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
@@ -16,6 +17,7 @@ import IconArrow from "@/components/icons/IconArrow.astro";
 import LineIcon from "@/components/icons/LineIcon.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { addressLines } from "@/lib/address";
 import { getFeaturedTreatments, getFeaturedTestimonials } from "@/lib/content";
 
 const treatments = await getFeaturedTreatments(6);
@@ -53,7 +55,11 @@ const why = [
   {
     icon: "shield",
     title: "Licensed and certified.",
-    text: `${practitioner.title}. ${practitioner.credentials.join(", ")}. Working inside ${location.hostClinic}, a licensed clinic in ${location.area}.`,
+    text: `${practitioner.title}. ${practitioner.credentials.join(", ")}. ${
+      location.hostClinic
+        ? `Working inside ${location.hostClinic}, a licensed clinic in ${location.area}.`
+        : `Working from ${location.building}, ${location.area}, ${location.city}.`
+    }`,
   },
   {
     icon: "clipboard",
@@ -69,19 +75,16 @@ const why = [
 ---
 
 <BaseLayout title="Icoone treatments in Dubai | Andreea’s Lab" description={SITE.description} hasHero>
-  <!-- Hero: statement, one button, the photograph, two soft orbs behind -->
-  <div class="relative overflow-hidden">
-    <span
-      class="orb orb-blush -right-40 -top-48 h-[34rem] w-[34rem] md:-right-24 md:-top-40 md:h-[46rem] md:w-[46rem]"
-      aria-hidden="true"></span>
-    <span
-      class="orb orb-mist -left-48 top-[30rem] h-[28rem] w-[28rem] md:-left-40 md:top-[18rem] md:h-[36rem] md:w-[36rem]"
-      aria-hidden="true"></span>
-
-    <section
-      class="relative mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16"
+  <!-- Hero: statement and one button over a silent background video -->
+  <section class="relative overflow-hidden">
+    <HeroVideo poster="/video/hero-poster.jpg" mp4="/video/hero.mp4" webm="/video/hero.webm" />
+    <div
+      class="absolute inset-0 bg-linear-to-b from-porcelain from-35% via-porcelain/85 via-60% to-porcelain/15 md:bg-linear-to-r md:from-porcelain md:from-40% md:via-porcelain/80 md:via-58% md:to-porcelain/5"
+      aria-hidden="true"></div>
+    <div
+      class="relative mx-auto max-w-content px-5 pb-[64vw] pt-10 md:grid md:min-h-[40rem] md:grid-cols-12 md:items-center md:gap-6 md:px-6 md:py-24"
     >
-      <div class="reveal md:col-span-5 md:pt-6">
+      <div class="reveal md:col-span-6">
         <h1 class="text-display">Icoone body and face treatments in Dubai.</h1>
         <p class="voice mt-6">
           Lymphatic drainage, skin firming, body remodelling and post-surgery recovery, planned as a course and
@@ -95,20 +98,8 @@ const why = [
           </a>
         </div>
       </div>
-      <figure class="reveal-late arch mt-10 aspect-[4/5] bg-stone md:col-span-6 md:col-start-7 md:mt-0">
-        <Image
-          src={photos.device.src}
-          alt={photos.device.alt}
-          widths={[480, 768, 1024, 1290]}
-          sizes="(min-width: 768px) 50vw, 100vw"
-          loading="eager"
-          fetchpriority="high"
-          class="h-full w-full object-cover"
-          style={`object-position:${photos.device.position}`}
-        />
-      </figure>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <Section id="icoone" title="What Icoone is">
     <div class="voice">
@@ -124,10 +115,10 @@ const why = [
     </div>
   </Section>
 
-  <!-- Three photographs: the face treatment, Andreea, the products -->
+  <!-- Three photographs: two treatments in progress and the products -->
   <section class="pt-10 md:pt-14">
     <div class="mx-auto max-w-content px-5 md:px-6">
-      <Gallery items={[photos.mask, photos.tunic, photos.products]} columns={3} />
+      <Gallery items={[photos.redlight, photos.forehead, photos.products]} columns={3} />
     </div>
   </section>
 
@@ -183,9 +174,9 @@ const why = [
   </section>
 
   <ImageBand
-    photo={photos.clinic}
-    title="Every session is with Andreea, from the first consultation to the last check-in."
-    text="One room, one practitioner, one plan written for you."
+    photo={photos.faceMapping}
+    title="Every course is measured at the start and every few sessions, so the plan changes when the numbers do."
+    text="Written down, checked, adjusted. That is what the word lab means here."
   />
 
   <Section id="how" title="How it works" tone="mist">
@@ -212,9 +203,11 @@ const why = [
 
   <Section id="location" title="Where to find me">
     <div slot="statement" class="mt-6 grid gap-5 text-facts">
-      <p class="max-w-[36ch]">
-        Inside {location.hostClinic}, {location.streetAddress}, {location.area}, {location.city}.
-      </p>
+      <address class="max-w-[36ch] not-italic">
+        {location.hostClinic && <span class="block">{location.hostClinic}</span>}
+        {addressLines.map((line) => <span class="block">{line}</span>)}
+        {location.makani && <span class="block text-graphite tabular-nums">Makani {location.makani}</span>}
+      </address>
       <dl class="grid gap-1.5 tabular-nums">
         {
           SITE.hours.map((h) => (

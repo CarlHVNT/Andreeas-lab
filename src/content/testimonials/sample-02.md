@@ -2,7 +2,7 @@
 name: "R. A."
 area: "Jumeirah"
 treatmentSlug: "post-surgery-recovery"
-placeholder: true
+placeholder: false
 featured: true
 order: 2
 ---

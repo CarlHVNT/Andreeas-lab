@@ -8,13 +8,14 @@ import MapEmbed from "@/components/MapEmbed.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { addressLines } from "@/lib/address";
 
 const { contact, location } = SITE;
 ---
 
 <BaseLayout
   title="Contact"
-  description={`Message Andreea on WhatsApp, send a consultation request, or find the treatment room inside ${location.hostClinic}, ${location.area}, Dubai. Hours, address and parking.`}
+  description={`Message Andreea on WhatsApp, send a consultation request, or find the treatment room at ${location.building}, ${location.area}, Dubai. Hours, address and directions.`}
   hasHero
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
@@ -67,13 +68,13 @@ const { contact, location } = SITE;
 
   <Section title="Where to find me">
     <div slot="statement" class="mt-6 grid gap-6 text-facts">
-      <div>
-        <p class="font-medium">{location.hostClinic}</p>
+      <address class="not-italic">
+        <p class="font-medium">{location.hostClinic || SITE.name}</p>
         <p class="text-graphite">
-          {location.streetAddress}<br />
-          {location.area}, {location.city}
+          {addressLines.map((line) => <span class="block">{line}</span>)}
+          {location.makani && <span class="block tabular-nums">Makani {location.makani}</span>}
         </p>
-      </div>
+      </address>
       <div>
         <p class="font-medium">Hours</p>
         <dl class="mt-1.5 grid gap-1.5 tabular-nums">

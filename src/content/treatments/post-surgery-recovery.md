@@ -9,17 +9,17 @@ whatHappens: "Very light, precise work, adjusted to how you feel that day and fo
 duration: "30 to 45 minutes"
 recommendedCourse: "Usually 6 to 12 sessions, starting one or two a week"
 priceFrom: 450
-priceNote: "Sample price for the layout review. Recovery courses are planned with your surgeon’s timeline in mind."
+priceNote: "Recovery courses are planned with your surgeon’s timeline in mind."
 contraindications:
   - "Before your surgeon has cleared you for treatment"
   - "Open wounds, stitches or drains still in place"
   - "Any sign of infection"
   - "Blood clots or a history of thrombosis"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["after-surgery-when", "does-it-hurt", "how-many-sessions", "what-to-wear"]
-heroImage: "../../assets/photos/treatment-device.jpg"
-heroImageAlt: "Andreea performing a gentle facial treatment with a handpiece"
-heroImagePosition: "center 32%"
+heroImage: "../../assets/photos/treatment-forehead.jpg"
+heroImageAlt: "Gloved hands guiding a handpiece gently over a client’s forehead"
+heroImagePosition: "55% 60%"
 order: 4
 featured: true
 whatsappName: "post-surgery recovery"

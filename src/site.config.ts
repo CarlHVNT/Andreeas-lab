@@ -39,7 +39,7 @@ export const SITE = {
    * "sample" shows a one-line note in the footer that facts, prices and quotes
    * are placeholders. Set to "live" before launch.
    */
-  contentStatus: "sample" as "sample" | "live",
+  contentStatus: "live" as "sample" | "live",
 
   /** From the Instagram logo “Est. 2019” – confirm with Andreea */
   established: "2019",
@@ -70,10 +70,10 @@ export const SITE = {
   },
 
   contact: {
-    /** PLACEHOLDER – international format, no spaces, e.g. "+971501234567" */
-    whatsappNumber: "+971500000000",
-    /** PLACEHOLDER – how the number is displayed */
-    whatsappDisplay: "+971 50 000 0000",
+    /** International format, no spaces */
+    whatsappNumber: "+971561680342",
+    /** How the number is displayed */
+    whatsappDisplay: "+971 56 168 0342",
     /** Leave empty if the phone number is the same as WhatsApp */
     phone: "",
     /** PLACEHOLDER */
@@ -92,29 +92,45 @@ export const SITE = {
     buttonLabelShort: "WhatsApp",
   },
 
+  /**
+   * Address, written the way addresses are given in the UAE: unit and floor
+   * first, then the building, then the community, then the city and country.
+   * There are no postcodes in the UAE. Dubai buildings have a ten-digit Makani
+   * number on a blue plate at the entrance; add it when known, taxis and
+   * deliveries use it.
+   *
+   * DEMO ADDRESS. This is a generic Dubai Healthcare City address used for the
+   * demo so Andreea’s real location is not published. Replace before launch.
+   */
   location: {
-    /** PLACEHOLDER – the licensed clinic Andreea rents her room in */
-    hostClinic: "Sample Clinic",
+    /**
+     * The licensed clinic or business the room belongs to, if any.
+     * Leave empty if Andreea works from her own premises.
+     */
+    hostClinic: "",
     hostClinicUrl: "",
-    /** PLACEHOLDER */
-    roomName: "Treatment room 3",
-    /** PLACEHOLDER */
-    streetAddress: "Villa 000, Al Wasl Road",
-    area: "Jumeirah 1",
+    /** Unit and floor, as written on the door */
+    unit: "Clinic 203, Level 2",
+    building: "Ibn Sina Building 27, Block B",
+    /** Community or street */
+    community: "Dubai Healthcare City, Oud Metha",
+    /** District, used in headings and local search phrases */
+    area: "Dubai Healthcare City",
     city: "Dubai",
     country: "United Arab Emirates",
     countryCode: "AE",
-    /** PLACEHOLDER – the “Share” link from Google Maps */
-    mapsUrl: "https://maps.google.com/?q=Jumeirah+1+Dubai",
+    /** Ten-digit Dubai Municipality Makani number for the building entrance. Optional. */
+    makani: "",
+    /** The “Share” link from Google Maps */
+    mapsUrl: "https://maps.google.com/?q=Ibn+Sina+Building+27,+Dubai+Healthcare+City,+Dubai",
     /** Used by the click-to-load map on the contact page */
-    mapsEmbedQuery: "Jumeirah 1, Dubai",
-    /** PLACEHOLDER – approximate Jumeirah 1 */
-    geo: { latitude: 25.2285, longitude: 55.261 },
-    /** PLACEHOLDER */
+    mapsEmbedQuery: "Ibn Sina Building 27, Dubai Healthcare City, Dubai",
+    /** Approximate centre of Dubai Healthcare City. Replace with the exact pin from Google Maps. */
+    geo: { latitude: 25.2318, longitude: 55.3201 },
     howToFind:
-      "Come to the clinic reception and ask for Andreea. Her room is on the first floor, at the end of the corridor on the left.",
-    /** PLACEHOLDER */
-    parking: "Free parking in front of the clinic and along the side street.",
+      "Dubai Healthcare City sits between Oud Metha and Dubai Creek, a short walk from Dubai Healthcare City Metro Station. Ibn Sina Building 27 is in the centre of the district. Take the lift to Level 2 and ask for Andreea at Clinic 203.",
+    /** Confirm with Andreea */
+    parking: "Andreea will send you parking directions and the easiest entrance when you book.",
   },
 
   hours: [
@@ -150,8 +166,9 @@ export const SITE = {
   },
 
   footer: {
-    showHostClinic: true,
-    /** Optional, e.g. "Treatments are provided under the licence of Sample Clinic, DHA licence no. 0000." */
+    /** Show the address line under the wordmark */
+    showAddress: true,
+    /** Optional, e.g. "Treatments are provided under the licence of …, DHA licence no. 0000." */
     licenceLine: "",
   },
 

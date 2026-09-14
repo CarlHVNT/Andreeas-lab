@@ -10,17 +10,17 @@ whatHappens: "Gentle drainage work first, to help the body clear the fluid it is
 duration: "50 minutes"
 recommendedCourse: "8 to 10 sessions, one a week"
 priceFrom: 450
-priceNote: "Sample price for the layout review. Course prices on request."
+priceNote: "Course prices on request."
 contraindications:
   - "Before your postnatal check, or before your doctor agrees"
   - "Pregnancy"
   - "Active infection or fever"
   - "A Caesarean scar that has not fully healed"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["does-it-hurt", "how-many-sessions", "what-to-wear", "who-should-not"]
-heroImage: "../../assets/photos/andreea-bowl.jpg"
-heroImageAlt: "Andreea in the treatment room, smiling, holding a bowl and brush"
-heroImagePosition: "center 35%"
+heroImage: "../../assets/photos/treatment-redlight.jpg"
+heroImageAlt: "A client with closed eyes during a calm, unhurried treatment"
+heroImagePosition: "40% center"
 order: 5
 featured: true
 whatsappName: "post-natal treatment"

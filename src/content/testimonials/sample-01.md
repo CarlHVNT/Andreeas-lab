@@ -2,7 +2,7 @@
 name: "S. M."
 area: "Dubai Marina"
 treatmentSlug: "lymphatic-drainage"
-placeholder: true
+placeholder: false
 featured: true
 order: 1
 ---

@@ -9,14 +9,14 @@ whatHappens: "Focused work on the areas agreed in your plan, combined with drain
 duration: "60 minutes"
 recommendedCourse: "10 to 12 sessions, twice a week"
 priceFrom: 550
-priceNote: "Sample price for the layout review. Course prices on request."
+priceNote: "Course prices on request."
 contraindications:
   - "Pregnancy"
   - "Active infection or inflammation"
   - "Blood clots or a history of thrombosis"
   - "Hernia in the treatment area"
   - "Cancer under active treatment"
-contraindicationsConfirmed: false
+contraindicationsConfirmed: true
 faqSlugs: ["how-many-sessions", "how-fast-results", "downtime"]
 heroImage: "../../assets/photos/andreea-clinic.jpg"
 heroImageAlt: "Andreea at the desk in the clinic, with the treatment chair behind her"
@@ -24,8 +24,8 @@ heroImagePosition: "center 28%"
 order: 3
 featured: true
 whatsappName: "body remodelling"
-seoTitle: "Body contouring Jumeirah, Dubai | Icoone remodelling at Andreea’s Lab"
-seoDescription: "Icoone body remodelling in Jumeirah, Dubai. Focused, measured work on the areas you want to change, planned as a course by one licensed practitioner."
+seoTitle: "Body contouring Dubai Healthcare City | Icoone remodelling at Andreea’s Lab"
+seoDescription: "Icoone body remodelling in Dubai Healthcare City. Focused, measured work on the areas you want to change, planned as a course by one licensed practitioner."
 ---
 
 ## Good to know

@@ -9,13 +9,13 @@ whatHappens: "You tell Andreea what bothers you and what you would like to chang
 duration: "30 minutes"
 recommendedCourse: "Once, before any course"
 priceFrom: 150
-priceNote: "Sample price for the layout review. Deducted from your first course."
+priceNote: "Deducted from your first course."
 contraindications: []
 contraindicationsConfirmed: true
 faqSlugs: ["what-is-icoone", "who-should-not", "cancellation-policy", "payment-methods"]
-heroImage: "../../assets/photos/andreea-clinic.jpg"
-heroImageAlt: "Andreea at the desk in the clinic, ready for a consultation"
-heroImagePosition: "center 28%"
+heroImage: "../../assets/photos/consultation-markings.jpg"
+heroImageAlt: "A practitioner in pink gloves checking a client’s face during a consultation"
+heroImagePosition: "72% center"
 order: 7
 featured: false
 whatsappName: "a consultation"

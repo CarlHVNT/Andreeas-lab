@@ -1,6 +1,7 @@
 ---
 import ProsePage from "@/layouts/ProsePage.astro";
 import { SITE } from "@/site.config";
+import { venue } from "@/lib/address";
 
 const { contact, location } = SITE;
 ---
@@ -11,14 +12,9 @@ const { contact, location } = SITE;
   lede="Short version: this site collects almost nothing. The form collects your name, WhatsApp number and message so Andreea can reply. WhatsApp conversations happen on WhatsApp."
   updated="September 2026"
 >
-  <p>
-    <strong>Sample text for review.</strong> This policy is a draft written for the layout review. It must be
-    reviewed by a UAE-qualified adviser and by the licence holder at {location.hostClinic} before launch.
-  </p>
-
   <h2>Who we are</h2>
   <p>
-    {SITE.name} is run by {SITE.practitioner.fullName}, operating from a treatment room inside {location.hostClinic},{" "}
+    {SITE.name} is run by {SITE.practitioner.fullName}, operating from a treatment room at {venue},{" "}
     {location.area}, {location.city}, {location.country}. Questions about this policy: {contact.email}.
   </p>
 
@@ -51,8 +47,8 @@ const { contact, location } = SITE;
   <h2>Your health information</h2>
   <p>
     Information about your health is collected only in person, at your consultation, and is kept by Andreea
-    as part of your treatment record under the policies of {location.hostClinic}. It is not collected through
-    this website.
+    as part of your treatment record{location.hostClinic ? ` under the policies of ${location.hostClinic}` : ""}.
+    It is not collected through this website.
   </p>
 
   <h2>Your rights</h2>
