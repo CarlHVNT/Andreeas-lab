@@ -1,0 +1,46 @@
+---
+/**
+ * Email sign-up for people who want to hear about Andreea’s courses first.
+ * Handled by Netlify Forms (form name “course-interest”), lands on /courses/thanks.
+ * A quiet button on purpose: WhatsApp stays the site’s one solid green action.
+ */
+import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
+
+interface Props {
+  class?: string;
+}
+const { class: cls = "" } = Astro.props;
+const t = useTranslations(getLocaleFromUrl(Astro.url));
+---
+
+<form
+  name="course-interest"
+  method="POST"
+  action="/courses/thanks"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class:list={["grid gap-5", cls]}
+>
+  <input type="hidden" name="form-name" value="course-interest" />
+  <p class="hidden" aria-hidden="true">
+    <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <div class="grid gap-1.5">
+    <label for="course-name" class="text-meta font-medium text-ink">{t("form.firstName")}</label>
+    <input id="course-name" name="name" type="text" autocomplete="given-name" class="field" />
+  </div>
+
+  <div class="grid gap-1.5">
+    <label for="course-email" class="text-meta font-medium text-ink">{t("form.email")}</label>
+    <input id="course-email" name="email" type="email" inputmode="email" required autocomplete="email" class="field" />
+  </div>
+
+  <div class="grid gap-3">
+    <button type="submit" class="btn-quiet justify-self-start">{t("cta.registerInterest")}</button>
+    <p class="max-w-[48ch] text-meta text-graphite">
+      {t("form.coursesPrivacy")}
+      <a href="/privacy" class="underline hover:text-lab">Privacy policy</a>.
+    </p>
+  </div>
+</form>

@@ -156,6 +156,32 @@ export const SITE = {
     showBeforeAfters: false,
   },
 
+  /**
+   * Courses. Andreea plans to teach how she works, in Dubai. Until dates exist
+   * the home page collects email addresses from people who want to hear first
+   * (Netlify form “course-interest”) and points them to Instagram.
+   */
+  courses: {
+    /** Show the “Courses and videos” section on the home page */
+    showSection: true,
+  },
+
+  /**
+   * YouTube. Leave `featuredVideoId` empty and the video slot plays the
+   * stand-in clip below; paste an ID and it embeds that video instead, loading
+   * nothing from YouTube until the reader presses play.
+   */
+  youtube: {
+    /** e.g. "https://www.youtube.com/@andreeaslab" – leave empty until the channel exists */
+    channelUrl: "",
+    /** The 11-character ID from a YouTube link, e.g. "dQw4w9WgXcQ" */
+    featuredVideoId: "",
+    /** Caption under the video */
+    caption: "Videos: treatments explained and questions answered. Channel coming soon.",
+    /** PLACEHOLDER – generic stock clip shown until a YouTube video is set */
+    placeholder: { mp4: "/video/hero.mp4", webm: "/video/hero.webm" },
+  },
+
   analytics: {
     /** e.g. "andreeaslab.ae" – leave empty to load nothing */
     plausibleDomain: "",

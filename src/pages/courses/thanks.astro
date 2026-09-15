@@ -1,0 +1,40 @@
+---
+/**
+ * Landing page after the course-interest form. Its one job is to point the
+ * reader at Instagram while they wait to hear about dates.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import IconArrow from "@/components/icons/IconArrow.astro";
+import IconInstagram from "@/components/icons/IconInstagram.astro";
+import { SITE } from "@/site.config";
+import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
+
+const { contact } = SITE;
+const t = useTranslations(getLocaleFromUrl(Astro.url));
+---
+
+<BaseLayout
+  title="Thank you for your interest"
+  description="You will hear first when Andreea’s course dates are set."
+  noindex
+>
+  <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:pt-16">
+    <div class="md:col-span-7">
+      <h1 class="text-statement">Thank you. Andreea will email you when course dates are set.</h1>
+      <p class="voice mt-5">
+        Until then, Instagram is where she shares case studies, real talk and what she is reading. Follow along,
+        and message her on WhatsApp if you have a question now.
+      </p>
+      <div class="mt-8 flex flex-col items-start gap-4">
+        <a href={contact.instagramUrl} class="btn-quiet" target="_blank" rel="noopener">
+          <IconInstagram class="h-4.5 w-4.5" />
+          <span>{t("cta.followInstagram")}</span>
+        </a>
+        <a href="/" class="link-arrow text-[0.95rem]">
+          <span>Back to the home page</span>
+          <IconArrow class="h-4.5 w-4.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

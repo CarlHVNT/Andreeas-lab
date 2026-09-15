@@ -25,7 +25,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => !page.includes("/contact/thanks") && !page.includes("/404"),
+      filter: (page) => !["/contact/thanks", "/courses/thanks", "/404"].some((p) => page.includes(p)),
     }),
   ],
 
