@@ -49,9 +49,13 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Voice and facts.** Serif (`font-serif`, `.voice`) for what Andreea says: headlines, prose, quotes.
   Sans (`font-sans`, `.facts`) for what the lab records: lists, prices, hours, forms, buttons.
 - **One green thing per screen.** `lab` green is for the WhatsApp action, links and focus only.
-  Never a decorative background. `mist` is allowed for one band per page (`Section tone="mist"`).
-  Secondary actions (load the map, play the video, register interest) use `.btn-quiet`, so WhatsApp
-  stays the only solid green button.
+  Never a decorative background. Secondary actions (load the map, play the video, register interest)
+  use `.btn-quiet`, so WhatsApp stays the only solid green button.
+- **Bands, not one long scroll.** Sections alternate between the porcelain page and a tinted band:
+  `Section tone="white"` is the quiet band, `tone="mist"` the accent band. Never two sections of the
+  same tint in a row, at most one mist band per page, and sections built from `stone` hairlines
+  (treatment rows, pricing tables, FAQ rows) stay on white or porcelain because the hairlines vanish
+  on mist. Bands carry spacing on both sides (`.band` in `global.css`); two bands in a row sit flush.
 - **Only the palette.** The default Tailwind palette is removed in `@theme`. Do not add colours.
 - **Left aligned, one edge.** No centred text. Sections use `Section.astro` (5/7 split at `md`).
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows and no
@@ -72,9 +76,11 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
 - **Every page ends with `CtaBand`** except the contact page, the two thanks pages and 404.
-- **Home page order.** Hero, Why Andreea, Courses and videos, Treatments, What Andreea does, gallery,
-  `ImageBand`, How it works (mist), Results, Where to find me, `CtaBand`. Courses sit high but
-  stay secondary: the hero and the sticky bar are WhatsApp.
+- **Home page order and tones.** Hero, Why Andreea (white), Courses and videos, Treatments (white),
+  What Andreea does, gallery, `ImageBand`, How it works (mist), Results (white), Where to find me,
+  `CtaBand`. Courses sit high but stay secondary: the hero and the sticky bar are WhatsApp.
+  Inner pages alternate the same way: treatment pages white, mist, porcelain, white, porcelain;
+  About white then mist; FAQ groups white, porcelain, white; Contact puts the form on mist.
 
 ## Content rules
 

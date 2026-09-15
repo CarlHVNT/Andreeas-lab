@@ -20,9 +20,9 @@ Defined in `src/styles/global.css` (`@theme`). The default Tailwind palette is r
 | `graphite` | `#5B655F` | Secondary text: captions, durations, hours, footer | 5.4 : 1 |
 | `lab` | `#1B4D3E` | The single accent: WhatsApp buttons, links, focus rings, step numbers | 8.8 : 1, white on it 9.6 : 1 |
 | `lab-deep` | `#143A2F` | Button hover only | n/a |
-| `mist` | `#E4ECE7` | One tinted band per page (“How it works”), quiet-button hover, icon discs, decorative orbs | ink on mist 13.1 : 1 |
+| `mist` | `#E4ECE7` | The accent band (at most one per page), quiet-button hover, icon discs, decorative orbs | ink on mist 13.1 : 1, graphite on mist 5.0 : 1 |
 | `blush` | `#EBDCCF` | Decorative orbs only (the warm glow behind the hero). Never text, never a surface | n/a |
-| `white` | `#FFFFFF` | Button text, form fields | n/a |
+| `white` | `#FFFFFF` | Button text, form fields, the quiet band | graphite on white 6.0 : 1 |
 
 Why green: the lab is glass, not marble. Deep bottle green reads calm, precise and non-invasive,
 sits apart from the clinical blue of large clinics and the rose gold of spa templates, and next to
@@ -63,8 +63,17 @@ one green button never more than a thumb away.
   `Section.astro` splits five / six-from-seven: statement left, evidence right. Prose alone sits in
   the left eight columns (`ProsePage.astro`).
 - **Rhythm.** 8 px base. Sections carry top spacing only: 72 px on phones (`pt-18`), 128 px on
-  desktop (`pt-32`), so the gap between sections is exactly one unit. The mist band has spacing on
-  both sides. `main` carries the bottom spacing.
+  desktop (`pt-32`), so the gap between sections is exactly one unit. Bands have spacing on both
+  sides. `main` carries the bottom spacing.
+- **Bands.** Added 15 September 2026 so a page reads as sections rather than one long scroll. Three
+  grounds: porcelain (the page), white (the quiet band, `Section tone="white"`) and mist (the accent
+  band, `tone="mist"`, at most one per page). Tints alternate; never the same tint twice in a row.
+  Two bands in a row sit flush (`.band + .band` removes the top margin), otherwise a band keeps one
+  unit of porcelain above it. Hairline-built sections stay on white or porcelain, since `stone`
+  hairlines disappear on mist. Home: white, porcelain, white, porcelain, photo band, mist, white,
+  porcelain, then the closing call to action. Treatment pages: white, mist, porcelain, white,
+  porcelain. About: porcelain, white, porcelain, mist. FAQ: white, porcelain, white. Contact: the
+  form on mist, the map on porcelain.
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure treatments, facts,
   FAQ, hours and pricing tables. No shadows, no gradients, no icon set beyond the WhatsApp glyph,
   an arrow and the Instagram mark.

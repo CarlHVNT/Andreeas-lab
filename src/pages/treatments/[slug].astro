@@ -76,13 +76,13 @@ const jsonLd = [
       </figure>
     </header>
 
-    <Section title="Who it’s for">
+    <Section title="Who it’s for" tone="white">
       <ul class="divide-y divide-stone border-y border-stone text-facts" role="list">
         {data.forWhom.map((item) => <li class="py-3.5">{item}</li>)}
       </ul>
     </Section>
 
-    <Section title="What a session is like">
+    <Section title="What a session is like" tone="mist">
       <p class="voice">{data.whatHappens}</p>
       {
         hasBody && (
@@ -114,7 +114,7 @@ const jsonLd = [
 
     {
       data.contraindications.length > 0 && (
-        <Section title="Who should not have it">
+        <Section title="Who should not have it" tone="white">
           <ul class="divide-y divide-stone border-y border-stone text-facts" role="list">
             {data.contraindications.map((item) => (
               <li class="py-3.5">{item}</li>

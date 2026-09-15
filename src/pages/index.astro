@@ -107,8 +107,8 @@ const why = [
     </div>
   </section>
 
-  <!-- Why Andreea: arched portrait left, facts with icons right. She comes first. -->
-  <section id="why" class="pt-18 md:pt-32">
+  <!-- Why Andreea: arched portrait left, facts with icons right. She comes first, on a white band. -->
+  <section id="why" class="band bg-white">
     <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6">
       <figure class="arch aspect-[4/5] bg-stone md:col-span-5">
         <Image
@@ -182,7 +182,7 @@ const why = [
     )
   }
 
-  <Section id="treatments" title="Treatments">
+  <Section id="treatments" title="Treatments" tone="white">
     <p slot="statement" class="voice mt-4 max-w-[36ch]">
       Six things, done properly. Each has a plan, a course and a clear price.
     </p>
@@ -225,7 +225,7 @@ const why = [
     <Steps steps={steps} />
   </Section>
 
-  <Section id="results" title="Results">
+  <Section id="results" title="Results" tone="white">
     <p slot="statement" class="voice mt-4 max-w-[34ch]">What clients say, in their own words.</p>
     <div class="grid gap-8">
       {

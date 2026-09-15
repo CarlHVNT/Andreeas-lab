@@ -4,7 +4,8 @@
  * the right (6 columns, starting at column 7). Stacks on phones.
  *
  * Sections carry top spacing only, so the gap between two sections is exactly
- * one unit. A “mist” band carries spacing on both sides.
+ * one unit. A tinted band (`tone` white or mist) sits on its own ground and
+ * carries spacing on both sides; two bands in a row sit flush (see `.band`).
  */
 import Mark from "./Mark.astro";
 
@@ -13,7 +14,8 @@ export interface Props {
   title?: string;
   /** Heading level for the title, h2 by default */
   heading?: "h1" | "h2";
-  tone?: "porcelain" | "mist";
+  /** Ground colour. Porcelain is the page; white is the quiet band, mist the accent band. */
+  tone?: "porcelain" | "white" | "mist";
   /** Show the small ring-and-point mark above the title */
   ornament?: boolean;
   class?: string;
@@ -27,12 +29,10 @@ const {
   class: cls = "",
 } = Astro.props;
 const Tag = heading;
+const ground = { porcelain: "pt-18 md:pt-32", white: "band bg-white", mist: "band bg-mist" }[tone];
 ---
 
-<section
-  id={id}
-  class:list={[tone === "mist" ? "mt-18 bg-mist py-18 md:mt-32 md:py-32" : "pt-18 md:pt-32", cls]}
->
+<section id={id} class:list={[ground, cls]}>
   <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:gap-6 md:px-6">
     <div class="md:col-span-5">
       {title && ornament && <Mark class="mb-4" />}
