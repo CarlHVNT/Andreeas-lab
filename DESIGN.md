@@ -92,7 +92,8 @@ one green button never more than a thumb away.
 (placeholder mark), `Mark` (ornament), `WhatsAppButton` (primary / quiet / small / bar),
 `StickyWhatsAppBar`, `CtaBand` (with orb), `Section` (with ornament), `TreatmentRows` (with
 thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `ImageBand`, `FaqList`
-(details rows), `MapEmbed` (photo until loaded), `ConsultationForm` (Netlify), `InstagramGrid`
+(details rows), `MapEmbed` (photo until loaded), `VideoEmbed` (photo until played; YouTube or stand-in clip),
+`ConsultationForm` and `CourseInterestForm` (Netlify), `InstagramGrid`
 (static), `SEO`, `JsonLd`, `Analytics` (off until IDs exist), `LineIcon` and the three glyph icons.
 
 ## Motion and behaviour
@@ -109,6 +110,10 @@ thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `Im
 - Every WhatsApp link pre-fills “Hi Andreea, I found you via the website and would like to ask
   about {treatment}.” Treatment pages pass their own name, including through the header and bar.
 - Focus: 2 px `lab` outline, 2 px offset, on everything interactive. Skip link to `#main`.
+- The video in “Courses and videos” is a photograph of Andreea at work with a quiet “Play the video”
+  button, the same photo-until-asked pattern as the map. With a YouTube ID it swaps in the
+  privacy-enhanced embed; without one it plays the local stand-in clip with controls. Nothing from
+  YouTube loads with the page.
 
 ## What makes it hers
 
@@ -121,6 +126,24 @@ thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `Im
 - **Her, in her room.** Photographs are of Andreea at work and of the clinic, in an arch or a square.
   The two stock-style images (products, candles) live only in galleries, never as a hero.
 - **Boldness in two places.** The hero’s type and the hero photograph. Everything around them stays quiet.
+
+## Repositioning, 15 September 2026
+
+Andreea asked for less Icoone and more of her, one section about her courses high on the home page
+without making it the main focus, and a place for her videos. What changed:
+
+- **Copy leads with Andreea.** Hero: “Body and face treatments in Dubai, with Andreea.” The tagline,
+  meta description, share image and the WhatsApp default topic follow. Icoone stays as the named
+  method in the hero subline, in “What Andreea does” and in every treatment title. Services are unchanged.
+- **Home order.** “Why Andreea” moved up to sit directly under the hero, then “Courses and videos”,
+  then Treatments, then the method explanation with its gallery. The rest is as before.
+- **Courses and videos.** A standard `Section`: statement and Instagram link left; the video and,
+  under a hairline, the interest form right. The form’s button is `.btn-quiet` so the WhatsApp bar
+  remains the one solid green action on a phone screen. The thanks page has one quiet Instagram
+  button and a link home.
+- **Photograph budget on the home page.** Hero video (stock), bowl (Why Andreea), the device photo as
+  the video poster cropped to 16:9 at “center 5%”, the three gallery tiles, the face-mapping band and
+  the clinic photo behind the map. Nothing repeats.
 
 ## Self-critique after the first build
 

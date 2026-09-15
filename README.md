@@ -14,7 +14,7 @@ every change is saved with a history and can be undone.
 2. **`src/content/`** – your words. One file per treatment, one file per FAQ, one file per
    testimonial. Each file starts with a block of labelled fields between two `---` lines, then the
    free text.
-3. **`src/assets/placeholders/`** – your photos.
+3. **`src/assets/photos/`** – your photos, listed with their descriptions in `src/lib/photos.ts`.
 
 Files ending in `.md` are plain text. Files ending in `.ts` are also plain text but a little
 stricter about punctuation: keep the quotes and commas as they are and only change what is
@@ -42,8 +42,8 @@ week, then one a month"`. Keep the quotes.
 3. `order` decides the position in lists (lower comes first). `featured: true` puts it on the home page.
 4. `contraindications` is the “Who should not have it” list. When you have checked it, change
    `contraindicationsConfirmed: false` to `true` and the “sample list” note disappears.
-5. `heroImage` points at a photo. Add your photo to `src/assets/placeholders/` and write its file
-   name here, keeping the `../../assets/placeholders/` part.
+5. `heroImage` points at a photo. Add your photo to `src/assets/photos/` and write its file
+   name here, keeping the `../../assets/photos/` part.
 6. `whatsappName` is how the treatment is named inside the WhatsApp message, for example
    “scar care”. `faqSlugs` lists the FAQ file names to show on the page.
 
@@ -125,6 +125,24 @@ The moving background on the home page is two video files and a still image in `
 of the same names. Keep the video short (10 to 15 seconds), silent, 1280 pixels wide and under about
 3 MB per file so the page stays fast. The still image is what people see first and what visitors who
 prefer less motion see instead of the video.
+
+## Courses and videos
+
+The home page has a section called “Courses and videos”. It does two things: it lets people leave
+their email to hear first when your course dates are set, and it shows one video.
+
+- **Where the emails go.** Every sign-up lands in Netlify under Forms → `course-interest`, with the
+  person’s email and first name. Netlify can email you each one (Forms → Notifications) and you can
+  download the whole list as a spreadsheet at any time. Nobody is emailed automatically; you write to
+  them when you have news.
+- **Put your YouTube video in.** In `src/site.config.ts`, under `youtube`, paste the video’s ID into
+  `featuredVideoId`. The ID is the part after `v=` in a YouTube link, for example `dQw4w9WgXcQ`. Put
+  your channel link in `channelUrl` and a “Watch on YouTube” link appears under the video. Until an
+  ID is set, the slot plays the same stock clip as the top of the home page.
+- **Change the caption** in `youtube.caption`.
+- **Change the words** about the courses in `src/pages/index.astro`, in the “Courses and videos”
+  section. They currently say you are preparing courses, with no dates, because none are confirmed.
+- **Hide the whole section** by setting `showSection: false` under `courses` in `src/site.config.ts`.
 
 ## Going live
 

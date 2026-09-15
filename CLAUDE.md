@@ -1,7 +1,9 @@
 # Andreea’s Lab website – project conventions
 
-Marketing site for Andreea’s Lab, a one-practitioner Icoone studio in Dubai. Almost all traffic
-arrives from Instagram on a phone. The site’s one job is to start a WhatsApp conversation.
+Marketing site for Andreea’s Lab, a one-practitioner studio in Dubai working with Icoone. Almost all
+traffic arrives from Instagram on a phone. The site’s one job is to start a WhatsApp conversation.
+Since 15 September 2026 it has a quiet second job: collecting email interest for Andreea’s courses
+and showing her on video. Copy leads with Andreea; Icoone is named as her method, not as the brand.
 
 ## Stack
 
@@ -11,7 +13,8 @@ arrives from Instagram on a phone. The site’s one job is to start a WhatsApp c
 - Content collections (Astro content layer, `glob` loader) in `src/content/`
 - Fonts self-hosted from `@fontsource-variable/*`, preloaded in `BaseLayout.astro`
 - Netlify hosting, Netlify Forms for the consultation form (`netlify.toml`)
-- No client framework, no CMS, no database. Two tiny inline scripts (sticky bar, click-to-load map)
+- No client framework, no CMS, no database. Four tiny inline scripts: sticky bar, hero video,
+  click-to-load map, click-to-load video
 
 ## Commands
 
@@ -27,7 +30,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 
 | What | Where |
 |---|---|
-| Brand, contact, WhatsApp message, hours, location, policies, analytics IDs, flags | `src/site.config.ts` |
+| Brand, contact, WhatsApp message, hours, location, policies, analytics IDs, flags, courses section switch, YouTube channel and video ID | `src/site.config.ts` |
 | Treatments, FAQs, testimonials (Markdown + typed frontmatter) | `src/content/treatments`, `faqs`, `testimonials`; schemas in `src/content.config.ts` |
 | Design tokens (colours, type scale, radius, easing) | `src/styles/global.css` `@theme` block, documented in `DESIGN.md` |
 | Page shell, fonts, metadata, JSON-LD, header, footer, sticky bar | `src/layouts/BaseLayout.astro` |
@@ -47,6 +50,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Sans (`font-sans`, `.facts`) for what the lab records: lists, prices, hours, forms, buttons.
 - **One green thing per screen.** `lab` green is for the WhatsApp action, links and focus only.
   Never a decorative background. `mist` is allowed for one band per page (`Section tone="mist"`).
+  Secondary actions (load the map, play the video, register interest) use `.btn-quiet`, so WhatsApp
+  stays the only solid green button.
 - **Only the palette.** The default Tailwind palette is removed in `@theme`. Do not add colours.
 - **Left aligned, one edge.** No centred text. Sections use `Section.astro` (5/7 split at `md`).
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows and no
@@ -62,10 +67,14 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Sentence case everywhere.** No all-caps labels, no eyebrows, no italic single words in headlines.
 - **Numbering only for real sequences.** Currently only “How it works”.
 - **One motion moment.** The hero `.reveal` / `.reveal-late`. Nothing else animates. Reduced motion respected.
+  Video never autoplays outside the hero: `VideoEmbed` shows a photograph until its button is pressed.
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
-- **Every page ends with `CtaBand`** except the contact page.
+- **Every page ends with `CtaBand`** except the contact page, the two thanks pages and 404.
+- **Home page order.** Hero, Why Andreea, Courses and videos, Treatments, What Andreea does, gallery,
+  `ImageBand`, How it works (mist), Results, Where to find me, `CtaBand`. Courses sit high but
+  stay secondary: the hero and the sticky bar are WhatsApp.
 
 ## Content rules
 
@@ -82,6 +91,11 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.
 - Before/after photos stay behind `SITE.results.showBeforeAfters` until DHA approval is confirmed.
+- The “Courses and videos” section (`SITE.courses.showSection`) collects emails with the Netlify form
+  `course-interest` and lands on `/courses/thanks`, which points to Instagram. No WhatsApp group for now.
+- The video slot plays a stand-in stock clip (the hero footage) until `SITE.youtube.featuredVideoId`
+  is set; then it embeds that video via youtube-nocookie.com, still only on click. Do not invent
+  course dates, prices or a curriculum; the copy says “preparing” until Andreea confirms details.
 - Placeholder images must stay clearly labelled. Alt text starts with “Placeholder for …”.
 
 ## URLs, SEO and structured data
@@ -93,7 +107,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - `HealthAndBeautyBusiness` JSON-LD on every page (`BaseLayout`), `Service` on treatment pages,
   `FAQPage` on `/faq`. Builders in `src/lib/seo.ts`.
 - `robots.txt` is generated from `SITE.url` (`src/pages/robots.txt.ts`). Sitemap via `@astrojs/sitemap`.
-- `/contact/thanks` and `/404` are `noindex` and excluded from the sitemap.
+- `/contact/thanks`, `/courses/thanks` and `/404` are `noindex` and excluded from the sitemap.
 
 ## Adding a language (ru, ar)
 
