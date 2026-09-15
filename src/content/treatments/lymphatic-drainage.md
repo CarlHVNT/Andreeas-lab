@@ -8,9 +8,9 @@ forWhom:
   - "Feeling lighter before an event or a holiday"
 whatHappens: "You lie down in comfortable underwear or the disposable set provided. Andreea works the handpiece over the body in the direction the lymph flows, from the ankles up and from the arms in, spending longer where fluid tends to collect. It feels like a firm, rhythmic massage. Most people leave feeling lighter the same day."
 duration: "50 minutes"
-recommendedCourse: "6 to 10 sessions, one or two a week, then one a month"
+recommendedProgramme: "6 to 10 sessions, one or two a week, then one a month"
 priceFrom: 450
-priceNote: "Course prices on request."
+priceNote: "Programme prices on request."
 contraindications:
   - "Pregnancy"
   - "Active infection, fever or inflammation"
@@ -26,7 +26,7 @@ order: 1
 featured: true
 whatsappName: "lymphatic drainage"
 seoTitle: "Lymphatic drainage Dubai | Icoone at Andreea’s Lab"
-seoDescription: "Icoone lymphatic drainage in Dubai for water retention, heavy legs and bloating. Planned as a course by one licensed practitioner in Dubai Healthcare City."
+seoDescription: "Icoone lymphatic drainage in Dubai for water retention, heavy legs and bloating. Planned as a programme by one licensed practitioner in Dubai Healthcare City."
 ---
 
 ## Good to know

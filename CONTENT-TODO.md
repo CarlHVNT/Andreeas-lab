@@ -61,14 +61,14 @@ For each of the seven files, confirm or replace:
 
 - [ ] `priceFrom` (all sample: 450 / 500 / 550 / 450 / 450 / 400 / 150 AED) and `priceNote`.
       Remove the words “Sample price for the layout review” once real.
-- [ ] `duration` and `recommendedCourse` (all sample).
+- [ ] `duration` and `recommendedProgramme` (all sample).
 - [ ] `contraindications` lists (all sample, generic). Replace with Andreea’s own list and set
       `contraindicationsConfirmed: true`. Also `src/content/faqs/who-should-not.md`.
 - [ ] `whatHappens`, `forWhom` and the Markdown body (“Good to know”) are draft copy in her voice; check facts
       such as “disposable set provided”, “measured every few sessions”.
 - [ ] The set of treatments itself. Instagram highlights show Lasers and Gut health: are other services
       part of this site, or is it Icoone only?
-- [ ] Consultation: is it charged, and is it deducted from the first course? (`consultation.md`)
+- [ ] Consultation: is it charged, and is it deducted from the first programme? (`consultation.md`)
 
 ## FAQs (`src/content/faqs/*.md`)
 

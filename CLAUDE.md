@@ -94,6 +94,9 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - The home hero is a background video (`HeroVideo.astro`, files in `public/video/`). The poster
   `<img>` is the LCP element; sources attach after `load`, never under reduced motion or Save-Data.
   Keep the files at 720p, silent, under ~3 MB each.
+- **Words.** A planned series of treatment sessions is a *programme* (British spelling): "planned as a
+  programme", "Recommended programme", `recommendedProgramme` in treatment frontmatter. *Course* and
+  *courses* mean only Andreea’s teaching courses. Never use "course" for sessions.
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.
 - Before/after photos stay behind `SITE.results.showBeforeAfters` until DHA approval is confirmed.

@@ -20,8 +20,8 @@ const treatments = defineCollection({
       whatHappens: z.string(),
       /** e.g. "50 minutes" */
       duration: z.string(),
-      /** e.g. "8 to 12 sessions, one or two a week" */
-      recommendedCourse: z.string(),
+      /** The recommended programme of sessions, e.g. "8 to 12 sessions, one or two a week" */
+      recommendedProgramme: z.string(),
       /** Price per session in AED, or null for “on request” */
       priceFrom: z.number().nullable(),
       priceNote: z.string().optional(),

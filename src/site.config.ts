@@ -148,7 +148,7 @@ export const SITE = {
     cancellation:
       "Please give 24 hours’ notice to move or cancel a session. Sessions cancelled with less notice are charged in full.",
     /** PLACEHOLDER */
-    payment: "Card, cash and bank transfer. Courses are paid at the first session.",
+    payment: "Card, cash and bank transfer. Programmes are paid at the first session.",
   },
 
   results: {

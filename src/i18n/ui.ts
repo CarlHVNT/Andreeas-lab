@@ -54,7 +54,7 @@ const en = {
   "footer.sampleNotice":
     "Sample content for layout review. Facts, prices, quotes and photographs are placeholders.",
   "label.duration": "Session",
-  "label.course": "Recommended course",
+  "label.programme": "Recommended programme",
   "label.price": "Price",
   "label.priceOnRequest": "On request",
   "label.priceFrom": "from",

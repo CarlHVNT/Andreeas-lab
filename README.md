@@ -28,9 +28,9 @@ between the quotes.
 4. The line `priceNote:` is the small text shown under the price table. Change or delete it.
 5. Save. The change appears on the treatment page, and the price in the header of that page.
 
-## Change a session length or course
+## Change a session length or programme
 
-In the same file, change `duration: "40 minutes"` and `recommendedCourse: "6 to 8 sessions, one a
+In the same file, change `duration: "40 minutes"` and `recommendedProgramme: "6 to 8 sessions, one a
 week, then one a month"`. Keep the quotes.
 
 ## Add a treatment

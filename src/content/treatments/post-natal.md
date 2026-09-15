@@ -8,9 +8,9 @@ forWhom:
   - "After a Caesarean, once your doctor agrees"
 whatHappens: "Gentle drainage work first, to help the body clear the fluid it is holding. As you recover, more of the session goes to the stomach and hips. Nothing is rushed, and you say how much pressure feels right. Sessions can be planned around feeding times."
 duration: "50 minutes"
-recommendedCourse: "8 to 10 sessions, one a week"
+recommendedProgramme: "8 to 10 sessions, one a week"
 priceFrom: 450
-priceNote: "Course prices on request."
+priceNote: "Programme prices on request."
 contraindications:
   - "Before your postnatal check, or before your doctor agrees"
   - "Pregnancy"

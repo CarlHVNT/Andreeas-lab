@@ -94,15 +94,15 @@ const jsonLd = [
       <Gallery items={gallery} columns={3} class="mt-10" />
     </Section>
 
-    <Section title="Course and pricing">
+    <Section title="Programme and pricing">
       <dl class="divide-y divide-stone border-y border-stone text-facts">
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-graphite">Session</dt>
           <dd class="tabular-nums">{data.duration}</dd>
         </div>
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-          <dt class="text-graphite">Recommended course</dt>
-          <dd>{data.recommendedCourse}</dd>
+          <dt class="text-graphite">Recommended programme</dt>
+          <dd>{data.recommendedProgramme}</dd>
         </div>
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-graphite">Price</dt>
@@ -143,7 +143,7 @@ const jsonLd = [
 
     <CtaBand
       title={`Ask Andreea about ${waName}.`}
-      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a course would look like and when she can see you."
+      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a programme would look like and when she can see you."
       treatment={waName}
     />
   </article>
