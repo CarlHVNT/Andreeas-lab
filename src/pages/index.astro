@@ -10,27 +10,32 @@ import Quote from "@/components/Quote.astro";
 import Gallery from "@/components/Gallery.astro";
 import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
+import VideoEmbed from "@/components/VideoEmbed.astro";
+import CourseInterestForm from "@/components/CourseInterestForm.astro";
 import MapEmbed from "@/components/MapEmbed.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
+import IconInstagram from "@/components/icons/IconInstagram.astro";
 import LineIcon from "@/components/icons/LineIcon.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { addressLines } from "@/lib/address";
 import { getFeaturedTreatments, getFeaturedTestimonials } from "@/lib/content";
+import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 
+const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(6);
 const testimonials = await getFeaturedTestimonials(3);
 const quotes = await Promise.all(
   testimonials.map(async (q) => ({ q, Content: (await render(q)).Content })),
 );
-const { location, practitioner } = SITE;
+const { location, practitioner, contact, courses, youtube } = SITE;
 
 const steps = [
   {
     title: "Consultation",
-    text: "Thirty minutes to talk, look and measure. You leave knowing whether Icoone is right for you.",
+    text: "Thirty minutes to talk, look and measure. You leave knowing whether the treatment is right for you.",
   },
   {
     title: "Plan",
@@ -74,7 +79,7 @@ const why = [
 ] as const;
 ---
 
-<BaseLayout title="Icoone treatments in Dubai | Andreea’s Lab" description={SITE.description} hasHero>
+<BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
   <!-- Hero: statement and one button over a silent background video -->
   <section class="relative overflow-hidden">
     <HeroVideo poster="/video/hero-poster.jpg" mp4="/video/hero.mp4" webm="/video/hero.webm" />
@@ -85,10 +90,11 @@ const why = [
       class="relative mx-auto max-w-content px-5 pb-[64vw] pt-10 md:grid md:min-h-[40rem] md:grid-cols-12 md:items-center md:gap-6 md:px-6 md:py-24"
     >
       <div class="reveal md:col-span-6">
-        <h1 class="text-display">Icoone body and face treatments in Dubai.</h1>
+        <h1 class="text-display">Body and face treatments in Dubai, with Andreea.</h1>
         <p class="voice mt-6">
-          Lymphatic drainage, skin firming, body remodelling and post-surgery recovery, planned as a course and
-          performed by one licensed practitioner. Every session with Andreea.
+          One licensed practitioner who plans every course and performs every session herself: lymphatic drainage,
+          skin firming, body remodelling and recovery after surgery, using Icoone. Plain talk about what will work
+          and what will not.
         </p>
         <div class="mt-8 flex flex-col items-start gap-4">
           <WhatsAppButton id="hero-cta" />
@@ -101,39 +107,7 @@ const why = [
     </div>
   </section>
 
-  <Section id="icoone" title="What Icoone is">
-    <div class="voice">
-      <p>
-        Icoone is a non-invasive body and face treatment from Italy. Small rollers move over the skin and gently
-        stimulate the tissue beneath it, which helps fluid drain, softens tight areas and encourages the skin to
-        firm.
-      </p>
-      <p>
-        Sessions are comfortable and there is no downtime. Results build over a planned course rather than in
-        one visit, which is why every course here starts with a consultation and a plan.
-      </p>
-    </div>
-  </Section>
-
-  <!-- Three photographs: two treatments in progress and the products -->
-  <section class="pt-10 md:pt-14">
-    <div class="mx-auto max-w-content px-5 md:px-6">
-      <Gallery items={[photos.redlight, photos.forehead, photos.products]} columns={3} />
-    </div>
-  </section>
-
-  <Section id="treatments" title="Treatments">
-    <p slot="statement" class="voice mt-4 max-w-[36ch]">
-      Six things, done properly. Each has a plan, a course and a clear price.
-    </p>
-    <TreatmentRows items={treatments} />
-    <a href="/treatments" class="link-arrow mt-6">
-      <span>All treatments</span>
-      <IconArrow class="h-4.5 w-4.5" />
-    </a>
-  </Section>
-
-  <!-- Why Andreea: arched portrait left, facts with icons right -->
+  <!-- Why Andreea: arched portrait left, facts with icons right. She comes first. -->
   <section id="why" class="pt-18 md:pt-32">
     <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6">
       <figure class="arch aspect-[4/5] bg-stone md:col-span-5">
@@ -170,6 +144,73 @@ const why = [
           <IconArrow class="h-4.5 w-4.5" />
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Courses and videos: high up but secondary. Email interest and a click-to-load video. -->
+  {
+    courses.showSection && (
+      <Section id="courses" title="Courses and videos">
+        <div slot="statement">
+          <div class="voice mt-4">
+            <p>
+              Andreea is preparing short courses in Dubai on how she works: the method, how a course is planned, and
+              how to talk to clients plainly. They are for anyone who wants to learn to do what she does.
+            </p>
+            <p>Leave your email to hear first when dates are set. In the meantime, follow along on Instagram.</p>
+          </div>
+          <a href={contact.instagramUrl} class="link-arrow mt-6 text-[0.95rem]" target="_blank" rel="noopener">
+            <IconInstagram class="h-4.5 w-4.5" />
+            <span>{t("cta.followInstagram")}</span>
+          </a>
+        </div>
+        <VideoEmbed
+          title="Andreea’s Lab video"
+          poster={photos.device}
+          posterPosition="center 5%"
+          youtubeId={youtube.featuredVideoId}
+          mp4={youtube.placeholder.mp4}
+          webm={youtube.placeholder.webm}
+          caption={youtube.caption}
+          channelUrl={youtube.channelUrl}
+        />
+        <div class="mt-10 border-t border-stone pt-8">
+          <h3 class="text-title font-medium">Hear about courses first</h3>
+          <CourseInterestForm class="mt-5 max-w-[26rem]" />
+        </div>
+      </Section>
+    )
+  }
+
+  <Section id="treatments" title="Treatments">
+    <p slot="statement" class="voice mt-4 max-w-[36ch]">
+      Six things, done properly. Each has a plan, a course and a clear price.
+    </p>
+    <TreatmentRows items={treatments} />
+    <a href="/treatments" class="link-arrow mt-6">
+      <span>All treatments</span>
+      <IconArrow class="h-4.5 w-4.5" />
+    </a>
+  </Section>
+
+  <Section id="method" title="What Andreea does">
+    <div class="voice">
+      <p>
+        Andreea treats the body and face with Icoone, a non-invasive method from Italy. Small rollers move over the
+        skin and gently stimulate the tissue beneath it, which helps fluid drain, softens tight areas and encourages
+        the skin to firm.
+      </p>
+      <p>
+        Sessions are comfortable and there is no downtime. Results build over a planned course rather than in one
+        visit, which is why every course with Andreea starts with a consultation and a written plan.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Three photographs: two treatments in progress and the products -->
+  <section class="pt-10 md:pt-14">
+    <div class="mx-auto max-w-content px-5 md:px-6">
+      <Gallery items={[photos.redlight, photos.forehead, photos.products]} columns={3} />
     </div>
   </section>
 

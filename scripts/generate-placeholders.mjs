@@ -78,7 +78,7 @@ function ogArt({ w, h }) {
 <circle cx="112" cy="112" r="15" fill="none" stroke="${C.porcelain}" stroke-width="3.5"/>
 <circle cx="112" cy="112" r="5" fill="${C.porcelain}"/>
 <text x="80" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="84" fill="${C.lab}">Andreea\u2019s Lab</text>
-<text x="82" y="400" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="${C.ink ?? "#1E2321"}">Icoone body and face treatments in Dubai.</text>
+<text x="82" y="400" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="${C.ink ?? "#1E2321"}">Body and face treatments in Dubai, with Andreea.</text>
 <text x="82" y="560" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="${C.graphite}">Placeholder share image</text>
 </svg>`;
 }

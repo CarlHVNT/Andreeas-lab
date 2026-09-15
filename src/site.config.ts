@@ -44,9 +44,9 @@ export const SITE = {
   /** From the Instagram logo “Est. 2019” – confirm with Andreea */
   established: "2019",
 
-  tagline: "Icoone body and face treatments in Dubai.",
+  tagline: "Body and face treatments in Dubai, with Andreea.",
   description:
-    "Icoone lymphatic drainage, skin firming, body remodelling and post-surgery recovery in Dubai, planned as a course and performed by one licensed practitioner.",
+    "Andreea’s Lab, Dubai: lymphatic drainage, skin firming, body remodelling and post-surgery recovery with Icoone. One licensed practitioner, every session with Andreea.",
 
   practitioner: {
     firstName: "Andreea",
@@ -87,7 +87,7 @@ export const SITE = {
     messageTemplate:
       "Hi Andreea, I found you via the website and would like to ask about {treatment}.",
     /** Used when no treatment is named */
-    defaultTopic: "Icoone treatments",
+    defaultTopic: "a treatment",
     buttonLabel: "Message Andreea on WhatsApp",
     buttonLabelShort: "WhatsApp",
   },
