@@ -95,7 +95,9 @@ sessions is always a “programme”; “course” is reserved for her teaching.
 
 **Bands.** Sections alternate between the ivory page and a tinted band: `tone="white"` is the quiet
 band, `tone="blush"` the accent band, never two of the same tint in a row and at most one blush band
-per page. Home: About me (white), Specialisations (ivory), Treatments (white), gallery and image band,
+per page. The home hero counts as a band (`.hero`): the white About me band sits flush beneath it, so
+the video runs edge to edge with no strip of ivory in between. On desktop the hero fills the first
+screen (viewport height minus the header, between 38 and 56 rem). Home: About me (white), Specialisations (ivory), Treatments (white), gallery and image band,
 Before and after (ivory), Courses and videos (white), Questions (blush), Contact (ivory). Treatment
 pages: white, blush, ivory, white, ivory, white. FAQ groups alternate white and ivory. Contact puts the
 form on blush.

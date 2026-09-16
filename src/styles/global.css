@@ -179,7 +179,8 @@
   .band {
     @apply mt-18 py-18 md:mt-32 md:py-32;
   }
-  .band + .band {
+  .band + .band,
+  .hero + .band {
     margin-top: 0;
   }
 
