@@ -7,9 +7,9 @@ forWhom:
   - "Swelling, tightness or hard areas that are slow to settle"
 whatHappens: "Very light, precise work, adjusted to how you feel that day and following your surgeon’s guidance on timing and areas. Early sessions are shorter and gentler. As the swelling settles, Andreea works a little deeper to help the tissue soften and move freely again."
 duration: "30 to 45 minutes"
-recommendedCourse: "Usually 6 to 12 sessions, starting one or two a week"
+recommendedProgramme: "Usually 6 to 12 sessions, starting one or two a week"
 priceFrom: 450
-priceNote: "Recovery courses are planned with your surgeon’s timeline in mind."
+priceNote: "Recovery programmes are planned with your surgeon’s timeline in mind."
 contraindications:
   - "Before your surgeon has cleared you for treatment"
   - "Open wounds, stitches or drains still in place"

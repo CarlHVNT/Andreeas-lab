@@ -6,16 +6,21 @@ import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import TreatmentRows from "@/components/TreatmentRows.astro";
 import CaseStudyCard from "@/components/CaseStudyCard.astro";
 import FaqList from "@/components/FaqList.astro";
+import Gallery from "@/components/Gallery.astro";
 import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
+import VideoEmbed from "@/components/VideoEmbed.astro";
+import CourseInterestForm from "@/components/CourseInterestForm.astro";
 import MapEmbed from "@/components/MapEmbed.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
+import IconInstagram from "@/components/icons/IconInstagram.astro";
 import LineIcon from "@/components/icons/LineIcon.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { addressLines } from "@/lib/address";
+import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 import {
   getFeaturedTreatments,
   getFeaturedCaseStudies,
@@ -24,12 +29,40 @@ import {
   treatmentPath,
 } from "@/lib/content";
 
+const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(6);
 const allTreatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["what-is-icoone", "does-it-hurt", "how-many-sessions", "how-fast-results"]);
-const { location, practitioner } = SITE;
+const { location, practitioner, contact, courses, youtube } = SITE;
 const treatmentFor = (slug: string) => allTreatments.find((t) => t.id === slug);
+
+const why = [
+  {
+    icon: "person",
+    title: "One expert, every time.",
+    text: "You see Andreea at every session, from the first consultation to the last check-in. No rotating staff.",
+  },
+  {
+    icon: "shield",
+    title: "Licensed and certified.",
+    text: `${practitioner.title}. ${practitioner.credentials.join(", ")}. ${
+      location.hostClinic
+        ? `Working inside ${location.hostClinic}, a licensed clinic in ${location.area}.`
+        : `Working from ${location.building}, ${location.area}, ${location.city}.`
+    }`,
+  },
+  {
+    icon: "clipboard",
+    title: "A plan, not a pamper.",
+    text: "Every programme starts with a consultation and a written plan: which areas, how many sessions, what to expect and when.",
+  },
+  {
+    icon: "heart",
+    title: "Honest about results.",
+    text: "No guarantees, no miracle language, and no pressure to add anything you did not come for.",
+  },
+] as const;
 
 const specialisations = [
   { icon: "leaf", title: "Lymphatic drainage and de-bloating" },
@@ -40,7 +73,7 @@ const specialisations = [
 ] as const;
 ---
 
-<BaseLayout title="Icoone treatments in Dubai | Andreea’s Lab" description={SITE.description} hasHero>
+<BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
   <!-- Hero: statement and one button over a silent background video -->
   <section class="relative overflow-hidden">
     <HeroVideo poster="/video/hero-poster.jpg" mp4="/video/hero.mp4" webm="/video/hero.webm" />
@@ -51,10 +84,11 @@ const specialisations = [
       class="relative mx-auto max-w-content px-5 pb-[64vw] pt-10 md:grid md:min-h-[40rem] md:grid-cols-12 md:items-center md:gap-6 md:px-6 md:py-24"
     >
       <div class="reveal md:col-span-6">
-        <h1 class="text-display">Icoone body and face treatments in Dubai.</h1>
+        <h1 class="text-display">Body and face treatments in Dubai, with Andreea.</h1>
         <p class="voice mt-6">
-          Lymphatic drainage, skin firming, body remodelling and post-surgery recovery, planned as a course and
-          performed by one licensed practitioner. Every session with Andreea.
+          One licensed practitioner who plans every programme and performs every session herself: lymphatic
+          drainage, skin firming, body remodelling and recovery after surgery, using Icoone. Plain talk about what
+          will work and what will not.
         </p>
         <div class="mt-8 flex flex-col items-start gap-4">
           <WhatsAppButton id="hero-cta" />
@@ -67,8 +101,8 @@ const specialisations = [
     </div>
   </section>
 
-  <!-- 1. About me -->
-  <section id="about" class="pt-18 md:pt-32">
+  <!-- 1. About me: arched portrait left; who she is and why her, right. White band. -->
+  <section id="about" class="band bg-white">
     <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6">
       <figure class="arch aspect-[4/5] bg-linen md:col-span-5">
         <Image
@@ -89,11 +123,22 @@ const specialisations = [
             I’m Andreea. I have lived and worked in Dubai for more than ten years, and I opened Andreea’s Lab in{" "}
             {SITE.established} to do a small number of things properly rather than a long menu of things quickly.
           </p>
-          <p>
-            You see me at every session, from the first consultation to the last check-in. I read the research, I
-            measure, and I tell you what I see. No hype.
-          </p>
         </div>
+        <ul class="mt-8 divide-y divide-linen border-y border-linen" role="list">
+          {
+            why.map((w) => (
+              <li class="grid grid-cols-[2.75rem_1fr] gap-4 py-5">
+                <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
+                  <LineIcon name={w.icon} class="h-5.5 w-5.5" />
+                </span>
+                <div>
+                  <h3 class="text-title font-medium">{w.title}</h3>
+                  <p class="mt-1.5 max-w-[52ch] text-muted">{w.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
         <a href="/about" class="link-arrow mt-6">
           <span>More about me</span>
           <IconArrow class="h-4.5 w-4.5" />
@@ -127,15 +172,15 @@ const specialisations = [
     </ul>
   </Section>
 
-  <!-- 3. Treatments -->
-  <Section id="treatments" title="Treatments">
+  <!-- 3. Treatments, with what Andreea does as the statement. White band. -->
+  <Section id="treatments" title="Treatments" tone="white">
     <div slot="statement" class="voice mt-5 max-w-[36ch]">
       <p>
-        Icoone is a non-invasive body and face treatment from Italy. Small rollers move over the skin and gently
-        stimulate the tissue beneath it, which helps fluid drain, softens tight areas and encourages the skin to
-        firm.
+        Andreea treats the body and face with Icoone, a non-invasive method from Italy. Small rollers move over
+        the skin and gently stimulate the tissue beneath it, which helps fluid drain, softens tight areas and
+        encourages the skin to firm.
       </p>
-      <p>No downtime. Results build over a planned course, so every course starts with a consultation.</p>
+      <p>No downtime. Results build over a planned programme, so every programme starts with a consultation.</p>
     </div>
     <TreatmentRows items={treatments} />
     <a href="/treatments" class="link-arrow mt-6">
@@ -144,13 +189,20 @@ const specialisations = [
     </a>
   </Section>
 
+  <!-- Three photographs: two treatments in progress and the products -->
+  <section class="pt-18 md:pt-32">
+    <div class="mx-auto max-w-content px-5 md:px-6">
+      <Gallery items={[photos.redlight, photos.forehead, photos.products]} columns={3} />
+    </div>
+  </section>
+
   <ImageBand
     photo={photos.faceMapping}
-    title="Every course is measured at the start and every few sessions, so the plan changes when the numbers do."
+    title="Every programme is measured at the start and every few sessions, so the plan changes when the numbers do."
     text="Written down, checked, adjusted. That is what the word lab means here."
   />
 
-  <!-- Before and after -->
+  <!-- Before and after: the visual focus on results -->
   {
     cases.length > 0 && (
       <section id="results" class="pt-18 md:pt-32">
@@ -161,8 +213,8 @@ const specialisations = [
               <h2 class="text-statement">Before and after</h2>
             </div>
             <p class="voice mt-4 md:col-span-6 md:col-start-7 md:mt-0">
-              One client, one plan, one course, photographed in the same light before the first session and after
-              the last. Shared with permission, never retouched.
+              One client, one plan, one programme, photographed in the same light before the first session and
+              after the last. Shared with permission, never retouched.
             </p>
           </div>
           <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-6">
@@ -180,7 +232,42 @@ const specialisations = [
     )
   }
 
-  <!-- 4. FAQ -->
+  <!-- Courses and videos: secondary. Email interest and a click-to-load video. White band. -->
+  {
+    courses.showSection && (
+      <Section id="courses" title="Courses and videos" tone="white">
+        <div slot="statement">
+          <div class="voice mt-4">
+            <p>
+              Andreea is preparing short courses in Dubai on how she works: the method, how a programme is planned,
+              and how to talk to clients plainly. They are for anyone who wants to learn to do what she does.
+            </p>
+            <p>Leave your email to hear first when dates are set. In the meantime, follow along on Instagram.</p>
+          </div>
+          <a href={contact.instagramUrl} class="link-arrow mt-6 text-[0.95rem]" target="_blank" rel="noopener">
+            <IconInstagram class="h-4.5 w-4.5" />
+            <span>{t("cta.followInstagram")}</span>
+          </a>
+        </div>
+        <VideoEmbed
+          title="Andreea’s Lab video"
+          poster={photos.device}
+          posterPosition="center 5%"
+          youtubeId={youtube.featuredVideoId}
+          mp4={youtube.placeholder.mp4}
+          webm={youtube.placeholder.webm}
+          caption={youtube.caption}
+          channelUrl={youtube.channelUrl}
+        />
+        <div class="mt-10 border-t border-linen pt-8">
+          <h3 class="text-title font-medium">Hear about courses first</h3>
+          <CourseInterestForm class="mt-5 max-w-[26rem]" />
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- 4. FAQ. Blush band. -->
   <Section id="faq" title="Questions" tone="blush">
     <p slot="statement" class="voice mt-4 max-w-[34ch]">The ones everyone asks first.</p>
     <FaqList items={faqs} />

@@ -148,8 +148,8 @@ const ogW = 1200, ogH = 630;
 const stacked = await sharp(`${OUT}/logo-stacked.png`).resize({ height: 430 }).toBuffer();
 const stackedMeta = await sharp(stacked).metadata();
 const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${ogW}" height="${ogH}">
-  <text x="${stackedMeta.width + 140}" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">Icoone body and face</text>
-  <text x="${stackedMeta.width + 140}" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">treatments in Dubai.</text>
+  <text x="${stackedMeta.width + 140}" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">Body and face treatments</text>
+  <text x="${stackedMeta.width + 140}" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">in Dubai, with Andreea.</text>
   <text x="${stackedMeta.width + 142}" y="412" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#755760">One practitioner. Every session.</text>
 </svg>`);
 await sharp({ create: { width: ogW, height: ogH, channels: 3, background: PORCELAIN } })

@@ -78,13 +78,13 @@ const jsonLd = [
       </figure>
     </header>
 
-    <Section title="Who it’s for">
+    <Section title="Who it’s for" tone="white">
       <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
         {data.forWhom.map((item) => <li class="py-3.5">{item}</li>)}
       </ul>
     </Section>
 
-    <Section title="What a session is like">
+    <Section title="What a session is like" tone="blush">
       <p class="voice">{data.whatHappens}</p>
       {
         hasBody && (
@@ -96,15 +96,15 @@ const jsonLd = [
       <Gallery items={gallery} columns={3} class="mt-10" />
     </Section>
 
-    <Section title="Course and pricing">
+    <Section title="Programme and pricing">
       <dl class="divide-y divide-linen border-y border-linen text-facts">
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-muted">Session</dt>
           <dd class="tabular-nums">{data.duration}</dd>
         </div>
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-          <dt class="text-muted">Recommended course</dt>
-          <dd>{data.recommendedCourse}</dd>
+          <dt class="text-muted">Recommended programme</dt>
+          <dd>{data.recommendedProgramme}</dd>
         </div>
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-muted">Price</dt>
@@ -116,7 +116,7 @@ const jsonLd = [
 
     {
       data.contraindications.length > 0 && (
-        <Section title="Who should not have it">
+        <Section title="Who should not have it" tone="white">
           <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
             {data.contraindications.map((item) => (
               <li class="py-3.5">{item}</li>
@@ -149,7 +149,7 @@ const jsonLd = [
 
     {
       faqs.length > 0 && (
-        <Section title="Questions">
+        <Section title="Questions" tone="white">
           <FaqList items={faqs} />
           <a href="/faq" class="link-arrow mt-6 text-[0.95rem]">
             <span>All questions</span>
@@ -161,7 +161,7 @@ const jsonLd = [
 
     <CtaBand
       title={`Ask Andreea about ${waName}.`}
-      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a course would look like and when she can see you."
+      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a programme would look like and when she can see you."
       treatment={waName}
     />
   </article>

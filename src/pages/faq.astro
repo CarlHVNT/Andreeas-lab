@@ -49,11 +49,11 @@ const jsonLd = [
   </section>
 
   {
-    groups.map((g) => {
+    groups.map((g, i) => {
       const items = faqs.filter((f) => f.data.category === g.key);
       if (!items.length) return null;
       return (
-        <Section title={g.title} id={g.key}>
+        <Section title={g.title} id={g.key} tone={i % 2 === 0 ? "white" : "ivory"}>
           <p slot="statement" class="voice mt-4 max-w-[32ch] text-muted">
             {g.intro}
           </p>

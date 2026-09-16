@@ -1,15 +1,15 @@
 ---
 title: "Icoone body remodelling"
-promise: "For shaping specific areas over a planned course."
+promise: "For shaping specific areas over a planned programme."
 forWhom:
   - "Areas that diet and training have not changed: lower stomach, hips, inner thighs, knees"
   - "Working on shape rather than weight"
   - "Support alongside a training or nutrition plan"
 whatHappens: "Focused work on the areas agreed in your plan, combined with drainage passes so the body clears what is released. Andreea measures the areas at the start and again every few sessions, so the change is on paper, not just in the mirror."
 duration: "60 minutes"
-recommendedCourse: "10 to 12 sessions, twice a week"
+recommendedProgramme: "10 to 12 sessions, twice a week"
 priceFrom: 550
-priceNote: "Course prices on request."
+priceNote: "Programme prices on request."
 contraindications:
   - "Pregnancy"
   - "Active infection or inflammation"
@@ -25,9 +25,9 @@ order: 3
 featured: true
 whatsappName: "body remodelling"
 seoTitle: "Body contouring Dubai Healthcare City | Icoone remodelling at Andreea’s Lab"
-seoDescription: "Icoone body remodelling in Dubai Healthcare City. Focused, measured work on the areas you want to change, planned as a course by one licensed practitioner."
+seoDescription: "Icoone body remodelling in Dubai Healthcare City. Focused, measured work on the areas you want to change, planned as a programme by one licensed practitioner."
 ---
 
 ## Good to know
 
-Body remodelling works best alongside what you already do. Andreea will ask about your training and eating habits at the consultation, not to judge them, but to plan around them and to be realistic about what a course can do.
+Body remodelling works best alongside what you already do. Andreea will ask about your training and eating habits at the consultation, not to judge them, but to plan around them and to be realistic about what a programme can do.

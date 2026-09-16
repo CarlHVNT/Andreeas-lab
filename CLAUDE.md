@@ -79,6 +79,19 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Case studies** use `CaseStudyCard`. Photographs only with `consent: true`; while
   `placeholderImages: true` the card says photographs will follow. `SITE.results.showBeforeAfters`
   hides every case at once if DHA approval is withdrawn.
+- **Bands, not one long scroll.** Sections alternate between the ivory page and a tinted band:
+  `Section tone="white"` is the quiet band, `tone="blush"` the accent band. Never two sections of the
+  same tint in a row, at most one blush band per page. Bands carry spacing on both sides (`.band` in
+  `global.css`); two bands in a row sit flush. Hand-built sections use `class="band bg-white"` the same way.
+- **“Programme”, not “course”, for treatments.** A planned series of sessions is a programme
+  (`recommendedProgramme`, “Programme and pricing”, “planned as a programme”). “Course” and “courses”
+  refer only to Andreea’s teaching courses (the “Courses and videos” section, `SITE.courses`,
+  `CourseInterestForm`, `/courses/thanks`).
+- **Copy leads with Andreea.** Icoone is named as her method, not as the brand: “Body and face
+  treatments in Dubai, with Andreea.” The site’s second, quieter job is collecting email interest for her
+  courses (`CourseInterestForm`, Netlify form `course-interest`) and showing her on video (`VideoEmbed`,
+  click to load, YouTube through youtube-nocookie or the stand-in clip while `youtube.featuredVideoId`
+  is empty). Secondary actions use `.btn-quiet` so WhatsApp stays the only solid burgundy button.
 
 ## Content rules
 

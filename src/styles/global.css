@@ -175,6 +175,14 @@
     font-weight: 600;
   }
 
+  /* Tinted bands: a section on its own ground. Spacing on both sides, and two bands in a row sit flush. */
+  .band {
+    @apply mt-18 py-18 md:mt-32 md:py-32;
+  }
+  .band + .band {
+    margin-top: 0;
+  }
+
   /* Signature shape: an arch, borrowed from the mirror in her clinic. For 4:5 portraits. */
   .arch {
     border-radius: 50% 50% 0 0 / 40% 40% 0 0;

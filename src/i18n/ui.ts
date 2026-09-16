@@ -45,6 +45,10 @@ const en = {
   "cta.loadMap": "Load the map",
   "cta.openMaps": "Open in Google Maps",
   "cta.send": "Send request",
+  "cta.registerInterest": "Register interest",
+  "cta.playVideo": "Play the video",
+  "cta.watchYoutube": "Watch on YouTube",
+  "cta.followInstagram": "Follow Andreea on Instagram",
   "footer.privacy": "Privacy",
   "footer.terms": "Terms",
   "footer.instagram": "Instagram",
@@ -52,7 +56,7 @@ const en = {
   "footer.sampleNotice":
     "Sample content for layout review. Facts, prices, quotes and photographs are placeholders.",
   "label.duration": "Session",
-  "label.course": "Recommended course",
+  "label.programme": "Recommended programme",
   "label.price": "Price",
   "label.priceOnRequest": "On request",
   "label.priceFrom": "from",
@@ -65,6 +69,9 @@ const en = {
   "form.help": "What would you like help with?",
   "form.helpPlaceholder": "For example: bloating and heavy legs, or recovery after surgery",
   "form.privacy": "Andreea replies personally on WhatsApp, usually the same day.",
+  "form.firstName": "Your first name (optional)",
+  "form.email": "Your email",
+  "form.coursesPrivacy": "Andreea will email you when course details are ready, and nothing else.",
 } as const;
 
 export type UIKey = keyof typeof en;

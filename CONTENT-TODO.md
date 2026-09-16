@@ -61,14 +61,14 @@ For each of the seven files, confirm or replace:
 
 - [ ] `priceFrom` (all sample: 450 / 500 / 550 / 450 / 450 / 400 / 150 AED) and `priceNote`.
       Remove the words “Sample price for the layout review” once real.
-- [ ] `duration` and `recommendedCourse` (all sample).
+- [ ] `duration` and `recommendedProgramme` (all sample).
 - [ ] `contraindications` lists (all sample, generic). Replace with Andreea’s own list and set
       `contraindicationsConfirmed: true`. Also `src/content/faqs/who-should-not.md`.
 - [ ] `whatHappens`, `forWhom` and the Markdown body (“Good to know”) are draft copy in her voice; check facts
       such as “disposable set provided”, “measured every few sessions”.
 - [ ] The set of treatments itself. Instagram highlights show Lasers and Gut health: are other services
       part of this site, or is it Icoone only?
-- [ ] Consultation: is it charged, and is it deducted from the first course? (`consultation.md`)
+- [ ] Consultation: is it charged, and is it deducted from the first programme? (`consultation.md`)
 
 ## FAQs (`src/content/faqs/*.md`)
 
@@ -107,6 +107,24 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
       (`instagramPhotos` in `src/lib/photos.ts`).
 - [ ] The generator in `scripts/generate-placeholders.mjs` and `src/assets/placeholders/` are now
       only used for the share image and app icons. Delete once those are real.
+
+## Courses and videos (`src/pages/index.astro`, `src/site.config.ts` → `courses`, `youtube`)
+
+Added on 15 September 2026 at Andreea’s request: a section high on the home page that collects
+email interest for her courses and holds one video. The WhatsApp group idea is parked for now.
+
+- [ ] **Course wording.** The section says Andreea is “preparing short courses in Dubai on how she
+      works … for anyone who wants to learn to do what she does”. Confirm what she will teach, for whom,
+      roughly when, and whether to name a price or format. Nothing is promised on the page yet.
+- [ ] **YouTube channel and video.** `youtube.channelUrl` and `youtube.featuredVideoId` are empty. Until
+      an ID is set the slot plays the stand-in stock clip (the hero footage) behind a photo of Andreea.
+      Replace with her channel and a real video, and rewrite `youtube.caption`.
+- [ ] **Form notifications.** In Netlify, turn on email notifications for the `course-interest` form and
+      decide who receives them. The form stores email and first name only.
+- [ ] **Privacy wording.** The privacy policy now describes the course interest form. Have the adviser
+      check the sentence on removal (“reply to the email”) once Andreea knows how she will send updates.
+- [ ] **Later, if the list grows:** move to a proper mailing tool. Netlify Forms stores the list; it does
+      not send campaigns.
 
 ## Logo and icons
 
@@ -150,7 +168,8 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
 ## Setup (Carl)
 
 - [ ] Netlify: connect the GitHub repo, set the custom domain, enable form notifications for the
-      `consultation` form (email or WhatsApp-compatible integration), and turn on spam filtering.
+      `consultation` and `course-interest` forms (email or WhatsApp-compatible integration), and turn on
+      spam filtering.
 - [ ] Analytics IDs when she is ready: `analytics.plausibleDomain`, `ga4MeasurementId`, `metaPixelId`.
       GA4 and Meta Pixel set cookies; decide on a consent notice first.
 - [ ] Google Business Profile with the same name, address and hours as `site.config.ts`.

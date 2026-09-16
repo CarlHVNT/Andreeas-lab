@@ -44,9 +44,9 @@ export const SITE = {
   /** From the logotype, “Est. 2021” */
   established: "2021",
 
-  tagline: "Icoone body and face treatments in Dubai.",
+  tagline: "Body and face treatments in Dubai, with Andreea.",
   description:
-    "Icoone lymphatic drainage, skin firming, body remodelling and post-surgery recovery in Dubai, planned as a course and performed by one licensed practitioner.",
+    "Andreea’s Lab, Dubai: lymphatic drainage, skin firming, body remodelling and post-surgery recovery with Icoone. One licensed practitioner, every session with Andreea.",
 
   practitioner: {
     firstName: "Andreea",
@@ -103,7 +103,7 @@ export const SITE = {
     messageTemplate:
       "Hi Andreea, I found you via the website and would like to ask about {treatment}.",
     /** Used when no treatment is named */
-    defaultTopic: "Icoone treatments",
+    defaultTopic: "a treatment",
     buttonLabel: "Message Andreea on WhatsApp",
     buttonLabelShort: "WhatsApp",
   },
@@ -164,7 +164,7 @@ export const SITE = {
     cancellation:
       "Please give 24 hours’ notice to move or cancel a session. Sessions cancelled with less notice are charged in full.",
     /** PLACEHOLDER */
-    payment: "Card, cash and bank transfer. Courses are paid at the first session.",
+    payment: "Card, cash and bank transfer. Programmes are paid at the first session.",
   },
 
   results: {
@@ -174,6 +174,32 @@ export const SITE = {
      * consent and, where required, approval. Set false to hide them all.
      */
     showBeforeAfters: true,
+  },
+
+  /**
+   * Courses. Andreea plans to teach how she works, in Dubai. Until dates exist
+   * the home page collects email addresses from people who want to hear first
+   * (Netlify form “course-interest”) and points them to Instagram.
+   */
+  courses: {
+    /** Show the “Courses and videos” section on the home page */
+    showSection: true,
+  },
+
+  /**
+   * YouTube. Leave `featuredVideoId` empty and the video slot plays the
+   * stand-in clip below; paste an ID and it embeds that video instead, loading
+   * nothing from YouTube until the reader presses play.
+   */
+  youtube: {
+    /** e.g. "https://www.youtube.com/@andreeaslab" – leave empty until the channel exists */
+    channelUrl: "",
+    /** The 11-character ID from a YouTube link, e.g. "dQw4w9WgXcQ" */
+    featuredVideoId: "",
+    /** Caption under the video */
+    caption: "Videos: treatments explained and questions answered. Channel coming soon.",
+    /** PLACEHOLDER – generic stock clip shown until a YouTube video is set */
+    placeholder: { mp4: "/video/hero.mp4", webm: "/video/hero.webm" },
   },
 
   analytics: {

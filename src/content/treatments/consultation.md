@@ -7,9 +7,9 @@ forWhom:
   - "Anyone with a medical history that needs checking first"
 whatHappens: "You tell Andreea what bothers you and what you would like to change. She looks, asks about your health and habits, and explains what Icoone can and cannot do for you. If it is a fit, you leave with a written plan. If it is not, she will say so."
 duration: "30 minutes"
-recommendedCourse: "Once, before any course"
+recommendedProgramme: "Once, before any programme"
 priceFrom: 150
-priceNote: "Deducted from your first course."
+priceNote: "Deducted from your first programme."
 contraindications: []
 contraindicationsConfirmed: true
 faqSlugs: ["what-is-icoone", "who-should-not", "cancellation-policy", "payment-methods"]

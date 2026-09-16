@@ -16,7 +16,7 @@ const { practitioner, location } = SITE;
 
 <BaseLayout
   title="About Andreea"
-  description={`Andreea is a ${practitioner.title.toLowerCase()} in Dubai. One expert, every session. How she trained, why Icoone, and how she plans a course.`}
+  description={`Andreea is a ${practitioner.title.toLowerCase()} in Dubai. One expert, every session. How she trained, why Icoone, and how she plans a programme.`}
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-5 md:pt-6">
@@ -76,7 +76,7 @@ const { practitioner, location } = SITE;
     </a>
   </Section>
 
-  <Section title="Why Icoone">
+  <Section title="Why Icoone" tone="white">
     <PhotoPair slot="statement" first={photos.device} second={photos.forehead} class="mt-8 max-w-[26rem]" />
     <div class="voice">
       <p>
@@ -91,10 +91,10 @@ const { practitioner, location } = SITE;
     </div>
   </Section>
 
-  <Section title="How I plan a course">
+  <Section title="How I plan a programme">
     <div class="voice">
       <p>
-        Every course starts with a thirty-minute consultation. I listen, I look, I measure, and I ask about your
+        Every programme starts with a thirty-minute consultation. I listen, I look, I measure, and I ask about your
         health and your habits. Then I write down a plan: which areas, how many sessions, how often, and what you
         can reasonably expect by when.
       </p>
@@ -121,7 +121,7 @@ const { practitioner, location } = SITE;
     </figure>
   </Section>
 
-  <Section title="On Instagram">
+  <Section title="On Instagram" tone="blush">
     <p slot="statement" class="voice mt-4 max-w-[34ch]">
       Case studies, real talk and what I am reading. No hype.
     </p>

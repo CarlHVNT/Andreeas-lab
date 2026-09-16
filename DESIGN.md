@@ -87,6 +87,19 @@ Five pages, in the order Andreea asked for, plus the home page as the landing fr
 
 The header nav shows About me, Qualifications, Treatments, FAQ, Contact; the footer adds Before & after.
 
+Two things from the 15 September session are kept: the copy leads with Andreea (“Body and face
+treatments in Dubai, with Andreea.”) with Icoone named as her method, and a secondary “Courses and
+videos” section on the home page (statement and Instagram link left; a click-to-load `VideoEmbed` and
+the `CourseInterestForm` right) sits after the before-and-after cases. A planned series of treatment
+sessions is always a “programme”; “course” is reserved for her teaching.
+
+**Bands.** Sections alternate between the ivory page and a tinted band: `tone="white"` is the quiet
+band, `tone="blush"` the accent band, never two of the same tint in a row and at most one blush band
+per page. Home: About me (white), Specialisations (ivory), Treatments (white), gallery and image band,
+Before and after (ivory), Courses and videos (white), Questions (blush), Contact (ivory). Treatment
+pages: white, blush, ivory, white, ivory, white. FAQ groups alternate white and ivory. Contact puts the
+form on blush.
+
 ## Layout
 
 Concept: one column of large serif statements, each followed by its evidence in small sans, with
