@@ -140,7 +140,8 @@ one burgundy button never more than a thumb away.
 ## Motion and behaviour
 
 - The home hero is a silent, looping background video behind an ivory scrim that runs left to right
-  on desktop and top to bottom on phones. The poster paints first and is the largest image on the
+  on desktop and top to bottom on phones. The footage is mirrored (`HeroVideo mirror`) so the client’s
+  face sits on the right, clear of the scrim, and the phone crop is aimed at the face (`position`). The poster paints first and is the largest image on the
   page; the video attaches after load and never under `prefers-reduced-motion` or Save-Data.
 - One text motion moment: the hero’s headline, subline and button rise 12 px and fade in over 600 ms,
   staggered 80 ms. Off under reduced motion. Hover states change colour only.

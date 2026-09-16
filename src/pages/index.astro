@@ -76,7 +76,8 @@ const specialisations = [
 <BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
   <!-- Hero: statement and one button over a silent background video -->
   <section class="hero relative overflow-hidden">
-    <HeroVideo poster="/video/hero-poster.jpg" mp4="/video/hero.mp4" webm="/video/hero.webm" />
+    <!-- Mirrored so the client’s face sits on the right, clear of the text scrim; the crop follows her face on phones -->
+    <HeroVideo poster="/video/hero-poster.jpg" mp4="/video/hero.mp4" webm="/video/hero.webm" mirror position="24% center" />
     <div
       class="absolute inset-0 bg-linear-to-b from-ivory from-35% via-ivory/85 via-60% to-ivory/10 md:bg-linear-to-r md:from-ivory md:from-34% md:via-ivory/75 md:via-54% md:to-ivory/0"
       aria-hidden="true"></div>
