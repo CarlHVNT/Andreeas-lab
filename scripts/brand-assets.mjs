@@ -22,7 +22,7 @@ import { mkdir } from "node:fs/promises";
 const SRC = "src/assets/brand/logo-source.jpg";
 const OUT = "src/assets/brand";
 const PUBLIC = "public";
-const PORCELAIN = { r: 251, g: 247, b: 241 }; // the site’s ivory ground
+const PORCELAIN = { r: 251, g: 243, b: 240 }; // the site’s ivory ground (#FBF3F0)
 await mkdir(OUT, { recursive: true });
 
 // 1. Read pixels and remove the white background

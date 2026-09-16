@@ -34,12 +34,12 @@ Defined in `src/styles/global.css` (`@theme`). The default Tailwind palette is r
 
 | Token | Hex | Role | Contrast on Ivory |
 |---|---|---|---|
-| `ivory` | `#FBF7F1` | Page ground, warm white | ground |
+| `ivory` | `#FBF3F0` | Page ground, warm white with a hint of pink (nudged from `#FBF7F1` on 16 September at Carl’s request) | ground |
 | `linen` | `#EADCD8` | Hairlines, list rules, image placeholders | decorative |
 | `linen-deep` | `#DCC7C4` | Form field borders, the quotation mark | n/a |
-| `ink` | `#3F1120` | All headings and body text: deep burgundy | 14.9 : 1 |
-| `muted` | `#755760` | Secondary text: captions, durations, hours, footer | 6.0 : 1 (5.0 : 1 on Blush) |
-| `wine` | `#6A1B36` | The single action colour: WhatsApp buttons, links, focus rings, the mark, icons | 10.7 : 1, white on it 11.5 : 1 |
+| `ink` | `#3F1120` | All headings and body text: deep burgundy | 14.6 : 1 |
+| `muted` | `#755760` | Secondary text: captions, durations, hours, footer | 5.8 : 1 (5.0 : 1 on Blush) |
+| `wine` | `#6A1B36` | The single action colour: WhatsApp buttons, links, focus rings, the mark, icons | 10.5 : 1, white on it 11.5 : 1 |
 | `wine-deep` | `#4E1428` | Button hover only | n/a |
 | `blush` | `#F5DEE1` | Pale blush: the tinted band (“How it works”, the FAQ teaser), icon discs, quiet-button hover | ink on blush 12.5 : 1 |
 | `rose` | `#EFC9CF` | Deeper blush: the ornament’s shape, the orb behind the closing call | decorative |

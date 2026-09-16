@@ -4,7 +4,7 @@
   "description": "Body and face treatments in Dubai, with Andreea.",
   "start_url": "/",
   "display": "minimal-ui",
-  "background_color": "#FBF7F1",
+  "background_color": "#FBF3F0",
   "theme_color": "#6A1B36",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },

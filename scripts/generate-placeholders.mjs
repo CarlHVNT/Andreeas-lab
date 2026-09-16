@@ -19,7 +19,7 @@ const ASSETS = "src/assets/placeholders";
 await mkdir(ASSETS, { recursive: true });
 
 const C = {
-  ivory: "#FBF7F1",
+  ivory: "#FBF3F0",
   blush: "#F5DEE1",
   rose: "#EFC9CF",
   linen: "#EADCD8",
