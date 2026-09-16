@@ -41,8 +41,8 @@ export const SITE = {
    */
   contentStatus: "live" as "sample" | "live",
 
-  /** From the Instagram logo “Est. 2019” – confirm with Andreea */
-  established: "2019",
+  /** From the logotype, “Est. 2021” */
+  established: "2021",
 
   tagline: "Icoone body and face treatments in Dubai.",
   description:
@@ -67,6 +67,22 @@ export const SITE = {
       "UK certified",
     ],
     languages: ["English", "Romanian"],
+    /**
+     * Shown on the Specialisations & qualifications page.
+     * Confirm every line with Andreea; add certificates, issuers and years as she supplies them.
+     */
+    qualifications: [
+      { title: "Dubai Health Authority (DHA) certification", issuer: "Dubai Health Authority", year: "" },
+      { title: "KHDA certified training", issuer: "Knowledge and Human Development Authority, Dubai", year: "" },
+      { title: "Ministry of Health (MOH) certification", issuer: "UAE Ministry of Health and Prevention", year: "" },
+      { title: "Certified aesthetic and body therapies training", issuer: "United Kingdom", year: "" },
+      { title: "Icoone practitioner training", issuer: "Icoone, Italy", year: "" },
+    ],
+    /** Confirm with Andreea */
+    continuingEducation: [
+      "Dubai Derma, the dermatology and laser conference, attended each year",
+      "Ongoing training in lymphatic and post-surgical care",
+    ],
   },
 
   contact: {
@@ -152,8 +168,12 @@ export const SITE = {
   },
 
   results: {
-    /** Keep false until Andreea and the host clinic confirm DHA approval */
-    showBeforeAfters: false,
+    /**
+     * Before-and-after case studies are shown when true. DHA advertising rules
+     * apply to before/after photographs: publish only with written client
+     * consent and, where required, approval. Set false to hide them all.
+     */
+    showBeforeAfters: true,
   },
 
   analytics: {

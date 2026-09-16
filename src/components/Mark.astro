@@ -1,22 +1,23 @@
 ---
 /**
- * The ring-and-point mark, small, as a quiet ornament above section titles.
+ * A small ornament above section titles, in the logo’s own language:
+ * a pastel shape behind a single drawn line.
  */
 interface Props {
   class?: string;
   size?: number;
 }
-const { class: cls = "", size = 14 } = Astro.props;
+const { class: cls = "", size = 18 } = Astro.props;
 ---
 
 <svg
-  class:list={["block text-lab", cls]}
+  class:list={["block text-wine", cls]}
   width={size}
-  height={size}
-  viewBox="0 0 16 16"
+  height={Math.round(size * 0.78)}
+  viewBox="0 0 18 14"
   aria-hidden="true"
   focusable="false"
 >
-  <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5" />
-  <circle cx="8" cy="8" r="2" fill="currentColor" />
+  <circle cx="11" cy="7" r="6" class="fill-rose" />
+  <path d="M1 12.5C5.5 11 9.5 6.5 17 1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
 </svg>

@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import PhotoPair from "@/components/PhotoPair.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import Mark from "@/components/Mark.astro";
+import LineIcon from "@/components/icons/LineIcon.astro";
+import IconArrow from "@/components/icons/IconArrow.astro";
+import { SITE } from "@/site.config";
+import { photos } from "@/lib/photos";
+import { getTreatments, treatmentPath } from "@/lib/content";
+
+const { practitioner } = SITE;
+const treatments = await getTreatments();
+const href = (slug: string) => {
+  const t = treatments.find((x) => x.id === slug);
+  return t ? treatmentPath(t) : "/treatments";
+};
+
+const specialisations = [
+  {
+    icon: "leaf",
+    title: "Lymphatic drainage and de-bloating",
+    text: "Moving fluid the body is holding, from the ankles up and the arms in. The foundation of every course.",
+    slug: "lymphatic-drainage",
+  },
+  {
+    icon: "shield",
+    title: "Post-surgery recovery",
+    text: "Gentle, precise work after cosmetic and other surgery, planned around the surgeon’s timeline.",
+    slug: "post-surgery-recovery",
+  },
+  {
+    icon: "heart",
+    title: "Post-natal care",
+    text: "Unhurried drainage and, as you recover, work on the stomach and hips, at your pace.",
+    slug: "post-natal",
+  },
+  {
+    icon: "refresh",
+    title: "Skin firming and body remodelling",
+    text: "Cellulite, loose-feeling skin and stubborn areas, measured at the start and every few sessions.",
+    slug: "cellulite-skin-firming",
+  },
+  {
+    icon: "person",
+    title: "Icoone face",
+    text: "Puffiness, a softer jawline and tired skin, with the small facial rollers.",
+    slug: "face",
+  },
+] as const;
+---
+
+<BaseLayout
+  title="Specialisations & qualifications"
+  description={`What Andreea specialises in and how she is qualified: ${practitioner.credentials.join(", ")}. Icoone lymphatic drainage, post-surgery and post-natal recovery, skin firming and face treatments in Dubai.`}
+>
+  <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
+    <header class="md:col-span-6 md:pt-6">
+      <Mark class="mb-4" />
+      <h1 class="text-statement">Specialisations &amp; qualifications</h1>
+      <div class="voice mt-6">
+        <p>
+          I do a small number of things and I do them properly. Everything below is what I am trained for,
+          certified in and see every week in the room. If what you need is not on this page, I will say so and
+          point you to someone who does it well.
+        </p>
+      </div>
+    </header>
+    <div class="mt-10 md:col-span-5 md:col-start-8 md:mt-0">
+      <PhotoPair first={photos.device} second={photos.clinic} />
+    </div>
+  </section>
+
+  <Section title="Specialisations">
+    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
+      Five things, all with the Icoone method, all planned as a course.
+    </p>
+    <ul class="divide-y divide-linen border-y border-linen" role="list">
+      {
+        specialisations.map((s) => (
+          <li class="grid grid-cols-[2.75rem_1fr] gap-4 py-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
+              <LineIcon name={s.icon} class="h-5.5 w-5.5" />
+            </span>
+            <div>
+              <h3 class="text-title font-medium">{s.title}</h3>
+              <p class="mt-1.5 max-w-[52ch] text-muted">{s.text}</p>
+              <a href={href(s.slug)} class="link-arrow mt-2 text-[0.95rem]">
+                <span>The treatment</span>
+                <IconArrow class="h-4.5 w-4.5" />
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section title="Qualifications &amp; certifications">
+    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
+      {practitioner.title}. Certificates are available to see in the room.
+    </p>
+    <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
+      {
+        practitioner.qualifications.map((q) => (
+          <li class="grid gap-1 py-4 sm:grid-cols-[1fr_auto] sm:gap-6">
+            <div>
+              <p class="font-medium text-ink">{q.title}</p>
+              <p class="text-muted">{q.issuer}</p>
+            </div>
+            {q.year && <p class="text-muted tabular-nums">{q.year}</p>}
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section title="Continuing education">
+    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
+      What I tell you should be current, so I keep learning.
+    </p>
+    <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
+      {practitioner.continuingEducation.map((line) => <li class="py-3.5">{line}</li>)}
+    </ul>
+    <dl class="mt-8 grid gap-1 text-facts sm:grid-cols-[11rem_1fr] sm:gap-6">
+      <dt class="text-muted">Languages</dt>
+      <dd>{practitioner.languages.join(", ")}</dd>
+      <dt class="text-muted">In Dubai since</dt>
+      <dd>{practitioner.yearsInDubai} years</dd>
+    </dl>
+  </Section>
+
+  <section class="pt-18 md:pt-32">
+    <div class="mx-auto max-w-content px-5 md:px-6">
+      <div class="aspect-[21/9] overflow-hidden bg-linen">
+        <Image
+          src={photos.faceMapping.src}
+          alt={photos.faceMapping.alt}
+          widths={[640, 1024, 1290]}
+          sizes="100vw"
+          loading="lazy"
+          class="h-full w-full object-cover"
+          style={`object-position:${photos.faceMapping.position}`}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Ask me anything about my training."
+    text="If you want to know where I trained, what a certificate covers or whether I have worked with a case like yours, message me. Plain answers."
+  />
+</BaseLayout>

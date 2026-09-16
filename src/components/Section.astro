@@ -13,7 +13,7 @@ export interface Props {
   title?: string;
   /** Heading level for the title, h2 by default */
   heading?: "h1" | "h2";
-  tone?: "porcelain" | "mist";
+  tone?: "ivory" | "blush";
   /** Show the small ring-and-point mark above the title */
   ornament?: boolean;
   class?: string;
@@ -22,7 +22,7 @@ const {
   id,
   title,
   heading = "h2",
-  tone = "porcelain",
+  tone = "ivory",
   ornament = true,
   class: cls = "",
 } = Astro.props;
@@ -31,7 +31,7 @@ const Tag = heading;
 
 <section
   id={id}
-  class:list={[tone === "mist" ? "mt-18 bg-mist py-18 md:mt-32 md:py-32" : "pt-18 md:pt-32", cls]}
+  class:list={[tone === "blush" ? "mt-18 bg-blush py-18 md:mt-32 md:py-32" : "pt-18 md:pt-32", cls]}
 >
   <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:gap-6 md:px-6">
     <div class="md:col-span-5">

@@ -84,4 +84,35 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { treatments, faqs, testimonials };
+/**
+ * Case studies – one Markdown file per before-and-after case in src/content/case-studies.
+ * Photographs need the client’s written consent. The Markdown body holds Andreea’s notes.
+ */
+const caseStudies = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      /** Treatment file name this case belongs to */
+      treatmentSlug: z.string(),
+      /** What the client came in with, one line */
+      concern: z.string(),
+      sessions: z.number(),
+      /** e.g. "6 weeks" */
+      period: z.string(),
+      before: image(),
+      beforeAlt: z.string(),
+      after: image(),
+      afterAlt: z.string(),
+      /** Two or three plain sentences. No guarantees, no medical claims. */
+      summary: z.string(),
+      /** Written consent for publishing the photographs is on file */
+      consent: z.boolean().default(false),
+      /** True while the images are placeholders */
+      placeholderImages: z.boolean().default(false),
+      featured: z.boolean().default(false),
+      order: z.number().default(99),
+    }),
+});
+
+export const collections = { treatments, faqs, testimonials, caseStudies };

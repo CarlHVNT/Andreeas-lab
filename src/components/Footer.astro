@@ -1,9 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { SITE } from "@/site.config";
 import { addressInline } from "@/lib/address";
-import Logo from "./Logo.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
 import { getLocaleFromUrl, useTranslations, localizePath } from "@/i18n/ui";
+import stacked from "@/assets/brand/logo-stacked.png";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -11,29 +12,32 @@ const year = new Date().getFullYear();
 const { location, contact, footer } = SITE;
 
 const links = [
-  { href: localizePath("/treatments", locale), label: t("nav.treatments") },
   { href: localizePath("/about", locale), label: t("nav.about") },
-  { href: localizePath("/results", locale), label: t("nav.results") },
+  { href: localizePath("/qualifications", locale), label: t("nav.qualifications") },
+  { href: localizePath("/treatments", locale), label: t("nav.treatments") },
+  { href: localizePath("/case-studies", locale), label: t("nav.caseStudies") },
   { href: localizePath("/faq", locale), label: t("nav.faq") },
   { href: localizePath("/contact", locale), label: t("nav.contact") },
 ];
 ---
 
-<footer class="border-t border-stone">
+<footer class="border-t border-linen">
   <div class="mx-auto max-w-content px-5 py-12 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:py-16">
     <div class="md:col-span-5">
-      <Logo size="footer" />
-      <p class="mt-4 max-w-[36ch] text-meta text-graphite">{SITE.tagline}</p>
+      <a href="/" class="inline-block no-underline" aria-label={`${SITE.name}, home`}>
+        <Image src={stacked} alt={SITE.name} width={200} densities={[1, 2]} loading="lazy" class="w-44 md:w-48" />
+      </a>
+      <p class="mt-5 max-w-[36ch] text-meta text-muted">{SITE.tagline}</p>
       {
         footer.showAddress && (
-          <p class="mt-2 max-w-[44ch] text-meta text-graphite">
+          <p class="mt-2 max-w-[44ch] text-meta text-muted">
             {location.hostClinic ? `${t("footer.inside")} ${location.hostClinic}, ` : ""}
             {addressInline}.
             {location.makani && <span class="tabular-nums"> Makani {location.makani}.</span>}
           </p>
         )
       }
-      {footer.licenceLine && <p class="mt-2 max-w-[44ch] text-meta text-graphite">{footer.licenceLine}</p>}
+      {footer.licenceLine && <p class="mt-2 max-w-[44ch] text-meta text-muted">{footer.licenceLine}</p>}
     </div>
 
     <nav class="mt-10 md:col-span-3 md:col-start-7 md:mt-0" aria-label="Footer">
@@ -41,7 +45,7 @@ const links = [
         {
           links.map((l) => (
             <li>
-              <a href={l.href} class="font-sans text-facts text-ink no-underline hover:text-lab">
+              <a href={l.href} class="font-sans text-facts text-ink no-underline hover:text-wine">
                 {l.label}
               </a>
             </li>
@@ -55,7 +59,7 @@ const links = [
         <li>
           <a
             href={contact.instagramUrl}
-            class="inline-flex items-center gap-2 text-ink no-underline hover:text-lab"
+            class="inline-flex items-center gap-2 text-ink no-underline hover:text-wine"
             target="_blank"
             rel="noopener"
           >
@@ -64,31 +68,29 @@ const links = [
           </a>
         </li>
         <li>
-          <a href={`tel:${contact.whatsappNumber}`} class="text-ink no-underline tabular-nums hover:text-lab">
+          <a href={`tel:${contact.whatsappNumber}`} class="text-ink no-underline tabular-nums hover:text-wine">
             {contact.whatsappDisplay}
           </a>
         </li>
         {
           contact.email && (
             <li>
-              <a href={`mailto:${contact.email}`} class="text-ink no-underline hover:text-lab">
+              <a href={`mailto:${contact.email}`} class="text-ink no-underline hover:text-wine">
                 {contact.email}
               </a>
             </li>
           )
         }
       </ul>
-      <ul class="mt-6 flex gap-5 text-meta text-graphite">
-        <li><a href={localizePath("/privacy", locale)} class="no-underline hover:text-lab">{t("footer.privacy")}</a></li>
-        <li><a href={localizePath("/terms", locale)} class="no-underline hover:text-lab">{t("footer.terms")}</a></li>
+      <ul class="mt-6 flex gap-5 text-meta text-muted">
+        <li><a href={localizePath("/privacy", locale)} class="no-underline hover:text-wine">{t("footer.privacy")}</a></li>
+        <li><a href={localizePath("/terms", locale)} class="no-underline hover:text-wine">{t("footer.terms")}</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="border-t border-stone">
-    <div
-      class="mx-auto flex max-w-content flex-wrap gap-x-6 gap-y-1.5 px-5 py-4 text-meta text-graphite md:px-6"
-    >
+  <div class="border-t border-linen">
+    <div class="mx-auto flex max-w-content flex-wrap gap-x-6 gap-y-1.5 px-5 py-4 text-meta text-muted md:px-6">
       <span>
         © {year} {SITE.name}{SITE.established && `, est. ${SITE.established}`}. {location.city}.
       </span>

@@ -20,7 +20,7 @@ const { title, description, lede, updated, noindex = false } = Astro.props;
     <header class="md:col-span-8">
       <h1 class="text-statement">{title}</h1>
       {lede && <p class="voice mt-5">{lede}</p>}
-      {updated && <p class="mt-4 text-meta text-graphite">Last updated {updated}</p>}
+      {updated && <p class="mt-4 text-meta text-muted">Last updated {updated}</p>}
     </header>
     <div class="facts mt-10 md:col-span-8 md:mt-12">
       <slot />
