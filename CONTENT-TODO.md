@@ -110,11 +110,29 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
 
 ## Logo and icons
 
-- [ ] Her real mark and script wordmark as SVG. Replace the inline mark in `src/components/Logo.astro`,
-      `public/favicon.svg`, then regenerate `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`
-      (or run `npm run placeholders` after editing the favicon) and rebuild `og-default.jpg`.
-- [ ] Decide whether the header shows the script wordmark or the typeset name (typeset is recommended
-      for legibility at small sizes; the mark can sit beside it).
+- [x] The real logotype is in place (16 September 2026): header lockup, footer, favicons and share image,
+      all built by `scripts/brand-assets.mjs` from `src/assets/brand/logo-source.jpg`.
+- [ ] Ask Andreea for the logo as a vector (SVG, AI or PDF) or a large transparent PNG. The current
+      source is a 1021 px JPEG, which is fine for the header but soft if the logo is ever shown large.
+
+## Specialisations & qualifications (`/qualifications`, data in `site.config.ts` → `practitioner`)
+
+- [ ] `qualifications`: five sample lines built from the Instagram bio (DHA, KHDA, MOH, UK) plus an
+      assumed Icoone practitioner training. Confirm each title and issuer, add years, remove any that
+      do not exist, and add what is missing.
+- [ ] `continuingEducation`: two sample lines (Dubai Derma attendance from her Instagram, ongoing
+      lymphatic training). Confirm.
+- [ ] The five specialisations and their one-line descriptions in `src/pages/qualifications.astro`.
+
+## Before-and-after case studies (`src/content/case-studies/*.md`)
+
+- [ ] **Three sample cases with placeholder photographs.** The text describes a plausible plan and
+      says notes will follow; the images are labelled placeholders and each card says “Photographs to
+      follow with the client’s consent.” Replace with real cases: real photographs, `consent: true`,
+      `placeholderImages: false`, and Andreea’s own notes in the Markdown body.
+- [ ] **DHA.** Before/after photographs in healthcare advertising need the client’s written consent and
+      may need approval. Confirm with the licence holder before any real photograph goes live.
+      `results.showBeforeAfters` in `site.config.ts` hides every case if needed.
 
 ## Legal (`src/pages/privacy.astro`, `src/pages/terms.astro`)
 

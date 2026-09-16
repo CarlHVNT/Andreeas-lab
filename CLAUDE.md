@@ -28,7 +28,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 | What | Where |
 |---|---|
 | Brand, contact, WhatsApp message, hours, location, policies, analytics IDs, flags | `src/site.config.ts` |
-| Treatments, FAQs, testimonials (Markdown + typed frontmatter) | `src/content/treatments`, `faqs`, `testimonials`; schemas in `src/content.config.ts` |
+| Treatments, FAQs, testimonials, before/after case studies (Markdown + typed frontmatter) | `src/content/treatments`, `faqs`, `testimonials`, `case-studies`; schemas in `src/content.config.ts` |
+| Qualifications, continuing education, specialisation copy | `site.config.ts` → `practitioner`; `src/pages/qualifications.astro` |
 | Design tokens (colours, type scale, radius, easing) | `src/styles/global.css` `@theme` block, documented in `DESIGN.md` |
 | Page shell, fonts, metadata, JSON-LD, header, footer, sticky bar | `src/layouts/BaseLayout.astro` |
 | Legal/prose pages | `src/layouts/ProsePage.astro` |
@@ -45,9 +46,14 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 
 - **Voice and facts.** Serif (`font-serif`, `.voice`) for what Andreea says: headlines, prose, quotes.
   Sans (`font-sans`, `.facts`) for what the lab records: lists, prices, hours, forms, buttons.
-- **One green thing per screen.** `lab` green is for the WhatsApp action, links and focus only.
-  Never a decorative background. `mist` is allowed for one band per page (`Section tone="mist"`).
+- **Blush, burgundy, ivory.** Tokens: `ivory` (ground), `linen`/`linen-deep` (hairlines, fields),
+  `ink` (deep burgundy text), `muted` (secondary text), `wine`/`wine-deep` (the single action colour:
+  buttons, links, focus, icons), `blush` (the pale band, `Section tone="blush"`, icon discs), `rose`
+  (ornament shape, one orb). The logo is the only object outside this palette.
 - **Only the palette.** The default Tailwind palette is removed in `@theme`. Do not add colours.
+- **Logo assets** come from `scripts/brand-assets.mjs` (source `src/assets/brand/logo-source.jpg`):
+  header lockup, footer stacked logo, favicons, share image. Replace the PNGs directly if a vector
+  logo arrives.
 - **Left aligned, one edge.** No centred text. Sections use `Section.astro` (5/7 split at `md`).
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows and no
   `rounded-*` beyond `rounded-ui` on buttons and inputs and the discs behind icons and step numbers.
@@ -66,6 +72,13 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
 - **Every page ends with `CtaBand`** except the contact page.
+- **Site structure (Andreea’s brief, 16 Sep 2026):** About me, Specialisations & qualifications,
+  Treatments with before/after case studies, FAQ, Contact. Home is the landing page and mirrors that
+  order. `/results` redirects to `/case-studies`. Header nav labels: About me, Qualifications,
+  Treatments, FAQ, Contact; the footer adds Before & after.
+- **Case studies** use `CaseStudyCard`. Photographs only with `consent: true`; while
+  `placeholderImages: true` the card says photographs will follow. `SITE.results.showBeforeAfters`
+  hides every case at once if DHA approval is withdrawn.
 
 ## Content rules
 
