@@ -46,7 +46,7 @@ export const SITE = {
 
   tagline: "Body and face treatments in Dubai, with Andreea.",
   description:
-    "Andreea’s Lab, Dubai: lymphatic drainage, skin firming, body remodelling and post-surgery recovery with Icoone. One licensed practitioner, every session with Andreea.",
+    "Body and face treatments in Dubai from a DHA-licensed beauty therapist: Icoone lymphatic drainage, skin firming, body remodelling and post-surgery recovery. Every session with Andreea.",
 
   practitioner: {
     firstName: "Andreea",

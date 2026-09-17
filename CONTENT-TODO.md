@@ -43,8 +43,10 @@ pricing, and any wording that could read as a medical claim.
       the sentence-case subtitle “The professional behind Andreea’s Lab.”, and one dash became a colon.
 - [x] About “Where I trained”: Andreea’s own copy, 17 September 2026, with a facts list built from the
       `practitioner` block and a link to the qualifications page.
-- [x] Home “About me” paragraph now uses her intro sentences (17 September 2026). The unconfirmed
-      “opened Andreea’s Lab in 2019” line is gone from the home page; `established` still shows in the footer.
+- [x] Home page (17 September 2026): the hero names her as a DHA-licensed beauty therapist and lists her
+      specialisms in her words; the “About me” band carries her intro and approach paragraphs; the meta
+      description follows. The unconfirmed “opened Andreea’s Lab in 2019” line is gone from the home page;
+      `established` still shows in the footer.
 - [ ] About page, remaining sections (“Why Icoone”, “How I plan a programme”): “thirty-minute
       consultation”, “measure again every few sessions”, “I do not offer injectables”. Still sample
       first-person copy; ask Andreea for her facts.
