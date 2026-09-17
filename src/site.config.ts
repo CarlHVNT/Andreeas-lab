@@ -52,19 +52,25 @@ export const SITE = {
     firstName: "Andreea",
     /** PLACEHOLDER */
     fullName: "Andreea Popescu",
-    /** PLACEHOLDER – exact wording from her licence */
-    title: "Licensed aesthetic practitioner",
-    /** From the Instagram bio “10+ yrs in Dubai” – confirm */
+    /** From Andreea, 17 September 2026: “DHA Licensed Beauty Therapist” */
+    title: "DHA-licensed beauty therapist",
+    /** From Andreea: more than ten years living and working in the UAE */
     yearsInDubai: "10+",
     /**
-     * From the Instagram bio “DHA & KHDA & MOH & UK certified”.
-     * Confirm the exact wording and what each certificate covers before launch.
+     * Training and qualifications, from Andreea, 17 September 2026. The Instagram
+     * bio also says “KHDA & MOH certified”; her copy does not, so they are not listed.
      */
     credentials: [
-      "DHA certified",
-      "KHDA certified",
-      "MOH certified",
-      "UK certified",
+      "ITEC Level 3 qualification (UK)",
+      "Professional beauty therapy training at The Nordic International Beauty & Training Centre, UAE",
+    ],
+    /** From Andreea, 17 September 2026 */
+    specialisations: [
+      "Advanced facials",
+      "Acne treatments",
+      "Facial massage and sculpting",
+      "Lymphatic therapies",
+      "Icoone Medical",
     ],
     languages: ["English", "Romanian"],
   },

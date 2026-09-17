@@ -24,15 +24,28 @@ pricing, and any wording that could read as a medical claim.
 ## Andreea and credentials
 
 - [ ] Full name: `practitioner.fullName` (currently “Andreea Popescu”, invented).
-- [ ] Exact professional title as it appears on her licence: `practitioner.title`.
-- [ ] Certifications and what each covers: `practitioner.credentials`. The Instagram bio says
-      “DHA & KHDA & MOH & UK certified”; confirm wording and whether any are licences rather than certificates.
-- [ ] Years in Dubai: `practitioner.yearsInDubai` (bio says “10+”).
+- [x] Professional title: “DHA Licensed Beauty Therapist”, from Andreea on 17 September 2026, set as
+      “DHA-licensed beauty therapist” in `practitioner.title` (home “Licensed and certified” fact, About
+      “Qualification” row, structured data).
+- [x] Training and qualifications, from Andreea on 17 September 2026: ITEC Level 3 (UK) and professional
+      beauty therapy training at The Nordic International Beauty & Training Centre, UAE
+      (`practitioner.credentials`), plus her specialisations (`practitioner.specialisations`).
+- [ ] The Instagram bio also says “KHDA & MOH certified”. Andreea’s copy does not name them, so they are
+      no longer shown. Ask whether to add them, and with what exact wording.
+- [ ] “Acne treatments” appears among her specialisations, in her own words. Ask the licence holder to
+      confirm the wording sits within the no-medical-claims rule before launch.
+- [x] Years in the UAE: “more than ten years”, confirmed in Andreea’s About copy (`practitioner.yearsInDubai`).
 - [ ] Year established: `established` (logo says “Est. 2019”).
 - [ ] Languages: `practitioner.languages` (English, Romanian assumed; add Russian/Arabic if relevant).
-- [ ] About page (`src/pages/about.astro`): “trained in the United Kingdom and Romania”, “I go to the
-      dermatology and aesthetics conferences in Dubai”, “thirty-minute consultation”, “measure again every
-      few sessions”, “I do not offer injectables”. All sample first-person copy to be rewritten with her facts.
+- [x] About page intro (`src/pages/about.astro`): replaced with Andreea’s own copy on 17 September 2026
+      (aesthetic professional in Dubai, advanced facial and body treatments, skin health, facial sculpting,
+      aesthetic technologies, more than ten years in the UAE). Two fitting edits: her title-case line became
+      the sentence-case subtitle “The professional behind Andreea’s Lab.”, and one dash became a colon.
+- [x] About “Where I trained”: Andreea’s own copy, 17 September 2026, with a facts list built from the
+      `practitioner` block.
+- [ ] About page, remaining sections (“Why Icoone”, “How I plan a programme”): “thirty-minute
+      consultation”, “measure again every few sessions”, “I do not offer injectables”. Still sample
+      first-person copy; ask Andreea for her facts.
 - [ ] Optional licence line for the footer: `footer.licenceLine`, e.g. “Treatments are provided under
       the licence of … , DHA licence no. …”. Confirm with the clinic whether it is required.
 

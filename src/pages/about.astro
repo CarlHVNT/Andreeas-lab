@@ -15,21 +15,28 @@ const { practitioner, location } = SITE;
 
 <BaseLayout
   title="About Andreea"
-  description={`Andreea is a ${practitioner.title.toLowerCase()} in Dubai. One expert, every session. How she trained, why Icoone, and how she plans a programme.`}
+  description="Andreea is a DHA-licensed beauty therapist in Dubai: advanced facial and body treatments, skin health, facial sculpting and aesthetic technologies. Personal, practical and honest."
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-5 md:pt-6">
       <Mark class="mb-4" />
-      <h1 class="text-statement">I’m Andreea. You will see me at every session.</h1>
+      <!-- Andreea’s own words (17 September 2026). Edit here when she sends changes. -->
+      <h1 class="text-statement">I’m Andreea.</h1>
+      <p class="mt-3 font-serif text-title">The professional behind Andreea’s Lab.</p>
       <div class="voice mt-6">
         <p>
-          I have lived and worked in Dubai for more than ten years and opened Andreea’s Lab in {SITE.established}.
-          I run a single treatment room at {venue} in {location.area}, and I do a small number of things
-          properly rather than a long menu of things quickly.
+          I’m an aesthetic professional based in Dubai, specialising in advanced facial and body treatments, skin
+          health, facial sculpting and aesthetic technologies. I have lived and worked in the UAE for more than ten
+          years.
         </p>
         <p>
-          The word lab is not decoration. I read the research, I measure, and I tell you what I see. Beauty with
-          brain and heart, no hype.
+          I believe good results start with understanding the person, not simply choosing a treatment. My approach
+          is personal, practical and honest: I look at what you want to improve, what is suitable for you, and what
+          can realistically achieve the best result.
+        </p>
+        <p>
+          Andreea’s Lab brings together my work with clients and the professional knowledge I have built throughout
+          my career in the beauty and aesthetics industry.
         </p>
       </div>
     </header>
@@ -48,24 +55,34 @@ const { practitioner, location } = SITE;
   </section>
 
   <Section title="Where I trained">
+    <!-- Andreea’s own words (17 September 2026). Edit here when she sends changes. -->
     <div class="voice">
       <p>
-        I trained in aesthetics and body therapies in the United Kingdom and Romania, and I hold certifications
-        recognised by the Dubai Health Authority, the KHDA and the UAE Ministry of Health. I keep training every
-        year, and I go to the dermatology and aesthetics conferences in Dubai so that what I tell you is current.
+        I completed my professional beauty therapy training in the UAE at The Nordic International Beauty &amp;
+        Training Centre, including an ITEC Level 3 UK qualification, alongside professional training recognised
+        within the UAE regulatory framework.
+      </p>
+      <p>
+        My professional focus is advanced facial and acne treatments, facial massage and sculpting techniques,
+        lymphatic therapies, and Icoone Medical treatments. I continue to develop my skills through specialised
+        hands-on training and professional education in the UAE and internationally.
       </p>
     </div>
     <ul class="mt-8 divide-y divide-stone border-y border-stone text-facts" role="list">
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Role</span>
+        <span class="text-graphite">Qualification</span>
         <span>{practitioner.title}</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Certifications</span>
-        <span>{practitioner.credentials.join(", ")}</span>
+        <span class="text-graphite">Training</span>
+        <span>{practitioner.credentials.map((c) => <span class="block">{c}</span>)}</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">In Dubai since</span>
+        <span class="text-graphite">Specialisations</span>
+        <span>{practitioner.specialisations.join(" · ")}</span>
+      </li>
+      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+        <span class="text-graphite">In the UAE</span>
         <span>{practitioner.yearsInDubai} years</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
