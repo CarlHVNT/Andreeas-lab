@@ -104,15 +104,16 @@ const specialisations = practitioner.specialisations.map((name) => {
   <!-- 1. About me: arched portrait left; who she is and why her, right. White band. -->
   <section id="about" class="band bg-white">
     <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6">
+      <!-- The same portrait as the About page, so the two read as one person and one place -->
       <figure class="arch aspect-[4/5] bg-linen md:col-span-5">
         <Image
-          src={photos.bowl.src}
-          alt={photos.bowl.alt}
+          src={photos.tunic.src}
+          alt={photos.tunic.alt}
           widths={[480, 768, 1024]}
           sizes="(min-width: 768px) 40vw, 100vw"
           loading="lazy"
           class="h-full w-full object-cover"
-          style={`object-position:${photos.bowl.position}`}
+          style={`object-position:${photos.tunic.position}`}
         />
       </figure>
       <div class="mt-8 md:col-span-6 md:col-start-7 md:mt-0 md:pt-4">
