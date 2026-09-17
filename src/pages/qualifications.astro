@@ -10,6 +10,7 @@ import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { getTreatments, treatmentPath } from "@/lib/content";
+import { specialisationMeta } from "@/lib/specialisations";
 
 const { practitioner } = SITE;
 const treatments = await getTreatments();
@@ -18,38 +19,10 @@ const href = (slug: string) => {
   return t ? treatmentPath(t) : "/treatments";
 };
 
-const specialisations = [
-  {
-    icon: "leaf",
-    title: "Lymphatic drainage and de-bloating",
-    text: "Moving fluid the body is holding, from the ankles up and the arms in. The foundation of every programme.",
-    slug: "lymphatic-drainage",
-  },
-  {
-    icon: "shield",
-    title: "Post-surgery recovery",
-    text: "Gentle, precise work after cosmetic and other surgery, planned around the surgeon’s timeline.",
-    slug: "post-surgery-recovery",
-  },
-  {
-    icon: "heart",
-    title: "Post-natal care",
-    text: "Unhurried drainage and, as you recover, work on the stomach and hips, at your pace.",
-    slug: "post-natal",
-  },
-  {
-    icon: "refresh",
-    title: "Skin firming and body remodelling",
-    text: "Cellulite, loose-feeling skin and stubborn areas, measured at the start and every few sessions.",
-    slug: "cellulite-skin-firming",
-  },
-  {
-    icon: "person",
-    title: "Icoone face",
-    text: "Puffiness, a softer jawline and tired skin, with the small facial rollers.",
-    slug: "face",
-  },
-] as const;
+const specialisations = practitioner.specialisations.map((name) => {
+  const m = specialisationMeta(name);
+  return { name, icon: m.icon, href: m.href ?? (m.treatmentSlug ? href(m.treatmentSlug) : undefined) };
+});
 ---
 
 <BaseLayout
@@ -75,22 +48,23 @@ const specialisations = [
 
   <Section title="Specialisations">
     <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      Five things, all with the Icoone method, all planned as a programme.
+      In Andreea’s own words. Where a specialisation is a treatment on this site, it is linked.
     </p>
     <ul class="divide-y divide-linen border-y border-linen" role="list">
       {
         specialisations.map((s) => (
-          <li class="grid grid-cols-[2.75rem_1fr] gap-4 py-5">
+          <li class="grid grid-cols-[2.75rem_1fr] items-center gap-4 py-4">
             <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
               <LineIcon name={s.icon} class="h-5.5 w-5.5" />
             </span>
-            <div>
-              <h3 class="text-title font-medium">{s.title}</h3>
-              <p class="mt-1.5 max-w-[52ch] text-muted">{s.text}</p>
-              <a href={href(s.slug)} class="link-arrow mt-2 text-[0.95rem]">
-                <span>The treatment</span>
-                <IconArrow class="h-4.5 w-4.5" />
-              </a>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h3 class="text-title font-medium">{s.name}</h3>
+              {s.href && (
+                <a href={s.href} class="link-arrow text-[0.95rem]">
+                  <span>{s.href === "/treatments" ? "All treatments" : "The treatment"}</span>
+                  <IconArrow class="h-4.5 w-4.5" />
+                </a>
+              )}
             </div>
           </li>
         ))
@@ -100,7 +74,7 @@ const specialisations = [
 
   <Section title="Qualifications &amp; certifications">
     <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      {practitioner.title}. Certificates are available to see in the room.
+      {practitioner.title}.
     </p>
     <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
       {
@@ -127,7 +101,7 @@ const specialisations = [
     <dl class="mt-8 grid gap-1 text-facts sm:grid-cols-[11rem_1fr] sm:gap-6">
       <dt class="text-muted">Languages</dt>
       <dd>{practitioner.languages.join(", ")}</dd>
-      <dt class="text-muted">In Dubai since</dt>
+      <dt class="text-muted">In the UAE</dt>
       <dd>{practitioner.yearsInDubai} years</dd>
     </dl>
   </Section>

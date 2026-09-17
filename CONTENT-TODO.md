@@ -42,7 +42,9 @@ pricing, and any wording that could read as a medical claim.
       aesthetic technologies, more than ten years in the UAE). Two fitting edits: her title-case line became
       the sentence-case subtitle “The professional behind Andreea’s Lab.”, and one dash became a colon.
 - [x] About “Where I trained”: Andreea’s own copy, 17 September 2026, with a facts list built from the
-      `practitioner` block.
+      `practitioner` block and a link to the qualifications page.
+- [x] Home “About me” paragraph now uses her intro sentences (17 September 2026). The unconfirmed
+      “opened Andreea’s Lab in 2019” line is gone from the home page; `established` still shows in the footer.
 - [ ] About page, remaining sections (“Why Icoone”, “How I plan a programme”): “thirty-minute
       consultation”, “measure again every few sessions”, “I do not offer injectables”. Still sample
       first-person copy; ask Andreea for her facts.
@@ -148,12 +150,21 @@ email interest for her courses and holds one video. The WhatsApp group idea is p
 
 ## Specialisations & qualifications (`/qualifications`, data in `site.config.ts` → `practitioner`)
 
-- [ ] `qualifications`: five sample lines built from the Instagram bio (DHA, KHDA, MOH, UK) plus an
-      assumed Icoone practitioner training. Confirm each title and issuer, add years, remove any that
-      do not exist, and add what is missing.
-- [ ] `continuingEducation`: two sample lines (Dubai Derma attendance from her Instagram, ongoing
-      lymphatic training). Confirm.
-- [ ] The five specialisations and their one-line descriptions in `src/pages/qualifications.astro`.
+- [x] `qualifications`: now Andreea’s confirmed list (17 September 2026): licensed beauty therapist (DHA),
+      ITEC Level 3 qualification (UK), professional beauty therapy training at The Nordic International
+      Beauty & Training Centre, UAE. Years still to add.
+- [ ] Removed until she confirms them: “KHDA certified training”, “Ministry of Health (MOH) certification”
+      (both from the Instagram bio) and an assumed “Icoone practitioner training”. Ask Andreea whether each
+      exists, with the exact title, issuer and year.
+- [ ] The qualifications page no longer says “Certificates are available to see in the room”. Ask whether
+      that is true and wanted.
+- [x] `continuingEducation`: now Andreea’s own line (“specialised hands-on training and professional
+      education in the UAE and internationally”). Add named courses and years as she supplies them.
+- [x] Specialisations: the lists on the qualifications page and the home page now come from
+      `practitioner.specialisations`, in Andreea’s words (advanced facials, acne treatments, facial massage
+      and sculpting, lymphatic therapies, Icoone Medical). Icons and links live in `src/lib/specialisations.ts`.
+- [ ] Advanced facials, acne treatments and facial massage and sculpting have no treatment page yet. Ask
+      Andreea whether they are bookable services to add to Treatments, with duration and price.
 
 ## Before-and-after case studies (`src/content/case-studies/*.md`)
 

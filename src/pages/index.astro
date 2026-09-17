@@ -21,6 +21,7 @@ import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { addressLines } from "@/lib/address";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
+import { specialisationMeta } from "@/lib/specialisations";
 import {
   getFeaturedTreatments,
   getFeaturedCaseStudies,
@@ -64,13 +65,11 @@ const why = [
   },
 ] as const;
 
-const specialisations = [
-  { icon: "leaf", title: "Lymphatic drainage and de-bloating" },
-  { icon: "shield", title: "Post-surgery recovery" },
-  { icon: "heart", title: "Post-natal care" },
-  { icon: "refresh", title: "Skin firming and body remodelling" },
-  { icon: "person", title: "Icoone face" },
-] as const;
+const specialisations = practitioner.specialisations.map((name) => {
+  const m = specialisationMeta(name);
+  const linked = m.treatmentSlug ? treatmentFor(m.treatmentSlug) : undefined;
+  return { name, icon: m.icon, href: m.href ?? (linked ? treatmentPath(linked) : undefined) };
+});
 ---
 
 <BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
@@ -121,8 +120,9 @@ const specialisations = [
         <h2 class="text-statement">About me</h2>
         <div class="voice mt-6">
           <p>
-            I’m Andreea. I have lived and worked in Dubai for more than ten years, and I opened Andreea’s Lab in{" "}
-            {SITE.established} to do a small number of things properly rather than a long menu of things quickly.
+            I’m Andreea, an aesthetic professional based in Dubai, specialising in advanced facial and body
+            treatments, skin health, facial sculpting and aesthetic technologies. I have lived and worked in the
+            UAE for more than ten years.
           </p>
         </div>
         <ul class="mt-8 divide-y divide-linen border-y border-linen" role="list">
@@ -152,7 +152,7 @@ const specialisations = [
   <Section id="qualifications" title="Specialisations &amp; qualifications">
     <div slot="statement" class="mt-5 grid gap-5">
       <p class="voice max-w-[34ch]">
-        {practitioner.title}. {practitioner.credentials.join(", ")}.
+        {practitioner.title}. {practitioner.credentials.join(". ")}.
       </p>
       <a href="/qualifications" class="link-arrow">
         <span>Training and certificates</span>
@@ -166,7 +166,7 @@ const specialisations = [
             <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
               <LineIcon name={s.icon} class="h-5.5 w-5.5" />
             </span>
-            <h3 class="text-title font-medium">{s.title}</h3>
+            <h3 class="text-title font-medium">{s.name}</h3>
           </li>
         ))
       }

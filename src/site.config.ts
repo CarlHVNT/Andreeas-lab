@@ -74,20 +74,23 @@ export const SITE = {
     ],
     languages: ["English", "Romanian"],
     /**
-     * Shown on the Specialisations & qualifications page.
-     * Confirm every line with Andreea; add certificates, issuers and years as she supplies them.
+     * Shown on the Specialisations & qualifications page. From Andreea, 17 September 2026.
+     * Keep in step with `credentials` above; add years as she supplies them. The Instagram
+     * bio’s “KHDA & MOH certified” and an Icoone practitioner certificate are not listed
+     * until she confirms them.
      */
     qualifications: [
-      { title: "Dubai Health Authority (DHA) certification", issuer: "Dubai Health Authority", year: "" },
-      { title: "KHDA certified training", issuer: "Knowledge and Human Development Authority, Dubai", year: "" },
-      { title: "Ministry of Health (MOH) certification", issuer: "UAE Ministry of Health and Prevention", year: "" },
-      { title: "Certified aesthetic and body therapies training", issuer: "United Kingdom", year: "" },
-      { title: "Icoone practitioner training", issuer: "Icoone, Italy", year: "" },
+      { title: "Licensed beauty therapist", issuer: "Dubai Health Authority (DHA)", year: "" },
+      { title: "ITEC Level 3 qualification", issuer: "ITEC, United Kingdom", year: "" },
+      {
+        title: "Professional beauty therapy training",
+        issuer: "The Nordic International Beauty & Training Centre, UAE",
+        year: "",
+      },
     ],
-    /** Confirm with Andreea */
+    /** From Andreea, 17 September 2026. Add named courses and years as she supplies them. */
     continuingEducation: [
-      "Dubai Derma, the dermatology and laser conference, attended each year",
-      "Ongoing training in lymphatic and post-surgical care",
+      "Specialised hands-on training and professional education in the UAE and internationally, ongoing",
     ],
   },
 
