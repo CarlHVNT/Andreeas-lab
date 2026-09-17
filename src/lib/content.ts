@@ -46,3 +46,21 @@ export async function getFeaturedTestimonials(limit = 3) {
   const featured = all.filter((t) => t.data.featured);
   return (featured.length ? featured : all).slice(0, limit);
 }
+
+/** All case studies in display order */
+export async function getCaseStudies() {
+  const all = await getCollection("caseStudies");
+  return all.sort((a, b) => a.data.order - b.data.order);
+}
+
+export async function getFeaturedCaseStudies(limit = 3) {
+  const all = await getCaseStudies();
+  const featured = all.filter((c) => c.data.featured);
+  return (featured.length ? featured : all).slice(0, limit);
+}
+
+/** Case studies for one treatment */
+export async function getCaseStudiesFor(treatmentSlug: string) {
+  const all = await getCaseStudies();
+  return all.filter((c) => c.data.treatmentSlug === treatmentSlug);
+}

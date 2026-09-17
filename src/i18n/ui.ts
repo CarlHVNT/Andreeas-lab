@@ -27,9 +27,11 @@ export const localeNames: Record<Locale, string> = {
 
 const en = {
   "nav.home": "Home",
+  "nav.about": "About me",
+  "nav.qualifications": "Qualifications",
   "nav.treatments": "Treatments",
-  "nav.about": "About",
-  "nav.results": "Results",
+  "nav.caseStudies": "Before & after",
+  "nav.results": "Before & after",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
   "nav.menu": "Menu",

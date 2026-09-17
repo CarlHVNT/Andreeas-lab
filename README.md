@@ -118,6 +118,32 @@ needed before turning them on.
 Only once the clinic’s licence holder has confirmed they are allowed. In `src/site.config.ts` set
 `showBeforeAfters: true` under `results`. The section on the Results page then appears.
 
+## Add a before-and-after case study
+
+1. In `src/content/case-studies/`, copy an existing file and rename it, for example `body-02.md`.
+2. Fill in `title`, `treatmentSlug` (the treatment file name), `concern`, `sessions`, `period` and a
+   two-sentence `summary`. Keep it factual: what you did, how many sessions, what was measured.
+3. Put the two photographs in `src/assets/placeholders/` (or a folder of your choice) and point
+   `before` and `after` at them. Photograph in the same light, same distance, same time of day.
+4. Set `consent: true` only once the client’s written permission is on file, and
+   `placeholderImages: false` so the “photographs to follow” note disappears.
+5. `featured: true` shows it on the home page (the first three) and the treatments page (the first two).
+
+Before/after photographs are regulated by the DHA. If ever asked to take them down, set
+`showBeforeAfters: false` under `results` in `src/site.config.ts` and every case disappears at once.
+
+## Change the logo
+
+The logo files are built from `src/assets/brand/logo-source.jpg`. To update the logo, replace that
+file with the new version on a white background and run:
+
+```bash
+node scripts/brand-assets.mjs
+```
+
+This rebuilds the header lockup, the footer logo, the browser icons and the share image. If you have
+the logo as an SVG or a transparent PNG, a developer can drop those in directly instead.
+
 ## Change the hero video
 
 The moving background on the home page is two video files and a still image in `public/video/`:

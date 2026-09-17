@@ -6,6 +6,7 @@ import PhotoPair from "@/components/PhotoPair.astro";
 import InstagramGrid from "@/components/InstagramGrid.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
+import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { venue } from "@/lib/address";
@@ -40,7 +41,7 @@ const { practitioner, location } = SITE;
         </p>
       </div>
     </header>
-    <figure class="arch mt-10 aspect-[4/5] bg-stone md:col-span-6 md:col-start-7 md:mt-0">
+    <figure class="arch mt-10 aspect-[4/5] bg-linen md:col-span-6 md:col-start-7 md:mt-0">
       <Image
         src={photos.tunic.src}
         alt={photos.tunic.alt}
@@ -68,28 +69,28 @@ const { practitioner, location } = SITE;
         hands-on training and professional education in the UAE and internationally.
       </p>
     </div>
-    <ul class="mt-8 divide-y divide-stone border-y border-stone text-facts" role="list">
+    <ul class="mt-8 divide-y divide-linen border-y border-linen text-facts" role="list">
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Qualification</span>
+        <span class="text-muted">Qualification</span>
         <span>{practitioner.title}</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Training</span>
-        <span>{practitioner.credentials.map((c) => <span class="block">{c}</span>)}</span>
-      </li>
-      <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Specialisations</span>
+        <span class="text-muted">Specialisations</span>
         <span>{practitioner.specialisations.join(" · ")}</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">In the UAE</span>
+        <span class="text-muted">In the UAE</span>
         <span>{practitioner.yearsInDubai} years</span>
       </li>
       <li class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-        <span class="text-graphite">Languages</span>
+        <span class="text-muted">Languages</span>
         <span>{practitioner.languages.join(", ")}</span>
       </li>
     </ul>
+    <a href="/qualifications" class="link-arrow mt-6">
+      <span>Specialisations and qualifications in full</span>
+      <IconArrow class="h-4.5 w-4.5" />
+    </a>
   </Section>
 
   <Section title="Why Icoone" tone="white">
@@ -120,7 +121,7 @@ const { practitioner, location } = SITE;
       </p>
     </div>
     <figure class="mt-10">
-      <div class="aspect-[4/3] overflow-hidden bg-stone">
+      <div class="aspect-[4/3] overflow-hidden bg-linen">
         <Image
           src={photos.clinic.src}
           alt={photos.clinic.alt}
@@ -131,13 +132,13 @@ const { practitioner, location } = SITE;
           style="object-position:center 45%"
         />
       </div>
-      <figcaption class="mt-3 text-meta text-graphite">
+      <figcaption class="mt-3 text-meta text-muted">
         The room at {venue}, {location.area}.
       </figcaption>
     </figure>
   </Section>
 
-  <Section title="On Instagram" tone="mist">
+  <Section title="On Instagram" tone="blush">
     <p slot="statement" class="voice mt-4 max-w-[34ch]">
       Case studies, real talk and what I am reading. No hype.
     </p>

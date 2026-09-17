@@ -6,17 +6,24 @@
  * page stays fast. The video files are attached only after the page has
  * finished loading, and never when the visitor prefers reduced motion or has
  * asked their browser to save data. The video is decorative and silent.
+ *
+ * `mirror` flips the footage horizontally (useful when the subject sits on the
+ * side the text scrim covers). `position` is the CSS object-position of the
+ * crop, given in the footage’s own coordinates before any mirroring.
  */
 interface Props {
   poster: string;
   mp4: string;
   webm: string;
+  mirror?: boolean;
+  position?: string;
   class?: string;
 }
-const { poster, mp4, webm, class: cls = "" } = Astro.props;
+const { poster, mp4, webm, mirror = false, position = "center", class: cls = "" } = Astro.props;
+const fit = `object-position:${position}`;
 ---
 
-<div class:list={["absolute inset-0 overflow-hidden bg-stone", cls]} aria-hidden="true">
+<div class:list={["absolute inset-0 overflow-hidden bg-linen", mirror && "-scale-x-100", cls]} aria-hidden="true">
   <img
     src={poster}
     alt=""
@@ -25,10 +32,12 @@ const { poster, mp4, webm, class: cls = "" } = Astro.props;
     fetchpriority="high"
     decoding="async"
     class="absolute inset-0 h-full w-full object-cover"
+    style={fit}
   />
   <video
     id="hero-video"
     class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"
+    style={fit}
     muted
     loop
     playsinline

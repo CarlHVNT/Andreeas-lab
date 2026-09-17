@@ -1,43 +1,62 @@
 # Design plan and tokens
 
-Approved direction (Pass 1, 15 September 2026): a quiet porcelain ground, one deep green action,
-large serif statements, small sans facts. Closer to a considered skincare brand than to a clinic
-or a spa. Boldness is spent on the hero type and nowhere else.
+Direction (revised 16 September 2026 to Andreea’s own brief): pale blush pink and deep burgundy
+writing on a warm ivory ground, elegant editorial serif headings, clean modern text. Minimal,
+luxurious, mobile-first, one clear WhatsApp action on every screen, and a strong visual focus on
+treatment results. Her logotype leads the header and footer.
 
-The visual plan that was approved lives at https://claude.ai/artifact/3UiweVtVsGjFnhkwo7vBgS.
-This file records what was actually built.
+The original Pass 1 plan (porcelain, ink green, no logo yet) lives at
+https://claude.ai/artifact/3UiweVtVsGjFnhkwo7vBgS for the record. This file records what is built now.
+
+## Logo
+
+The logotype supplied on 16 September 2026: a navy line drawing of a face with pastel shapes behind
+it, a script wordmark “Andreea’s Lab” and “Est. 2021”. It arrived as a JPEG on white, so
+`scripts/brand-assets.mjs` removes the white with a colour-to-alpha pass and builds every asset:
+
+| Asset | Where it is used |
+|---|---|
+| `src/assets/brand/logo-lockup.png` | Header: the face and the script wordmark side by side, 40 px tall on phones, 48 px on desktop |
+| `src/assets/brand/logo-stacked.png` | Footer, at about 180 px wide |
+| `src/assets/brand/logo-mark.png` | Source for the icons |
+| `public/favicon.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` | Browser tab, iOS home screen, web manifest, all on ivory |
+| `public/og-default.jpg` | Share image: stacked logotype on ivory with the tagline |
+
+A vector version from Andreea would sharpen the header at large sizes; until then the PNGs are
+built from the 1021 px source. The logo’s own colours (navy `#081339`, salmon `#FE99B3`, lemon
+`#FBFE17`, orchid `#FAC8FE`, mint `#E6FEE4`) stay inside the logo. The site palette below is
+derived from Andreea’s brief, not from the logo, so the logo reads as the one colourful object on
+every page.
 
 ## Colour
 
 Defined in `src/styles/global.css` (`@theme`). The default Tailwind palette is removed.
 
-| Token | Hex | Role | Contrast on Porcelain |
+| Token | Hex | Role | Contrast on Ivory |
 |---|---|---|---|
-| `porcelain` | `#F6F4F0` | Page ground | ground |
-| `stone` | `#E5E0D8` | Hairlines, list rules, image placeholders, map placeholder | decorative |
-| `stone-deep` | `#D8D0C4` | Form field borders (3 : 1 against white fields) | n/a |
-| `ink` | `#1E2321` | All primary text | 14.3 : 1 |
-| `graphite` | `#5B655F` | Secondary text: captions, durations, hours, footer | 5.4 : 1 |
-| `lab` | `#1B4D3E` | The single accent: WhatsApp buttons, links, focus rings, step numbers | 8.8 : 1, white on it 9.6 : 1 |
-| `lab-deep` | `#143A2F` | Button hover only | n/a |
-| `mist` | `#E4ECE7` | The accent band (at most one per page), quiet-button hover, icon discs, decorative orbs | ink on mist 13.1 : 1, graphite on mist 5.0 : 1 |
-| `blush` | `#EBDCCF` | Decorative orbs only (the warm glow behind the hero). Never text, never a surface | n/a |
-| `white` | `#FFFFFF` | Button text, form fields, the quiet band | graphite on white 6.0 : 1 |
+| `ivory` | `#FBF3F0` | Page ground, warm white with a hint of pink (nudged from `#FBF7F1` on 16 September at Carl’s request) | ground |
+| `linen` | `#EADCD8` | Hairlines, list rules, image placeholders | decorative |
+| `linen-deep` | `#DCC7C4` | Form field borders, the quotation mark | n/a |
+| `ink` | `#3F1120` | All headings and body text: deep burgundy | 14.6 : 1 |
+| `muted` | `#755760` | Secondary text: captions, durations, hours, footer | 5.8 : 1 (5.0 : 1 on Blush) |
+| `wine` | `#6A1B36` | The single action colour: WhatsApp buttons, links, focus rings, the mark, icons | 10.5 : 1, white on it 11.5 : 1 |
+| `wine-deep` | `#4E1428` | Button hover only | n/a |
+| `blush` | `#F5DEE1` | Pale blush: the tinted band (“How it works”, the FAQ teaser), icon discs, quiet-button hover | ink on blush 12.5 : 1 |
+| `rose` | `#EFC9CF` | Deeper blush: the ornament’s shape, the orb behind the closing call | decorative |
+| `white` | `#FFFFFF` | Button text, form fields | n/a |
 
-Why green: the lab is glass, not marble. Deep bottle green reads calm, precise and non-invasive,
-sits apart from the clinical blue of large clinics and the rose gold of spa templates, and next to
-WhatsApp’s colour association without borrowing its bright green. Her existing mark is multicolour,
-so the site stays neutral and lets the mark, the photographs and one accent carry colour.
-Fallback if her grid turns out warm: swap `lab` for bronze `#6B4A2B` (7.2 : 1) and nothing else.
+Why it holds together: burgundy is both the writing and the action, so the page has one voice and
+one thing to press. Blush is a surface, never text. Ivory is warm enough to sit with the pink
+photographs and the logo’s navy line.
 
 ## Type
 
 Two families, two jobs. Self-hosted variable fonts, preloaded, `font-display: swap`.
 
-- **Newsreader** (`font-serif`, “Newsreader Variable”, standard axes) carries Andreea’s voice:
+- **Newsreader** (`font-serif`, “Newsreader Variable”, standard axes) is the editorial voice:
   headlines, the Icoone explanation, About, quotes, treatment promises.
-- **Hanken Grotesk** (`font-sans`, “Hanken Grotesk Variable”) carries what the lab records:
-  treatment rows, prices, hours, contraindications, buttons, the form, footer.
+- **Hanken Grotesk** (`font-sans`, “Hanken Grotesk Variable”) is the clean modern text: rows,
+  prices, hours, contraindications, buttons, the form, footer.
 
 | Utility | Role | Size, phone → desktop | Weight | Leading | Tracking |
 |---|---|---|---|---|---|
@@ -52,119 +71,90 @@ Two families, two jobs. Self-hosted variable fonts, preloaded, `font-display: sw
 Rules: sentence case everywhere; no all-caps labels; no eyebrow labels; no single italic word in
 a headline; italics for quotations only; `tabular-nums` wherever digits line up (prices, hours).
 
+## Structure
+
+Five pages, in the order Andreea asked for, plus the home page as the landing from Instagram:
+
+| Page | Route | What it carries |
+|---|---|---|
+| Home | `/` | Video hero, About me teaser, Specialisations & qualifications teaser, Treatments, image band, Before and after (three featured cases), Questions (four FAQs), Contact, closing call |
+| About me | `/about` | First person: who she is, where she trained (short, links to Qualifications), why Icoone, how she plans a course, Instagram grid |
+| Specialisations & qualifications | `/qualifications` | Five specialisations with icons, qualifications and certifications from `site.config.ts`, continuing education, languages |
+| Treatments | `/treatments`, `/treatments/[slug]` | Rows with thumbnails; how it works; featured cases. Each treatment page: promise, who it’s for, a session, course and pricing, contraindications, its own before-and-after cases, related questions |
+| Before and after | `/case-studies` (`/results` redirects here) | Every case study, two photographs each, then testimonials |
+| FAQ | `/faq` | Grouped questions as details rows |
+| Contact | `/contact` | WhatsApp first, then the request form, address in UAE order, hours, directions, click-to-load map |
+
+The header nav shows About me, Qualifications, Treatments, FAQ, Contact; the footer adds Before & after.
+
+Two things from the 15 September session are kept: the copy leads with Andreea (“Body and face
+treatments in Dubai, with Andreea.”) with Icoone named as her method, and a secondary “Courses and
+videos” section on the home page (statement and Instagram link left; a click-to-load `VideoEmbed` and
+the `CourseInterestForm` right) sits after the before-and-after cases. A planned series of treatment
+sessions is always a “programme”; “course” is reserved for her teaching.
+
+**Bands.** Sections alternate between the ivory page and a tinted band: `tone="white"` is the quiet
+band, `tone="blush"` the accent band, never two of the same tint in a row and at most one blush band
+per page. The home hero counts as a band (`.hero`): the white About me band sits flush beneath it, so
+the video runs edge to edge with no strip of ivory in between. On desktop the hero fills the first
+screen (viewport height minus the header, between 38 and 56 rem). Home: About me (white), Specialisations (ivory), Treatments (white), gallery and image band,
+Before and after (ivory), Courses and videos (white), Questions (blush), Contact (ivory). Treatment
+pages: white, blush, ivory, white, ivory, white. FAQ groups alternate white and ivory. Contact puts the
+form on blush.
+
 ## Layout
 
 Concept: one column of large serif statements, each followed by its evidence in small sans, with
-one green button never more than a thumb away.
+one burgundy button never more than a thumb away.
 
 - **One left edge.** Everything hangs from it, including the closing call to action and the footer.
-- **Phone.** Single column, 20 px gutters (`px-5`). Photographs bleed to the edge (`-mx-5`), text never does.
-- **Desktop.** Twelve columns, 1200 px maximum (`max-w-content`), 24 px gutters (`gap-6`, `px-6`).
-  `Section.astro` splits five / six-from-seven: statement left, evidence right. Prose alone sits in
-  the left eight columns (`ProsePage.astro`).
-- **Rhythm.** 8 px base. Sections carry top spacing only: 72 px on phones (`pt-18`), 128 px on
-  desktop (`pt-32`), so the gap between sections is exactly one unit. Bands have spacing on both
-  sides. `main` carries the bottom spacing.
-- **Bands.** Added 15 September 2026 so a page reads as sections rather than one long scroll. Three
-  grounds: porcelain (the page), white (the quiet band, `Section tone="white"`) and mist (the accent
-  band, `tone="mist"`, at most one per page). Tints alternate; never the same tint twice in a row.
-  Two bands in a row sit flush (`.band + .band` removes the top margin), otherwise a band keeps one
-  unit of porcelain above it. Hairline-built sections stay on white or porcelain, since `stone`
-  hairlines disappear on mist. Home: white, porcelain, white, porcelain, photo band, mist, white,
-  porcelain, then the closing call to action. Treatment pages: white, mist, porcelain, white,
-  porcelain. About: porcelain, white, porcelain, mist. FAQ: white, porcelain, white. Contact: the
-  form on mist, the map on porcelain.
-- **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure treatments, facts,
-  FAQ, hours and pricing tables. No shadows, no gradients, no icon set beyond the WhatsApp glyph,
-  an arrow and the Instagram mark.
-- **Radii.** `rounded-ui` (6 px) on buttons and inputs. Photographs are square-cornered, except the arch.
-- **The arch.** The signature shape, borrowed from the arched mirror in her clinic: `.arch` gives a 4:5
-  portrait a semicircular top. Used for the hero photograph on every page that has one, the portrait in
-  “Why Andreea”, and the first image of a `PhotoPair`. Galleries and thumbnails stay square so the arch
-  keeps its meaning.
-- **Photographs.** All in `src/lib/photos.ts` with alt text and a focal point (`object-position`) so
-  crops keep faces in frame. Hero and portraits 4:5, the About room photo 4:3, gallery tiles 1:1,
-  the home image band 21:9 on desktop and 4:3 on phones. Astro `<Image>` with explicit `widths` and
-  `sizes`; the first photograph on a page is `loading="eager" fetchpriority="high"`, all others lazy.
-- **Galleries.** `Gallery` (two or three square tiles) after “What Icoone is” on the home page and
-  after “What a session is like” on every treatment page; `PhotoPair` (an arch and a square, staggered)
-  in the statement column of the treatments, results and about pages; `InstagramGrid` (six tiles) on About.
-- **Small graphic elements.** The ring-and-point `Mark` sits above every section title. Treatment rows
-  carry a 4:5 thumbnail. The four “Why Andreea” facts each have a line icon in a mist disc. Step
-  numbers sit in porcelain discs on the mist band. Testimonials open with a large serif quotation mark
-  in stone. Two soft colour orbs (blush and mist) sit behind the hero, one mist orb behind the closing
-  call to action. One full-width photograph band with a statement over an ink scrim, on the home page only.
+- **Phone.** Single column, 20 px gutters (`px-5`). Photographs bleed to the edge where they are not arched.
+- **Desktop.** Twelve columns, 1200 px maximum (`max-w-content`), 24 px gutters. `Section.astro`
+  splits five / six-from-seven: statement left, evidence right. Prose alone sits in the left eight columns.
+- **Rhythm.** 8 px base. Sections carry top spacing only: 72 px on phones, 128 px on desktop. The
+  blush band has spacing on both sides. `main` carries the bottom spacing.
+- **Rows, not cards.** Hairlines (`border-linen`, `divide-linen`) structure treatments, facts,
+  FAQ, hours and pricing tables. No shadows, no gradients apart from the hero scrim and the map fade.
+- **Radii.** `rounded-ui` (6 px) on buttons and inputs, discs behind icons and step numbers. Photographs
+  are square-cornered, except the arch.
+- **The arch.** The signature shape, borrowed from the arched mirror in her clinic: `.arch` gives a
+  4:5 portrait a semicircular top. Hero photographs on inner pages, the About me portrait, the first
+  image of a `PhotoPair`. Galleries, thumbnails and before/after pairs stay square.
+- **Before and after.** `CaseStudyCard`: two 4:5 photographs side by side with “Before” and “After”
+  labels on ivory chips, then treatment, sessions and period in tabular sans, the title in serif, a
+  two-sentence summary. Three across on the home page, two across on the case-studies page, one per
+  row on a treatment page. Photographs only with written consent (`consent: true`); until then the
+  card says so.
+- **Photographs.** All in `src/lib/photos.ts` with alt text and a focal point. Hero video poster,
+  arched portraits 4:5, galleries 1:1, the image band 21:9 on desktop.
 
-## Components
+## Small graphic elements
 
-`BaseLayout`, `ProsePage`, `Header` (details-based phone menu, no JS), `Footer`, `Logo`
-(placeholder mark), `Mark` (ornament), `WhatsAppButton` (primary / quiet / small / bar),
-`StickyWhatsAppBar`, `CtaBand` (with orb), `Section` (with ornament), `TreatmentRows` (with
-thumbnails), `Steps`, `Quote` (with quotation mark), `Gallery`, `PhotoPair`, `ImageBand`, `FaqList`
-(details rows), `MapEmbed` (photo until loaded), `VideoEmbed` (photo until played; YouTube or stand-in clip),
-`ConsultationForm` and `CourseInterestForm` (Netlify), `InstagramGrid`
-(static), `SEO`, `JsonLd`, `Analytics` (off until IDs exist), `LineIcon` and the three glyph icons.
+- **The mark** (`Mark.astro`) above every section title: a rose shape behind one drawn line, the
+  logo’s own composition of colour behind line.
+- Line icons in blush discs for specialisations; step numbers in ivory discs on the blush band.
+- A large serif quotation mark in linen-deep above each testimonial.
+- One rose orb behind the closing call to action. The hero has no orbs; the video carries it.
+- Treatment rows carry a 4:5 thumbnail.
 
 ## Motion and behaviour
 
-- The home hero is a silent, looping background video (stock footage, 720p, 15 s) behind a porcelain
-  scrim that runs left to right on desktop and top to bottom on phones, so the statement always sits on
-  a near-solid porcelain area. The poster frame paints first and is the largest image on the page;
-  the video attaches after the page has loaded, fades in when it plays, and is never fetched under
-  `prefers-reduced-motion` or Save-Data. The two orbs were removed from the hero when the video came in.
+- The home hero is a silent, looping background video behind an ivory scrim that runs left to right
+  on desktop and top to bottom on phones. The footage is mirrored (`HeroVideo mirror`) so the client’s
+  face sits on the right, clear of the scrim, and the phone crop is aimed at the face (`position`). The poster paints first and is the largest image on the
+  page; the video attaches after load and never under `prefers-reduced-motion` or Save-Data.
 - One text motion moment: the hero’s headline, subline and button rise 12 px and fade in over 600 ms,
-  staggered 80 ms. Off entirely under `prefers-reduced-motion`. Hover states change colour only.
-- Sticky WhatsApp bar, phones only. On pages with a `#hero-cta` it appears once that button has
-  scrolled away, so the first screen never shows two green buttons. On other pages it is always shown.
-- Every WhatsApp link pre-fills “Hi Andreea, I found you via the website and would like to ask
-  about {treatment}.” Treatment pages pass their own name, including through the header and bar.
-- Focus: 2 px `lab` outline, 2 px offset, on everything interactive. Skip link to `#main`.
-- The video in “Courses and videos” is a photograph of Andreea at work with a quiet “Play the video”
-  button, the same photo-until-asked pattern as the map. With a YouTube ID it swaps in the
-  privacy-enhanced embed; without one it plays the local stand-in clip with controls. Nothing from
-  YouTube loads with the page.
+  staggered 80 ms. Off under reduced motion. Hover states change colour only.
+- Sticky WhatsApp bar, phones and tablets only, appearing once the hero button has scrolled away.
+- Every WhatsApp link pre-fills a message naming the treatment where there is one.
+- Focus: 2 px `wine` outline, 2 px offset. Skip link to `#main`.
 
 ## What makes it hers
 
-- **Voice and facts.** Serif for what Andreea says, sans for what the lab records.
-- **One green thing per screen.** Green is the action, never decoration. The mark and the line icons
-  are the only other green, and they are small.
-- **Scale first, ornament sparingly.** One large statement per section, structured by space and
-  hairlines. The ornaments added after the first review (mark, icons, discs, orbs, quotation marks) are
-  quiet and repeat the same language: rings, points, soft circles.
+- **Her logo is the only colourful object.** Everything else is ivory, blush and burgundy.
+- **Writing and action in one colour.** Burgundy speaks and burgundy is what you press.
+- **Results first.** Before-and-after cases sit on the home page, the treatments page and every
+  treatment page, always with consent and without retouching.
 - **Her, in her room.** Photographs are of Andreea at work and of the clinic, in an arch or a square.
-  The two stock-style images (products, candles) live only in galleries, never as a hero.
-- **Boldness in two places.** The hero’s type and the hero photograph. Everything around them stays quiet.
-
-## Repositioning, 15 September 2026
-
-Andreea asked for less Icoone and more of her, one section about her courses high on the home page
-without making it the main focus, and a place for her videos. What changed:
-
-- **Copy leads with Andreea.** Hero: “Body and face treatments in Dubai, with Andreea.” The tagline,
-  meta description, share image and the WhatsApp default topic follow. Icoone stays as the named
-  method in the hero subline, in “What Andreea does” and in every treatment title. Services are unchanged.
-- **Home order.** “Why Andreea” moved up to sit directly under the hero, then “Courses and videos”,
-  then Treatments, then the method explanation with its gallery. The rest is as before.
-- **Courses and videos.** A standard `Section`: statement and Instagram link left; the video and,
-  under a hairline, the interest form right. The form’s button is `.btn-quiet` so the WhatsApp bar
-  remains the one solid green action on a phone screen. The thanks page has one quiet Instagram
-  button and a link home.
-- **Photograph budget on the home page.** Hero video (stock), bowl (Why Andreea), the device photo as
-  the video poster cropped to 16:9 at “center 5%”, the three gallery tiles, the face-mapping band and
-  the clinic photo behind the map. Nothing repeats.
-
-## Self-critique after the first build
-
-Reviewed the built pages at 375 px and desktop against this plan. Two things were not earning
-their place and were removed:
-
-- **The WhatsApp text link in the phone header.** It made three green items on the first screen
-  (header link, hero button, “See treatments”) and duplicated the sticky bar. The phone header is now
-  the wordmark and the menu only. The desktop header keeps its button because desktop has no bar.
-- **The hover translate on treatment-row arrows.** The plan says nothing animates except the hero.
-
-Kept after questioning: the Instagram grid (the brief asks for a static grid instead of an embed;
-it lives on the About page only, since visitors arrive from Instagram and do not need sending back
-from the home page), and the small state transitions on the menu and FAQ toggles (they show a
-state change, they are not hover decoration).
+- **Scale first, ornament sparingly.** One large statement per section; the mark, icons, discs and a
+  single orb repeat one language.

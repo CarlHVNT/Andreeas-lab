@@ -1,0 +1,92 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CaseStudyCard from "@/components/CaseStudyCard.astro";
+import Quote from "@/components/Quote.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import Mark from "@/components/Mark.astro";
+import { SITE } from "@/site.config";
+import { getCaseStudies, getTestimonials, getTreatments, treatmentPath } from "@/lib/content";
+
+const cases = SITE.results.showBeforeAfters ? await getCaseStudies() : [];
+const treatments = await getTreatments();
+const treatmentFor = (slug: string) => treatments.find((t) => t.id === slug);
+const testimonials = await getTestimonials();
+const quotes = await Promise.all(
+  testimonials.map(async (q) => ({ q, Content: (await render(q)).Content })),
+);
+---
+
+<BaseLayout
+  title="Before and after"
+  description="Before-and-after case studies from Andreea’s Lab in Dubai: what the client came in with, how the programme was planned, and what changed, photographed in the same light and shared with consent."
+>
+  <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:pt-16">
+    <header class="md:col-span-7">
+      <Mark class="mb-4" />
+      <h1 class="text-statement">Before and after</h1>
+      <div class="voice mt-5">
+        <p>
+          Every case here is one client, one plan and one programme, photographed in the same light before the
+          first session and after the last. Nothing is retouched, and every photograph is shared with the
+          client’s written permission.
+        </p>
+        <p class="text-muted">
+          Results vary from person to person, and these are not a promise about yours. That is what the
+          consultation is for.
+        </p>
+      </div>
+    </header>
+  </section>
+
+  {
+    cases.length > 0 && (
+      <section class="pt-14 md:pt-20">
+        <div class="mx-auto grid max-w-content gap-12 px-5 md:grid-cols-2 md:gap-x-6 md:gap-y-16 md:px-6">
+          {cases.map((c) => {
+            const t = treatmentFor(c.data.treatmentSlug);
+            return (
+              <CaseStudyCard
+                item={c}
+                treatmentTitle={t?.data.title}
+                treatmentHref={t ? treatmentPath(t) : undefined}
+                headingLevel="h2"
+                size="half"
+              />
+            );
+          })}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="pt-18 md:pt-32">
+    <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:gap-6 md:px-6">
+      <div class="md:col-span-5">
+        <Mark class="mb-4" />
+        <h2 class="text-statement">In their words</h2>
+        <p class="voice mt-4 max-w-[34ch]">What clients say about the experience, not just the result.</p>
+      </div>
+      <div class="mt-8 grid gap-8 md:col-span-6 md:col-start-7 md:mt-0">
+        {
+          quotes.map(({ q, Content }) => (
+            <Quote
+              name={q.data.name}
+              area={q.data.area}
+              treatment={treatmentFor(q.data.treatmentSlug ?? "")?.data.title}
+              date={q.data.date}
+              placeholder={q.data.placeholder}
+            >
+              <Content />
+            </Quote>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Your turn."
+    text="Tell Andreea what you would like to change. She will tell you honestly what Icoone can do for it, and what it cannot."
+  />
+</BaseLayout>

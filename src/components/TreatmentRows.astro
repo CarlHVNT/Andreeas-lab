@@ -17,10 +17,10 @@ interface Props {
 const { items, headingLevel: Heading = "h3", thumbnails = true } = Astro.props;
 ---
 
-<ul class="border-t border-stone" role="list">
+<ul class="border-t border-linen" role="list">
   {
     items.map((t) => (
-      <li class="border-b border-stone">
+      <li class="border-b border-linen">
         <a
           href={treatmentPath(t)}
           class:list={[
@@ -39,10 +39,10 @@ const { items, headingLevel: Heading = "h3", thumbnails = true } = Astro.props;
             />
           )}
           <div>
-            <Heading class="text-title font-medium text-ink group-hover:text-lab">{t.data.title}</Heading>
-            <p class="mt-1 max-w-[52ch] text-[0.95rem] leading-[1.45] text-graphite">{t.data.promise}</p>
+            <Heading class="text-title font-medium text-ink group-hover:text-wine">{t.data.title}</Heading>
+            <p class="mt-1 max-w-[52ch] text-[0.95rem] leading-[1.45] text-muted">{t.data.promise}</p>
           </div>
-          <IconArrow class="h-5 w-5 text-lab" />
+          <IconArrow class="h-5 w-5 text-wine" />
         </a>
       </li>
     ))

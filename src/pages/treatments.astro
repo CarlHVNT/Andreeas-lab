@@ -1,15 +1,40 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
 import TreatmentRows from "@/components/TreatmentRows.astro";
 import PhotoPair from "@/components/PhotoPair.astro";
+import Steps from "@/components/Steps.astro";
+import CaseStudyCard from "@/components/CaseStudyCard.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
+import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
-import { getTreatments } from "@/lib/content";
+import { getTreatments, getFeaturedCaseStudies, treatmentPath } from "@/lib/content";
 
 const treatments = await getTreatments();
+const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(2) : [];
+const treatmentFor = (slug: string) => treatments.find((t) => t.id === slug);
 const { location } = SITE;
+
+const steps = [
+  {
+    title: "Consultation",
+    text: "Thirty minutes to talk, look and measure. You leave knowing whether Icoone is right for you.",
+  },
+  {
+    title: "Plan",
+    text: "Which areas, how many sessions, how often, and what to expect by when. In writing.",
+  },
+  {
+    title: "Programme of sessions",
+    text: "Usually one or two a week. Each session builds on the last, and progress is measured.",
+  },
+  {
+    title: "Maintenance",
+    text: "Once you are where you want to be, a session every few weeks keeps you there.",
+  },
+];
 ---
 
 <BaseLayout
@@ -33,6 +58,33 @@ const { location } = SITE;
       <TreatmentRows items={treatments} headingLevel="h2" />
     </div>
   </section>
+
+  <Section id="how" title="How it works" tone="blush">
+    <p slot="statement" class="voice mt-4 max-w-[34ch]">Four steps. The order matters.</p>
+    <Steps steps={steps} />
+  </Section>
+
+  {
+    cases.length > 0 && (
+      <Section id="results" title="Before and after">
+        <div slot="statement" class="mt-4 grid gap-5">
+          <p class="voice max-w-[34ch]">
+            One client, one plan, one programme, photographed in the same light and shared with permission.
+          </p>
+          <a href="/case-studies" class="link-arrow">
+            <span>All case studies</span>
+            <IconArrow class="h-4.5 w-4.5" />
+          </a>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-2 sm:gap-6">
+          {cases.map((c) => {
+            const t = treatmentFor(c.data.treatmentSlug);
+            return <CaseStudyCard item={c} treatmentTitle={t?.data.title} treatmentHref={t ? treatmentPath(t) : undefined} />;
+          })}
+        </div>
+      </Section>
+    )
+  }
 
   <CtaBand
     title="Not sure where to start?"

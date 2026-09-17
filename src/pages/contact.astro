@@ -26,7 +26,7 @@ const { contact, location } = SITE;
         WhatsApp is the quickest way. Say what you would like help with, and Andreea replies personally,
         usually the same day.
       </p>
-      <figure class="arch mt-10 aspect-[4/5] max-w-[18rem] bg-stone">
+      <figure class="arch mt-10 aspect-[4/5] max-w-[18rem] bg-linen">
         <Image
           src={photos.tunic.src}
           alt={photos.tunic.alt}
@@ -40,17 +40,17 @@ const { contact, location } = SITE;
     </header>
     <div class="mt-8 flex flex-col items-start gap-4 md:col-span-6 md:col-start-7 md:mt-0 md:pt-2">
       <WhatsAppButton id="hero-cta" />
-      <p class="text-facts text-graphite">
+      <p class="text-facts text-muted">
         Or call or save the number:
-        <a href={`tel:${contact.whatsappNumber}`} class="text-ink tabular-nums underline hover:text-lab">
+        <a href={`tel:${contact.whatsappNumber}`} class="text-ink tabular-nums underline hover:text-wine">
           {contact.whatsappDisplay}
         </a>
       </p>
       {
         contact.email && (
-          <p class="text-facts text-graphite">
+          <p class="text-facts text-muted">
             Email:
-            <a href={`mailto:${contact.email}`} class="text-ink underline hover:text-lab">
+            <a href={`mailto:${contact.email}`} class="text-ink underline hover:text-wine">
               {contact.email}
             </a>
           </p>
@@ -59,8 +59,8 @@ const { contact, location } = SITE;
     </div>
   </section>
 
-  <Section title="Or send a request" tone="mist">
-    <p slot="statement" class="voice mt-4 max-w-[34ch] text-graphite">
+  <Section title="Or send a request" tone="blush">
+    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
       If you would rather not open WhatsApp now, leave your details and Andreea will message you.
     </p>
     <ConsultationForm />
@@ -70,7 +70,7 @@ const { contact, location } = SITE;
     <div slot="statement" class="mt-6 grid gap-6 text-facts">
       <address class="not-italic">
         <p class="font-medium">{location.hostClinic || SITE.name}</p>
-        <p class="text-graphite">
+        <p class="text-muted">
           {addressLines.map((line) => <span class="block">{line}</span>)}
           {location.makani && <span class="block tabular-nums">Makani {location.makani}</span>}
         </p>
@@ -80,8 +80,8 @@ const { contact, location } = SITE;
         <dl class="mt-1.5 grid gap-1.5 tabular-nums">
           {
             SITE.hours.map((h) => (
-              <div class="flex justify-between gap-6 border-b border-stone pb-1.5 md:max-w-[22rem]">
-                <dt class="text-graphite">{h.label}</dt>
+              <div class="flex justify-between gap-6 border-b border-linen pb-1.5 md:max-w-[22rem]">
+                <dt class="text-muted">{h.label}</dt>
                 <dd>{h.closed ? "Closed" : `${h.opens} to ${h.closes}`}</dd>
               </div>
             ))
@@ -90,11 +90,11 @@ const { contact, location } = SITE;
       </div>
       <div>
         <p class="font-medium">Finding the room</p>
-        <p class="max-w-[40ch] text-graphite">{location.howToFind}</p>
+        <p class="max-w-[40ch] text-muted">{location.howToFind}</p>
       </div>
       <div>
         <p class="font-medium">Parking</p>
-        <p class="max-w-[40ch] text-graphite">{location.parking}</p>
+        <p class="max-w-[40ch] text-muted">{location.parking}</p>
       </div>
     </div>
     <MapEmbed />

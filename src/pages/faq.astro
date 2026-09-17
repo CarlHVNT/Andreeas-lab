@@ -35,7 +35,7 @@ const jsonLd = [
         consultation, not on a web page.
       </p>
     </header>
-    <figure class="arch hidden aspect-[4/5] bg-stone md:col-span-4 md:col-start-9 md:block">
+    <figure class="arch hidden aspect-[4/5] bg-linen md:col-span-4 md:col-start-9 md:block">
       <Image
         src={photos.consultation.src}
         alt={photos.consultation.alt}
@@ -53,8 +53,8 @@ const jsonLd = [
       const items = faqs.filter((f) => f.data.category === g.key);
       if (!items.length) return null;
       return (
-        <Section title={g.title} id={g.key} tone={i % 2 === 0 ? "white" : "porcelain"}>
-          <p slot="statement" class="voice mt-4 max-w-[32ch] text-graphite">
+        <Section title={g.title} id={g.key} tone={i % 2 === 0 ? "white" : "ivory"}>
+          <p slot="statement" class="voice mt-4 max-w-[32ch] text-muted">
             {g.intro}
           </p>
           <FaqList items={items} />

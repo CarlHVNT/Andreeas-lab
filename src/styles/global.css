@@ -7,15 +7,16 @@
 */
 @theme {
   --color-*: initial;
-  --color-porcelain: #f6f4f0;
-  --color-stone: #e5e0d8;
-  --color-stone-deep: #d8d0c4;
-  --color-ink: #1e2321;
-  --color-graphite: #5b655f;
-  --color-lab: #1b4d3e;
-  --color-lab-deep: #143a2f;
-  --color-mist: #e4ece7;
-  --color-blush: #ebdccf;
+  /* Warm ivory ground, pale blush surfaces, deep burgundy writing and action */
+  --color-ivory: #fbf3f0;
+  --color-linen: #eadcd8;
+  --color-linen-deep: #dcc7c4;
+  --color-ink: #3f1120;
+  --color-muted: #755760;
+  --color-wine: #6a1b36;
+  --color-wine-deep: #4e1428;
+  --color-blush: #f5dee1;
+  --color-rose: #efc9cf;
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -45,7 +46,7 @@
 
 @layer base {
   html {
-    background-color: var(--color-porcelain);
+    background-color: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-text-size-adjust: 100%;
@@ -73,11 +74,11 @@
     text-underline-offset: 0.15em;
   }
   :focus-visible {
-    outline: 2px solid var(--color-lab);
+    outline: 2px solid var(--color-wine);
     outline-offset: 2px;
   }
   ::selection {
-    background: var(--color-mist);
+    background: var(--color-blush);
     color: var(--color-ink);
   }
   summary {
@@ -100,22 +101,22 @@
 @layer components {
   /* Buttons: one primary shape, three sizes. Labels say what happens. */
   .btn-primary {
-    @apply inline-flex h-13 select-none items-center justify-center gap-2.5 rounded-ui bg-lab px-6 font-sans text-[1rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+    @apply inline-flex h-13 select-none items-center justify-center gap-2.5 rounded-ui bg-wine px-6 font-sans text-[1rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-wine-deep;
   }
   .btn-quiet {
-    @apply inline-flex h-12 select-none items-center justify-center gap-2.5 rounded-ui border border-lab bg-transparent px-5 font-sans text-[0.95rem] font-medium text-lab no-underline transition-colors duration-150 hover:bg-mist;
+    @apply inline-flex h-12 select-none items-center justify-center gap-2.5 rounded-ui border border-wine bg-transparent px-5 font-sans text-[0.95rem] font-medium text-wine no-underline transition-colors duration-150 hover:bg-blush;
   }
   .btn-small {
-    @apply inline-flex h-10 select-none items-center justify-center gap-2 rounded-ui bg-lab px-4 font-sans text-[0.9rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+    @apply inline-flex h-10 select-none items-center justify-center gap-2 rounded-ui bg-wine px-4 font-sans text-[0.9rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-wine-deep;
   }
   .btn-bar {
-    @apply inline-flex h-12 w-full select-none items-center justify-center gap-2.5 rounded-ui bg-lab px-5 font-sans text-[0.95rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-lab-deep;
+    @apply inline-flex h-12 w-full select-none items-center justify-center gap-2.5 rounded-ui bg-wine px-5 font-sans text-[0.95rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-wine-deep;
   }
   .link-arrow {
-    @apply inline-flex items-center gap-1.5 font-sans font-medium text-lab no-underline hover:underline;
+    @apply inline-flex items-center gap-1.5 font-sans font-medium text-wine no-underline hover:underline;
   }
   .field {
-    @apply w-full rounded-ui border border-stone-deep bg-white px-3.5 py-3 text-facts text-ink placeholder:text-graphite/70 focus:border-lab focus:outline-2 focus:-outline-offset-1 focus:outline-lab;
+    @apply w-full rounded-ui border border-linen-deep bg-white px-3.5 py-3 text-facts text-ink placeholder:text-muted/70 focus:border-wine focus:outline-2 focus:-outline-offset-1 focus:outline-wine;
   }
 
   /* “Voice”: Andreea speaking. Serif, generous measure. */
@@ -152,7 +153,7 @@
     margin-top: 0.35em;
   }
   .facts a {
-    color: var(--color-lab);
+    color: var(--color-wine);
     text-decoration: underline;
   }
   .facts h2 {
@@ -178,7 +179,8 @@
   .band {
     @apply mt-18 py-18 md:mt-32 md:py-32;
   }
-  .band + .band {
+  .band + .band,
+  .hero + .band {
     margin-top: 0;
   }
 
@@ -194,19 +196,19 @@
     border-radius: 9999px;
     pointer-events: none;
   }
-  .orb-mist {
-    background: radial-gradient(
-      closest-side,
-      var(--color-mist) 0%,
-      color-mix(in srgb, var(--color-mist) 55%, transparent) 55%,
-      transparent 100%
-    );
-  }
   .orb-blush {
     background: radial-gradient(
       closest-side,
       var(--color-blush) 0%,
       color-mix(in srgb, var(--color-blush) 55%, transparent) 55%,
+      transparent 100%
+    );
+  }
+  .orb-rose {
+    background: radial-gradient(
+      closest-side,
+      var(--color-rose) 0%,
+      color-mix(in srgb, var(--color-rose) 55%, transparent) 55%,
       transparent 100%
     );
   }
@@ -218,7 +220,7 @@
     font-family: var(--font-serif);
     font-size: 4.5rem;
     line-height: 0.62;
-    color: var(--color-stone-deep);
+    color: var(--color-linen-deep);
   }
 }
 

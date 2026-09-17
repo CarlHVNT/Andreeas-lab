@@ -23,9 +23,14 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
 
+  // The results page became /case-studies
+  redirects: {
+    "/results": "/case-studies",
+  },
+
   integrations: [
     sitemap({
-      filter: (page) => !["/contact/thanks", "/courses/thanks", "/404"].some((p) => page.includes(p)),
+      filter: (page) => !["/contact/thanks", "/courses/thanks", "/404", "/results"].some((p) => page.includes(p)),
     }),
   ],
 

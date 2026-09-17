@@ -1,0 +1,67 @@
+---
+/**
+ * One before-and-after case: two photographs side by side, then the facts.
+ */
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import IconArrow from "./icons/IconArrow.astro";
+
+interface Props {
+  item: CollectionEntry<"caseStudies">;
+  treatmentTitle?: string;
+  treatmentHref?: string;
+  headingLevel?: "h2" | "h3";
+  /** Wider image sizes when the card fills half the page */
+  size?: "third" | "half";
+}
+const { item, treatmentTitle, treatmentHref, headingLevel: Heading = "h3", size = "third" } = Astro.props;
+const { data } = item;
+const sizes = size === "half" ? "(min-width: 768px) 22vw, 45vw" : "(min-width: 768px) 14vw, 45vw";
+---
+
+<article class="grid gap-5">
+  <div class="grid grid-cols-2 gap-2 md:gap-3">
+    <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
+      <Image
+        src={data.before}
+        alt={data.beforeAlt}
+        widths={[320, 480, 720]}
+        sizes={sizes}
+        loading="lazy"
+        class="h-full w-full object-cover"
+      />
+      <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
+        Before
+      </figcaption>
+    </figure>
+    <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
+      <Image
+        src={data.after}
+        alt={data.afterAlt}
+        widths={[320, 480, 720]}
+        sizes={sizes}
+        loading="lazy"
+        class="h-full w-full object-cover"
+      />
+      <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
+        After
+      </figcaption>
+    </figure>
+  </div>
+  <div>
+    <p class="text-meta text-muted tabular-nums">
+      {treatmentTitle && <span>{treatmentTitle} · </span>}{data.sessions} sessions over {data.period}
+    </p>
+    <Heading class="mt-1.5 text-title font-medium text-ink">{data.title}</Heading>
+    <p class="mt-2 max-w-[52ch] text-muted">{data.summary}</p>
+    {data.placeholderImages && <p class="mt-2 text-meta text-muted">Photographs to follow with the client’s consent.</p>}
+    {
+      treatmentHref && (
+        <a href={treatmentHref} class="link-arrow mt-3 text-[0.95rem]">
+          <span>About this treatment</span>
+          <IconArrow class="h-4.5 w-4.5" />
+        </a>
+      )
+    }
+  </div>
+</article>
