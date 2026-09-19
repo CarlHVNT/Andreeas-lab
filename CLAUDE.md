@@ -72,8 +72,9 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
-- **Every page ends with `CtaBand`** except the contact page and the home page, whose Contact section is
-  the closing call to action (Carl, 19 Sep 2026). Its secondary link emails Andreea unless a page
+- **Every page ends with `CtaBand`** except the contact page, the home page (its Contact section is the
+  closing call to action) and the treatment pages, which end after their content; the header button and the
+  sticky bar carry WhatsApp there (Carl, 19 Sep 2026). Its secondary link emails Andreea unless a page
   passes `contactLinkLabel`/`contactLinkHref`.
 - **Contact details are WhatsApp and email only.** The address is not published: the contact page and the home
   page say “Based in Dubai, UAE” (Carl, 19 Sep 2026). No request form, map or hours on the pages; the
@@ -124,9 +125,9 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - Treatments are Andreea’s Signature Facials (19 Sep 2026): the content files carry only what she has
   given (name, one line, duration, price). Treatment rows on the home and treatments pages show the title
   only; the one line, duration and price appear on the treatment’s own page (Carl, 19 Sep 2026).
-  A treatment page carries duration and price in its header and has no gallery or pricing section
-  (Carl, 19 Sep 2026); it shows a section only when its field is filled: who it’s for, what a session is
-  like, contraindications and FAQs are optional.
+  A treatment page carries duration and price in its header and has no gallery, pricing section,
+  before-and-after section or closing band (Carl, 19 Sep 2026); it shows a section only when its field is
+  filled: who it’s for, what a session is like, contraindications and FAQs are optional.
   Do not draft those sections; ask for her facts. On the treatments page, Before and after precedes How it works.
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.

@@ -5,11 +5,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/Section.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import FaqList from "@/components/FaqList.astro";
-import CaseStudyCard from "@/components/CaseStudyCard.astro";
-import CtaBand from "@/components/CtaBand.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
-import { getTreatments, getFaqsBySlugs, getCaseStudiesFor, treatmentSlug, treatmentPath } from "@/lib/content";
+import { getTreatments, getFaqsBySlugs, treatmentSlug, treatmentPath } from "@/lib/content";
 import { formatPrice } from "@/lib/format";
 import { serviceJsonLd } from "@/lib/seo";
 
@@ -30,7 +28,6 @@ const waName = data.whatsappName ?? data.title;
 const url = `${SITE.url}${treatmentPath(treatment)}`;
 const price = data.priceFrom != null ? formatPrice(data.priceFrom) : "On request";
 const hasSession = Boolean(data.whatHappens) || hasBody;
-const cases = SITE.results.showBeforeAfters ? await getCaseStudiesFor(treatment.id) : [];
 const jsonLd = [
   serviceJsonLd({ name: data.title, description: data.promise, url, price: data.priceFrom }),
 ];
@@ -120,22 +117,6 @@ const jsonLd = [
     }
 
     {
-      cases.length > 0 && (
-        <Section title="Before and after">
-          <div class="grid gap-10">
-            {cases.map((c) => (
-              <CaseStudyCard item={c} size="half" />
-            ))}
-          </div>
-          <a href="/case-studies" class="link-arrow mt-6 text-[0.95rem]">
-            <span>All case studies</span>
-            <IconArrow class="h-4.5 w-4.5" />
-          </a>
-        </Section>
-      )
-    }
-
-    {
       faqs.length > 0 && (
         <Section title="Questions" tone="white">
           <FaqList items={faqs} />
@@ -147,10 +128,5 @@ const jsonLd = [
       )
     }
 
-    <CtaBand
-      title={`Ask Andreea about ${waName}.`}
-      text="Send a message with what you would like to change. Andreea will tell you whether this is the right treatment, what a programme would look like and when she can see you."
-      treatment={waName}
-    />
   </article>
 </BaseLayout>
