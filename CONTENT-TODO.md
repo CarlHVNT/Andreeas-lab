@@ -34,9 +34,12 @@ pricing, and any wording that could read as a medical claim.
       no longer shown. Ask whether to add them, and with what exact wording.
 - [ ] “Acne treatments” appears among her specialisations, in her own words. Ask the licence holder to
       confirm the wording sits within the no-medical-claims rule before launch.
-- [x] Years in the UAE: “more than ten years”, confirmed in Andreea’s About copy (`practitioner.yearsInDubai`).
+- [x] Years in the UAE: the “In the UAE, 10+ years” fact row was removed from the About and Qualifications
+      pages on 19 September 2026 at Carl’s request, and the config field with it. Her own sentence “more than
+      ten years” stays in her About copy.
 - [ ] Year established: `established` (logo says “Est. 2019”).
-- [ ] Languages: `practitioner.languages` (English, Romanian assumed; add Russian/Arabic if relevant).
+- [x] Languages: English, Romanian and Spanish (`practitioner.languages`; Spanish added 19 September 2026
+      at Carl’s request). Add Russian or Arabic if relevant.
 - [x] About page intro (`src/pages/about.astro`): Andreea’s own copy, set exactly as she wrote it on
       19 September 2026 at Carl’s request, including the title-case subtitle “The Professional Behind
       Andreea’s Lab” (the one agreed exception to the sentence-case rule) and her dash. The same approach

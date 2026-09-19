@@ -54,8 +54,6 @@ export const SITE = {
     fullName: "Andreea Popescu",
     /** From Andreea, 17 September 2026: “DHA Licensed Beauty Therapist” */
     title: "DHA-licensed beauty therapist",
-    /** From Andreea: more than ten years living and working in the UAE */
-    yearsInDubai: "10+",
     /**
      * Training and qualifications, from Andreea, 17 September 2026. The Instagram
      * bio also says “KHDA & MOH certified”; her copy does not, so they are not listed.
@@ -72,7 +70,7 @@ export const SITE = {
       "Lymphatic therapies",
       "Icoone Medical",
     ],
-    languages: ["English", "Romanian"],
+    languages: ["English", "Romanian", "Spanish"],
     /**
      * Shown on the Specialisations & qualifications page. From Andreea, 17 September 2026.
      * Keep in step with `credentials` above; add years as she supplies them. The Instagram
