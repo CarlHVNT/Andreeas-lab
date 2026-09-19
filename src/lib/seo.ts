@@ -24,7 +24,7 @@ export function businessJsonLd() {
       addressCountry: location.countryCode,
     },
     areaServed: { "@type": "City", name: "Dubai" },
-    sameAs: [contact.instagramUrl],
+    sameAs: [contact.instagramUrl, SITE.youtube.channelUrl].filter(Boolean),
     openingHoursSpecification: SITE.hours
       .filter((h) => !h.closed && h.opens && h.closes)
       .map((h) => ({

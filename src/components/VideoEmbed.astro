@@ -2,9 +2,8 @@
 /**
  * Click-to-load video. Until the reader presses play, the box shows a
  * photograph and a button, so nothing from YouTube loads with the page.
- * With a YouTube ID it embeds the privacy-enhanced player. Without one it
- * plays the stand-in clip from public/video, so the slot works before the
- * channel exists. A photo until asked, nothing loaded from YouTube before that.
+ * With a YouTube ID it embeds the privacy-enhanced player. Without one (and no
+ * mp4/webm) it stays a photograph with the caption and channel link.
  */
 import { Image } from "astro:assets";
 import type { Photo } from "@/lib/photos";

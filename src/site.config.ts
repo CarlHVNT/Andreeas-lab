@@ -228,13 +228,9 @@ export const SITE = {
     showBeforeAfters: true,
   },
 
-  /**
-   * Courses. Andreea plans to teach how she works, in Dubai. Until dates exist
-   * the home page collects email addresses from people who want to hear first
-   * (Netlify form “course-interest”) and points them to Instagram.
-   */
-  courses: {
-    /** Show the “Courses and videos” section on the home page */
+  /** Podcast. Andreea’s podcast lives on her YouTube channel (Carl, 19 September 2026). */
+  podcast: {
+    /** Show the “Podcast” section on the home page */
     showSection: true,
   },
 
@@ -250,19 +246,16 @@ export const SITE = {
   },
 
   /**
-   * YouTube. Leave `featuredVideoId` empty and the video slot plays the
-   * stand-in clip below; paste an ID and it embeds that video instead, loading
-   * nothing from YouTube until the reader presses play.
+   * YouTube. The channel link goes under the video and into the structured data.
+   * Paste an episode’s 11-character ID into `featuredVideoId` and the podcast
+   * section embeds it, loading nothing from YouTube until the reader presses play.
    */
   youtube: {
-    /** e.g. "https://www.youtube.com/@andreeaslab" – leave empty until the channel exists */
-    channelUrl: "",
-    /** The 11-character ID from a YouTube link, e.g. "dQw4w9WgXcQ" */
+    channelUrl: "https://www.youtube.com/@AndreeasLab",
+    /** The 11-character ID from a YouTube link, e.g. "dQw4w9WgXcQ". PLACEHOLDER: empty until Carl picks an episode */
     featuredVideoId: "",
     /** Caption under the video */
-    caption: "Videos: treatments explained and questions answered. Channel coming soon.",
-    /** PLACEHOLDER – generic stock clip shown until a YouTube video is set */
-    placeholder: { mp4: "/video/hero.mp4", webm: "/video/hero.webm" },
+    caption: "The Andreea’s Lab podcast, on YouTube.",
   },
 
   analytics: {

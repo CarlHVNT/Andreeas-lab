@@ -45,10 +45,9 @@ const en = {
   "cta.readMore": "Read more",
   "cta.loadMap": "Load the map",
   "cta.openMaps": "Open in Google Maps",
-  "cta.send": "Send request",
-  "cta.registerInterest": "Register interest",
   "cta.playVideo": "Play the video",
   "cta.watchYoutube": "Watch on YouTube",
+  "cta.subscribeYoutube": "Subscribe on YouTube",
   "cta.followInstagram": "Follow Andreea on Instagram",
   "footer.privacy": "Privacy",
   "footer.terms": "Terms",
@@ -65,9 +64,6 @@ const en = {
   "label.toConfirm": "Sample list, to be confirmed by Andreea",
   "label.hours": "Hours",
   "label.closed": "Closed",
-  "form.firstName": "Your first name (optional)",
-  "form.email": "Your email",
-  "form.coursesPrivacy": "Andreea will email you when course details are ready, and nothing else.",
 } as const;
 
 export type UIKey = keyof typeof en;

@@ -10,7 +10,7 @@ arrives from Instagram on a phone. The site’s one job is to start a WhatsApp c
 - TypeScript strict, path alias `@/` → `src/`
 - Content collections (Astro content layer, `glob` loader) in `src/content/`
 - Fonts self-hosted from `@fontsource-variable/*`, preloaded in `BaseLayout.astro`
-- Netlify hosting, Netlify Forms for the course-interest form (`netlify.toml`)
+- Netlify hosting (`netlify.toml`). No forms at the moment: the consultation and course forms came off on 19 Sep 2026
 - No client framework, no CMS, no database. Two tiny inline scripts (sticky bar, click-to-load video)
 
 ## Commands
@@ -99,14 +99,14 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   same tint in a row, at most one blush band per page. Bands carry spacing on both sides (`.band` in
   `global.css`); two bands in a row sit flush. Hand-built sections use `class="band bg-white"` the same way.
 - **“Programme”, not “course”, for treatments.** A planned series of sessions is a programme
-  (`recommendedProgramme`, “Programme and pricing”, “planned as a programme”). “Course” and “courses”
-  refer only to Andreea’s teaching courses (the “Courses and videos” section, `SITE.courses`,
-  `CourseInterestForm`, `/courses/thanks`).
-- **Copy leads with Andreea.** Icoone is named as her method, not as the brand: “Body and face
-  treatments in Dubai, with Andreea.” The site’s second, quieter job is collecting email interest for her
-  courses (`CourseInterestForm`, Netlify form `course-interest`) and showing her on video (`VideoEmbed`,
-  click to load, YouTube through youtube-nocookie or the stand-in clip while `youtube.featuredVideoId`
-  is empty). Secondary actions use `.btn-quiet` so WhatsApp stays the only solid burgundy button.
+  (`recommendedProgramme`, “Programme and pricing”, “planned as a programme”). Nothing on the site is called
+  a course any more (the courses section became the Podcast section on 19 Sep 2026); if teaching courses
+  return, they alone take the word.
+- **Copy leads with Andreea.** Icoone is named as her method, not as the brand. The site’s second, quieter
+  jobs are her book and consultancy (`/consultancy`) and her podcast on YouTube (`SITE.podcast`, `SITE.youtube`;
+  `VideoEmbed` shows a photograph until the reader presses play and embeds through youtube-nocookie once
+  `youtube.featuredVideoId` is set). Secondary actions use `.btn-quiet` so WhatsApp stays the only solid
+  burgundy button.
 
 ## Content rules
 
@@ -143,7 +143,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - The FAQ page has two groups, For clients and For beauty professionals (`src/lib/faq-groups.ts`, `group`
   field on each question); an empty group says questions will follow. Questions are Andreea’s words.
 - `robots.txt` is generated from `SITE.url` (`src/pages/robots.txt.ts`). Sitemap via `@astrojs/sitemap`.
-- `/courses/thanks` and `/404` are `noindex` and excluded from the sitemap.
+- `/404` is `noindex` and excluded from the sitemap.
 
 ## Adding a language (ru, ar)
 

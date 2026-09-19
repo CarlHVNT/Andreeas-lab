@@ -185,23 +185,16 @@ The words on `/consultancy` live in `src/pages/consultancy.astro`: the two openi
 called `areas` (each has a title and one line of text) and the three `steps`. Change them there. Every
 WhatsApp button on that page starts the message with “consultancy” so you know where the enquiry came from.
 
-## Courses and videos
+## Podcast
 
-The home page has a section called “Courses and videos”. It does two things: it lets people leave
-their email to hear first when your course dates are set, and it shows one video.
+The home page has a “Podcast” section with a video slot and links to your YouTube channel and Instagram.
 
-- **Where the emails go.** Every sign-up lands in Netlify under Forms → `course-interest`, with the
-  person’s email and first name. Netlify can email you each one (Forms → Notifications) and you can
-  download the whole list as a spreadsheet at any time. Nobody is emailed automatically; you write to
-  them when you have news.
-- **Put your YouTube video in.** In `src/site.config.ts`, under `youtube`, paste the video’s ID into
-  `featuredVideoId`. The ID is the part after `v=` in a YouTube link, for example `dQw4w9WgXcQ`. Put
-  your channel link in `channelUrl` and a “Watch on YouTube” link appears under the video. Until an
-  ID is set, the slot plays the same stock clip as the top of the home page.
-- **Change the caption** in `youtube.caption`.
-- **Change the words** about the courses in `src/pages/index.astro`, in the “Courses and videos”
-  section. They currently say you are preparing courses, with no dates, because none are confirmed.
-- **Hide the whole section** by setting `showSection: false` under `courses` in `src/site.config.ts`.
+- **Put an episode in.** In `src/site.config.ts`, under `youtube`, paste the episode’s ID into
+  `featuredVideoId`. The ID is the part after `v=` in a YouTube link, for example `dQw4w9WgXcQ`. Until an
+  ID is set, the slot shows a photograph with the caption and the channel link.
+- **Change the caption** in `youtube.caption`, and the channel link in `youtube.channelUrl`.
+- **Change the words** in `src/pages/index.astro`, in the “Podcast” section.
+- **Hide the whole section** by setting `showSection: false` under `podcast` in `src/site.config.ts`.
 
 ## Going live
 

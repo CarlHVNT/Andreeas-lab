@@ -149,23 +149,17 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
 - [ ] `scripts/generate-placeholders.mjs` now only makes the labelled stand-ins in `src/assets/results/`
       for cases whose photograph has not arrived. Delete it once every case has a real photograph.
 
-## Courses and videos (`src/pages/index.astro`, `src/site.config.ts` → `courses`, `youtube`)
+## Podcast (`src/pages/index.astro`, `src/site.config.ts` → `podcast`, `youtube`)
 
-Added on 15 September 2026 at Andreea’s request: a section high on the home page that collects
-email interest for her courses and holds one video. The WhatsApp group idea is parked for now.
+The “Courses and videos” section became “Podcast” on 19 September 2026 at Carl’s request. The course
+interest form, its thank-you page and the interface strings are gone; the channel is
+https://www.youtube.com/@AndreeasLab and also appears in the structured data.
 
-- [ ] **Course wording.** The section says Andreea is “preparing short courses in Dubai on how she
-      works … for anyone who wants to learn to do what she does”. Confirm what she will teach, for whom,
-      roughly when, and whether to name a price or format. Nothing is promised on the page yet.
-- [ ] **YouTube channel and video.** `youtube.channelUrl` and `youtube.featuredVideoId` are empty. Until
-      an ID is set the slot plays the stand-in stock clip (the hero footage) behind a photo of Andreea.
-      Replace with her channel and a real video, and rewrite `youtube.caption`.
-- [ ] **Form notifications.** In Netlify, turn on email notifications for the `course-interest` form and
-      decide who receives them. The form stores email and first name only.
-- [ ] **Privacy wording.** The privacy policy now describes the course interest form. Have the adviser
-      check the sentence on removal (“reply to the email”) once Andreea knows how she will send updates.
-- [ ] **Later, if the list grows:** move to a proper mailing tool. Netlify Forms stores the list; it does
-      not send campaigns.
+- [ ] **Featured episode.** `youtube.featuredVideoId` is empty, so the slot shows a photograph of Andreea with
+      the caption and the channel link. Paste an episode ID to embed it.
+- [ ] **Words.** The section says only that the podcast is on YouTube. Ask Andreea for a line on what it is about
+      and who it is for, and whether the section title should carry the podcast’s name.
+- [ ] **Email interest** for courses is no longer collected anywhere. If she still wants a list, decide where and how.
 
 ## Consultancy (`src/pages/consultancy.astro`, `src/site.config.ts` → `book`)
 
@@ -254,8 +248,7 @@ Face and neck (`massage-face-neck.jpg`).
 
 ## Setup (Carl)
 
-- [ ] Netlify: connect the GitHub repo, set the custom domain, enable form notifications for the
-      `course-interest` form (email or WhatsApp-compatible integration), and turn on spam filtering.
+- [ ] Netlify: connect the GitHub repo and set the custom domain. No forms are in use.
 - [ ] Analytics IDs when she is ready: `analytics.plausibleDomain`, `ga4MeasurementId`, `metaPixelId`.
       GA4 and Meta Pixel set cookies; decide on a consent notice first.
 - [ ] Google Business Profile with the same name, address and hours as `site.config.ts`.

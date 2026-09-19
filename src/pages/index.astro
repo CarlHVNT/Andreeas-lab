@@ -10,7 +10,6 @@ import Gallery from "@/components/Gallery.astro";
 import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
 import VideoEmbed from "@/components/VideoEmbed.astro";
-import CourseInterestForm from "@/components/CourseInterestForm.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import IconInstagram from "@/components/icons/IconInstagram.astro";
@@ -31,7 +30,7 @@ const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(7);
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["nothing-worked", "acne-one-or-two-sessions", "melasma-disappear", "facial-sculpting-sessions"]);
-const { location, practitioner, contact, courses, youtube, book } = SITE;
+const { location, practitioner, contact, podcast, youtube, book } = SITE;
 const bookHref = book.url || whatsappLink("the book");
 
 const why = [
@@ -257,37 +256,31 @@ const why = [
     )
   }
 
-  <!-- Courses and videos: secondary. Email interest and a click-to-load video. White band. -->
+  <!-- Podcast: Andreea on YouTube (Carl, 19 September 2026). The video shows a photo until an episode ID is set. White band. -->
   {
-    courses.showSection && (
-      <Section id="courses" title="Courses and videos" tone="white">
+    podcast.showSection && (
+      <Section id="podcast" title="Podcast" tone="white">
         <div slot="statement">
-          <div class="voice mt-4">
-            <p>
-              Andreea is preparing short courses in Dubai on how she works: the method, how a programme is planned,
-              and how to talk to clients plainly. They are for anyone who wants to learn to do what she does.
-            </p>
-            <p>Leave your email to hear first when dates are set. In the meantime, follow along on Instagram.</p>
+          <p class="voice mt-4 max-w-[34ch]">Andreea’s podcast is on YouTube. Follow the channel for new episodes.</p>
+          <div class="mt-6 flex flex-col items-start gap-3">
+            <a href={youtube.channelUrl} class="link-arrow text-[0.95rem]" target="_blank" rel="noopener">
+              <span>{t("cta.subscribeYoutube")}</span>
+              <IconArrow class="h-4.5 w-4.5" />
+            </a>
+            <a href={contact.instagramUrl} class="link-arrow text-[0.95rem]" target="_blank" rel="noopener">
+              <IconInstagram class="h-4.5 w-4.5" />
+              <span>{t("cta.followInstagram")}</span>
+            </a>
           </div>
-          <a href={contact.instagramUrl} class="link-arrow mt-6 text-[0.95rem]" target="_blank" rel="noopener">
-            <IconInstagram class="h-4.5 w-4.5" />
-            <span>{t("cta.followInstagram")}</span>
-          </a>
         </div>
         <VideoEmbed
-          title="Andreea’s Lab video"
+          title="Andreea’s Lab podcast"
           poster={photos.device}
           posterPosition="center 5%"
           youtubeId={youtube.featuredVideoId}
-          mp4={youtube.placeholder.mp4}
-          webm={youtube.placeholder.webm}
           caption={youtube.caption}
           channelUrl={youtube.channelUrl}
         />
-        <div class="mt-10 border-t border-linen pt-8">
-          <h3 class="text-title font-medium">Hear about courses first</h3>
-          <CourseInterestForm class="mt-5 max-w-[26rem]" />
-        </div>
       </Section>
     )
   }
