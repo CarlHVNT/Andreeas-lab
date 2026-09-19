@@ -67,7 +67,7 @@ site is a demo. Carl holds the real address. Before launch:
 - [ ] **Real address** into `src/site.config.ts` → `location` (`unit`, `building`, `community`, `area`),
       written in UAE order: unit and floor, building, community, city. No postcode exists in the UAE.
 - [ ] **Makani number** for the building entrance (ten digits, on the blue plate by the door):
-      `location.makani`. Shows in the footer, on the home page and on the contact page once set.
+      `location.makani`. Shows on the home page and the contact page once set (the footer address line is switched off).
 - [ ] **Map pin and share link**: `location.geo` and `location.mapsUrl`, `location.mapsEmbedQuery`.
 - [ ] **How to find the room**: `location.howToFind` (which entrance, lift, whether to call ahead).
 - [ ] **Parking**: `location.parking` and `src/content/faqs/parking.md` currently say Andreea sends

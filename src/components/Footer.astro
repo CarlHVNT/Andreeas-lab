@@ -28,17 +28,16 @@ const links = [
       <a href="/" class="inline-block no-underline" aria-label={`${SITE.name}, home`}>
         <Image src={stacked} alt={SITE.name} width={200} densities={[1, 2]} loading="lazy" class="w-44 md:w-48" />
       </a>
-      <p class="mt-5 max-w-[36ch] text-meta text-muted">{SITE.tagline}</p>
       {
         footer.showAddress && (
-          <p class="mt-2 max-w-[44ch] text-meta text-muted">
+          <p class="mt-5 max-w-[44ch] text-meta text-muted">
             {location.hostClinic ? `${t("footer.inside")} ${location.hostClinic}, ` : ""}
             {addressInline}.
             {location.makani && <span class="tabular-nums"> Makani {location.makani}.</span>}
           </p>
         )
       }
-      {footer.licenceLine && <p class="mt-2 max-w-[44ch] text-meta text-muted">{footer.licenceLine}</p>}
+      {footer.licenceLine && <p class="mt-5 max-w-[44ch] text-meta text-muted">{footer.licenceLine}</p>}
     </div>
 
     <nav class="mt-10 md:col-span-3 md:col-start-7 md:mt-0" aria-label="Footer">

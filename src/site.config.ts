@@ -219,8 +219,8 @@ export const SITE = {
   },
 
   footer: {
-    /** Show the address line under the wordmark */
-    showAddress: true,
+    /** Show the address line under the logo. Off since 19 September 2026 at Carl’s request; the address stays on the contact page. */
+    showAddress: false,
     /** Optional, e.g. "Treatments are provided under the licence of …, DHA licence no. 0000." */
     licenceLine: "",
   },
