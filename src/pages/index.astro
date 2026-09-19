@@ -26,17 +26,13 @@ import {
   getFeaturedTreatments,
   getFeaturedCaseStudies,
   getFaqsBySlugs,
-  getTreatments,
-  treatmentPath,
 } from "@/lib/content";
 
 const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(7);
-const allTreatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["what-is-icoone", "does-it-hurt", "how-many-sessions", "how-fast-results"]);
 const { location, practitioner, contact, courses, youtube } = SITE;
-const treatmentFor = (slug?: string) => (slug ? allTreatments.find((t) => t.id === slug) : undefined);
 
 const why = [
   {
@@ -225,10 +221,9 @@ const why = [
             </p>
           </div>
           <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-6">
-            {cases.map((c) => {
-              const t = treatmentFor(c.data.treatmentSlug);
-              return <CaseStudyCard item={c} treatmentTitle={t?.data.title} treatmentHref={t ? treatmentPath(t) : undefined} />;
-            })}
+            {cases.map((c) => (
+              <CaseStudyCard item={c} />
+            ))}
           </div>
           <a href="/case-studies" class="link-arrow mt-8">
             <span>All case studies</span>

@@ -217,8 +217,9 @@ Rebuilt on 19 September 2026 at Carl’s request into two groups, Facial treatme
 (`src/lib/case-groups.ts`). The three sample Icoone cases are gone. Every case is one composite image as
 Andreea published it (before and after within the one image), in `src/assets/results/`.
 
-Facial treatments, photographs in place: Melasma; Breakouts and uneven texture (April to October 2025);
-Active acne (July to November 2025, linked to the BioRePeel treatment). The plans are transcribed from her
+Facial treatments, photographs in place, titled as Andreea named them (19 September): Melasma; Comedonal
+acne (April to October 2025); Acne vulgaris (July to November 2025, linked to the BioRePeel treatment). Dates
+are kept in the files but not shown. The plans are transcribed from her
 notes on the images; spelling on the images (“Chimical”, “suppliments”) is corrected in the transcription.
 
 Facial massage, three cases with labelled stand-ins: Around the eyes (`massage-eyes.jpg`), Full face
@@ -228,8 +229,8 @@ but they did not reach the build environment.
 - [ ] **Upload the three facial-massage images** to `src/assets/results/` under exactly those names, replacing
       the stand-ins, then set `placeholderImages: false` in the matching case file. (`npm run placeholders`
       never overwrites an existing file.)
-- [ ] **Massage cases have no facts yet.** Ask Andreea for each: the dates (shown under the image), the
-      treatment, and for the record what the client came in with and the number of sessions. Confirm which photograph is before and which is after on the two
+- [ ] **Massage cases have no facts yet.** For the record, ask Andreea for each: the dates, the treatment,
+      what the client came in with and the number of sessions. Only the title shows on the site. Confirm which photograph is before and which is after on the two
       unlabelled images (the alt text assumes before above, or on the left).
 - [ ] **Consent.** Andreea published these cases on Instagram, so they are live at Carl’s request, but
       `consent: false` records that written consent is not yet confirmed on file. Confirm each and set

@@ -4,11 +4,9 @@ import CaseStudyCard from "@/components/CaseStudyCard.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
-import { getCaseStudiesByGroup, getTreatments, treatmentPath } from "@/lib/content";
+import { getCaseStudiesByGroup } from "@/lib/content";
 
 const groups = SITE.results.showBeforeAfters ? await getCaseStudiesByGroup() : [];
-const treatments = await getTreatments();
-const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === slug) : undefined);
 ---
 
 <BaseLayout
@@ -46,17 +44,9 @@ const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === 
           </div>
           {group.items.length > 0 ? (
             <div class="mt-10 grid gap-12 md:grid-cols-3 md:gap-6">
-              {group.items.map((c) => {
-                const t = treatmentFor(c.data.treatmentSlug);
-                return (
-                  <CaseStudyCard
-                    item={c}
-                    treatmentTitle={t?.data.title}
-                    treatmentHref={t ? treatmentPath(t) : undefined}
-                    showGroup={false}
-                  />
-                );
-              })}
+              {group.items.map((c) => (
+                <CaseStudyCard item={c} />
+              ))}
             </div>
           ) : (
             <p class="mt-8 text-muted">Photographs will follow.</p>

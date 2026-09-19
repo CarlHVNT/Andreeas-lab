@@ -3,46 +3,27 @@
  * One before-and-after case. Andreea publishes each case as a single composite
  * image (before on the left, after on the right, her notes written on it). The
  * card shows it in a square frame so a row of cases lines up; `imagePosition`
- * is the focal point when the frame crops a taller image. Under it, a small line
- * (group, treatment, dates) and the title; the concern, plan and summary stay in
- * the content files but are not shown (Carl, 19 September 2026). Two separate
- * photographs (`before`, `after`) render side by side instead.
+ * is the focal point when the frame crops a taller image. Under it, only the
+ * title; dates, treatment link, concern, plan and summary stay in the content
+ * files but are not shown (Carl, 19 September 2026). Two separate photographs
+ * (`before`, `after`) render side by side instead.
  */
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import IconArrow from "./icons/IconArrow.astro";
-import { caseGroupLabel } from "@/lib/case-groups";
 
 interface Props {
   item: CollectionEntry<"caseStudies">;
-  treatmentTitle?: string;
-  treatmentHref?: string;
   headingLevel?: "h2" | "h3";
   /** Image sizes: a third of the page (home) or half (Before & after page) */
   size?: "third" | "half";
-  /** Name the group in the meta line; off inside a group section */
-  showGroup?: boolean;
 }
-const {
-  item,
-  treatmentTitle,
-  treatmentHref,
-  headingLevel: Heading = "h3",
-  size = "third",
-  showGroup = true,
-} = Astro.props;
+const { item, headingLevel: Heading = "h3", size = "third" } = Astro.props;
 const { data } = item;
 const sizes = size === "half" ? "(min-width: 768px) 45vw, 92vw" : "(min-width: 768px) 30vw, 92vw";
 const pairSizes = size === "half" ? "(min-width: 768px) 22vw, 45vw" : "(min-width: 768px) 14vw, 45vw";
 const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 /** Stand-in images are labelled as such, per the content rules */
 const alt = (text: string) => (data.placeholderImages ? `Placeholder for ${lowerFirst(text)}` : text);
-const meta = [
-  showGroup ? caseGroupLabel(data.group) : undefined,
-  treatmentTitle,
-  data.sessions != null ? `${data.sessions} sessions` : undefined,
-  data.period,
-].filter((part): part is string => Boolean(part));
 ---
 
 <article class="grid content-start gap-5">
@@ -91,16 +72,7 @@ const meta = [
     ) : null
   }
   <div>
-    {meta.length > 0 && <p class="text-meta text-muted tabular-nums">{meta.join(" · ")}</p>}
-    <Heading class="mt-1.5 text-title font-medium text-ink">{data.title}</Heading>
+    <Heading class="text-title font-medium text-ink">{data.title}</Heading>
     {data.placeholderImages && <p class="mt-3 text-meta text-muted">Photograph to follow.</p>}
-    {
-      treatmentHref && (
-        <a href={treatmentHref} class="link-arrow mt-3 text-[0.95rem]">
-          <span>About this treatment</span>
-          <IconArrow class="h-4.5 w-4.5" />
-        </a>
-      )
-    }
   </div>
 </article>
