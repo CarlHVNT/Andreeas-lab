@@ -9,7 +9,7 @@
  *         src/assets/brand/logo-wordmark.png  the script “Andreea’s Lab”, transparent
  *         src/assets/brand/logo-lockup.png    face + wordmark side by side, for the header
  *         public/favicon.png, apple-touch-icon.png, icon-192.png, icon-512.png
- *         public/og-default.jpg               share image with the logotype
+ *         (public/og-default.jpg, the share image, comes from scripts/share-image.mjs)
  *
  * The white background is removed with a colour-to-alpha pass (white as the
  * alpha colour), which keeps anti-aliased edges and the pastel shapes intact.
@@ -143,20 +143,7 @@ await icon(180, "apple-touch-icon.png", 0.1);
 await icon(192, "icon-192.png", 0.1);
 await icon(512, "icon-512.png", 0.14);
 
-// 8. Share image: logotype on porcelain with the tagline
-const ogW = 1200, ogH = 630;
-const stacked = await sharp(`${OUT}/logo-stacked.png`).resize({ height: 430 }).toBuffer();
-const stackedMeta = await sharp(stacked).metadata();
-const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${ogW}" height="${ogH}">
-  <text x="${stackedMeta.width + 140}" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">Body and face treatments</text>
-  <text x="${stackedMeta.width + 140}" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3F1120">in Dubai, with Andreea.</text>
-  <text x="${stackedMeta.width + 142}" y="412" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#755760">One practitioner. Every session.</text>
-</svg>`);
-await sharp({ create: { width: ogW, height: ogH, channels: 3, background: PORCELAIN } })
-  .composite([{ input: stacked, left: 80, top: Math.round((ogH - 430) / 2) }, { input: text, left: 0, top: 0 }])
-  .jpeg({ quality: 86, mozjpeg: true })
-  .toFile(`${PUBLIC}/og-default.jpg`);
-console.log("wrote og-default.jpg");
+// 8. The share image (public/og-default.jpg) is rendered by scripts/share-image.mjs
 
 // 9. Report the pastel tints too (lighter than the strong colours)
 const bins = new Map();

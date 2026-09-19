@@ -159,6 +159,13 @@ Before/after photographs are regulated by the DHA. If ever asked to take them do
 In `src/site.config.ts`, under `book`, the Amazon link sits between the quotes of `url`. Replace it if the
 shop link changes; if it is ever emptied, “Get the book” on the Consultancy page opens WhatsApp instead.
 
+## Change the share image
+
+The picture that appears when a link to the site is shared (WhatsApp, Instagram, LinkedIn, X) is
+`public/og-default.jpg`. It is drawn from the site’s tagline, logo and portrait by `npm run share-image`,
+which needs a Chromium browser on the computer (`npx playwright install chromium` once). Or replace the
+file directly with any 1200 × 630 pixel JPEG.
+
 ## Change the logo
 
 The logo files are built from `src/assets/brand/logo-source.jpg`. To update the logo, replace that

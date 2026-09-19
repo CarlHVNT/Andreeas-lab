@@ -142,8 +142,11 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
       treatment pages use facial or portrait photos. Real photos of Icoone body sessions would be
       better: set `heroImage` and `heroImagePosition` in each `src/content/treatments/*.md`, and
       consider replacing the hero video with footage of Andreea at work.
-- [ ] `public/og-default.jpg` (1200×630) is still generated. Replace with a real share image
-      (a crop of one of the photographs with the wordmark).
+- [x] `public/og-default.jpg` (1200×630) is now the designed share image: lockup, tagline and the tunic
+      portrait, rendered by `npm run share-image` (19 September 2026).
+- [ ] **Site address.** `SITE.url` is still `https://andreeaslab.example`, so the share image URL in the
+      Open Graph and Twitter tags, the canonical links, the sitemap and robots.txt all point at a domain that
+      does not exist. Set the real domain before sharing links anywhere.
 - [ ] Instagram grid tiles reuse the site photos. Swap for six actual posts when convenient
       (`instagramPhotos` in `src/lib/photos.ts`).
 - [ ] `scripts/generate-placeholders.mjs` now only makes the labelled stand-ins in `src/assets/results/`

@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "placeholders": "node scripts/generate-placeholders.mjs",
-    "astro": "astro"
+    "astro": "astro",
+    "share-image": "node scripts/share-image.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.2",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "playwright-core": "^1.63.0",
     "typescript": "^5.9.3"
   },
   "engines": {

@@ -21,6 +21,7 @@ npm run build        # production build to dist/
 npm run preview      # serve dist/
 npm run check        # astro check (types)
 npm run placeholders # regenerate placeholder artwork and icons (scripts/generate-placeholders.mjs)
+npm run share-image  # re-render the Open Graph / Twitter image, public/og-default.jpg (scripts/share-image.mjs, needs Chromium)
 ```
 
 ## Where things live
@@ -53,8 +54,10 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   (ornament shape, one orb). The logo is the only object outside this palette.
 - **Only the palette.** The default Tailwind palette is removed in `@theme`. Do not add colours.
 - **Logo assets** come from `scripts/brand-assets.mjs` (source `src/assets/brand/logo-source.jpg`):
-  header lockup, footer stacked logo, favicons, share image. Replace the PNGs directly if a vector
-  logo arrives.
+  header lockup, footer stacked logo, favicons. Replace the PNGs directly if a vector logo arrives. The
+  share image (`public/og-default.jpg`, 1200×630, used for Open Graph and Twitter cards) is rendered by
+  `scripts/share-image.mjs` through headless Chromium with the site fonts, the lockup, the tagline and the
+  tunic portrait in an arch; re-run it when the tagline or portrait changes.
 - **Left aligned, one edge.** No centred text. Sections use `Section.astro` (5/7 split at `md`).
 - **Rows, not cards.** Hairlines (`border-stone`, `divide-stone`) structure lists. No shadows and no
   `rounded-*` beyond `rounded-ui` on buttons and inputs and the discs behind icons and step numbers.
