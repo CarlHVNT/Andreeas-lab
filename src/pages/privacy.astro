@@ -1,7 +1,6 @@
 ---
 import ProsePage from "@/layouts/ProsePage.astro";
 import { SITE } from "@/site.config";
-import { venue } from "@/lib/address";
 
 const { contact, location } = SITE;
 ---
@@ -14,8 +13,8 @@ const { contact, location } = SITE;
 >
   <h2>Who we are</h2>
   <p>
-    {SITE.name} is run by {SITE.practitioner.fullName}, operating from a treatment room at {venue},{" "}
-    {location.area}, {location.city}, {location.country}. Questions about this policy: {contact.email}.
+    {SITE.name} is run by {SITE.practitioner.fullName}, operating from a treatment room in {location.city},{" "}
+    {location.country}. Questions about this policy: {contact.email}.
   </p>
 
   <h2>What we collect, and why</h2>

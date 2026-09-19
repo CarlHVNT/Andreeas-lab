@@ -68,8 +68,8 @@ demo Dubai Healthcare City address from the layout review, which now only feeds 
 (the treatments page description, the About page room caption, the privacy page) and `hours` feeds the
 opening-hours structured data.
 
-- [ ] Replace or remove the demo `location.area` phrases (“Dubai Healthcare City”) in the treatments page
-      description, the About page and the privacy page, or set `location.area` to what Andreea wants said.
+- [x] The demo building and area no longer appear in copy: the treatments page description, the About page room
+      caption and the privacy page now say Dubai only (19 September 2026). `location.area` is unused in copy.
 - [ ] Opening hours: `hours` (currently Tuesday to Saturday 10:00 to 19:00, Sunday and Monday closed) are
       now only in the structured data. Confirm them or remove them from `businessJsonLd`.
 - [ ] Google Business Profile: the site no longer shows an address, so match the profile to what Andreea
@@ -90,8 +90,8 @@ WhatsApp.
       Real photos of each treatment would be better (`heroImage`, `heroImageAlt`, `heroImagePosition`).
 - [ ] Body treatments: “Body lymphatic drainage & Icoone Medical” is a specialisation, but no body treatment
       is listed. Ask whether a body list follows, with the same facts.
-- [ ] The hero subline, the site description and the FAQ still describe Icoone body programmes. Revisit once
-      the body list is decided.
+- [x] The hero, the site description, the treatments page description and the FAQ no longer describe Icoone
+      body programmes (19 September 2026); the home page mirrors the treatments, consultancy, FAQ and contact pages.
 - [ ] Prices are shown per treatment in AED as given; confirm the VAT position.
 - [ ] “How it works” on the treatments page is Andreea’s copy (19 September 2026) except step 4, Follow-up,
       which is drafted in her voice: confirm the wording with her. In step 3 her “a course of sessions” is set

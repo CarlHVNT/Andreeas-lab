@@ -15,7 +15,6 @@ import { getTreatments, getFeaturedCaseStudies } from "@/lib/content";
 
 const treatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(2) : [];
-const { location } = SITE;
 
 // Andreea’s own words (19 September 2026). Step 4 is drafted in the same voice, to confirm with her.
 // Her “a course of sessions” in step 3 is set as “a series of sessions”: on this site, “course” is a teaching course.
@@ -40,8 +39,8 @@ const steps = [
 ---
 
 <BaseLayout
-  title="Body and face treatments in Dubai"
-  description={`Body and face treatments with Andreea in ${location.area}, Dubai: Icoone lymphatic drainage, cellulite and skin firming, body remodelling, post-surgery and post-natal recovery and face treatments. One practitioner, planned programmes.`}
+  title="Signature Facials in Dubai"
+  description="Andreea’s Lab Signature Facials in Dubai: Christina BioPhyto acne facial, BioRePeel, microneedling, post-SMAS lymphatic facial, facial sculpting and lift massage, EMS. One practitioner, a consultation first, duration and price on every treatment."
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-5">

@@ -31,7 +31,8 @@ const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(7);
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["nothing-worked", "acne-one-or-two-sessions", "melasma-disappear", "facial-sculpting-sessions"]);
-const { location, practitioner, contact, courses, youtube } = SITE;
+const { location, practitioner, contact, courses, youtube, book } = SITE;
+const bookHref = book.url || whatsappLink("the book");
 
 const why = [
   {
@@ -42,16 +43,12 @@ const why = [
   {
     icon: "shield",
     title: "Licensed and certified.",
-    text: `${practitioner.title}. ${practitioner.credentials.join(". ")}. ${
-      location.hostClinic
-        ? `Working inside ${location.hostClinic}, a licensed clinic in ${location.area}.`
-        : `Working from ${location.building}, ${location.area}, ${location.city}.`
-    }`,
+    text: `${practitioner.title}. ${practitioner.credentials.join(". ")}. Based in ${location.city}.`,
   },
   {
     icon: "clipboard",
     title: "A plan, not a pamper.",
-    text: "Every programme starts with a consultation and a written plan: which areas, how many sessions, what to expect and when.",
+    text: "Every programme starts with a consultation and a personalised plan: which treatment or combination of treatments, how many sessions, and clear expectations from the start.",
   },
   {
     icon: "heart",
@@ -62,7 +59,8 @@ const why = [
 
 ---
 
-<BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
+<!-- SEO title and description from Carl, 19 September 2026 -->
+<BaseLayout title="Facial Treatments & Body Sculpting Dubai | Andreea’s Lab" description={SITE.description} hasHero>
   <!-- Hero: statement and one button over a silent background video -->
   <section class="hero relative overflow-hidden">
     <!-- Mirrored so the client’s face sits on the right, clear of the text scrim; the crop follows her face on phones -->
@@ -74,11 +72,12 @@ const why = [
       class="relative mx-auto max-w-content px-5 pb-[64vw] pt-10 md:grid md:h-[calc(100svh-5rem)] md:max-h-[56rem] md:min-h-[38rem] md:grid-cols-12 md:items-center md:gap-6 md:px-6 md:py-24"
     >
       <div class="reveal md:col-span-6">
-        <h1 class="text-display">Body and face treatments in Dubai, with Andreea.</h1>
+        <!-- H1 from Carl (19 September 2026), set in sentence case; the subline is his meta description, plus one line -->
+        <h1 class="text-display">Advanced facial treatments &amp; body sculpting in Dubai</h1>
         <p class="voice mt-6">
-          A DHA-licensed beauty therapist who plans every programme and performs every session herself. Advanced
-          facial and body treatments, skin health and facial sculpting, with Icoone for lymphatic drainage, skin
-          firming, body remodelling and recovery after surgery. Plain talk about what will work and what will not.
+          A DHA-licensed beauty therapist specialising in acne-prone skin, facial sculpting, lymphatic drainage,
+          Icoone body treatments and post-SMAS recovery. Personalised treatment plans with realistic goals and
+          long-term results. Every session with Andreea herself.
         </p>
         <div class="mt-8 flex flex-col items-start gap-4">
           <WhatsAppButton id="hero-cta" />
@@ -183,25 +182,45 @@ const why = [
     </div>
   </section>
 
-  <!-- 3b. Consultancy, for professionals. Mirrors the page order; white after the ivory gallery. -->
+  <!-- 3b. Consultancy: the book and her guidance for professionals, as on the consultancy page. White band. -->
   <Section id="consultancy" title="Consultancy" tone="white">
-    <p slot="statement" class="voice mt-4 max-w-[34ch]">For professionals and businesses in beauty and aesthetics.</p>
-    <div class="voice">
-      <p>
-        Alongside treating clients, Andreea shares what she has learned with other practitioners, salons and
-        clinics: how she plans a programme, works with technology and talks to clients plainly.
-      </p>
+    <p slot="statement" class="voice mt-4 max-w-[34ch]">
+      For students, working therapists and new business owners in beauty and aesthetics.
+    </p>
+    <div class="grid gap-8 sm:grid-cols-[9rem_1fr] sm:items-start">
+      <a href={bookHref} target="_blank" rel="noopener" class="block max-w-[9rem]">
+        <Image src={photos.bookCover.src} alt={photos.bookCover.alt} widths={[288, 480]} sizes="9rem" loading="lazy" class="h-auto w-full" />
+      </a>
+      <div>
+        <div class="voice">
+          <p>
+            In {book.published}, Andreea published <em>{book.title}</em>, a practical guide covering many of the
+            questions she had to learn through experience when entering the industry.
+          </p>
+          <p>
+            Alongside the book she offers personal guidance: starting your career, already working in beauty, and
+            starting a beauty business.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <a href={bookHref} class="link-arrow" target="_blank" rel="noopener">
+            <span>Get the book</span>
+            <IconArrow class="h-4.5 w-4.5" />
+          </a>
+          <a href="/consultancy" class="link-arrow">
+            <span>About consultancy</span>
+            <IconArrow class="h-4.5 w-4.5" />
+          </a>
+        </div>
+      </div>
     </div>
-    <a href="/consultancy" class="link-arrow mt-6">
-      <span>About consultancy</span>
-      <IconArrow class="h-4.5 w-4.5" />
-    </a>
   </Section>
 
+  <!-- Andreea’s method in her words: progress reviewed, plan adjusted (from “How it works”, step 3) -->
   <ImageBand
     photo={photos.faceMapping}
-    title="Every programme is measured at the start and every few sessions, so the plan changes when the numbers do."
-    text="Written down, checked, adjusted. That is what the word lab means here."
+    title="Progress is reviewed at every stage, and the plan is adjusted when needed."
+    text="Results with a plan. That is what the word lab means here."
   />
 
   <!-- Before and after: the visual focus on results -->

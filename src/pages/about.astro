@@ -9,7 +9,6 @@ import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
-import { venue } from "@/lib/address";
 
 const { practitioner, location } = SITE;
 ---
@@ -128,7 +127,7 @@ const { practitioner, location } = SITE;
         />
       </div>
       <figcaption class="mt-3 text-meta text-muted">
-        The room at {venue}, {location.area}.
+        The treatment room in {location.city}.
       </figcaption>
     </figure>
   </Section>

@@ -44,9 +44,10 @@ export const SITE = {
   /** From the logotype, “Est. 2021” */
   established: "2021",
 
-  tagline: "Body and face treatments in Dubai, with Andreea.",
+  tagline: "Advanced facial treatments & body sculpting in Dubai",
+  /** Carl’s meta description for the landing page (19 September 2026); also the business description in the structured data */
   description:
-    "Body and face treatments in Dubai from a DHA-licensed beauty therapist: Icoone lymphatic drainage, skin firming, body remodelling and post-surgery recovery. Every session with Andreea.",
+    "DHA-licensed Beauty Therapist in Dubai specialising in acne-prone skin, facial sculpting, lymphatic drainage, Icoone body treatments and post-SMAS recovery. Personalised treatment plans with realistic goals and long-term results.",
 
   practitioner: {
     firstName: "Andreea",
