@@ -246,7 +246,7 @@ export const SITE = {
     title: "How to Become a Beauty Therapist in Dubai",
     published: "June 2026",
     /** Amazon link from Carl, 19 September 2026 */
-    url: "https://www.amazon.com/dp/BOG6MWNVDZ",
+    url: "https://www.amazon.com/dp/B0G6MWNVDZ",
   },
 
   /**

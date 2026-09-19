@@ -170,9 +170,7 @@ Dubai” (June 2026) opens the page, then “Need more personal guidance?” wit
 your career, Already working in beauty, Starting a beauty business), then the closing band “Every situation is
 different.” whose secondary link reads “Contact Andreea” and goes to the contact page.
 
-- [ ] **Book link.** `book.url` is the Amazon link Carl sent (`/dp/BOG6MWNVDZ`). Amazon cannot be reached from
-      the build environment, so it is unverified: click it once on the live site (an ASIN normally starts with
-      “B0”, B-zero, so check the second character).
+- [x] **Book link.** `book.url` is the Amazon link Carl confirmed on 19 September (`/dp/B0G6MWNVDZ`).
 - [x] The book cover (Carl, 19 September) replaces the clinic photograph in the page header
       (`src/assets/photos/book-cover.webp`, `photos.bookCover`).
 
