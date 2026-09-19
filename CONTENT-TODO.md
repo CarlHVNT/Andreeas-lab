@@ -88,8 +88,8 @@ WhatsApp.
       guidance, contraindications and related FAQs. Each section appears only once its field is filled.
 - [x] **Photographs.** Carl uploaded a photo for each of the seven treatments on 19 September 2026
       (`src/assets/photos/christina-biophyto.jpg` and the others named after their treatment); the black bars
-      were trimmed off the BioPhyto image. Alt text and focal points are set for each; if Andreea sends
-      better or her own photos later, upload over the same file name.
+      were trimmed off the BioPhyto image. Alt text and focal points are set for each (the thumbnail and the page hero crop to 4:5); if Andreea
+      sends better or her own photos later, upload over the same file name.
 - [ ] Body treatments: “Body lymphatic drainage & Icoone Medical” is a specialisation, but no body treatment
       is listed. Ask whether a body list follows, with the same facts.
 - [x] The hero, the site description, the treatments page description and the FAQ no longer describe Icoone

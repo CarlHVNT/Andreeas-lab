@@ -5,12 +5,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/Section.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import FaqList from "@/components/FaqList.astro";
-import Gallery from "@/components/Gallery.astro";
 import CaseStudyCard from "@/components/CaseStudyCard.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
-import { galleryFor } from "@/lib/photos";
 import { getTreatments, getFaqsBySlugs, getCaseStudiesFor, treatmentSlug, treatmentPath } from "@/lib/content";
 import { formatPrice } from "@/lib/format";
 import { serviceJsonLd } from "@/lib/seo";
@@ -32,7 +30,6 @@ const waName = data.whatsappName ?? data.title;
 const url = `${SITE.url}${treatmentPath(treatment)}`;
 const price = data.priceFrom != null ? formatPrice(data.priceFrom) : "On request";
 const hasSession = Boolean(data.whatHappens) || hasBody;
-const gallery = galleryFor(data.heroImage, data.order, 3);
 const cases = SITE.results.showBeforeAfters ? await getCaseStudiesFor(treatment.id) : [];
 const jsonLd = [
   serviceJsonLd({ name: data.title, description: data.promise, url, price: data.priceFrom }),
@@ -91,8 +88,9 @@ const jsonLd = [
       )
     }
 
+    <!-- No gallery and no pricing section (Carl, 19 September 2026): duration and price sit in the header -->
     {
-      hasSession ? (
+      hasSession && (
         <Section title="What a session is like" tone="blush">
           {data.whatHappens && <p class="voice">{data.whatHappens}</p>}
           {hasBody && (
@@ -100,36 +98,9 @@ const jsonLd = [
               <Content />
             </div>
           )}
-          <Gallery items={gallery} columns={3} class="mt-10" />
         </Section>
-      ) : (
-        <section class="pt-18 md:pt-32">
-          <div class="mx-auto max-w-content px-5 md:px-6">
-            <Gallery items={gallery} columns={3} />
-          </div>
-        </section>
       )
     }
-
-    <Section title={data.recommendedProgramme ? "Programme and pricing" : "Session and pricing"} tone={hasSession ? "ivory" : "white"}>
-      <dl class="divide-y divide-linen border-y border-linen text-facts">
-        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-          <dt class="text-muted">Session</dt>
-          <dd class="tabular-nums">{data.duration}</dd>
-        </div>
-        {data.recommendedProgramme && (
-          <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-            <dt class="text-muted">Recommended programme</dt>
-            <dd>{data.recommendedProgramme}</dd>
-          </div>
-        )}
-        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-          <dt class="text-muted">Price</dt>
-          <dd class="tabular-nums">{price}</dd>
-        </div>
-      </dl>
-      {data.priceNote && <p class="mt-4 max-w-[52ch] text-meta text-muted">{data.priceNote}</p>}
-    </Section>
 
     {
       data.contraindications.length > 0 && (
