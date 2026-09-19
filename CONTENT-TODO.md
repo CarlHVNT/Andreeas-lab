@@ -210,26 +210,31 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 ## Before-and-after case studies (`src/content/case-studies/*.md`)
 
 Rebuilt on 19 September 2026 at Carl’s request into two groups, Facial treatments and Facial massage
-(`src/lib/case-groups.ts`). The three sample Icoone cases are gone. Three real facial-treatment cases are in,
-transcribed from the composite images Andreea published (before left, after right, her notes on the image):
-Melasma; Breakouts and uneven texture (April to October 2025); Active acne (July to November 2025, linked to
-the BioRePeel treatment). Spelling on the images (“Chimical”, “suppliments”) is corrected in the transcription.
+(`src/lib/case-groups.ts`). The three sample Icoone cases are gone. Every case is one composite image as
+Andreea published it (before and after within the one image), in `src/assets/results/`.
 
-- [ ] **The three photographs are not in the repository yet.** Images pasted into the chat do not reach
-      the build environment. Upload Andreea’s three composite images to `src/assets/results/` with exactly
-      these names, replacing the labelled stand-ins: `melasma.jpg`, `breakouts-texture.jpg`,
-      `acne-biorepeel.jpg`. Then set `placeholderImages: false` in the matching case file.
-      (`npm run placeholders` never overwrites an existing file.)
+Facial treatments, photographs in place: Melasma; Breakouts and uneven texture (April to October 2025);
+Active acne (July to November 2025, linked to the BioRePeel treatment). The plans are transcribed from her
+notes on the images; spelling on the images (“Chimical”, “suppliments”) is corrected in the transcription.
+
+Facial massage, three cases with labelled stand-ins: Around the eyes (`massage-eyes.jpg`), Full face
+(`massage-face.jpg`), Face and neck (`massage-face-neck.jpg`). Carl sent the three images on 19 September,
+but they did not reach the build environment.
+
+- [ ] **Upload the three facial-massage images** to `src/assets/results/` under exactly those names, replacing
+      the stand-ins, then set `placeholderImages: false` in the matching case file. (`npm run placeholders`
+      never overwrites an existing file.)
+- [ ] **Massage cases have no facts yet.** Ask Andreea for each: what the client came in with, the treatment,
+      the number of sessions and the dates. Confirm which photograph is before and which is after on the two
+      unlabelled images (the alt text assumes before above, or on the left).
 - [ ] **Consent.** Andreea published these cases on Instagram, so they are live at Carl’s request, but
       `consent: false` records that written consent is not yet confirmed on file. Confirm each and set
       `consent: true`. DHA advertising rules apply to before/after photographs; `results.showBeforeAfters`
       in `site.config.ts` hides every case at once if needed.
 - [ ] **Melasma case:** the treatments, number of sessions and dates are not on the image. Ask Andreea.
-- [ ] **Facial massage group** has no cases yet; the page says photographs will follow. Ask Andreea for
-      sculpting, lifting or lymphatic massage cases in the same format.
 - [ ] The composite images carry Andreea’s Instagram styling (a coloured title bar on the melasma image,
-      handwritten notes on the other two). Separate before and after photographs would sit better in the
-      site’s palette; the card supports `before`/`after` pairs as well.
+      handwritten notes on two others, red “After” lettering on the face-and-neck image). Separate before
+      and after photographs would sit better in the site’s palette; the card supports `before`/`after` pairs.
 
 ## Legal (`src/pages/privacy.astro`, `src/pages/terms.astro`)
 

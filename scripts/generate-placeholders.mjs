@@ -93,6 +93,9 @@ const jobs = [
   { file: `${OUT}/melasma.jpg`, w: 1152, h: 1600, seed: 11 },
   { file: `${OUT}/breakouts-texture.jpg`, w: 1200, h: 1200, seed: 23 },
   { file: `${OUT}/acne-biorepeel.jpg`, w: 1200, h: 1200, seed: 37 },
+  { file: `${OUT}/massage-eyes.jpg`, w: 1080, h: 1350, seed: 41 },
+  { file: `${OUT}/massage-face.jpg`, w: 1080, h: 1350, seed: 53 },
+  { file: `${OUT}/massage-face-neck.jpg`, w: 1080, h: 1350, seed: 67 },
 ];
 
 for (const job of jobs) {

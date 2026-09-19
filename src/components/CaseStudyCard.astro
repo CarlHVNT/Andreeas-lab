@@ -89,24 +89,28 @@ const meta = [
   <div>
     {meta.length > 0 && <p class="text-meta text-muted tabular-nums">{meta.join(" · ")}</p>}
     <Heading class="mt-1.5 text-title font-medium text-ink">{data.title}</Heading>
-    <dl class="mt-3 max-w-[52ch] border-t border-linen text-[0.95rem] leading-[1.45]">
-      <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
-        <dt class="text-muted">Concern</dt>
-        <dd class="text-ink">{data.concern}</dd>
-      </div>
-      {
-        data.plan.length > 0 && (
-          <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
-            <dt class="text-muted">Plan</dt>
-            <dd>
-              <ul class="grid gap-1 text-ink" role="list">
-                {data.plan.map((step) => <li>{step}</li>)}
-              </ul>
-            </dd>
-          </div>
-        )
-      }
-    </dl>
+    {
+      (data.concern || data.plan.length > 0) && (
+        <dl class="mt-3 max-w-[52ch] border-t border-linen text-[0.95rem] leading-[1.45]">
+          {data.concern && (
+            <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
+              <dt class="text-muted">Concern</dt>
+              <dd class="text-ink">{data.concern}</dd>
+            </div>
+          )}
+          {data.plan.length > 0 && (
+            <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
+              <dt class="text-muted">Plan</dt>
+              <dd>
+                <ul class="grid gap-1 text-ink" role="list">
+                  {data.plan.map((step) => <li>{step}</li>)}
+                </ul>
+              </dd>
+            </div>
+          )}
+        </dl>
+      )
+    }
     {data.summary && <p class="mt-3 max-w-[52ch] text-muted">{data.summary}</p>}
     {data.placeholderImages && <p class="mt-3 text-meta text-muted">Photograph to follow.</p>}
     {

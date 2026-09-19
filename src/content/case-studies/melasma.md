@@ -6,8 +6,7 @@ image: "../../assets/results/melasma.jpg"
 imageAlt: "Two photographs of the same cheek with melasma, side by side, labelled Before and After"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
-# Stand-in image until Andreea’s photograph replaces src/assets/results/melasma.jpg; then set this to false.
-placeholderImages: true
+placeholderImages: false
 featured: true
 order: 1
 ---

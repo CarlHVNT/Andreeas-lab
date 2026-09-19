@@ -130,7 +130,8 @@ treatment pages then appear.
    in with), `period` (for example `"March to June 2026"`) and `plan` (one line per thing that was done).
    Point `image` at the file from step 1 and describe it in `imageAlt`. Optional: `treatmentSlug` (the
    treatment file name) adds an “About this treatment” link, and `summary` adds two plain sentences.
-   Keep it factual: no promises, no medical claims.
+   Keep it factual: no promises, no medical claims. Leave out what you do not know yet; a row only
+   appears when its field is filled.
 4. Set `consent: true` once the client’s written permission is on file, and `placeholderImages: false`
    so the “Photograph to follow” note disappears.
 5. `featured: true` shows it on the home page (the first three) and the treatments page (the first two).

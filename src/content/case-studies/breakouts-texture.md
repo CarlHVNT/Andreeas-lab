@@ -13,8 +13,7 @@ image: "../../assets/results/breakouts-texture.jpg"
 imageAlt: "Two photographs of the same cheek, April 2025 on the left and October 2025 on the right, with Andreea’s notes on what was done"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
-# Stand-in image until Andreea’s photograph replaces src/assets/results/breakouts-texture.jpg; then set this to false.
-placeholderImages: true
+placeholderImages: false
 featured: true
 order: 2
 ---

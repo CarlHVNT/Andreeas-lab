@@ -83,8 +83,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Facial massage (`src/lib/case-groups.ts`, `group` field; an empty group says photographs will follow).
   Andreea publishes each case as one composite image, before left, after right, her notes written on it:
   `image` in `src/assets/results/`, shown whole at its own ratio, never cropped. `before`/`after` pairs
-  are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes) and
-  adds no claims. `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
+  are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes; a row
+  appears only when its field is filled) and adds no claims. `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
   hides every case at once if DHA approval is withdrawn. While `placeholderImages: true` the card says
   the photograph will follow and prefixes the alt text with “Placeholder for”.
 - **Bands, not one long scroll.** Sections alternate between the ivory page and a tinted band:

@@ -14,8 +14,7 @@ image: "../../assets/results/acne-biorepeel.jpg"
 imageAlt: "Two photographs of the same cheek, July 2025 on the left and November 2025 on the right, with Andreea’s notes on what was done"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
-# Stand-in image until Andreea’s photograph replaces src/assets/results/acne-biorepeel.jpg; then set this to false.
-placeholderImages: true
+placeholderImages: false
 featured: true
 order: 3
 ---

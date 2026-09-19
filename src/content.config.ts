@@ -103,8 +103,8 @@ const caseStudies = defineCollection({
       group: z.enum(caseGroupIds),
       /** Treatment file name this case belongs to, when one treatment fits */
       treatmentSlug: z.string().optional(),
-      /** What the client came in with, one line */
-      concern: z.string(),
+      /** What the client came in with, one line. Optional until Andreea confirms it. */
+      concern: z.string().optional(),
       /** e.g. "April to October 2025". Optional. */
       period: z.string().optional(),
       sessions: z.number().optional(),
