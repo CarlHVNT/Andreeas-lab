@@ -178,6 +178,8 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 
 ## Specialisations & qualifications (`/qualifications`, data in `site.config.ts` → `practitioner`)
 
+- [x] Qualifications page introduction: Andreea’s own two paragraphs, set as written on 19 September 2026,
+      in place of the draft “I do a small number of things…”.
 - [x] `qualifications`: now Andreea’s confirmed list (17 September 2026): licensed beauty therapist (DHA),
       ITEC Level 3 qualification (UK), professional beauty therapy training at The Nordic International
       Beauty & Training Centre, UAE. Years still to add.
