@@ -1,9 +1,10 @@
 ---
 /**
  * Click-to-load video. Until the reader presses play, the box shows a
- * photograph and a button, so nothing from YouTube loads with the page.
- * With a YouTube ID it embeds the privacy-enhanced player. Without one (and no
- * mp4/webm) it stays a photograph with the caption and channel link.
+ * photograph with a play button in the middle, so nothing from YouTube loads
+ * with the page. With a YouTube ID the button embeds the privacy-enhanced
+ * player in place; with an mp4/webm it plays that; with neither, the whole
+ * image links to `href` (the channel) instead.
  */
 import { Image } from "astro:assets";
 import type { Photo } from "@/lib/photos";
@@ -14,25 +15,34 @@ interface Props {
   /** Accessible name of the video, used as the player title */
   title: string;
   poster: Photo;
-  /** Focal point for the 16:9 crop, overrides the photo’s own */
+  /** Focal point for the crop, overrides the photo’s own */
   posterPosition?: string;
+  /** Shape of the slot: 16:9, or square for artwork */
+  aspect?: "video" | "square";
   /** The 11-character YouTube video ID */
   youtubeId?: string;
-  /** Stand-in clip, played when there is no YouTube ID */
+  /** A clip to play when there is no YouTube ID */
   mp4?: string;
   webm?: string;
+  /** With nothing to play in place, the image links here */
+  href?: string;
+  /** Accessible label for that link */
+  hrefLabel?: string;
   caption?: string;
   /** Link shown under the video, e.g. the YouTube channel */
   channelUrl?: string;
 }
-const { title, poster, posterPosition, youtubeId, mp4, webm, caption, channelUrl } = Astro.props;
+const { title, poster, posterPosition, aspect = "video", youtubeId, mp4, webm, href, hrefLabel, caption, channelUrl } =
+  Astro.props;
 const t = useTranslations(getLocaleFromUrl(Astro.url));
 const playable = Boolean(youtubeId || mp4 || webm);
+const linked = !playable && Boolean(href);
+const shape = aspect === "square" ? "aspect-square" : "aspect-video";
 ---
 
 <figure>
   <div
-    class="relative aspect-video w-full overflow-hidden bg-linen"
+    class:list={["relative w-full overflow-hidden bg-linen", shape]}
     data-video
     data-title={title}
     data-youtube-id={youtubeId || undefined}
@@ -42,7 +52,7 @@ const playable = Boolean(youtubeId || mp4 || webm);
     <Image
       src={poster.src}
       alt={poster.alt}
-      widths={[480, 768, 1024, 1290]}
+      widths={[480, 768, 1024, 1254]}
       sizes="(min-width: 768px) 50vw, 100vw"
       loading="lazy"
       class="absolute inset-0 h-full w-full object-cover"
@@ -50,11 +60,35 @@ const playable = Boolean(youtubeId || mp4 || webm);
     />
     {
       playable && (
-        <div class="absolute inset-x-0 bottom-0 flex items-end bg-linear-to-t from-ivory via-ivory/90 to-ivory/0 px-5 pb-5 pt-14">
-          <button type="button" class="btn-quiet h-11 bg-ivory" data-play aria-label={`${t("cta.playVideo")}: ${title}`}>
-            {t("cta.playVideo")}
-          </button>
-        </div>
+        <button
+          type="button"
+          class="group absolute inset-0 flex items-center justify-center"
+          data-play
+          aria-label={`${t("cta.playVideo")}: ${title}`}
+        >
+          <span class="flex h-16 w-16 items-center justify-center rounded-full bg-ivory/92 text-wine transition-colors group-hover:bg-ivory md:h-20 md:w-20">
+            <svg viewBox="0 0 24 24" class="ml-1 h-7 w-7 md:h-8 md:w-8" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.5v13l11-6.5z" />
+            </svg>
+          </span>
+        </button>
+      )
+    }
+    {
+      linked && (
+        <a
+          href={href}
+          class="group absolute inset-0 flex items-center justify-center"
+          target="_blank"
+          rel="noopener"
+          aria-label={hrefLabel ?? `${t("cta.watchYoutube")}: ${title}`}
+        >
+          <span class="flex h-16 w-16 items-center justify-center rounded-full bg-ivory/92 text-wine transition-colors group-hover:bg-ivory md:h-20 md:w-20">
+            <svg viewBox="0 0 24 24" class="ml-1 h-7 w-7 md:h-8 md:w-8" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.5v13l11-6.5z" />
+            </svg>
+          </span>
+        </a>
       )
     }
   </div>

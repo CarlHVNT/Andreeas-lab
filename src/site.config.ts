@@ -228,10 +228,18 @@ export const SITE = {
     showBeforeAfters: true,
   },
 
-  /** Podcast. Andreea’s podcast lives on her YouTube channel (Carl, 19 September 2026). */
+  /**
+   * The podcast, on Andreea’s YouTube channel. Name, description and button from
+   * Carl, 19 September 2026; the section appears on the home and contact pages.
+   */
   podcast: {
-    /** Show the “Podcast” section on the home page */
+    /** Show the podcast section */
     showSection: true,
+    /** The podcast’s name, in its own capitalisation */
+    title: "Beyond Beauty: Skin, Wellness & Longevity",
+    description:
+      "Andreea’s Lab explores skin health, wellness, alternative medicine, innovative beauty treatments, prevention and anti-aging through conversations with doctors, practitioners and industry professionals. Practical information, new perspectives and a deeper look at modern approaches to looking and feeling well.",
+    buttonLabel: "Watch the podcast",
   },
 
   /**

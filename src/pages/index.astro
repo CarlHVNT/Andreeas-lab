@@ -9,15 +9,13 @@ import FaqList from "@/components/FaqList.astro";
 import Gallery from "@/components/Gallery.astro";
 import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
-import VideoEmbed from "@/components/VideoEmbed.astro";
+import PodcastSection from "@/components/PodcastSection.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
-import IconInstagram from "@/components/icons/IconInstagram.astro";
 import LineIcon from "@/components/icons/LineIcon.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { whatsappLink } from "@/lib/whatsapp";
-import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 import SpecialisationList from "@/components/SpecialisationList.astro";
 import { GUIDANCE } from "@/lib/consultancy";
 import {
@@ -26,11 +24,10 @@ import {
   getFaqsBySlugs,
 } from "@/lib/content";
 
-const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(7);
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["nothing-worked", "acne-one-or-two-sessions", "melasma-disappear", "facial-sculpting-sessions"]);
-const { location, practitioner, contact, podcast, youtube, book } = SITE;
+const { location, practitioner, contact, podcast, book } = SITE;
 const bookHref = book.url || whatsappLink("the book");
 
 const why = [
@@ -256,34 +253,8 @@ const why = [
     )
   }
 
-  <!-- Podcast: Andreea on YouTube (Carl, 19 September 2026). The video shows a photo until an episode ID is set. White band. -->
-  {
-    podcast.showSection && (
-      <Section id="podcast" title="Podcast" tone="white">
-        <div slot="statement">
-          <p class="voice mt-4 max-w-[34ch]">Andreea’s podcast is on YouTube. Follow the channel for new episodes.</p>
-          <div class="mt-6 flex flex-col items-start gap-3">
-            <a href={youtube.channelUrl} class="link-arrow text-[0.95rem]" target="_blank" rel="noopener">
-              <span>{t("cta.subscribeYoutube")}</span>
-              <IconArrow class="h-4.5 w-4.5" />
-            </a>
-            <a href={contact.instagramUrl} class="link-arrow text-[0.95rem]" target="_blank" rel="noopener">
-              <IconInstagram class="h-4.5 w-4.5" />
-              <span>{t("cta.followInstagram")}</span>
-            </a>
-          </div>
-        </div>
-        <VideoEmbed
-          title="Andreea’s Lab podcast"
-          poster={photos.device}
-          posterPosition="center 5%"
-          youtubeId={youtube.featuredVideoId}
-          caption={youtube.caption}
-          channelUrl={youtube.channelUrl}
-        />
-      </Section>
-    )
-  }
+  <!-- Podcast (Carl, 19 September 2026), the same section as on the contact page. White band. -->
+  {podcast.showSection && <PodcastSection />}
 
   <!-- 4. FAQ. Blush band. -->
   <Section id="faq" title="Questions" tone="blush">

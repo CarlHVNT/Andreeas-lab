@@ -1,0 +1,35 @@
+---
+/**
+ * The podcast section (Carl, 19 September 2026): the podcast’s name as the
+ * title, its description, a quiet button to the channel, and the square
+ * artwork with a play button in the middle. The artwork links to the channel
+ * until `SITE.youtube.featuredVideoId` names an episode, which then plays in place.
+ * Used on the home page and the contact page.
+ */
+import Section from "./Section.astro";
+import VideoEmbed from "./VideoEmbed.astro";
+import { SITE } from "@/site.config";
+import { photos } from "@/lib/photos";
+
+interface Props {
+  id?: string;
+  tone?: "ivory" | "white" | "blush";
+}
+const { id = "podcast", tone = "white" } = Astro.props;
+const { podcast, youtube } = SITE;
+---
+
+<Section id={id} title={podcast.title} tone={tone}>
+  <div slot="statement">
+    <p class="voice mt-5 max-w-[40ch]">{podcast.description}</p>
+    <a href={youtube.channelUrl} class="btn-quiet mt-8" target="_blank" rel="noopener">{podcast.buttonLabel}</a>
+  </div>
+  <VideoEmbed
+    title={podcast.title}
+    poster={photos.podcastCover}
+    aspect="square"
+    youtubeId={youtube.featuredVideoId}
+    href={youtube.channelUrl}
+    hrefLabel={`${podcast.buttonLabel} on YouTube`}
+  />
+</Section>

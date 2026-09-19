@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import Mark from "@/components/Mark.astro";
+import PodcastSection from "@/components/PodcastSection.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -67,4 +68,6 @@ const { contact, location } = SITE;
       <p class="mt-5 text-facts text-muted">Based in {location.city}, UAE</p>
     </div>
   </section>
+
+  {SITE.podcast.showSection && <PodcastSection id="podcast" tone="white" />}
 </BaseLayout>

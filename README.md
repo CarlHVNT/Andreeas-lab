@@ -187,13 +187,16 @@ WhatsApp button on that page starts the message with “consultancy” so you kn
 
 ## Podcast
 
-The home page has a “Podcast” section with a video slot and links to your YouTube channel and Instagram.
+The home page and the contact page share a podcast section: the podcast’s name and description, a “Watch the
+podcast” button and the artwork with a play button, all linking to your YouTube channel.
+
+- **Change the name, description or button** in `src/site.config.ts`, under `podcast`.
+- **Change the artwork** by replacing `src/assets/photos/podcast-cover.jpg` (square).
 
 - **Put an episode in.** In `src/site.config.ts`, under `youtube`, paste the episode’s ID into
   `featuredVideoId`. The ID is the part after `v=` in a YouTube link, for example `dQw4w9WgXcQ`. Until an
-  ID is set, the slot shows a photograph with the caption and the channel link.
-- **Change the caption** in `youtube.caption`, and the channel link in `youtube.channelUrl`.
-- **Change the words** in `src/pages/index.astro`, in the “Podcast” section.
+  ID is set, the play button on the artwork opens the channel; with an ID, the episode plays in place.
+- **Change the channel link** in `youtube.channelUrl`.
 - **Hide the whole section** by setting `showSection: false` under `podcast` in `src/site.config.ts`.
 
 ## Going live

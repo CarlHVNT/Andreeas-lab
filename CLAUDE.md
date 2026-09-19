@@ -103,9 +103,10 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   a course any more (the courses section became the Podcast section on 19 Sep 2026); if teaching courses
   return, they alone take the word.
 - **Copy leads with Andreea.** Icoone is named as her method, not as the brand. The site’s second, quieter
-  jobs are her book and consultancy (`/consultancy`) and her podcast on YouTube (`SITE.podcast`, `SITE.youtube`;
-  `VideoEmbed` shows a photograph until the reader presses play and embeds through youtube-nocookie once
-  `youtube.featuredVideoId` is set). Secondary actions use `.btn-quiet` so WhatsApp stays the only solid
+  jobs are her book and consultancy (`/consultancy`) and her podcast on YouTube (`PodcastSection`, on the home
+  and contact pages; copy in `SITE.podcast`, channel in `SITE.youtube`; the artwork’s play button opens the
+  channel until `youtube.featuredVideoId` names an episode, which `VideoEmbed` then embeds through
+  youtube-nocookie). Secondary actions use `.btn-quiet` so WhatsApp stays the only solid
   burgundy button.
 
 ## Content rules

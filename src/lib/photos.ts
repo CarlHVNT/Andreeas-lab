@@ -19,6 +19,7 @@ import consultation from "@/assets/photos/consultation-markings.jpg";
 import faceMapping from "@/assets/photos/face-mapping.jpg";
 import bookCover from "@/assets/photos/book-cover.webp";
 import certificates from "@/assets/photos/certificates.jpg";
+import podcastCover from "@/assets/photos/podcast-cover.jpg";
 
 export type Photo = {
   src: ImageMetadata;
@@ -28,6 +29,11 @@ export type Photo = {
 };
 
 export const photos = {
+  // The podcast artwork (Carl, 19 September 2026): square, shown whole and linked to the channel
+  podcastCover: {
+    src: podcastCover,
+    alt: "Andreea in a pink tweed jacket at a studio microphone, smiling, with an Andreea’s Lab Podcast sign behind her",
+  },
   // Andreea’s certificates, laid out for a photograph (Carl, 19 September 2026). Shown whole on the
   // qualifications page. Until his upload lands, the file is a copy of the clinic photo.
   certificates: {

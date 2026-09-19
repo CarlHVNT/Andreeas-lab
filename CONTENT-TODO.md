@@ -149,17 +149,16 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
 - [ ] `scripts/generate-placeholders.mjs` now only makes the labelled stand-ins in `src/assets/results/`
       for cases whose photograph has not arrived. Delete it once every case has a real photograph.
 
-## Podcast (`src/pages/index.astro`, `src/site.config.ts` → `podcast`, `youtube`)
+## Podcast (`src/components/PodcastSection.astro`, `src/site.config.ts` → `podcast`, `youtube`)
 
-The “Courses and videos” section became “Podcast” on 19 September 2026 at Carl’s request. The course
-interest form, its thank-you page and the interface strings are gone; the channel is
-https://www.youtube.com/@AndreeasLab and also appears in the structured data.
+The “Courses and videos” section became the podcast section on 19 September 2026 at Carl’s request, and later
+that day took its name, description, button and artwork from him: “Beyond Beauty: Skin, Wellness & Longevity”,
+on https://www.youtube.com/@AndreeasLab. The same section sits on the home page and the contact page. The course
+interest form and its thank-you page are gone.
 
-- [ ] **Featured episode.** `youtube.featuredVideoId` is empty, so the slot shows a photograph of Andreea with
-      the caption and the channel link. Paste an episode ID to embed it.
-- [ ] **Words.** The section says only that the podcast is on YouTube. Ask Andreea for a line on what it is about
-      and who it is for, and whether the section title should carry the podcast’s name.
-- [ ] **Email interest** for courses is no longer collected anywhere. If she still wants a list, decide where and how.
+- [ ] **Featured episode.** `youtube.featuredVideoId` is empty, so the play button on the artwork opens the
+      channel. Paste an episode ID and that episode plays in place instead.
+- [ ] **Email interest** for courses is no longer collected anywhere. If Andreea still wants a list, decide where and how.
 
 ## Consultancy (`src/pages/consultancy.astro`, `src/site.config.ts` → `book`)
 
