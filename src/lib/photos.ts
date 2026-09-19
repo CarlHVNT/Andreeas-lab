@@ -18,6 +18,7 @@ import forehead from "@/assets/photos/treatment-forehead.jpg";
 import consultation from "@/assets/photos/consultation-markings.jpg";
 import faceMapping from "@/assets/photos/face-mapping.jpg";
 import bookCover from "@/assets/photos/book-cover.webp";
+import certificates from "@/assets/photos/certificates.jpg";
 
 export type Photo = {
   src: ImageMetadata;
@@ -27,6 +28,12 @@ export type Photo = {
 };
 
 export const photos = {
+  // Andreea’s certificates, laid out for a photograph (Carl, 19 September 2026). Shown whole on the
+  // qualifications page. Until his upload lands, the file is a copy of the clinic photo.
+  certificates: {
+    src: certificates,
+    alt: "Andreea’s certificates laid out on a white table between pink roses: ITEC diplomas, Dubai training certificates, chemical peel, microneedling and dermaplaning certificates, and her beauty therapy diploma",
+  },
   // Andreea’s book (Carl, 19 September 2026): a 3D cover mock-up on a transparent ground, shown whole
   bookCover: {
     src: bookCover,

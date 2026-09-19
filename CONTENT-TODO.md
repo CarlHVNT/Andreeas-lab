@@ -203,6 +203,12 @@ different.” whose secondary link reads “Contact Andreea” and goes to the c
 - [ ] Acne & oily skin, advanced facial treatments, facial sculpting and facial EMS have no treatment page
       yet. Ask Andreea whether they are bookable services to add to Treatments, with duration and price.
 
+## Qualifications page photo (`src/assets/photos/certificates.jpg`)
+
+- [ ] **Upload the certificates photo** (the flat lay with the roses) over `src/assets/photos/certificates.jpg`
+      on GitHub; until then the qualifications header shows a copy of the clinic photo under the certificates’
+      alt text (Carl sent the picture inline on 19 September 2026, so it did not arrive as a file).
+
 ## Before-and-after case studies (`src/content/case-studies/*.md`)
 
 Rebuilt on 19 September 2026 at Carl’s request into two groups, Facial treatments and Facial massage

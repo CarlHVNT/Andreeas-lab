@@ -32,9 +32,18 @@ const { practitioner } = SITE;
         </p>
       </div>
     </header>
-    <div class="mt-10 md:col-span-5 md:col-start-8 md:mt-0">
-      <PhotoPair first={photos.device} second={photos.clinic} />
-    </div>
+    <!-- The certificates themselves, shown whole (Carl, 19 September 2026) -->
+    <figure class="mt-10 bg-linen md:col-span-5 md:col-start-8 md:mt-0">
+      <Image
+        src={photos.certificates.src}
+        alt={photos.certificates.alt}
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 768px) 40vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="h-auto w-full"
+      />
+    </figure>
   </section>
 
   <Section id="specialisations" title="Specialisations">
