@@ -17,7 +17,6 @@ import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { serviceJsonLd } from "@/lib/seo";
 
-const { practitioner } = SITE;
 const topic = "consultancy";
 
 const areas = [
@@ -112,8 +111,7 @@ const jsonLd = [
 
   <Section title="What I can help with" tone="white">
     <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      The same things I do in the room every week, {practitioner.specialisations.length} specialisations and one
-      method, shared one to one.
+      The same things I do in the room every week, shared one to one.
     </p>
     <ul class="divide-y divide-linen border-y border-linen" role="list">
       {
