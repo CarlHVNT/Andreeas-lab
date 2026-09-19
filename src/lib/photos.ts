@@ -7,7 +7,7 @@
  */
 import type { ImageMetadata } from "astro";
 import bowl from "@/assets/photos/andreea-bowl.jpg";
-import tunic from "@/assets/photos/andreea-tunic.jpg";
+import tunic from "@/assets/photos/andreea-tunic.jpeg";
 import clinic from "@/assets/photos/andreea-clinic.jpg";
 import device from "@/assets/photos/treatment-device.jpg";
 import mask from "@/assets/photos/face-sheet-mask.jpg";

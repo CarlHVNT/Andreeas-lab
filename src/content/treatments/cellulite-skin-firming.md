@@ -19,7 +19,7 @@ contraindications:
   - "Cancer under active treatment"
 contraindicationsConfirmed: true
 faqSlugs: ["how-many-sessions", "how-fast-results", "does-it-hurt", "downtime"]
-heroImage: "../../assets/photos/andreea-tunic.jpg"
+heroImage: "../../assets/photos/andreea-tunic.jpeg"
 heroImageAlt: "Andreea in a white tunic, smiling"
 heroImagePosition: "center 22%"
 order: 2

@@ -115,10 +115,10 @@ handpiece, pink-glove consultation, face-mapping grid), and two still lifes (pin
 collage). The home hero is a silent looping stock video (`public/video/hero.mp4` and `.webm`, 720p,
 15 s, poster `hero-poster.jpg`). Still to do:
 
-- [ ] **New portrait.** Andreea supplied a new white-tunic portrait on 17 September 2026 for the About page
-      and the contact page; it also fronts the home “About me” band. It reached the session as a pasted image,
-      not a file, so it is not in the repo yet. Save it over `src/assets/photos/andreea-tunic.jpg` (same name)
-      and all three places update; check the focal point in `src/lib/photos.ts` afterwards.
+- [x] **New portrait.** Andreea’s white-tunic portrait, uploaded by Carl on 19 September 2026 as
+      `src/assets/photos/andreea-tunic.jpeg`, fronts the About page, the contact page, the home “About me”
+      band, the cellulite treatment page and one Instagram tile. To replace it again, upload a file with the
+      same name and extension.
 - [ ] **Licences.** The four newest photos and the hero video are Adobe Stock files, and the product
       still life and spa collage look like stock too. Keep the licence records, and check the Adobe
       Stock licence covers a commercial website for a client business.
