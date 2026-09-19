@@ -51,7 +51,7 @@ const quotes = await Promise.all(
             <p class="voice mt-4 max-w-[40ch] md:col-span-6 md:col-start-7 md:mt-0">{group.text}</p>
           </div>
           {group.items.length > 0 ? (
-            <div class="mt-10 grid gap-12 md:grid-cols-2 md:gap-x-6 md:gap-y-16">
+            <div class="mt-10 grid gap-12 md:grid-cols-3 md:gap-6">
               {group.items.map((c) => {
                 const t = treatmentFor(c.data.treatmentSlug);
                 return (
@@ -59,7 +59,6 @@ const quotes = await Promise.all(
                     item={c}
                     treatmentTitle={t?.data.title}
                     treatmentHref={t ? treatmentPath(t) : undefined}
-                    size="half"
                     showGroup={false}
                   />
                 );

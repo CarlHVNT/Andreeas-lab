@@ -1,9 +1,10 @@
 ---
 /**
  * One before-and-after case. Andreea publishes each case as a single composite
- * image (before on the left, after on the right, her notes written on it), so the
- * card shows that image whole and never crops it, then the facts as rows. Two
- * separate photographs (`before`, `after`) render side by side instead.
+ * image (before on the left, after on the right, her notes written on it). The
+ * card shows it in a square frame so a row of cases lines up; `imagePosition`
+ * is the focal point when the frame crops a taller image. Then the facts as
+ * rows. Two separate photographs (`before`, `after`) render side by side instead.
  */
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -45,14 +46,15 @@ const meta = [
 <article class="grid content-start gap-5">
   {
     data.image ? (
-      <figure class="bg-linen">
+      <figure class="aspect-square overflow-hidden bg-linen">
         <Image
           src={data.image}
           alt={alt(data.imageAlt ?? "Before and after photographs")}
           widths={[480, 720, 1080]}
           sizes={sizes}
           loading="lazy"
-          class="h-auto w-full"
+          class="h-full w-full object-cover"
+          style={`object-position:${data.imagePosition ?? "center"}`}
         />
       </figure>
     ) : data.before && data.after ? (

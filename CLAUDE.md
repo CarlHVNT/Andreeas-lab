@@ -82,8 +82,9 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Case studies** use `CaseStudyCard` and sit in two groups on `/case-studies`, Facial treatments and
   Facial massage (`src/lib/case-groups.ts`, `group` field; an empty group says photographs will follow).
   Andreea publishes each case as one composite image, before left, after right, her notes written on it:
-  `image` in `src/assets/results/`, shown whole at its own ratio, never cropped. `before`/`after` pairs
-  are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes; a row
+  `image` in `src/assets/results/`, shown in a square frame so a row lines up (three across), cropped to
+  the case’s `imagePosition` focal point so labels and the treated area stay in view. `before`/`after`
+  pairs are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes; a row
   appears only when its field is filled) and adds no claims. `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
   hides every case at once if DHA approval is withdrawn. While `placeholderImages: true` the card says
   the photograph will follow and prefixes the alt text with “Placeholder for”.

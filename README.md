@@ -128,7 +128,8 @@ treatment pages then appear.
 2. In `src/content/case-studies/`, copy an existing file and rename it, for example `jawline-2026.md`.
 3. Fill in `title`, `group` (`facial-treatments` or `facial-massage`), `concern` (what the client came
    in with), `period` (for example `"March to June 2026"`) and `plan` (one line per thing that was done).
-   Point `image` at the file from step 1 and describe it in `imageAlt`. Optional: `treatmentSlug` (the
+   Point `image` at the file from step 1 and describe it in `imageAlt`. Images show in a square; if
+   yours is taller, `imagePosition: "center bottom"` (or `"center top"`) chooses which part stays. Optional: `treatmentSlug` (the
    treatment file name) adds an “About this treatment” link, and `summary` adds two plain sentences.
    Keep it factual: no promises, no medical claims. Leave out what you do not know yet; a row only
    appears when its field is filled.

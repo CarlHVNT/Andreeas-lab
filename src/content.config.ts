@@ -113,6 +113,8 @@ const caseStudies = defineCollection({
       /** One composite before-and-after image, as Andreea publishes it */
       image: image().optional(),
       imageAlt: z.string().optional(),
+      /** CSS object-position for the square frame, e.g. "center bottom". Keeps labels and the treated area in view. */
+      imagePosition: z.string().optional(),
       /** Or two separate photographs */
       before: image().optional(),
       beforeAlt: z.string().optional(),

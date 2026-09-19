@@ -232,9 +232,12 @@ but they did not reach the build environment.
       `consent: true`. DHA advertising rules apply to before/after photographs; `results.showBeforeAfters`
       in `site.config.ts` hides every case at once if needed.
 - [ ] **Melasma case:** the treatments, number of sessions and dates are not on the image. Ask Andreea.
-- [ ] The composite images carry Andreea’s Instagram styling (a coloured title bar on the melasma image,
-      handwritten notes on two others, red “After” lettering on the face-and-neck image). Separate before
-      and after photographs would sit better in the site’s palette; the card supports `before`/`after` pairs.
+- [ ] The composite images carry Andreea’s Instagram styling (handwritten notes on two, red “After”
+      lettering on the face-and-neck image; the melasma title bar is cropped away by the square frame).
+      Separate before and after photographs would sit better in the site’s palette; the card supports
+      `before`/`after` pairs.
+- [ ] When the massage photographs arrive, check the square crops (`imagePosition`: eyes centre, full face
+      top, face and neck bottom) keep the eyes, the faces and the labels in view.
 
 ## Legal (`src/pages/privacy.astro`, `src/pages/terms.astro`)
 

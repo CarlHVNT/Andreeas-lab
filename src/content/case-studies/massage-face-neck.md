@@ -2,6 +2,8 @@
 title: "Face and neck"
 group: "facial-massage"
 image: "../../assets/results/massage-face-neck.jpg"
+# Square frame: keep the Before/After labels at the bottom
+imagePosition: "center bottom"
 imageAlt: "Two photographs of the same face and neck, side by side, labelled Before and After, with the eyes pixelated for privacy"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false

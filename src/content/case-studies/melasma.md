@@ -3,6 +3,8 @@ title: "Melasma"
 group: "facial-treatments"
 concern: "Melasma on the cheek"
 image: "../../assets/results/melasma.jpg"
+# Square frame: crop from the top, so the title bar goes and the Before/After labels stay
+imagePosition: "center 85%"
 imageAlt: "Two photographs of the same cheek with melasma, side by side, labelled Before and After"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
