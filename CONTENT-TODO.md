@@ -37,10 +37,10 @@ pricing, and any wording that could read as a medical claim.
 - [x] Years in the UAE: “more than ten years”, confirmed in Andreea’s About copy (`practitioner.yearsInDubai`).
 - [ ] Year established: `established` (logo says “Est. 2019”).
 - [ ] Languages: `practitioner.languages` (English, Romanian assumed; add Russian/Arabic if relevant).
-- [x] About page intro (`src/pages/about.astro`): replaced with Andreea’s own copy on 17 September 2026
-      (aesthetic professional in Dubai, advanced facial and body treatments, skin health, facial sculpting,
-      aesthetic technologies, more than ten years in the UAE). Two fitting edits: her title-case line became
-      the sentence-case subtitle “The professional behind Andreea’s Lab.”, and one dash became a colon.
+- [x] About page intro (`src/pages/about.astro`): Andreea’s own copy, set exactly as she wrote it on
+      19 September 2026 at Carl’s request, including the title-case subtitle “The Professional Behind
+      Andreea’s Lab” (the one agreed exception to the sentence-case rule) and her dash. The same approach
+      paragraph appears in the home “About me” band.
 - [x] About “Where I trained”: Andreea’s own copy, 17 September 2026, with a facts list built from the
       `practitioner` block and a link to the qualifications page.
 - [x] Home page (17 September 2026): the hero names her as a DHA-licensed beauty therapist and lists her
