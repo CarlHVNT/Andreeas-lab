@@ -15,27 +15,14 @@ import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { whatsappLink } from "@/lib/whatsapp";
+import { GUIDANCE } from "@/lib/consultancy";
 import { serviceJsonLd } from "@/lib/seo";
 
 const topic = "consultancy";
 const { book } = SITE;
 const bookHref = book.url || whatsappLink("the book");
 
-// Andreea’s own words (19 September 2026)
-const guidance = [
-  {
-    title: "Starting your career",
-    text: "For students and newly qualified beauty therapists who need direction on qualifications, licensing, employment and their next professional steps.",
-  },
-  {
-    title: "Already working in beauty",
-    text: "For therapists looking for practical guidance on products, protocols, devices and what I have learned from working with different treatments — the Andreea’s Lab approach.",
-  },
-  {
-    title: "Starting a beauty business",
-    text: "For new business owners who need practical guidance around treatment concepts, equipment, service menus and the licensing questions that should be clarified before launching.",
-  },
-];
+const guidance = GUIDANCE;
 
 const description = `Consultancy from Andreea, a DHA-licensed beauty therapist in Dubai: her book ${book.title} (${book.published}) and personal guidance for students, working therapists and new beauty business owners.`;
 const jsonLd = [

@@ -11,7 +11,6 @@ import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
 import VideoEmbed from "@/components/VideoEmbed.astro";
 import CourseInterestForm from "@/components/CourseInterestForm.astro";
-import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import IconInstagram from "@/components/icons/IconInstagram.astro";
@@ -21,6 +20,7 @@ import { photos } from "@/lib/photos";
 import { whatsappLink } from "@/lib/whatsapp";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 import SpecialisationList from "@/components/SpecialisationList.astro";
+import { GUIDANCE } from "@/lib/consultancy";
 import {
   getFeaturedTreatments,
   getFeaturedCaseStudies,
@@ -182,37 +182,42 @@ const why = [
     </div>
   </section>
 
-  <!-- 3b. Consultancy: the book and her guidance for professionals, as on the consultancy page. White band. -->
+  <!-- 3b. Consultancy: the book under the statement, her three kinds of guidance as rows. White band. -->
   <Section id="consultancy" title="Consultancy" tone="white">
-    <p slot="statement" class="voice mt-4 max-w-[34ch]">
-      For students, working therapists and new business owners in beauty and aesthetics.
-    </p>
-    <div class="grid gap-8 sm:grid-cols-[9rem_1fr] sm:items-start">
-      <a href={bookHref} target="_blank" rel="noopener" class="block max-w-[9rem]">
-        <Image src={photos.bookCover.src} alt={photos.bookCover.alt} widths={[288, 480]} sizes="9rem" loading="lazy" class="h-auto w-full" />
+    <div slot="statement" class="mt-4 grid gap-8">
+      <p class="voice max-w-[34ch]">
+        For students, working therapists and new business owners in beauty and aesthetics.
+      </p>
+      <a href={bookHref} target="_blank" rel="noopener" class="block max-w-[14rem]">
+        <Image src={photos.bookCover.src} alt={photos.bookCover.alt} widths={[448, 672]} sizes="14rem" loading="lazy" class="h-auto w-full" />
       </a>
-      <div>
-        <div class="voice">
-          <p>
-            In {book.published}, Andreea published <em>{book.title}</em>, a practical guide covering many of the
-            questions she had to learn through experience when entering the industry.
-          </p>
-          <p>
-            Alongside the book she offers personal guidance: starting your career, already working in beauty, and
-            starting a beauty business.
-          </p>
-        </div>
-        <div class="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-          <a href={bookHref} class="link-arrow" target="_blank" rel="noopener">
-            <span>Get the book</span>
-            <IconArrow class="h-4.5 w-4.5" />
-          </a>
-          <a href="/consultancy" class="link-arrow">
-            <span>About consultancy</span>
-            <IconArrow class="h-4.5 w-4.5" />
-          </a>
-        </div>
-      </div>
+    </div>
+    <div class="voice">
+      <p>
+        In {book.published}, Andreea published <em>{book.title}</em>, a practical guide covering many of the
+        questions she had to learn through experience when entering the industry. Alongside the book she offers
+        personal guidance:
+      </p>
+    </div>
+    <ul class="mt-8 divide-y divide-linen border-y border-linen" role="list">
+      {
+        GUIDANCE.map((g) => (
+          <li class="py-5">
+            <h3 class="text-title font-medium">{g.title}</h3>
+            <p class="mt-1.5 max-w-[56ch] text-muted">{g.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+      <a href={bookHref} class="link-arrow" target="_blank" rel="noopener">
+        <span>Get the book</span>
+        <IconArrow class="h-4.5 w-4.5" />
+      </a>
+      <a href="/consultancy" class="link-arrow">
+        <span>About consultancy</span>
+        <IconArrow class="h-4.5 w-4.5" />
+      </a>
     </div>
   </Section>
 
@@ -326,6 +331,4 @@ const why = [
       <IconArrow class="h-4.5 w-4.5" />
     </a>
   </Section>
-
-  <CtaBand />
 </BaseLayout>

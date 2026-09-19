@@ -34,6 +34,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 | Page shell, fonts, metadata, JSON-LD, header, footer, sticky bar | `src/layouts/BaseLayout.astro` |
 | Legal/prose pages | `src/layouts/ProsePage.astro` |
 | Interface strings and locale helpers | `src/i18n/ui.ts` |
+| Consultancy guidance copy (her three rows) and the FAQ / case-study groups | `src/lib/consultancy.ts`, `src/lib/faq-groups.ts`, `src/lib/case-groups.ts` |
 | WhatsApp link builder | `src/lib/whatsapp.ts` |
 | Collection queries and slug helpers | `src/lib/content.ts` |
 | Structured data builders | `src/lib/seo.ts` |
@@ -71,7 +72,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
-- **Every page ends with `CtaBand`** except the contact page. Its secondary link emails Andreea unless a page
+- **Every page ends with `CtaBand`** except the contact page and the home page, whose Contact section is
+  the closing call to action (Carl, 19 Sep 2026). Its secondary link emails Andreea unless a page
   passes `contactLinkLabel`/`contactLinkHref`.
 - **Contact details are WhatsApp and email only.** The address is not published: the contact page and the home
   page say “Based in Dubai, UAE” (Carl, 19 Sep 2026). No request form, map or hours on the pages; the
