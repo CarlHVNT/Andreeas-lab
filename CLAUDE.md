@@ -66,16 +66,19 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **One `ImageBand` per site**, on the home page. Galleries are `Gallery` (squares) or `PhotoPair`
   (arch plus square).
 - **Sentence case everywhere.** No all-caps labels, no eyebrows, no italic single words in headlines.
-- **Numbering only for real sequences.** Currently only “How it works”.
+- **Numbering only for real sequences.** “How it works” on the home page and the three steps on the
+  consultancy page.
 - **One motion moment.** The hero `.reveal` / `.reveal-late`. Nothing else animates. Reduced motion respected.
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
 - **Every page ends with `CtaBand`** except the contact page.
-- **Site structure (Andreea’s brief, 16 Sep 2026):** About me, Specialisations & qualifications,
-  Treatments with before/after case studies, FAQ, Contact. Home is the landing page and mirrors that
-  order. `/results` redirects to `/case-studies`. Header nav labels: About me, Qualifications,
-  Treatments, FAQ, Contact; the footer adds Before & after.
+- **Site structure (Andreea’s brief, 16 Sep 2026, Consultancy added 19 Sep):** About me,
+  Specialisations & qualifications, Treatments with before/after case studies, Consultancy, FAQ,
+  Contact. Home is the landing page and mirrors that order. `/results` redirects to `/case-studies`.
+  Header nav labels: About me, Qualifications, Treatments, Consultancy, FAQ, Contact; the footer adds
+  Before & after. `/consultancy` is Andreea’s professional knowledge for others in the industry; its
+  WhatsApp buttons carry the topic “consultancy”, and its copy is a draft until she confirms it.
 - **Case studies** use `CaseStudyCard`. Photographs only with `consent: true`; while
   `placeholderImages: true` the card says photographs will follow. `SITE.results.showBeforeAfters`
   hides every case at once if DHA approval is withdrawn.

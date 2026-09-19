@@ -57,6 +57,8 @@ export function serviceJsonLd(input: {
   description: string;
   url: string;
   price?: number | null;
+  /** Defaults to an Icoone treatment; the consultancy page passes its own */
+  serviceType?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -64,7 +66,7 @@ export function serviceJsonLd(input: {
     name: input.name,
     description: input.description,
     url: input.url,
-    serviceType: "Icoone treatment",
+    serviceType: input.serviceType ?? "Icoone treatment",
     provider: { "@id": BUSINESS_ID },
     areaServed: { "@type": "City", name: "Dubai" },
     ...(input.price != null

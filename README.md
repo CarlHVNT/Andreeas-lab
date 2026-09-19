@@ -152,6 +152,12 @@ of the same names. Keep the video short (10 to 15 seconds), silent, 1280 pixels 
 3 MB per file so the page stays fast. The still image is what people see first and what visitors who
 prefer less motion see instead of the video.
 
+## The consultancy page
+
+The words on `/consultancy` live in `src/pages/consultancy.astro`: the two opening paragraphs, the list
+called `areas` (each has a title and one line of text) and the three `steps`. Change them there. Every
+WhatsApp button on that page starts the message with “consultancy” so you know where the enquiry came from.
+
 ## Courses and videos
 
 The home page has a section called “Courses and videos”. It does two things: it lets people leave

@@ -30,6 +30,7 @@ const en = {
   "nav.about": "About me",
   "nav.qualifications": "Qualifications",
   "nav.treatments": "Treatments",
+  "nav.consultancy": "Consultancy",
   "nav.caseStudies": "Before & after",
   "nav.results": "Before & after",
   "nav.faq": "FAQ",

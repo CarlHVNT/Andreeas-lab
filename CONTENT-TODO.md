@@ -147,6 +147,23 @@ email interest for her courses and holds one video. The WhatsApp group idea is p
 - [ ] **Later, if the list grows:** move to a proper mailing tool. Netlify Forms stores the list; it does
       not send campaigns.
 
+## Consultancy (`/consultancy`, copy in `src/pages/consultancy.astro`)
+
+Added on 19 September 2026 at Carl’s request, without copy from Andreea. Everything on the page is a
+draft in her voice built from facts already confirmed (her specialisations, her method, her studio, her
+years in the UAE). Before launch, Andreea should confirm or rewrite:
+
+- [ ] **Who it is for.** The draft says professionals and businesses in beauty and aesthetics: people
+      starting out, salons and clinics adding treatments or technology, and anyone wanting a second opinion.
+- [ ] **What it covers.** Five draft areas: treatment planning and programmes; facial and body technique;
+      working with technology such as Icoone; talking to clients; starting out in Dubai. Remove any she does
+      not offer. “Starting out in Dubai” must stay practical, not licensing or legal advice.
+- [ ] **Format and pricing.** The draft promises a written proposal covering scope, duration, place and
+      cost, and says nothing about rates or whether sessions are in person or online. Confirm.
+- [ ] **The three steps** (message, first conversation, written proposal) and the link to the courses
+      section on the home page.
+- [ ] **Photograph.** The header uses the clinic desk photo. Replace if she prefers another.
+
 ## Logo and icons
 
 - [x] The real logotype is in place (16 September 2026): header lockup, footer, favicons and share image,
