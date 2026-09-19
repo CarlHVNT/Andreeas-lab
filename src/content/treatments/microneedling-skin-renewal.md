@@ -6,10 +6,10 @@ title: "Microneedling Skin Renewal"
 promise: "Microneedling combined with a selected professional serum protocol, including exosome-based and vitamin formulations when appropriate."
 duration: "60 min"
 priceFrom: 1500
-# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/microneedling.jpg
+# Andreea’s photograph, uploaded by Carl on 19 September 2026
 heroImage: "../../assets/photos/microneedling.jpg"
-heroImageAlt: "Gloved hands guiding a handpiece over a client’s forehead"
-heroImagePosition: "55% 60%"
+heroImageAlt: "A microneedling pen moving over a client’s cheek, her eyes closed"
+heroImagePosition: "center"
 order: 3
 featured: true
 whatsappName: "Microneedling Skin Renewal"

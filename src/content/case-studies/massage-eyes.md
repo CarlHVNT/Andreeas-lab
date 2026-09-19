@@ -5,8 +5,7 @@ image: "../../assets/results/massage-eyes.jpg"
 imageAlt: "Two close-up photographs of the same eyes and brows, one above the other: before above, after below"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
-# Stand-in image until Andreea’s photograph replaces src/assets/results/massage-eyes.jpg; then set this to false.
-placeholderImages: true
+placeholderImages: false
 featured: false
 order: 11
 ---

@@ -7,8 +7,7 @@ imagePosition: "center top"
 imageAlt: "Two photographs of the same face, side by side: before on the left, after on the right"
 # Andreea published this case on Instagram. Set consent: true once the client’s written consent is on file (CONTENT-TODO.md).
 consent: false
-# Stand-in image until Andreea’s photograph replaces src/assets/results/massage-face.jpg; then set this to false.
-placeholderImages: true
+placeholderImages: false
 featured: false
 order: 12
 ---

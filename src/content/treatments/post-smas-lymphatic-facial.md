@@ -6,10 +6,10 @@ title: "Post-SMAS Lymphatic Facial"
 promise: "Gentle lymphatic treatment for the face, neck and décolleté, designed to support swelling management and recovery after SMAS surgery, with appropriate medical clearance."
 duration: "60 min"
 priceFrom: 850
-# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/post-smas-lymphatic.jpg
+# Andreea’s photograph, uploaded by Carl on 19 September 2026
 heroImage: "../../assets/photos/post-smas-lymphatic.jpg"
-heroImageAlt: "Andreea performing a facial treatment with a handpiece"
-heroImagePosition: "center 32%"
+heroImageAlt: "A woman’s face with curved white lines drawn along the cheek and jaw"
+heroImagePosition: "center 40%"
 order: 4
 featured: true
 whatsappName: "the Post-SMAS Lymphatic Facial"

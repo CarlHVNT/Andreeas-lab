@@ -6,10 +6,10 @@ title: "Facial Sculpting & Lift Massage"
 promise: "A maintenance facial massage combining sculpting, lifting and lymphatic techniques to support facial definition and reduce puffiness."
 duration: "60 min"
 priceFrom: 700
-# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/facial-sculpting-lift-massage.jpg
+# Andreea’s photograph, uploaded by Carl on 19 September 2026
 heroImage: "../../assets/photos/facial-sculpting-lift-massage.jpg"
-heroImageAlt: "A woman touching her jaw, a fine measuring grid drawn over her face and neck"
-heroImagePosition: "38% center"
+heroImageAlt: "Two hands working along a client’s cheek and jaw during a facial sculpting massage"
+heroImagePosition: "center"
 order: 5
 featured: true
 whatsappName: "the Facial Sculpting & Lift Massage"

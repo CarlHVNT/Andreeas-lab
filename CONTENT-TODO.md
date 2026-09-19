@@ -86,12 +86,10 @@ WhatsApp.
 
 - [ ] Per treatment, still to come from Andreea: who it is for, what a session is like, any programme
       guidance, contraindications and related FAQs. Each section appears only once its field is filled.
-- [ ] **Photographs.** Each treatment now has its own file in `src/assets/photos/`, currently a copy of a
-      stock or studio photo, so Andreea’s photo can be uploaded over it under the same name and goes live on the
-      next deploy: `christina-biophyto.jpg`, `biorepeel.jpg`, `microneedling.jpg`, `post-smas-lymphatic.jpg`,
-      `facial-sculpting-lift-massage.jpg`, `facial-sculpting-ems.jpg`, `ems-express.jpg`. Carl sent the first
-      three on 19 September, but pasted inline, so they did not arrive; once each real photo is in, rewrite its
-      `heroImageAlt` and check `heroImagePosition` (the thumbnail and hero crop to 4:5, the gallery to a square).
+- [x] **Photographs.** Carl uploaded a photo for each of the seven treatments on 19 September 2026
+      (`src/assets/photos/christina-biophyto.jpg` and the others named after their treatment); the black bars
+      were trimmed off the BioPhyto image. Alt text and focal points are set for each; if Andreea sends
+      better or her own photos later, upload over the same file name.
 - [ ] Body treatments: “Body lymphatic drainage & Icoone Medical” is a specialisation, but no body treatment
       is listed. Ask whether a body list follows, with the same facts.
 - [x] The hero, the site description, the treatments page description and the FAQ no longer describe Icoone
@@ -222,13 +220,10 @@ acne (April to October 2025); Acne vulgaris (July to November 2025, linked to th
 are kept in the files but not shown. The plans are transcribed from her
 notes on the images; spelling on the images (“Chimical”, “suppliments”) is corrected in the transcription.
 
-Facial massage, three cases with labelled stand-ins: Around the eyes (`massage-eyes.jpg`), Full face
-(`massage-face.jpg`), Face and neck (`massage-face-neck.jpg`). Carl sent the three images on 19 September,
-but they did not reach the build environment.
+Facial massage, photographs in place: Around the eyes (`massage-eyes.jpg`), Full face (`massage-face.jpg`),
+Face and neck (`massage-face-neck.jpg`).
 
-- [ ] **Upload the three facial-massage images** to `src/assets/results/` under exactly those names, replacing
-      the stand-ins, then set `placeholderImages: false` in the matching case file. (`npm run placeholders`
-      never overwrites an existing file.)
+- [x] The three facial-massage images are in (Carl, 19 September 2026); the stand-ins are gone.
 - [ ] **Massage cases have no facts yet.** For the record, ask Andreea for each: the dates, the treatment,
       what the client came in with and the number of sessions. Only the title shows on the site. Confirm which photograph is before and which is after on the two
       unlabelled images (the alt text assumes before above, or on the left).

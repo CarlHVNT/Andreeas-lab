@@ -6,10 +6,10 @@ title: "BioRePeel — Face, Neck & Hands"
 promise: "Professional peel treatment designed to improve texture, brightness and overall skin renewal."
 duration: "30 min"
 priceFrom: 900
-# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/biorepeel.jpg
+# Andreea’s photograph, uploaded by Carl on 19 September 2026
 heroImage: "../../assets/photos/biorepeel.jpg"
-heroImageAlt: "A practitioner in pink gloves checking a client’s face before a treatment"
-heroImagePosition: "72% center"
+heroImageAlt: "Drops of BioRePeel solution dotted over a client’s cheek, applied from a syringe by a gloved hand"
+heroImagePosition: "center 45%"
 order: 2
 featured: true
 whatsappName: "BioRePeel for face, neck and hands"
