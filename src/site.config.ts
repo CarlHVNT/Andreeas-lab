@@ -113,7 +113,7 @@ export const SITE = {
       },
       { title: "Icoone Laser MED Practitioner Training", issuer: "Specialised two-week practical training", year: "" },
     ],
-    /** Additional training, from Andreea (19 September 2026). Shown as one line under the qualifications. */
+    /** Additional training, from Andreea (19 September 2026). The last row of Qualifications & certifications. */
     additionalTraining: [
       "Hydrafacial Syndeo",
       "Facial skincare",
@@ -122,6 +122,19 @@ export const SITE = {
       "BBL/IPL training",
       "Alma Academy training",
     ],
+    /** Continuing education, in Andreea’s words (19 September 2026): three paragraphs and three labelled rows */
+    continuingEducation: {
+      intro: [
+        "In aesthetics, learning never really stops.",
+        "New technologies, products and treatment protocols appear constantly, so staying updated is essential.",
+        "I continue my education through industry events such as Dubai Derma, professional workshops, online courses and independent research. I also make sure to receive proper training whenever I work with a new device, product or protocol.",
+      ],
+      groups: [
+        { label: "Industry events", items: ["Dubai Derma", "Aesthetic & dermatology conferences", "Professional exhibitions"] },
+        { label: "Ongoing learning", items: ["Courses", "Workshops", "Product research", "New treatment protocols"] },
+        { label: "Technology training", items: ["Manufacturer & distributor training for new devices"] },
+      ],
+    },
   },
 
   contact: {

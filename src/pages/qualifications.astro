@@ -42,7 +42,7 @@ const { practitioner } = SITE;
     <SpecialisationList />
   </Section>
 
-  <Section title="Qualifications &amp; certifications">
+  <Section id="qualifications-list" title="Qualifications &amp; certifications">
     <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
       {practitioner.title}.
     </p>
@@ -58,16 +58,30 @@ const { practitioner } = SITE;
           </li>
         ))
       }
+      <li class="grid gap-1 py-4 sm:grid-cols-[1fr_auto] sm:gap-6">
+        <div>
+          <p class="font-medium text-ink">Additional training</p>
+          <p class="text-muted">{practitioner.additionalTraining.join(" · ")}</p>
+        </div>
+      </li>
     </ul>
   </Section>
 
-  <Section title="Additional training">
-    <!-- Andreea’s own words (17 September 2026) -->
-    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      I continue to develop my skills through specialised hands-on training and professional education in the UAE
-      and internationally.
-    </p>
-    <p class="border-y border-linen py-4 text-facts">{practitioner.additionalTraining.join(" · ")}</p>
+  <Section id="continuing-education" title="Continuing education">
+    <!-- Andreea’s own words (19 September 2026) -->
+    <div slot="statement" class="voice mt-4 max-w-[36ch]">
+      {practitioner.continuingEducation.intro.map((p) => <p>{p}</p>)}
+    </div>
+    <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
+      {
+        practitioner.continuingEducation.groups.map((g) => (
+          <li class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+            <span class="text-muted">{g.label}</span>
+            <span>{g.items.join(" · ")}</span>
+          </li>
+        ))
+      }
+    </ul>
     <dl class="mt-8 grid gap-1 text-facts sm:grid-cols-[11rem_1fr] sm:gap-6">
       <dt class="text-muted">Languages</dt>
       <dd>{practitioner.languages.join(", ")}</dd>

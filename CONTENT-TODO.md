@@ -188,9 +188,12 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 - [ ] Still not mentioned by Andreea: the Instagram bio’s “MOH certified”. Ask before adding it.
 - [ ] The qualifications page no longer says “Certificates are available to see in the room”. Ask whether
       that is true and wanted.
-- [x] `additionalTraining` (was `continuingEducation`): Andreea’s list of 19 September 2026, shown as one
-      line: Hydrafacial Syndeo · Facial skincare · Chemical peels · Microneedling (Morpheus) · BBL/IPL
-      training · Alma Academy training. Her text read “BBL/IPL trading”, set as “training”; confirm.
+- [x] `additionalTraining`: Andreea’s list of 19 September 2026, now the last row of “Qualifications &
+      certifications”: Hydrafacial Syndeo · Facial skincare · Chemical peels · Microneedling (Morpheus) ·
+      BBL/IPL training · Alma Academy training. Her text read “BBL/IPL trading”, set as “training”; confirm.
+- [x] `continuingEducation`: Andreea’s own copy of 19 September 2026, three paragraphs and three rows
+      (industry events including Dubai Derma, ongoing learning, technology training). Replaces the earlier
+      placeholder lines and confirms the Dubai Derma attendance that had been removed as unverified.
 - [x] Specialisations (19 September 2026): five drop-down rows in Andreea’s words, each with her
       paragraph, from `practitioner.specialisations`: acne & oily skin, advanced facial treatments, facial
       sculpting & lymphatic drainage, facial EMS, body lymphatic drainage & Icoone Medical. No links out of
