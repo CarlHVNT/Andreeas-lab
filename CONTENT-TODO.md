@@ -50,9 +50,10 @@ pricing, and any wording that could read as a medical claim.
       specialisms in her words; the “About me” band carries her intro and approach paragraphs; the meta
       description follows. The unconfirmed “opened Andreea’s Lab in 2019” line is gone from the home page;
       `established` still shows in the footer.
-- [ ] About page, remaining sections (“Why Icoone”, “How I plan a programme”): “thirty-minute
-      consultation”, “measure again every few sessions”, “I do not offer injectables”. Still sample
-      first-person copy; ask Andreea for her facts.
+- [x] About “Why choose Andreea” (was “Why Icoone”): Andreea’s own paragraph, set as written on
+      19 September 2026. The sample “I chose Icoone because…” and “I do not offer injectables” copy is gone.
+- [ ] About “How I plan a programme”: “thirty-minute consultation” and “measure again every few sessions”
+      are still sample first-person copy; ask Andreea for her facts.
 - [ ] Optional licence line for the footer: `footer.licenceLine`, e.g. “Treatments are provided under
       the licence of … , DHA licence no. …”. Confirm with the clinic whether it is required.
 
