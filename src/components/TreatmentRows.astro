@@ -1,12 +1,12 @@
 ---
 /**
- * Treatments as hairline rows, not cards. Serif title, sans promise, one arrow.
+ * Treatments as hairline rows, not cards: thumbnail, serif title, one arrow.
+ * The one-line description, duration and price live on the treatment’s own page.
  */
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import IconArrow from "./icons/IconArrow.astro";
 import { treatmentPath } from "@/lib/content";
-import { formatPrice } from "@/lib/format";
 
 interface Props {
   items: CollectionEntry<"treatments">[];
@@ -39,13 +39,7 @@ const { items, headingLevel: Heading = "h3", thumbnails = true } = Astro.props;
               class="h-[4.375rem] w-14 object-cover md:h-20 md:w-16"
             />
           )}
-          <div>
-            <Heading class="text-title font-medium text-ink group-hover:text-wine">{t.data.title}</Heading>
-            <p class="mt-1 max-w-[52ch] text-[0.95rem] leading-[1.45] text-muted">{t.data.promise}</p>
-            <p class="mt-1.5 text-meta text-ink tabular-nums">
-              {t.data.duration} · {t.data.priceFrom != null ? formatPrice(t.data.priceFrom) : "On request"}
-            </p>
-          </div>
+          <Heading class="text-title font-medium text-ink group-hover:text-wine">{t.data.title}</Heading>
           <IconArrow class="h-5 w-5 text-wine" />
         </a>
       </li>
