@@ -38,7 +38,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 | Collection queries and slug helpers | `src/lib/content.ts` |
 | Structured data builders | `src/lib/seo.ts` |
 | Photographs, with alt text and focal points | `src/assets/photos/`, registry in `src/lib/photos.ts` |
-| Generated placeholders (now only share image and icons) | `src/assets/placeholders/`, `scripts/generate-placeholders.mjs` |
+| Before-and-after images, one composite per case as Andreea publishes them; labelled stand-ins until hers arrive | `src/assets/results/`; stand-ins from `scripts/generate-placeholders.mjs`, which never overwrites an existing file |
 | Content gaps to fill before launch | `CONTENT-TODO.md` |
 | Non-developer guide for Andreea | `README.md` |
 
@@ -79,9 +79,14 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Header nav labels: About me, Qualifications, Treatments, Consultancy, FAQ, Contact; the footer adds
   Before & after. `/consultancy` is Andreea’s professional knowledge for others in the industry; its
   WhatsApp buttons carry the topic “consultancy”, and its copy is a draft until she confirms it.
-- **Case studies** use `CaseStudyCard`. Photographs only with `consent: true`; while
-  `placeholderImages: true` the card says photographs will follow. `SITE.results.showBeforeAfters`
-  hides every case at once if DHA approval is withdrawn.
+- **Case studies** use `CaseStudyCard` and sit in two groups on `/case-studies`, Facial treatments and
+  Facial massage (`src/lib/case-groups.ts`, `group` field; an empty group says photographs will follow).
+  Andreea publishes each case as one composite image, before left, after right, her notes written on it:
+  `image` in `src/assets/results/`, shown whole at its own ratio, never cropped. `before`/`after` pairs
+  are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes) and
+  adds no claims. `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
+  hides every case at once if DHA approval is withdrawn. While `placeholderImages: true` the card says
+  the photograph will follow and prefixes the alt text with “Placeholder for”.
 - **Bands, not one long scroll.** Sections alternate between the ivory page and a tinted band:
   `Section tone="white"` is the quiet band, `tone="blush"` the accent band. Never two sections of the
   same tint in a row, at most one blush band per page. Bands carry spacing on both sides (`.band` in
@@ -116,7 +121,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Do not draft those sections; ask for her facts. On the treatments page, Before and after precedes How it works.
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.
-- Before/after photos stay behind `SITE.results.showBeforeAfters` until DHA approval is confirmed.
+- Before/after photos are live at Carl’s request (19 Sep 2026). `SITE.results.showBeforeAfters` hides them
+  all at once if DHA approval is withdrawn; written consent per case is tracked in `CONTENT-TODO.md`.
 - Placeholder images must stay clearly labelled. Alt text starts with “Placeholder for …”.
 
 ## URLs, SEO and structured data

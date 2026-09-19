@@ -6,11 +6,11 @@ import Quote from "@/components/Quote.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
-import { getCaseStudies, getTestimonials, getTreatments, treatmentPath } from "@/lib/content";
+import { getCaseStudiesByGroup, getTestimonials, getTreatments, treatmentPath } from "@/lib/content";
 
-const cases = SITE.results.showBeforeAfters ? await getCaseStudies() : [];
+const groups = SITE.results.showBeforeAfters ? await getCaseStudiesByGroup() : [];
 const treatments = await getTreatments();
-const treatmentFor = (slug: string) => treatments.find((t) => t.id === slug);
+const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === slug) : undefined);
 const testimonials = await getTestimonials();
 const quotes = await Promise.all(
   testimonials.map(async (q) => ({ q, Content: (await render(q)).Content })),
@@ -19,7 +19,7 @@ const quotes = await Promise.all(
 
 <BaseLayout
   title="Before and after"
-  description="Before-and-after case studies from Andreea’s Lab in Dubai: what the client came in with, how the programme was planned, and what changed, photographed in the same light and shared with consent."
+  description="Before-and-after cases from Andreea’s Lab in Dubai, in two groups: facial treatments and facial massage. What the client came in with, what was done, and the photographs, shared with permission."
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-7">
@@ -27,9 +27,8 @@ const quotes = await Promise.all(
       <h1 class="text-statement">Before and after</h1>
       <div class="voice mt-5">
         <p>
-          Every case here is one client, one plan and one programme, photographed in the same light before the
-          first session and after the last. Nothing is retouched, and every photograph is shared with the
-          client’s written permission.
+          Every case here is one client and one plan: what they came in with, what was done, and the
+          photographs before the first session and after the last, shared with the client’s permission.
         </p>
         <p class="text-muted">
           Results vary from person to person, and these are not a promise about yours. That is what the
@@ -39,25 +38,39 @@ const quotes = await Promise.all(
     </header>
   </section>
 
+  <!-- One section per group (src/lib/case-groups.ts); the page and the quiet band alternate -->
   {
-    cases.length > 0 && (
-      <section class="pt-14 md:pt-20">
-        <div class="mx-auto grid max-w-content gap-12 px-5 md:grid-cols-2 md:gap-x-6 md:gap-y-16 md:px-6">
-          {cases.map((c) => {
-            const t = treatmentFor(c.data.treatmentSlug);
-            return (
-              <CaseStudyCard
-                item={c}
-                treatmentTitle={t?.data.title}
-                treatmentHref={t ? treatmentPath(t) : undefined}
-                headingLevel="h2"
-                size="half"
-              />
-            );
-          })}
+    groups.map((group, i) => (
+      <section id={group.id} class:list={[i % 2 === 0 ? "pt-14 md:pt-20" : "band bg-white"]}>
+        <div class="mx-auto max-w-content px-5 md:px-6">
+          <div class="md:grid md:grid-cols-12 md:gap-6">
+            <div class="md:col-span-5">
+              <Mark class="mb-4" />
+              <h2 class="text-statement">{group.label}</h2>
+            </div>
+            <p class="voice mt-4 max-w-[40ch] md:col-span-6 md:col-start-7 md:mt-0">{group.text}</p>
+          </div>
+          {group.items.length > 0 ? (
+            <div class="mt-10 grid gap-12 md:grid-cols-2 md:gap-x-6 md:gap-y-16">
+              {group.items.map((c) => {
+                const t = treatmentFor(c.data.treatmentSlug);
+                return (
+                  <CaseStudyCard
+                    item={c}
+                    treatmentTitle={t?.data.title}
+                    treatmentHref={t ? treatmentPath(t) : undefined}
+                    size="half"
+                    showGroup={false}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <p class="mt-8 text-muted">Photographs will follow.</p>
+          )}
         </div>
       </section>
-    )
+    ))
   }
 
   <section class="pt-18 md:pt-32">
@@ -87,6 +100,6 @@ const quotes = await Promise.all(
 
   <CtaBand
     title="Your turn."
-    text="Tell Andreea what you would like to change. She will tell you honestly what Icoone can do for it, and what it cannot."
+    text="Tell Andreea what you would like to change. She will tell you honestly what she can do for it, and what she cannot."
   />
 </BaseLayout>

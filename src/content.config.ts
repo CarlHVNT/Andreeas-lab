@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { caseGroupIds } from "./lib/case-groups";
 
 /**
  * Treatments – one Markdown file per treatment in src/content/treatments.
@@ -87,29 +88,41 @@ const testimonials = defineCollection({
 
 /**
  * Case studies – one Markdown file per before-and-after case in src/content/case-studies.
- * Photographs need the client’s written consent. The Markdown body holds Andreea’s notes.
+ * Andreea publishes each case as one composite image (before on the left, after on the
+ * right, her notes written on it): that is `image`. Two separate photographs (`before`,
+ * `after`) are also supported. Every case belongs to a group on the Before & after page
+ * (src/lib/case-groups.ts). Photographs need the client’s consent. The Markdown body holds
+ * Andreea’s notes.
  */
 const caseStudies = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      /** Treatment file name this case belongs to */
-      treatmentSlug: z.string(),
+      /** Group on the Before & after page */
+      group: z.enum(caseGroupIds),
+      /** Treatment file name this case belongs to, when one treatment fits */
+      treatmentSlug: z.string().optional(),
       /** What the client came in with, one line */
       concern: z.string(),
-      sessions: z.number(),
-      /** e.g. "6 weeks" */
-      period: z.string(),
-      before: image(),
-      beforeAlt: z.string(),
-      after: image(),
-      afterAlt: z.string(),
-      /** Two or three plain sentences. No guarantees, no medical claims. */
-      summary: z.string(),
+      /** e.g. "April to October 2025". Optional. */
+      period: z.string().optional(),
+      sessions: z.number().optional(),
+      /** What was done, one item per line, transcribed from Andreea’s notes */
+      plan: z.array(z.string()).default([]),
+      /** One composite before-and-after image, as Andreea publishes it */
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      /** Or two separate photographs */
+      before: image().optional(),
+      beforeAlt: z.string().optional(),
+      after: image().optional(),
+      afterAlt: z.string().optional(),
+      /** Two or three plain sentences. No guarantees, no medical claims. Optional. */
+      summary: z.string().optional(),
       /** Written consent for publishing the photographs is on file */
       consent: z.boolean().default(false),
-      /** True while the images are placeholders */
+      /** True while the image is a stand-in: the card says so and prefixes the alt text */
       placeholderImages: z.boolean().default(false),
       featured: z.boolean().default(false),
       order: z.number().default(99),

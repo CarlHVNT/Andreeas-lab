@@ -96,8 +96,8 @@ WhatsApp.
 - [ ] The hero subline, the site description and the FAQ still describe Icoone body programmes. Revisit once
       the body list is decided.
 - [ ] Prices are shown per treatment in AED as given; confirm the VAT position.
-- [ ] The sample testimonials and case studies still point at the old treatment slugs, so they show without
-      a treatment link until they are updated or replaced.
+- [ ] The sample testimonials still point at the old treatment slugs, so they show without a treatment
+      name until they are updated or replaced.
 
 ## FAQs (`src/content/faqs/*.md`)
 
@@ -138,8 +138,8 @@ collage). The home hero is a silent looping stock video (`public/video/hero.mp4`
       (a crop of one of the photographs with the wordmark).
 - [ ] Instagram grid tiles reuse the site photos. Swap for six actual posts when convenient
       (`instagramPhotos` in `src/lib/photos.ts`).
-- [ ] The generator in `scripts/generate-placeholders.mjs` and `src/assets/placeholders/` are now
-      only used for the share image and app icons. Delete once those are real.
+- [ ] `scripts/generate-placeholders.mjs` now only makes the labelled stand-ins in `src/assets/results/`
+      for cases whose photograph has not arrived. Delete it once every case has a real photograph.
 
 ## Courses and videos (`src/pages/index.astro`, `src/site.config.ts` → `courses`, `youtube`)
 
@@ -209,13 +209,27 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 
 ## Before-and-after case studies (`src/content/case-studies/*.md`)
 
-- [ ] **Three sample cases with placeholder photographs.** The text describes a plausible plan and
-      says notes will follow; the images are labelled placeholders and each card says “Photographs to
-      follow with the client’s consent.” Replace with real cases: real photographs, `consent: true`,
-      `placeholderImages: false`, and Andreea’s own notes in the Markdown body.
-- [ ] **DHA.** Before/after photographs in healthcare advertising need the client’s written consent and
-      may need approval. Confirm with the licence holder before any real photograph goes live.
-      `results.showBeforeAfters` in `site.config.ts` hides every case if needed.
+Rebuilt on 19 September 2026 at Carl’s request into two groups, Facial treatments and Facial massage
+(`src/lib/case-groups.ts`). The three sample Icoone cases are gone. Three real facial-treatment cases are in,
+transcribed from the composite images Andreea published (before left, after right, her notes on the image):
+Melasma; Breakouts and uneven texture (April to October 2025); Active acne (July to November 2025, linked to
+the BioRePeel treatment). Spelling on the images (“Chimical”, “suppliments”) is corrected in the transcription.
+
+- [ ] **The three photographs are not in the repository yet.** Images pasted into the chat do not reach
+      the build environment. Upload Andreea’s three composite images to `src/assets/results/` with exactly
+      these names, replacing the labelled stand-ins: `melasma.jpg`, `breakouts-texture.jpg`,
+      `acne-biorepeel.jpg`. Then set `placeholderImages: false` in the matching case file.
+      (`npm run placeholders` never overwrites an existing file.)
+- [ ] **Consent.** Andreea published these cases on Instagram, so they are live at Carl’s request, but
+      `consent: false` records that written consent is not yet confirmed on file. Confirm each and set
+      `consent: true`. DHA advertising rules apply to before/after photographs; `results.showBeforeAfters`
+      in `site.config.ts` hides every case at once if needed.
+- [ ] **Melasma case:** the treatments, number of sessions and dates are not on the image. Ask Andreea.
+- [ ] **Facial massage group** has no cases yet; the page says photographs will follow. Ask Andreea for
+      sculpting, lifting or lymphatic massage cases in the same format.
+- [ ] The composite images carry Andreea’s Instagram styling (a coloured title bar on the melasma image,
+      handwritten notes on the other two). Separate before and after photographs would sit better in the
+      site’s palette; the card supports `before`/`after` pairs as well.
 
 ## Legal (`src/pages/privacy.astro`, `src/pages/terms.astro`)
 

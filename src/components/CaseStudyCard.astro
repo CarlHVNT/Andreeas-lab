@@ -1,60 +1,114 @@
 ---
 /**
- * One before-and-after case: two photographs side by side, then the facts.
+ * One before-and-after case. Andreea publishes each case as a single composite
+ * image (before on the left, after on the right, her notes written on it), so the
+ * card shows that image whole and never crops it, then the facts as rows. Two
+ * separate photographs (`before`, `after`) render side by side instead.
  */
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import IconArrow from "./icons/IconArrow.astro";
+import { caseGroupLabel } from "@/lib/case-groups";
 
 interface Props {
   item: CollectionEntry<"caseStudies">;
   treatmentTitle?: string;
   treatmentHref?: string;
   headingLevel?: "h2" | "h3";
-  /** Wider image sizes when the card fills half the page */
+  /** Image sizes: a third of the page (home) or half (Before & after page) */
   size?: "third" | "half";
+  /** Name the group in the meta line; off inside a group section */
+  showGroup?: boolean;
 }
-const { item, treatmentTitle, treatmentHref, headingLevel: Heading = "h3", size = "third" } = Astro.props;
+const {
+  item,
+  treatmentTitle,
+  treatmentHref,
+  headingLevel: Heading = "h3",
+  size = "third",
+  showGroup = true,
+} = Astro.props;
 const { data } = item;
-const sizes = size === "half" ? "(min-width: 768px) 22vw, 45vw" : "(min-width: 768px) 14vw, 45vw";
+const sizes = size === "half" ? "(min-width: 768px) 45vw, 92vw" : "(min-width: 768px) 30vw, 92vw";
+const pairSizes = size === "half" ? "(min-width: 768px) 22vw, 45vw" : "(min-width: 768px) 14vw, 45vw";
+const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+/** Stand-in images are labelled as such, per the content rules */
+const alt = (text: string) => (data.placeholderImages ? `Placeholder for ${lowerFirst(text)}` : text);
+const meta = [
+  showGroup ? caseGroupLabel(data.group) : undefined,
+  treatmentTitle,
+  data.sessions != null ? `${data.sessions} sessions` : undefined,
+  data.period,
+].filter((part): part is string => Boolean(part));
 ---
 
-<article class="grid gap-5">
-  <div class="grid grid-cols-2 gap-2 md:gap-3">
-    <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
-      <Image
-        src={data.before}
-        alt={data.beforeAlt}
-        widths={[320, 480, 720]}
-        sizes={sizes}
-        loading="lazy"
-        class="h-full w-full object-cover"
-      />
-      <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
-        Before
-      </figcaption>
-    </figure>
-    <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
-      <Image
-        src={data.after}
-        alt={data.afterAlt}
-        widths={[320, 480, 720]}
-        sizes={sizes}
-        loading="lazy"
-        class="h-full w-full object-cover"
-      />
-      <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
-        After
-      </figcaption>
-    </figure>
-  </div>
+<article class="grid content-start gap-5">
+  {
+    data.image ? (
+      <figure class="bg-linen">
+        <Image
+          src={data.image}
+          alt={alt(data.imageAlt ?? "Before and after photographs")}
+          widths={[480, 720, 1080]}
+          sizes={sizes}
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </figure>
+    ) : data.before && data.after ? (
+      <div class="grid grid-cols-2 gap-2 md:gap-3">
+        <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
+          <Image
+            src={data.before}
+            alt={alt(data.beforeAlt ?? "Before photograph")}
+            widths={[320, 480, 720]}
+            sizes={pairSizes}
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+          <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
+            Before
+          </figcaption>
+        </figure>
+        <figure class="relative aspect-[4/5] overflow-hidden bg-linen">
+          <Image
+            src={data.after}
+            alt={alt(data.afterAlt ?? "After photograph")}
+            widths={[320, 480, 720]}
+            sizes={pairSizes}
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+          <figcaption class="absolute left-2.5 top-2.5 rounded-ui bg-ivory/92 px-2 py-0.5 text-[0.75rem] font-medium text-ink">
+            After
+          </figcaption>
+        </figure>
+      </div>
+    ) : null
+  }
   <div>
-    <p class="text-meta text-muted tabular-nums">
-      {treatmentTitle && <span>{treatmentTitle} · </span>}{data.sessions} sessions over {data.period}
-    </p>
+    {meta.length > 0 && <p class="text-meta text-muted tabular-nums">{meta.join(" · ")}</p>}
     <Heading class="mt-1.5 text-title font-medium text-ink">{data.title}</Heading>
-    <p class="mt-2 max-w-[52ch] text-muted">{data.summary}</p>
-    {data.placeholderImages && <p class="mt-2 text-meta text-muted">Photographs to follow with the client’s consent.</p>}
+    <dl class="mt-3 max-w-[52ch] border-t border-linen text-[0.95rem] leading-[1.45]">
+      <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
+        <dt class="text-muted">Concern</dt>
+        <dd class="text-ink">{data.concern}</dd>
+      </div>
+      {
+        data.plan.length > 0 && (
+          <div class="grid grid-cols-[5.5rem_1fr] gap-3 border-b border-linen py-2.5">
+            <dt class="text-muted">Plan</dt>
+            <dd>
+              <ul class="grid gap-1 text-ink" role="list">
+                {data.plan.map((step) => <li>{step}</li>)}
+              </ul>
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+    {data.summary && <p class="mt-3 max-w-[52ch] text-muted">{data.summary}</p>}
+    {data.placeholderImages && <p class="mt-3 text-meta text-muted">Photograph to follow.</p>}
     {
       treatmentHref && (
         <a href={treatmentHref} class="link-arrow mt-3 text-[0.95rem]">

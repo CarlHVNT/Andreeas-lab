@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { CASE_GROUPS } from "./case-groups";
 
 /** URL slug of a treatment: frontmatter `slug` if set, else the file name */
 export function treatmentSlug(entry: CollectionEntry<"treatments">): string {
@@ -63,4 +64,10 @@ export async function getFeaturedCaseStudies(limit = 3) {
 export async function getCaseStudiesFor(treatmentSlug: string) {
   const all = await getCaseStudies();
   return all.filter((c) => c.data.treatmentSlug === treatmentSlug);
+}
+
+/** Case studies in their Before & after groups, in CASE_GROUPS order; empty groups included */
+export async function getCaseStudiesByGroup() {
+  const all = await getCaseStudies();
+  return CASE_GROUPS.map((group) => ({ ...group, items: all.filter((c) => c.data.group === group.id) }));
 }

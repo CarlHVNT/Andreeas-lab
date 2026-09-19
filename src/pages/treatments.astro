@@ -15,7 +15,7 @@ import { getTreatments, getFeaturedCaseStudies, treatmentPath } from "@/lib/cont
 
 const treatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(2) : [];
-const treatmentFor = (slug: string) => treatments.find((t) => t.id === slug);
+const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === slug) : undefined);
 const { location } = SITE;
 
 const steps = [
@@ -75,7 +75,7 @@ const steps = [
       <Section id="results" title="Before and after">
         <div slot="statement" class="mt-4 grid gap-5">
           <p class="voice max-w-[34ch]">
-            One client, one plan, one programme, photographed in the same light and shared with permission.
+            One client, one plan, photographed before and after and shared with the client’s permission.
           </p>
           <a href="/case-studies" class="link-arrow">
             <span>All case studies</span>

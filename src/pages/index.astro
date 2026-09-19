@@ -36,7 +36,7 @@ const allTreatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["what-is-icoone", "does-it-hurt", "how-many-sessions", "how-fast-results"]);
 const { location, practitioner, contact, courses, youtube } = SITE;
-const treatmentFor = (slug: string) => allTreatments.find((t) => t.id === slug);
+const treatmentFor = (slug?: string) => (slug ? allTreatments.find((t) => t.id === slug) : undefined);
 
 const why = [
   {
@@ -220,8 +220,8 @@ const why = [
               <h2 class="text-statement">Before and after</h2>
             </div>
             <p class="voice mt-4 md:col-span-6 md:col-start-7 md:mt-0">
-              One client, one plan, one programme, photographed in the same light before the first session and
-              after the last. Shared with permission, never retouched.
+              One client, one plan: what they came in with, what was done, and the photographs before and
+              after. Shared with the client’s permission.
             </p>
           </div>
           <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-6">

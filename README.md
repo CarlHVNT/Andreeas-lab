@@ -118,18 +118,24 @@ needed before turning them on.
 ## Show before and after photos
 
 Only once the clinic’s licence holder has confirmed they are allowed. In `src/site.config.ts` set
-`showBeforeAfters: true` under `results`. The section on the Results page then appears.
+`showBeforeAfters: true` under `results`. The cases on the Before & after page, the home page and the
+treatment pages then appear.
 
 ## Add a before-and-after case study
 
-1. In `src/content/case-studies/`, copy an existing file and rename it, for example `body-02.md`.
-2. Fill in `title`, `treatmentSlug` (the treatment file name), `concern`, `sessions`, `period` and a
-   two-sentence `summary`. Keep it factual: what you did, how many sessions, what was measured.
-3. Put the two photographs in `src/assets/placeholders/` (or a folder of your choice) and point
-   `before` and `after` at them. Photograph in the same light, same distance, same time of day.
-4. Set `consent: true` only once the client’s written permission is on file, and
-   `placeholderImages: false` so the “photographs to follow” note disappears.
+1. Save the before-and-after image Andreea made (before on the left, after on the right, her notes on
+   it) in `src/assets/results/`, for example `jawline-2026.jpg`.
+2. In `src/content/case-studies/`, copy an existing file and rename it, for example `jawline-2026.md`.
+3. Fill in `title`, `group` (`facial-treatments` or `facial-massage`), `concern` (what the client came
+   in with), `period` (for example `"March to June 2026"`) and `plan` (one line per thing that was done).
+   Point `image` at the file from step 1 and describe it in `imageAlt`. Optional: `treatmentSlug` (the
+   treatment file name) adds an “About this treatment” link, and `summary` adds two plain sentences.
+   Keep it factual: no promises, no medical claims.
+4. Set `consent: true` once the client’s written permission is on file, and `placeholderImages: false`
+   so the “Photograph to follow” note disappears.
 5. `featured: true` shows it on the home page (the first three) and the treatments page (the first two).
+
+Two separate photographs work too: use `before`, `beforeAlt`, `after` and `afterAlt` instead of `image`.
 
 Before/after photographs are regulated by the DHA. If ever asked to take them down, set
 `showBeforeAfters: false` under `results` in `src/site.config.ts` and every case disappears at once.
