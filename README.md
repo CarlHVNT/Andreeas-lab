@@ -145,6 +145,11 @@ Two separate photographs work too: use `before`, `beforeAlt`, `after` and `after
 Before/after photographs are regulated by the DHA. If ever asked to take them down, set
 `showBeforeAfters: false` under `results` in `src/site.config.ts` and every case disappears at once.
 
+## Add the link to the book
+
+In `src/site.config.ts`, under `book`, paste the shop or Amazon link between the quotes of `url: ""`. Until
+then, “Get the book” on the Consultancy page opens WhatsApp with a question about the book.
+
 ## Change the logo
 
 The logo files are built from `src/assets/brand/logo-source.jpg`. To update the logo, replace that

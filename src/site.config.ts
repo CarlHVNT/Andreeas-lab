@@ -239,6 +239,17 @@ export const SITE = {
   },
 
   /**
+   * Andreea’s book, which opens the Consultancy page. Leave `url` empty until
+   * the shop link exists: “Get the book” then opens WhatsApp asking about it.
+   */
+  book: {
+    title: "How to Become a Beauty Therapist in Dubai",
+    published: "June 2026",
+    /** PLACEHOLDER: the shop or Amazon link, from Carl or Andreea */
+    url: "",
+  },
+
+  /**
    * YouTube. Leave `featuredVideoId` empty and the video slot plays the
    * stand-in clip below; paste an ID and it embeds that video instead, loading
    * nothing from YouTube until the reader presses play.

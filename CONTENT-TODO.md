@@ -163,22 +163,16 @@ email interest for her courses and holds one video. The WhatsApp group idea is p
 - [ ] **Later, if the list grows:** move to a proper mailing tool. Netlify Forms stores the list; it does
       not send campaigns.
 
-## Consultancy (`/consultancy`, copy in `src/pages/consultancy.astro`)
+## Consultancy (`src/pages/consultancy.astro`, `src/site.config.ts` → `book`)
 
-Added on 19 September 2026 at Carl’s request, without copy from Andreea. Everything on the page is a
-draft in her voice built from facts already confirmed (her specialisations, her method, her studio, her
-years in the UAE). Before launch, Andreea should confirm or rewrite:
+Restructured on 19 September 2026 to Andreea’s copy via Carl: her book “How to Become a Beauty Therapist in
+Dubai” (June 2026) opens the page, then “Need more personal guidance?” with three rows in her words (Starting
+your career, Already working in beauty, Starting a beauty business), then the closing band “Every situation is
+different.” whose secondary link reads “Contact Andreea” and goes to the contact page.
 
-- [ ] **Who it is for.** The draft says professionals and businesses in beauty and aesthetics: people
-      starting out, salons and clinics adding treatments or technology, and anyone wanting a second opinion.
-- [ ] **What it covers.** Five draft areas: treatment planning and programmes; facial and body technique;
-      working with technology such as Icoone; talking to clients; starting out in Dubai. Remove any she does
-      not offer. “Starting out in Dubai” must stay practical, not licensing or legal advice.
-- [ ] **Format and pricing.** The draft promises a written proposal covering scope, duration, place and
-      cost, and says nothing about rates or whether sessions are in person or online. Confirm.
-- [ ] **The three steps** (message, first conversation, written proposal) and the link to the courses
-      section on the home page.
-- [ ] **Photograph.** The header uses the clinic desk photo. Replace if she prefers another.
+- [ ] **Book link.** `book.url` is empty, so “Get the book” opens WhatsApp asking about the book. Paste the shop
+      or Amazon link into `src/site.config.ts` under `book`.
+- [ ] A cover image of the book would sit well in the arch instead of the clinic photograph.
 
 ## Logo and icons
 

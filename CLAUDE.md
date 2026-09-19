@@ -66,8 +66,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **One `ImageBand` per site**, on the home page. Galleries are `Gallery` (squares) or `PhotoPair`
   (arch plus square).
 - **Sentence case everywhere.** No all-caps labels, no eyebrows, no italic single words in headlines.
-- **Numbering only for real sequences.** “How it works” on the home page and the three steps on the
-  consultancy page.
+- **Numbering only for real sequences.** Currently only “How it works” on the treatments page.
 - **One motion moment.** The hero `.reveal` / `.reveal-late`. Nothing else animates. Reduced motion respected.
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
@@ -77,8 +76,9 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Specialisations & qualifications, Treatments with before/after case studies, Consultancy, FAQ,
   Contact. Home is the landing page and mirrors that order. `/results` redirects to `/case-studies`.
   Header nav labels: About me, Qualifications, Treatments, Consultancy, FAQ, Contact; the footer adds
-  Before & after. `/consultancy` is Andreea’s professional knowledge for others in the industry; its
-  WhatsApp buttons carry the topic “consultancy”, and its copy is a draft until she confirms it.
+  Before & after. `/consultancy` opens with Andreea’s book (`SITE.book`; “Get the book” opens WhatsApp
+  until `book.url` is set), then three guidance rows in her words, then the closing band whose secondary link
+  reads “Contact Andreea”. Its WhatsApp buttons carry the topic “consultancy”.
 - **Case studies** use `CaseStudyCard` and sit in two groups on `/case-studies`, Facial treatments and
   Facial massage (`src/lib/case-groups.ts`, `group` field; an empty group says photographs will follow).
   Andreea publishes each case as one composite image, before left, after right, her notes written on it:

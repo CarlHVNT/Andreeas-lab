@@ -1,69 +1,43 @@
 ---
 /**
- * Consultancy: Andreea’s professional knowledge for other people in the
- * beauty and aesthetics industry. Draft copy in her voice, built from facts
- * already on the site; the list of areas and the steps need her confirmation
- * (see CONTENT-TODO.md). WhatsApp messages from this page say “consultancy”.
+ * Consultancy: Andreea’s book first, then the three kinds of personal guidance
+ * she offers people in the beauty and aesthetics industry. Structure and copy
+ * from Andreea via Carl, 19 September 2026, set in her words. WhatsApp
+ * messages from this page say “consultancy”; “Get the book” opens WhatsApp
+ * until `SITE.book.url` is set.
  */
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/Section.astro";
-import Steps from "@/components/Steps.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
-import LineIcon from "@/components/icons/LineIcon.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { whatsappLink } from "@/lib/whatsapp";
 import { serviceJsonLd } from "@/lib/seo";
 
 const topic = "consultancy";
+const { book } = SITE;
+const bookHref = book.url || whatsappLink("the book");
 
-const areas = [
+// Andreea’s own words (19 September 2026)
+const guidance = [
   {
-    icon: "clipboard",
-    title: "Treatment planning and programmes",
-    text: "How I plan a programme, measure it and adjust it, and how to explain all of that to a client.",
+    title: "Starting your career",
+    text: "For students and newly qualified beauty therapists who need direction on qualifications, licensing, employment and their next professional steps.",
   },
   {
-    icon: "person",
-    title: "Facial and body treatment technique",
-    text: "Hands-on time on the work I specialise in: advanced facials, facial massage and sculpting, and lymphatic therapies.",
+    title: "Already working in beauty",
+    text: "For therapists looking for practical guidance on products, protocols, devices and what I have learned from working with different treatments — the Andreea’s Lab approach.",
   },
   {
-    icon: "refresh",
-    title: "Working with technology",
-    text: "Choosing, learning and getting the most from devices such as Icoone, and knowing when not to use them.",
-  },
-  {
-    icon: "chat",
-    title: "Talking to clients plainly",
-    text: "Consultations, expectations, aftercare and saying no. The part of the job that decides whether people come back.",
-  },
-  {
-    icon: "shield",
-    title: "Starting out in Dubai",
-    text: "The practical side of setting up and running a one-practitioner studio here, from someone who has done it.",
-  },
-] as const;
-
-const steps = [
-  {
-    title: "Message me",
-    text: "Tell me what you are working on and what you want from it, on WhatsApp or by email.",
-  },
-  {
-    title: "A first conversation",
-    text: "We talk it through. I ask questions and tell you honestly whether I am the right person to help.",
-  },
-  {
-    title: "A proposal in writing",
-    text: "What we will cover, how long it takes, where we meet and what it costs. Nothing starts before you have it.",
+    title: "Starting a beauty business",
+    text: "For new business owners who need practical guidance around treatment concepts, equipment, service menus and the licensing questions that should be clarified before launching.",
   },
 ];
 
-const description =
-  "Consultancy from Andreea, a DHA-licensed beauty therapist in Dubai with more than ten years in the UAE: treatment programmes, technique, technology and talking to clients, for professionals and businesses in beauty and aesthetics.";
+const description = `Consultancy from Andreea, a DHA-licensed beauty therapist in Dubai: her book ${book.title} (${book.published}) and personal guidance for students, working therapists and new beauty business owners.`;
 const jsonLd = [
   serviceJsonLd({
     name: "Consultancy",
@@ -74,22 +48,22 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title="Consultancy for beauty and aesthetics professionals" description={description} treatment={topic} jsonLd={jsonLd}>
+<BaseLayout title="Consultancy" description={description} treatment={topic} jsonLd={jsonLd}>
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-6 md:pt-6">
       <Mark class="mb-4" />
-      <h1 class="text-statement">Consultancy</h1>
+      <!-- The book’s title, in its own capitalisation -->
+      <h1 class="text-statement">{book.title}</h1>
       <div class="voice mt-6">
         <p>
-          Alongside my work with clients, I share what I have learned with other professionals and businesses in
-          beauty and aesthetics: more than ten years in the UAE, professional training, and the daily reality of
-          running a one-practitioner studio in Dubai.
-        </p>
-        <p>
-          If you are starting out, adding treatments or technology, or want an honest second opinion on how you
-          work with clients, tell me what you are working on. I will say plainly whether I can help.
+          In {book.published}, I published <em>{book.title}</em> — a practical guide covering many of the
+          questions I had to learn through experience when entering the industry.
         </p>
       </div>
+      <a href={bookHref} class="link-arrow mt-6" target="_blank" rel="noopener">
+        <span>Get the book</span>
+        <IconArrow class="h-4.5 w-4.5" />
+      </a>
     </header>
     <figure class="arch mt-10 aspect-[4/5] bg-linen md:col-span-5 md:col-start-8 md:mt-0">
       <Image
@@ -105,35 +79,23 @@ const jsonLd = [
     </figure>
   </section>
 
-  <Section title="What I can help with" tone="white">
-    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      The same things I do in the room every week, shared one to one.
-    </p>
+  <Section id="guidance" title="Need more personal guidance?" tone="white">
     <ul class="divide-y divide-linen border-y border-linen" role="list">
       {
-        areas.map((a) => (
-          <li class="grid grid-cols-[2.75rem_1fr] gap-4 py-5">
-            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
-              <LineIcon name={a.icon} class="h-5.5 w-5.5" />
-            </span>
-            <div>
-              <h3 class="text-title font-medium">{a.title}</h3>
-              <p class="mt-1.5 max-w-[52ch] text-muted">{a.text}</p>
-            </div>
+        guidance.map((g) => (
+          <li class="py-5">
+            <h3 class="text-title font-medium">{g.title}</h3>
+            <p class="mt-1.5 max-w-[56ch] text-muted">{g.text}</p>
           </li>
         ))
       }
     </ul>
   </Section>
 
-  <Section title="How it works">
-    <p slot="statement" class="voice mt-4 max-w-[34ch]">Three steps, and nothing starts before the third.</p>
-    <Steps steps={steps} />
-  </Section>
-
   <CtaBand
-    title="Tell me what you are working on."
-    text="Message me with a few lines about your practice or your business and what you would like help with. I reply personally, usually the same day."
+    title="Every situation is different."
+    text="Tell me what you need help with and we can decide what type of consultation would be most useful for you."
     treatment={topic}
+    formLinkLabel="Contact Andreea"
   />
 </BaseLayout>
