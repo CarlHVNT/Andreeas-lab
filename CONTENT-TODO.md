@@ -107,8 +107,8 @@ Rebuilt on 19 September 2026 at Carl’s request into two groups: “For clients
 the visit and the policies are gone; Andreea’s five questions for clients are in, verbatim. The home page
 shows the first four.
 
-- [ ] **For beauty professionals** has no questions yet; the page says questions will follow. Ask Andreea for
-      the consultancy and book questions.
+- [x] **For beauty professionals**: Andreea’s four questions (institutes, products, steam or gel, buying
+      devices for a salon) are in, verbatim, 19 September 2026.
 - [ ] The practical answers that were on the FAQ page (where the studio is, parking, what to wear, cancellation,
       payment) are no longer anywhere but the contact and terms pages. Decide whether any should return, in
       Andreea’s words.
