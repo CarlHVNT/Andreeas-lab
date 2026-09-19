@@ -86,8 +86,9 @@ testimonials with the clinic’s licence holder.
 ## Change a question and answer
 
 Each FAQ is one file in `src/content/faqs/`. The question is the `question:` field, the answer is the
-text below the second `---`. `category` is `treatment`, `practical` or `policy` and decides which
-group it appears in. When you have checked an answer, change `needsConfirmation: true` to `false`.
+text below the second `---`. `group` is `clients` or `professionals` and decides which of the two
+sections on the FAQ page the question sits in. `order` decides the position within the section.
+When you have checked an answer, change `needsConfirmation: true` to `false`.
 
 ## Change your number, hours, address or wording
 
@@ -102,7 +103,7 @@ Open `src/site.config.ts`.
   then `area` and `city`. The demo site uses a generic Dubai Healthcare City address; put the real one
   here before launch. Add the building’s ten-digit Makani number to `makani` when you have it. If
   Andreea works under another clinic’s licence, put its name in `hostClinic` and the wording adjusts.
-- **Cancellation and payment wording**: the `policies` block. Update the matching FAQ files too.
+- **Cancellation and payment wording**: the `policies` block (also on the terms page).
 - **Qualification, training, specialisations and languages**: the `practitioner` block. Each
   specialisation has a `title` and a `text` paragraph that opens when someone taps the row.
 

@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { CASE_GROUPS } from "./case-groups";
+import { FAQ_GROUPS } from "./faq-groups";
 
 /** URL slug of a treatment: frontmatter `slug` if set, else the file name */
 export function treatmentSlug(entry: CollectionEntry<"treatments">): string {
@@ -26,6 +27,12 @@ export async function getFeaturedTreatments(limit = 6) {
 export async function getFaqs() {
   const all = await getCollection("faqs");
   return all.sort((a, b) => a.data.order - b.data.order);
+}
+
+/** FAQs in their groups, in FAQ_GROUPS order; empty groups included */
+export async function getFaqsByGroup() {
+  const all = await getFaqs();
+  return FAQ_GROUPS.map((group) => ({ ...group, items: all.filter((f) => f.data.group === group.id) }));
 }
 
 /** FAQs by file name, keeping the requested order */

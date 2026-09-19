@@ -1,6 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { caseGroupIds } from "./lib/case-groups";
+import { faqGroupIds } from "./lib/faq-groups";
 
 /**
  * Treatments – one Markdown file per treatment in src/content/treatments.
@@ -57,7 +58,8 @@ const faqs = defineCollection({
   schema: z.object({
     question: z.string(),
     order: z.number(),
-    category: z.enum(["treatment", "practical", "policy"]).default("practical"),
+    /** Group on the FAQ page: clients or professionals (src/lib/faq-groups.ts) */
+    group: z.enum(faqGroupIds),
     /** True while the answer still needs Andreea’s confirmation */
     needsConfirmation: z.boolean().default(false),
   }),

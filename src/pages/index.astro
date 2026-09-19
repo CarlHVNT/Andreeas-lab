@@ -31,7 +31,7 @@ import {
 const t = useTranslations(getLocaleFromUrl(Astro.url));
 const treatments = await getFeaturedTreatments(7);
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
-const faqs = await getFaqsBySlugs(["what-is-icoone", "does-it-hurt", "how-many-sessions", "how-fast-results"]);
+const faqs = await getFaqsBySlugs(["nothing-worked", "acne-one-or-two-sessions", "melasma-disappear", "facial-sculpting-sessions"]);
 const { location, practitioner, contact, courses, youtube } = SITE;
 
 const why = [

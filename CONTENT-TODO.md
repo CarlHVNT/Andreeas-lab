@@ -100,13 +100,18 @@ WhatsApp.
       which is drafted in her voice: confirm the wording with her. In step 3 her “a course of sessions” is set
       as “a series of sessions”, because “course” means a teaching course on this site.
 
-## FAQs (`src/content/faqs/*.md`)
+## FAQs (`src/content/faqs/*.md`, groups in `src/lib/faq-groups.ts`)
 
-Files marked `needsConfirmation: true` show a “to be confirmed” note on the site:
+Rebuilt on 19 September 2026 at Carl’s request into two groups: “For clients” and “For beauty professionals”
+(titles suggested by Claude, easy to change in `faq-groups.ts`). The twelve draft questions about Icoone,
+the visit and the policies are gone; Andreea’s five questions for clients are in, verbatim. The home page
+shows the first four.
 
-- [ ] `who-should-not.md`, `after-surgery-when.md` (medical wording, needs Andreea and ideally the clinic)
-- [ ] `cancellation-policy.md` and `payment-methods.md` (also `policies` in `site.config.ts` and the terms page)
-- [ ] `where-are-you.md`, `parking.md`
+- [ ] **For beauty professionals** has no questions yet; the page says questions will follow. Ask Andreea for
+      the consultancy and book questions.
+- [ ] The practical answers that were on the FAQ page (where the studio is, parking, what to wear, cancellation,
+      payment) are no longer anywhere but the contact and terms pages. Decide whether any should return, in
+      Andreea’s words.
 
 ## Testimonials (`src/content/testimonials/*.md`)
 

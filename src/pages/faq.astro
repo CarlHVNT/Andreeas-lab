@@ -6,15 +6,12 @@ import FaqList from "@/components/FaqList.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import { photos } from "@/lib/photos";
-import { getFaqs } from "@/lib/content";
+import { getFaqs, getFaqsByGroup } from "@/lib/content";
 import { faqJsonLd, markdownToText } from "@/lib/seo";
 
 const faqs = await getFaqs();
-const groups = [
-  { key: "treatment", title: "About the treatment", intro: "What Icoone feels like, how long it takes, who it suits." },
-  { key: "practical", title: "Practical", intro: "Getting here, what to wear, what to expect on the day." },
-  { key: "policy", title: "Policies", intro: "Booking, cancellations and payment." },
-] as const;
+// Two groups (Carl, 19 September 2026): clients, then beauty professionals. Labels in src/lib/faq-groups.ts.
+const groups = await getFaqsByGroup();
 
 const jsonLd = [
   faqJsonLd(faqs.map((f) => ({ question: f.data.question, answer: markdownToText(f.body) }))),
@@ -22,8 +19,8 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Questions about Icoone in Dubai"
-  description="Does Icoone hurt, how many sessions do you need, how fast are results, who should not have it, and the practical details of visiting Andreea’s Lab in Dubai."
+  title="Questions, answered plainly"
+  description="Andreea answers the questions clients ask about treatments, acne, pigmentation, facial sculpting programmes and online consultations, and the questions beauty professionals ask about her consultancy and her book."
   jsonLd={jsonLd}
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
@@ -49,18 +46,14 @@ const jsonLd = [
   </section>
 
   {
-    groups.map((g, i) => {
-      const items = faqs.filter((f) => f.data.category === g.key);
-      if (!items.length) return null;
-      return (
-        <Section title={g.title} id={g.key} tone={i % 2 === 0 ? "white" : "ivory"}>
-          <p slot="statement" class="voice mt-4 max-w-[32ch] text-muted">
-            {g.intro}
-          </p>
-          <FaqList items={items} />
-        </Section>
-      );
-    })
+    groups.map((g, i) => (
+      <Section title={g.label} id={g.id} tone={i % 2 === 0 ? "white" : "ivory"}>
+        <p slot="statement" class="voice mt-4 max-w-[32ch] text-muted">
+          {g.text}
+        </p>
+        {g.items.length > 0 ? <FaqList items={g.items} /> : <p class="text-muted">Questions will follow.</p>}
+      </Section>
+    ))
   }
 
   <CtaBand title="Still wondering?" text="Ask Andreea directly. Short questions welcome. She replies personally, usually the same day." />

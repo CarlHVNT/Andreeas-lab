@@ -134,6 +134,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   `SITE.seo.titleSuffix` unless they already contain the brand name.
 - `HealthAndBeautyBusiness` JSON-LD on every page (`BaseLayout`), `Service` on treatment pages,
   `FAQPage` on `/faq`. Builders in `src/lib/seo.ts`.
+- The FAQ page has two groups, For clients and For beauty professionals (`src/lib/faq-groups.ts`, `group`
+  field on each question); an empty group says questions will follow. Questions are Andreea’s words.
 - `robots.txt` is generated from `SITE.url` (`src/pages/robots.txt.ts`). Sitemap via `@astrojs/sitemap`.
 - `/contact/thanks` and `/404` are `noindex` and excluded from the sitemap.
 
