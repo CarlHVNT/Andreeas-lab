@@ -29,7 +29,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 |---|---|
 | Brand, contact, WhatsApp message, hours, location, policies, analytics IDs, flags | `src/site.config.ts` |
 | Treatments, FAQs, testimonials, before/after case studies (Markdown + typed frontmatter) | `src/content/treatments`, `faqs`, `testimonials`, `case-studies`; schemas in `src/content.config.ts` |
-| Qualifications, additional training, specialisations (icon, title, paragraph) | `site.config.ts` → `practitioner`; rows rendered by `SpecialisationList.astro` as drop-downs, no links out |
+| Qualifications, additional training, specialisations (title, paragraph) | `site.config.ts` → `practitioner`; rows rendered by `SpecialisationList.astro` as drop-downs, no links out |
 | Design tokens (colours, type scale, radius, easing) | `src/styles/global.css` `@theme` block, documented in `DESIGN.md` |
 | Page shell, fonts, metadata, JSON-LD, header, footer, sticky bar | `src/layouts/BaseLayout.astro` |
 | Legal/prose pages | `src/layouts/ProsePage.astro` |

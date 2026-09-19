@@ -100,7 +100,7 @@ Open `src/site.config.ts`.
   Andreea works under another clinic’s licence, put its name in `hostClinic` and the wording adjusts.
 - **Cancellation and payment wording**: the `policies` block. Update the matching FAQ files too.
 - **Qualification, training, specialisations and languages**: the `practitioner` block. Each
-  specialisation has an `icon`, a `title` and a `text` paragraph that opens when someone taps the row.
+  specialisation has a `title` and a `text` paragraph that opens when someone taps the row.
 
 ## Turn analytics on
 

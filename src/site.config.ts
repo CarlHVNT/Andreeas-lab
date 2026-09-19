@@ -28,9 +28,6 @@ export type OpeningHours = {
   closed?: boolean;
 };
 
-/** Icon names for the specialisations, drawn in src/components/icons/LineIcon.astro */
-export type SpecialisationIcon = "face-dots" | "serum" | "face-lift" | "pulse" | "body";
-
 export const SITE = {
   name: "Andreea’s Lab",
   shortName: "Andreea’s Lab",
@@ -69,35 +66,29 @@ export const SITE = {
     /**
      * Specialisations, in Andreea’s words (19 September 2026). Each is a drop-down row
      * on the qualifications page and the home page; the About page lists the titles.
-     * `icon` is one of the names in SpecialisationIcon.
      */
     specialisations: [
       {
-        icon: "face-dots",
         title: "Acne & oily skin",
         text: "Acne is one of my main areas of specialisation — and something I understand personally as a former acne patient. I offer personalised care for different types of acne, oily and congested skin, combining professional treatments, technology and home-care routines.",
       },
       {
-        icon: "serum",
         title: "Advanced facial treatments",
         text: "Personalised facial protocols focused on skin quality, hydration, texture, ageing and overall skin health, selected according to the individual needs of each client.",
       },
       {
-        icon: "face-lift",
         title: "Facial sculpting & lymphatic drainage",
         text: "Facial massage, vacuum-assisted techniques and lymphatic drainage to reduce puffiness, improve definition and support recovery after facial procedures or SMAS surgery, with appropriate medical clearance.",
       },
       {
-        icon: "pulse",
         title: "Facial EMS",
         text: "Electromuscular stimulation to support facial muscle tone, firmness and definition as part of a personalised treatment plan.",
       },
       {
-        icon: "body",
         title: "Body lymphatic drainage & Icoone Medical",
         text: "Icoone Laser MED treatments focused on lymphatic drainage, fluid retention, tissue stimulation, body contouring and skin quality.",
       },
-    ] as { icon: SpecialisationIcon; title: string; text: string }[],
+    ] as { title: string; text: string }[],
     languages: ["English", "Romanian", "Spanish"],
     /**
      * Qualifications & certifications, in Andreea’s words (19 September 2026), shown on

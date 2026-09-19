@@ -1,6 +1,6 @@
 ---
 /**
- * Andreea’s specialisations as drop-down rows: an icon, the title, and her
+ * Andreea’s specialisations as drop-down rows: a tick, the title, and her
  * paragraph behind a plus. Same <details> pattern as the FAQ, no JavaScript,
  * and no links out of the list. Data: site.config.ts → practitioner.specialisations.
  */
@@ -25,7 +25,7 @@ const slug = (s: string) =>
       <details class="group border-b border-linen" id={`${idPrefix}-${slug(s.title)}`}>
         <summary class="flex cursor-pointer items-center gap-4 py-4 text-left">
           <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
-            <LineIcon name={s.icon} class="h-5.5 w-5.5" />
+            <LineIcon name="check" class="h-5.5 w-5.5" />
           </span>
           <Heading class="flex-1 text-title font-medium text-ink group-hover:text-wine">{s.title}</Heading>
           <span

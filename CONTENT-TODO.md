@@ -194,7 +194,7 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 - [x] Specialisations (19 September 2026): five drop-down rows in Andreea’s words, each with her
       paragraph, from `practitioner.specialisations`: acne & oily skin, advanced facial treatments, facial
       sculpting & lymphatic drainage, facial EMS, body lymphatic drainage & Icoone Medical. No links out of
-      the list; icons drawn in `LineIcon.astro`.
+      the list; each row carries a tick.
 - [ ] Acne & oily skin, advanced facial treatments, facial sculpting and facial EMS have no treatment page
       yet. Ask Andreea whether they are bookable services to add to Treatments, with duration and price.
 
