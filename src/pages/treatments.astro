@@ -18,22 +18,24 @@ const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(2) : 
 const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === slug) : undefined);
 const { location } = SITE;
 
+// Andreea’s own words (19 September 2026). Step 4 is drafted in the same voice, to confirm with her.
+// Her “a course of sessions” in step 3 is set as “a series of sessions”: on this site, “course” is a teaching course.
 const steps = [
   {
     title: "Consultation",
-    text: "Thirty minutes to talk, look and measure. You leave knowing whether the treatment is right for you.",
+    text: "We discuss your concerns, treatment history and goals, and assess what may be suitable for you.",
   },
   {
-    title: "Plan",
-    text: "Which areas, how many sessions, how often, and what to expect by when. In writing.",
+    title: "Personalised plan",
+    text: "I recommend the treatment or combination of treatments that best matches your needs, with clear expectations from the start.",
   },
   {
-    title: "Programme of sessions",
-    text: "Usually one or two a week. Each session builds on the last, and progress is measured.",
+    title: "Treatment programme",
+    text: "Depending on your goals, this may be a single treatment or a series of sessions. Progress is reviewed and the plan can be adjusted when needed.",
   },
   {
-    title: "Maintenance",
-    text: "Once you are where you want to be, a session every few weeks keeps you there.",
+    title: "Follow-up",
+    text: "We review how your skin has responded and agree what comes next, from occasional maintenance sessions to advice for your routine at home.",
   },
 ];
 ---
@@ -93,7 +95,7 @@ const steps = [
   }
 
   <Section id="how" title="How it works" tone="blush">
-    <p slot="statement" class="voice mt-4 max-w-[34ch]">Four steps. The order matters.</p>
+    <p slot="statement" class="voice mt-4 max-w-[34ch]">A simple, personalised approach from consultation to maintenance.</p>
     <Steps steps={steps} />
   </Section>
 

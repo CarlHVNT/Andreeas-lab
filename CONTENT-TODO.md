@@ -96,6 +96,9 @@ WhatsApp.
 - [ ] The hero subline, the site description and the FAQ still describe Icoone body programmes. Revisit once
       the body list is decided.
 - [ ] Prices are shown per treatment in AED as given; confirm the VAT position.
+- [ ] “How it works” on the treatments page is Andreea’s copy (19 September 2026) except step 4, Follow-up,
+      which is drafted in her voice: confirm the wording with her. In step 3 her “a course of sessions” is set
+      as “a series of sessions”, because “course” means a teaching course on this site.
 
 ## FAQs (`src/content/faqs/*.md`)
 
