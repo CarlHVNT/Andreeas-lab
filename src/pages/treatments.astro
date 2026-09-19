@@ -44,13 +44,20 @@ const steps = [
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
     <header class="md:col-span-5">
       <Mark class="mb-4" />
-      <h1 class="text-statement">Treatments with Andreea</h1>
-      <div class="voice mt-5">
+      <!-- Andreea’s own words, set exactly as she wrote them (19 September 2026) -->
+      <h1 class="text-statement">Andreea’s Lab Signature Facials</h1>
+      <p class="mt-3 font-serif text-title">Your skin, your face, your goals — never a standard protocol.</p>
+      <div class="voice mt-6">
         <p>
-          A small number of treatments, each with a clear purpose. Every one starts with a consultation and is
-          planned as a programme, because that is how Andreea works and how the results hold.
+          Every treatment starts with understanding what you want to improve. From acne and skin renewal to facial
+          sculpting, lymphatic drainage and advanced technologies, each treatment is selected and adapted to your
+          individual needs.
         </p>
-        <p>Not sure which fits? Start with the consultation, or message Andreea and describe what bothers you.</p>
+        <p>
+          Not sure where to start?{" "}
+          <a href="/treatments/consultation" class="underline hover:text-wine">Book a consultation</a> and we’ll
+          create the right plan together.
+        </p>
       </div>
       <PhotoPair first={photos.device} second={photos.products} class="mt-10 hidden md:grid" />
     </header>
