@@ -52,8 +52,9 @@ pricing, and any wording that could read as a medical claim.
       `established` still shows in the footer.
 - [x] About “Why choose Andreea” (was “Why Icoone”): Andreea’s own paragraph, set as written on
       19 September 2026. The sample “I chose Icoone because…” and “I do not offer injectables” copy is gone.
-- [ ] About “How I plan a programme”: “thirty-minute consultation” and “measure again every few sessions”
-      are still sample first-person copy; ask Andreea for her facts.
+- [x] About “The Andreea’s Lab Method” (was “How I plan a programme”): Andreea’s own two paragraphs, set as
+      written on 19 September 2026, with “Results with a plan.” as the statement line. The last sample copy
+      on the About page is gone.
 - [ ] Optional licence line for the footer: `footer.licenceLine`, e.g. “Treatments are provided under
       the licence of … , DHA licence no. …”. Confirm with the clinic whether it is required.
 
