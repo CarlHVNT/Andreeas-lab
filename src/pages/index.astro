@@ -21,7 +21,7 @@ import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
 import { addressLines } from "@/lib/address";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
-import { specialisationMeta } from "@/lib/specialisations";
+import SpecialisationList from "@/components/SpecialisationList.astro";
 import {
   getFeaturedTreatments,
   getFeaturedCaseStudies,
@@ -65,11 +65,6 @@ const why = [
   },
 ] as const;
 
-const specialisations = practitioner.specialisations.map((name) => {
-  const m = specialisationMeta(name);
-  const linked = m.treatmentSlug ? treatmentFor(m.treatmentSlug) : undefined;
-  return { name, icon: m.icon, href: m.href ?? (linked ? treatmentPath(linked) : undefined) };
-});
 ---
 
 <BaseLayout title="Andreea’s Lab | Body and face treatments in Dubai" description={SITE.description} hasHero>
@@ -165,18 +160,7 @@ const specialisations = practitioner.specialisations.map((name) => {
         <IconArrow class="h-4.5 w-4.5" />
       </a>
     </div>
-    <ul class="divide-y divide-linen border-y border-linen" role="list">
-      {
-        specialisations.map((s) => (
-          <li class="grid grid-cols-[2.75rem_1fr] items-center gap-4 py-4">
-            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
-              <LineIcon name={s.icon} class="h-5.5 w-5.5" />
-            </span>
-            <h3 class="text-title font-medium">{s.name}</h3>
-          </li>
-        ))
-      }
-    </ul>
+    <SpecialisationList idPrefix="home-specialisation" />
   </Section>
 
   <!-- 3. Treatments, with what Andreea does as the statement. White band. -->

@@ -99,7 +99,8 @@ Open `src/site.config.ts`.
   here before launch. Add the building’s ten-digit Makani number to `makani` when you have it. If
   Andreea works under another clinic’s licence, put its name in `hostClinic` and the wording adjusts.
 - **Cancellation and payment wording**: the `policies` block. Update the matching FAQ files too.
-- **Qualification, training, specialisations and languages**: the `practitioner` block.
+- **Qualification, training, specialisations and languages**: the `practitioner` block. Each
+  specialisation has an `icon`, a `title` and a `text` paragraph that opens when someone taps the row.
 
 ## Turn analytics on
 

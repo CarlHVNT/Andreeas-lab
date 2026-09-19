@@ -32,8 +32,9 @@ pricing, and any wording that could read as a medical claim.
       (`practitioner.credentials`), plus her specialisations (`practitioner.specialisations`).
 - [ ] The Instagram bio also says “KHDA & MOH certified”. Andreea’s copy does not name them, so they are
       no longer shown. Ask whether to add them, and with what exact wording.
-- [ ] “Acne treatments” appears among her specialisations, in her own words. Ask the licence holder to
-      confirm the wording sits within the no-medical-claims rule before launch.
+- [ ] Her specialisation texts (19 September 2026) mention acne care as a former acne patient, recovery
+      after facial procedures or SMAS surgery “with appropriate medical clearance”, and Icoone Laser MED.
+      Ask the licence holder to confirm the wording sits within the no-medical-claims rule before launch.
 - [x] Years in the UAE: the “In the UAE, 10+ years” fact row was removed from the About and Qualifications
       pages on 19 September 2026 at Carl’s request, and the config field with it. Her own sentence “more than
       ten years” stays in her About copy.
@@ -190,11 +191,12 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
       that is true and wanted.
 - [x] `continuingEducation`: now Andreea’s own line (“specialised hands-on training and professional
       education in the UAE and internationally”). Add named courses and years as she supplies them.
-- [x] Specialisations: the lists on the qualifications page and the home page now come from
-      `practitioner.specialisations`, in Andreea’s words (advanced facials, acne treatments, facial massage
-      and sculpting, lymphatic therapies, Icoone Medical). Icons and links live in `src/lib/specialisations.ts`.
-- [ ] Advanced facials, acne treatments and facial massage and sculpting have no treatment page yet. Ask
-      Andreea whether they are bookable services to add to Treatments, with duration and price.
+- [x] Specialisations (19 September 2026): five drop-down rows in Andreea’s words, each with her
+      paragraph, from `practitioner.specialisations`: acne & oily skin, advanced facial treatments, facial
+      sculpting & lymphatic drainage, facial EMS, body lymphatic drainage & Icoone Medical. No links out of
+      the list; icons drawn in `LineIcon.astro`.
+- [ ] Acne & oily skin, advanced facial treatments, facial sculpting and facial EMS have no treatment page
+      yet. Ask Andreea whether they are bookable services to add to Treatments, with duration and price.
 
 ## Before-and-after case studies (`src/content/case-studies/*.md`)
 

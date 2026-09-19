@@ -1,0 +1,42 @@
+---
+/**
+ * Andreea’s specialisations as drop-down rows: an icon, the title, and her
+ * paragraph behind a plus. Same <details> pattern as the FAQ, no JavaScript,
+ * and no links out of the list. Data: site.config.ts → practitioner.specialisations.
+ */
+import { SITE } from "@/site.config";
+import LineIcon from "./icons/LineIcon.astro";
+
+interface Props {
+  /** Heading level for the titles */
+  headingLevel?: "h2" | "h3";
+  /** Prefix for the row ids, so two lists on one site do not clash */
+  idPrefix?: string;
+}
+const { headingLevel: Heading = "h3", idPrefix = "specialisation" } = Astro.props;
+const items = SITE.practitioner.specialisations;
+const slug = (s: string) =>
+  s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+---
+
+<div class="border-t border-linen">
+  {
+    items.map((s) => (
+      <details class="group border-b border-linen" id={`${idPrefix}-${slug(s.title)}`}>
+        <summary class="flex cursor-pointer items-center gap-4 py-4 text-left">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blush text-wine" aria-hidden="true">
+            <LineIcon name={s.icon} class="h-5.5 w-5.5" />
+          </span>
+          <Heading class="flex-1 text-title font-medium text-ink group-hover:text-wine">{s.title}</Heading>
+          <span
+            class="relative block h-5 w-5 shrink-0 text-wine before:absolute before:left-0 before:top-1/2 before:h-[1.5px] before:w-5 before:-translate-y-1/2 before:bg-current after:absolute after:left-1/2 after:top-0 after:h-5 after:w-[1.5px] after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
+            aria-hidden="true"
+          />
+        </summary>
+        <div class="voice pb-6 sm:pl-[3.75rem]">
+          <p>{s.text}</p>
+        </div>
+      </details>
+    ))
+  }
+</div>

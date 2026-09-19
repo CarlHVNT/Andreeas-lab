@@ -2,7 +2,21 @@
 /**
  * A small set of line icons drawn in the same weight as the arrow and the mark.
  */
-type Name = "person" | "shield" | "clipboard" | "heart" | "chat" | "calendar" | "refresh" | "leaf";
+type Name =
+  | "person"
+  | "shield"
+  | "clipboard"
+  | "heart"
+  | "chat"
+  | "calendar"
+  | "refresh"
+  | "leaf"
+  // Specialisations: skin, facial and body work
+  | "face-dots"
+  | "serum"
+  | "face-lift"
+  | "pulse"
+  | "body";
 
 interface Props {
   name: Name;
@@ -22,6 +36,20 @@ const paths: Record<Name, string> = {
   calendar: '<rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
   refresh: '<path d="M19 12a7 7 0 1 1-2.05-4.95"/><path d="M19.5 4.5V9H15"/>',
   leaf: '<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19c3-4 6-7 10-9"/>',
+  // A face with three spots: acne and oily skin
+  "face-dots":
+    '<path d="M12 4.5c-3.3 0-5.5 2.9-5.5 6.8 0 4.4 2.6 8.2 5.5 8.2s5.5-3.8 5.5-8.2C17.5 7.4 15.3 4.5 12 4.5z"/><circle cx="9.7" cy="10.3" r=".9" fill="currentColor" stroke="none"/><circle cx="13.9" cy="12.4" r=".9" fill="currentColor" stroke="none"/><circle cx="10.6" cy="14.6" r=".9" fill="currentColor" stroke="none"/>',
+  // A dropper bottle and a drop: facial treatments
+  serum:
+    '<path d="M9 9.5h6v8.5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/><path d="M10.5 9.5V7.5h3v2"/><path d="M12 7.5V4.5"/><path d="M18.2 5.4c-.8 1-1.3 1.8-1.3 2.4a1.3 1.3 0 0 0 2.6 0c0-.6-.5-1.4-1.3-2.4z"/>',
+  // A face with two lifting arrows: sculpting and drainage
+  "face-lift":
+    '<path d="M12 4.5c-3.3 0-5.5 2.9-5.5 6.8 0 4.4 2.6 8.2 5.5 8.2s5.5-3.8 5.5-8.2C17.5 7.4 15.3 4.5 12 4.5z"/><path d="M9.6 15.2v-4.2M8.3 12.3l1.3-1.3 1.3 1.3"/><path d="M14.4 15.2v-4.2M13.1 12.3l1.3-1.3 1.3 1.3"/>',
+  // A pulse line: muscle stimulation
+  pulse: '<path d="M3.5 12.5h3.6l2-5.5 3 10 2.2-7 1.4 2.5h4.8"/>',
+  // Head and torso: body work
+  body:
+    '<circle cx="12" cy="4.6" r="2.1"/><path d="M8.6 9c1.6 1.8 1.6 3.9 0 5.7-1 1.9-1.3 4-1.1 6.3h9c.2-2.3-.1-4.4-1.1-6.3-1.6-1.8-1.6-3.9 0-5.7-1.5-.9-5.3-.9-6.8 0z"/>',
 };
 ---
 
