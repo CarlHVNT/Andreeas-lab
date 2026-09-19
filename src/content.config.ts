@@ -15,14 +15,15 @@ const treatments = defineCollection({
       slug: z.string().optional(),
       /** One line, the promise. Shown in lists and at the top of the page. */
       promise: z.string(),
-      forWhom: z.array(z.string()).min(1),
-      /** What happens in a session, two to four sentences */
-      whatHappens: z.string(),
-      /** e.g. "50 minutes" */
+      /** Who it suits. Optional: the section is hidden while empty. */
+      forWhom: z.array(z.string()).default([]),
+      /** What happens in a session, two to four sentences. Optional: hidden while empty. */
+      whatHappens: z.string().optional(),
+      /** e.g. "60 min" */
       duration: z.string(),
-      /** The recommended programme of sessions, e.g. "8 to 12 sessions, one or two a week" */
-      recommendedProgramme: z.string(),
-      /** Price per session in AED, or null for “on request” */
+      /** The recommended programme of sessions, e.g. "8 to 12 sessions, one or two a week". Optional. */
+      recommendedProgramme: z.string().optional(),
+      /** Price in AED, or null for “on request” */
       priceFrom: z.number().nullable(),
       priceNote: z.string().optional(),
       /** Confirmed by Andreea. Rendered as a plain list. */

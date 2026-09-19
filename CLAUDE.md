@@ -108,6 +108,10 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - The home hero is a background video (`HeroVideo.astro`, files in `public/video/`). The poster
   `<img>` is the LCP element; sources attach after `load`, never under reduced motion or Save-Data.
   Keep the files at 720p, silent, under ~3 MB each.
+- Treatments are Andreea’s Signature Facials (19 Sep 2026): the content files carry only what she has
+  given (name, one line, duration, price). A treatment page shows a section only when its field is filled:
+  who it’s for, what a session is like, the recommended programme, contraindications and FAQs are optional.
+  Do not draft those sections; ask for her facts. On the treatments page, Before and after precedes How it works.
 - Never claim to treat or cure a condition. Describe what the treatment does and who it suits.
   Medical suitability is decided at the consultation.
 - Before/after photos stay behind `SITE.results.showBeforeAfters` until DHA approval is confirmed.

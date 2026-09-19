@@ -30,8 +30,8 @@ between the quotes.
 
 ## Change a session length or programme
 
-In the same file, change `duration: "40 minutes"` and `recommendedProgramme: "6 to 8 sessions, one a
-week, then one a month"`. Keep the quotes.
+In the same file, change `duration: "60 min"`. If a treatment is planned as a programme, add a line
+`recommendedProgramme: "6 to 8 sessions, one a week"`; leave it out and the row is hidden. Keep the quotes.
 
 ## Add a treatment
 
@@ -39,6 +39,7 @@ week, then one a month"`. Keep the quotes.
    address, so `scar-care.md` becomes `/treatments/scar-care`. Use lowercase and hyphens.
 2. Fill in every field at the top. `title` and `promise` (one line) are what people see first.
    `forWhom` is a list of who it suits. `whatHappens` describes a session in two to four sentences.
+   Both are optional: leave them out and their sections stay hidden until you fill them in.
 3. `order` decides the position in lists (lower comes first). `featured: true` puts it on the home page.
 4. `contraindications` is the “Who should not have it” list. When you have checked it, change
    `contraindicationsConfirmed: false` to `true` and the “sample list” note disappears.

@@ -10,6 +10,7 @@ import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
+import { whatsappLink } from "@/lib/whatsapp";
 import { getTreatments, getFeaturedCaseStudies, treatmentPath } from "@/lib/content";
 
 const treatments = await getTreatments();
@@ -20,7 +21,7 @@ const { location } = SITE;
 const steps = [
   {
     title: "Consultation",
-    text: "Thirty minutes to talk, look and measure. You leave knowing whether Icoone is right for you.",
+    text: "Thirty minutes to talk, look and measure. You leave knowing whether the treatment is right for you.",
   },
   {
     title: "Plan",
@@ -55,7 +56,10 @@ const steps = [
         </p>
         <p>
           Not sure where to start?{" "}
-          <a href="/treatments/consultation" class="underline hover:text-wine">Book a consultation</a> and we’ll
+          <a href={whatsappLink("a consultation")} class="underline hover:text-wine" target="_blank" rel="noopener">
+            Book a consultation
+          </a>{" "}
+          and we’ll
           create the right plan together.
         </p>
       </div>
@@ -65,11 +69,6 @@ const steps = [
       <TreatmentRows items={treatments} headingLevel="h2" />
     </div>
   </section>
-
-  <Section id="how" title="How it works" tone="blush">
-    <p slot="statement" class="voice mt-4 max-w-[34ch]">Four steps. The order matters.</p>
-    <Steps steps={steps} />
-  </Section>
 
   {
     cases.length > 0 && (
@@ -92,6 +91,11 @@ const steps = [
       </Section>
     )
   }
+
+  <Section id="how" title="How it works" tone="blush">
+    <p slot="statement" class="voice mt-4 max-w-[34ch]">Four steps. The order matters.</p>
+    <Steps steps={steps} />
+  </Section>
 
   <CtaBand
     title="Not sure where to start?"

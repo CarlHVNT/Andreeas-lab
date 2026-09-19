@@ -31,7 +31,7 @@ import {
 } from "@/lib/content";
 
 const t = useTranslations(getLocaleFromUrl(Astro.url));
-const treatments = await getFeaturedTreatments(6);
+const treatments = await getFeaturedTreatments(7);
 const allTreatments = await getTreatments();
 const cases = SITE.results.showBeforeAfters ? await getFeaturedCaseStudies(3) : [];
 const faqs = await getFaqsBySlugs(["what-is-icoone", "does-it-hurt", "how-many-sessions", "how-fast-results"]);
@@ -165,13 +165,14 @@ const why = [
 
   <!-- 3. Treatments, with what Andreea does as the statement. White band. -->
   <Section id="treatments" title="Treatments" tone="white">
+    <!-- Andreea’s own words (19 September 2026), as on the treatments page -->
     <div slot="statement" class="voice mt-5 max-w-[36ch]">
+      <p>Your skin, your face, your goals — never a standard protocol.</p>
       <p>
-        Andreea treats the body and face with Icoone, a non-invasive method from Italy. Small rollers move over
-        the skin and gently stimulate the tissue beneath it, which helps fluid drain, softens tight areas and
-        encourages the skin to firm.
+        Every treatment starts with understanding what you want to improve. From acne and skin renewal to facial
+        sculpting, lymphatic drainage and advanced technologies, each treatment is selected and adapted to your
+        individual needs.
       </p>
-      <p>No downtime. Results build over a planned programme, so every programme starts with a consultation.</p>
     </div>
     <TreatmentRows items={treatments} />
     <a href="/treatments" class="link-arrow mt-6">

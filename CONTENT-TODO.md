@@ -80,18 +80,24 @@ site is a demo. Carl holds the real address. Before launch:
 
 ## Treatments (`src/content/treatments/*.md`)
 
-For each of the seven files, confirm or replace:
+Replaced on 19 September 2026 with Andreea’s seven Signature Facials, in her words: name, one line,
+duration and price for each (Christina BioPhyto Acne Starter Facial; BioRePeel — Face, Neck & Hands;
+Microneedling Skin Renewal; Post-SMAS Lymphatic Facial; Facial Sculpting & Lift Massage; Facial
+Sculpting + EMS; EMS Express + Premium Serum). The seven sample Icoone entries, including the
+consultation with its sample price, are gone; “Book a consultation” on the treatments page opens
+WhatsApp.
 
-- [ ] `priceFrom` (all sample: 450 / 500 / 550 / 450 / 450 / 400 / 150 AED) and `priceNote`.
-      Remove the words “Sample price for the layout review” once real.
-- [ ] `duration` and `recommendedProgramme` (all sample).
-- [ ] `contraindications` lists (all sample, generic). Replace with Andreea’s own list and set
-      `contraindicationsConfirmed: true`. Also `src/content/faqs/who-should-not.md`.
-- [ ] `whatHappens`, `forWhom` and the Markdown body (“Good to know”) are draft copy in her voice; check facts
-      such as “disposable set provided”, “measured every few sessions”.
-- [ ] The set of treatments itself. Instagram highlights show Lasers and Gut health: are other services
-      part of this site, or is it Icoone only?
-- [ ] Consultation: is it charged, and is it deducted from the first programme? (`consultation.md`)
+- [ ] Per treatment, still to come from Andreea: who it is for, what a session is like, any programme
+      guidance, contraindications and related FAQs. Each section appears only once its field is filled.
+- [ ] Photographs: every treatment uses one of the existing stock or studio photos as a stand-in hero.
+      Real photos of each treatment would be better (`heroImage`, `heroImageAlt`, `heroImagePosition`).
+- [ ] Body treatments: “Body lymphatic drainage & Icoone Medical” is a specialisation, but no body treatment
+      is listed. Ask whether a body list follows, with the same facts.
+- [ ] The hero subline, the site description and the FAQ still describe Icoone body programmes. Revisit once
+      the body list is decided.
+- [ ] Prices are shown per treatment in AED as given; confirm the VAT position.
+- [ ] The sample testimonials and case studies still point at the old treatment slugs, so they show without
+      a treatment link until they are updated or replaced.
 
 ## FAQs (`src/content/faqs/*.md`)
 

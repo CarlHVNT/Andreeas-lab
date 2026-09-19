@@ -30,7 +30,8 @@ const hasBody = (treatment.body ?? "").trim().length > 0;
 const faqs = await getFaqsBySlugs(data.faqSlugs);
 const waName = data.whatsappName ?? data.title;
 const url = `${SITE.url}${treatmentPath(treatment)}`;
-const price = data.priceFrom != null ? `from ${formatPrice(data.priceFrom)} per session` : "On request";
+const price = data.priceFrom != null ? formatPrice(data.priceFrom) : "On request";
+const hasSession = Boolean(data.whatHappens) || hasBody;
 const gallery = galleryFor(data.heroImage, data.order, 3);
 const cases = SITE.results.showBeforeAfters ? await getCaseStudiesFor(treatment.id) : [];
 const jsonLd = [
@@ -78,34 +79,50 @@ const jsonLd = [
       </figure>
     </header>
 
-    <Section title="Who it’s for" tone="white">
-      <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
-        {data.forWhom.map((item) => <li class="py-3.5">{item}</li>)}
-      </ul>
-    </Section>
+    {
+      data.forWhom.length > 0 && (
+        <Section title="Who it’s for" tone="white">
+          <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
+            {data.forWhom.map((item) => (
+              <li class="py-3.5">{item}</li>
+            ))}
+          </ul>
+        </Section>
+      )
+    }
 
-    <Section title="What a session is like" tone="blush">
-      <p class="voice">{data.whatHappens}</p>
-      {
-        hasBody && (
-          <div class="facts mt-8">
-            <Content />
+    {
+      hasSession ? (
+        <Section title="What a session is like" tone="blush">
+          {data.whatHappens && <p class="voice">{data.whatHappens}</p>}
+          {hasBody && (
+            <div class="facts mt-8">
+              <Content />
+            </div>
+          )}
+          <Gallery items={gallery} columns={3} class="mt-10" />
+        </Section>
+      ) : (
+        <section class="pt-18 md:pt-32">
+          <div class="mx-auto max-w-content px-5 md:px-6">
+            <Gallery items={gallery} columns={3} />
           </div>
-        )
-      }
-      <Gallery items={gallery} columns={3} class="mt-10" />
-    </Section>
+        </section>
+      )
+    }
 
-    <Section title="Programme and pricing">
+    <Section title={data.recommendedProgramme ? "Programme and pricing" : "Session and pricing"} tone={hasSession ? "ivory" : "white"}>
       <dl class="divide-y divide-linen border-y border-linen text-facts">
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-muted">Session</dt>
           <dd class="tabular-nums">{data.duration}</dd>
         </div>
-        <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-          <dt class="text-muted">Recommended programme</dt>
-          <dd>{data.recommendedProgramme}</dd>
-        </div>
+        {data.recommendedProgramme && (
+          <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+            <dt class="text-muted">Recommended programme</dt>
+            <dd>{data.recommendedProgramme}</dd>
+          </div>
+        )}
         <div class="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
           <dt class="text-muted">Price</dt>
           <dd class="tabular-nums">{price}</dd>
@@ -125,7 +142,7 @@ const jsonLd = [
           <p class="mt-4 max-w-[56ch] text-meta text-muted">
             {!data.contraindicationsConfirmed && "Sample list, to be confirmed by Andreea. "}
             Suitability is always decided at your consultation. Andreea asks about your medical history before
-            any session, and will say plainly if Icoone is not right for you.
+            any session, and will say plainly if this treatment is not right for you.
           </p>
         </Section>
       )
