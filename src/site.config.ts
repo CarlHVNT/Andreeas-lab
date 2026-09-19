@@ -58,12 +58,13 @@ export const SITE = {
     /** From Andreea, 17 September 2026: “DHA Licensed Beauty Therapist” */
     title: "DHA-licensed beauty therapist",
     /**
-     * Training and qualifications, from Andreea, 17 September 2026. The Instagram
-     * bio also says “KHDA & MOH certified”; her copy does not, so they are not listed.
+     * Short list for the home page fact and page descriptions. The full record,
+     * in Andreea’s words, is `qualifications` below.
      */
     credentials: [
-      "ITEC Level 3 qualification (UK)",
-      "Professional beauty therapy training at The Nordic International Beauty & Training Centre, UAE",
+      "ITEC Level 3 Diploma in Facial Electrical Treatments (UK)",
+      "800 hours of beauty therapy training at The Nordic International Beauty & Training Centre, Dubai",
+      "Icoone Laser MED practitioner training",
     ],
     /**
      * Specialisations, in Andreea’s words (19 September 2026). Each is a drop-down row
@@ -99,23 +100,36 @@ export const SITE = {
     ] as { icon: SpecialisationIcon; title: string; text: string }[],
     languages: ["English", "Romanian", "Spanish"],
     /**
-     * Shown on the Specialisations & qualifications page. From Andreea, 17 September 2026.
-     * Keep in step with `credentials` above; add years as she supplies them. The Instagram
-     * bio’s “KHDA & MOH certified” and an Icoone practitioner certificate are not listed
-     * until she confirms them.
+     * Qualifications & certifications, in Andreea’s words (19 September 2026), shown on
+     * the Specialisations & qualifications page. Add years as she supplies them.
      */
     qualifications: [
-      { title: "Licensed beauty therapist", issuer: "Dubai Health Authority (DHA)", year: "" },
-      { title: "ITEC Level 3 qualification", issuer: "ITEC, United Kingdom", year: "" },
+      { title: "DHA Professional Licence", issuer: "Dubai Health Authority, UAE", year: "" },
       {
-        title: "Professional beauty therapy training",
-        issuer: "The Nordic International Beauty & Training Centre, UAE",
+        title: "ITEC Level 3 Diploma in Facial Electrical Treatments — Merit",
+        issuer: "ITEC / VTCT, United Kingdom · Ofqual Regulated",
         year: "",
       },
+      {
+        title: "Level 1–3 Beauty Therapy Training — 800 Hours",
+        issuer: "The Nordic International Beauty & Training Centre, Dubai · KHDA Attested",
+        year: "",
+      },
+      {
+        title: "Sculptural Face Lifting™ Practising Licence",
+        issuer: "International Sculptural Face Lifting Academy",
+        year: "",
+      },
+      { title: "Icoone Laser MED Practitioner Training", issuer: "Specialised two-week practical training", year: "" },
     ],
-    /** From Andreea, 17 September 2026. Add named courses and years as she supplies them. */
-    continuingEducation: [
-      "Specialised hands-on training and professional education in the UAE and internationally, ongoing",
+    /** Additional training, from Andreea (19 September 2026). Shown as one line under the qualifications. */
+    additionalTraining: [
+      "Hydrafacial Syndeo",
+      "Facial skincare",
+      "Chemical peels",
+      "Microneedling (Morpheus)",
+      "BBL/IPL training",
+      "Alma Academy training",
     ],
   },
 

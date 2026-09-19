@@ -181,16 +181,16 @@ years in the UAE). Before launch, Andreea should confirm or rewrite:
 
 - [x] Qualifications page introduction: Andreea’s own two paragraphs, set as written on 19 September 2026,
       in place of the draft “I do a small number of things…”.
-- [x] `qualifications`: now Andreea’s confirmed list (17 September 2026): licensed beauty therapist (DHA),
-      ITEC Level 3 qualification (UK), professional beauty therapy training at The Nordic International
-      Beauty & Training Centre, UAE. Years still to add.
-- [ ] Removed until she confirms them: “KHDA certified training”, “Ministry of Health (MOH) certification”
-      (both from the Instagram bio) and an assumed “Icoone practitioner training”. Ask Andreea whether each
-      exists, with the exact title, issuer and year.
+- [x] `qualifications`: Andreea’s full list, in her words (19 September 2026): DHA Professional Licence;
+      ITEC Level 3 Diploma in Facial Electrical Treatments (Merit, ITEC / VTCT, Ofqual regulated); Level 1–3
+      Beauty Therapy Training, 800 hours (The Nordic International Beauty & Training Centre, KHDA attested);
+      Sculptural Face Lifting™ Practising Licence; Icoone Laser MED Practitioner Training. Years still to add.
+- [ ] Still not mentioned by Andreea: the Instagram bio’s “MOH certified”. Ask before adding it.
 - [ ] The qualifications page no longer says “Certificates are available to see in the room”. Ask whether
       that is true and wanted.
-- [x] `continuingEducation`: now Andreea’s own line (“specialised hands-on training and professional
-      education in the UAE and internationally”). Add named courses and years as she supplies them.
+- [x] `additionalTraining` (was `continuingEducation`): Andreea’s list of 19 September 2026, shown as one
+      line: Hydrafacial Syndeo · Facial skincare · Chemical peels · Microneedling (Morpheus) · BBL/IPL
+      training · Alma Academy training. Her text read “BBL/IPL trading”, set as “training”; confirm.
 - [x] Specialisations (19 September 2026): five drop-down rows in Andreea’s words, each with her
       paragraph, from `practitioner.specialisations`: acne & oily skin, advanced facial treatments, facial
       sculpting & lymphatic drainage, facial EMS, body lymphatic drainage & Icoone Medical. No links out of

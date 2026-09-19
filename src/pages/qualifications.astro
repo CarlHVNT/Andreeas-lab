@@ -61,13 +61,13 @@ const { practitioner } = SITE;
     </ul>
   </Section>
 
-  <Section title="Continuing education">
+  <Section title="Additional training">
+    <!-- Andreea’s own words (17 September 2026) -->
     <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      What I tell you should be current, so I keep learning.
+      I continue to develop my skills through specialised hands-on training and professional education in the UAE
+      and internationally.
     </p>
-    <ul class="divide-y divide-linen border-y border-linen text-facts" role="list">
-      {practitioner.continuingEducation.map((line) => <li class="py-3.5">{line}</li>)}
-    </ul>
+    <p class="border-y border-linen py-4 text-facts">{practitioner.additionalTraining.join(" · ")}</p>
     <dl class="mt-8 grid gap-1 text-facts sm:grid-cols-[11rem_1fr] sm:gap-6">
       <dt class="text-muted">Languages</dt>
       <dd>{practitioner.languages.join(", ")}</dd>
