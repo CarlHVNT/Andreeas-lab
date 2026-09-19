@@ -147,8 +147,8 @@ Before/after photographs are regulated by the DHA. If ever asked to take them do
 
 ## Add the link to the book
 
-In `src/site.config.ts`, under `book`, paste the shop or Amazon link between the quotes of `url: ""`. Until
-then, “Get the book” on the Consultancy page opens WhatsApp with a question about the book.
+In `src/site.config.ts`, under `book`, the Amazon link sits between the quotes of `url`. Replace it if the
+shop link changes; if it is ever emptied, “Get the book” on the Consultancy page opens WhatsApp instead.
 
 ## Change the logo
 

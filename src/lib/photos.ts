@@ -17,6 +17,7 @@ import redlight from "@/assets/photos/treatment-redlight.jpg";
 import forehead from "@/assets/photos/treatment-forehead.jpg";
 import consultation from "@/assets/photos/consultation-markings.jpg";
 import faceMapping from "@/assets/photos/face-mapping.jpg";
+import bookCover from "@/assets/photos/book-cover.webp";
 
 export type Photo = {
   src: ImageMetadata;
@@ -26,6 +27,11 @@ export type Photo = {
 };
 
 export const photos = {
+  // Andreea’s book (Carl, 19 September 2026): a 3D cover mock-up on a transparent ground, shown whole
+  bookCover: {
+    src: bookCover,
+    alt: "Cover of How to Become a Beauty Therapist in Dubai by Andreea Cristina Enciu: Andreea in a white tunic on a pink cover, with the Dubai skyline",
+  },
   // Andreea and her room
   bowl: {
     src: bowl,
