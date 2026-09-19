@@ -61,22 +61,19 @@ pricing, and any wording that could read as a medical claim.
 
 ## Location and hours
 
-**The address on the site is a demo address**, a generic Dubai Healthcare City location (Clinic 203,
-Level 2, Ibn Sina Building 27, Block B) chosen so Andreea’s real premises are not published while the
-site is a demo. Carl holds the real address. Before launch:
+**The address is not published** (Carl, 19 September 2026). The contact page and the home page give WhatsApp
+and email and say “Based in Dubai, UAE”; the request form, the map, the hours and the “Where to find me”
+section are gone, and the structured data carries city and country only. `SITE.location` still holds the
+demo Dubai Healthcare City address from the layout review, which now only feeds `location.area` in copy
+(the treatments page description, the About page room caption, the privacy page) and `hours` feeds the
+opening-hours structured data.
 
-- [ ] **Real address** into `src/site.config.ts` → `location` (`unit`, `building`, `community`, `area`),
-      written in UAE order: unit and floor, building, community, city. No postcode exists in the UAE.
-- [ ] **Makani number** for the building entrance (ten digits, on the blue plate by the door):
-      `location.makani`. Shows on the home page and the contact page once set (the footer address line is switched off).
-- [ ] **Map pin and share link**: `location.geo` and `location.mapsUrl`, `location.mapsEmbedQuery`.
-- [ ] **How to find the room**: `location.howToFind` (which entrance, lift, whether to call ahead).
-- [ ] **Parking**: `location.parking` and `src/content/faqs/parking.md` currently say Andreea sends
-      directions when you book. Replace with the real arrangement.
-- [ ] Opening hours: `hours` (currently Tuesday to Saturday 10:00 to 19:00, Sunday and Monday closed).
-- [ ] `src/content/faqs/where-are-you.md` repeats the address in prose; update it together.
-- [ ] SEO phrases use `location.area` (“Dubai Healthcare City” in the demo); the body remodelling and
-      lymphatic drainage files also name the area in their `seoTitle`/`seoDescription`.
+- [ ] Replace or remove the demo `location.area` phrases (“Dubai Healthcare City”) in the treatments page
+      description, the About page and the privacy page, or set `location.area` to what Andreea wants said.
+- [ ] Opening hours: `hours` (currently Tuesday to Saturday 10:00 to 19:00, Sunday and Monday closed) are
+      now only in the structured data. Confirm them or remove them from `businessJsonLd`.
+- [ ] Google Business Profile: the site no longer shows an address, so match the profile to what Andreea
+      wants public.
 
 ## Treatments (`src/content/treatments/*.md`)
 
@@ -259,8 +256,7 @@ but they did not reach the build environment.
 ## Setup (Carl)
 
 - [ ] Netlify: connect the GitHub repo, set the custom domain, enable form notifications for the
-      `consultation` and `course-interest` forms (email or WhatsApp-compatible integration), and turn on
-      spam filtering.
+      `course-interest` form (email or WhatsApp-compatible integration), and turn on spam filtering.
 - [ ] Analytics IDs when she is ready: `analytics.plausibleDomain`, `ga4MeasurementId`, `metaPixelId`.
       GA4 and Meta Pixel set cookies; decide on a consent notice first.
 - [ ] Google Business Profile with the same name, address and hours as `site.config.ts`.

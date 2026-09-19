@@ -11,7 +11,6 @@ import ImageBand from "@/components/ImageBand.astro";
 import HeroVideo from "@/components/HeroVideo.astro";
 import VideoEmbed from "@/components/VideoEmbed.astro";
 import CourseInterestForm from "@/components/CourseInterestForm.astro";
-import MapEmbed from "@/components/MapEmbed.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import IconArrow from "@/components/icons/IconArrow.astro";
@@ -19,7 +18,7 @@ import IconInstagram from "@/components/icons/IconInstagram.astro";
 import LineIcon from "@/components/icons/LineIcon.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
-import { addressLines } from "@/lib/address";
+import { whatsappLink } from "@/lib/whatsapp";
 import { getLocaleFromUrl, useTranslations } from "@/i18n/ui";
 import SpecialisationList from "@/components/SpecialisationList.astro";
 import {
@@ -280,31 +279,33 @@ const why = [
   </Section>
 
   <!-- 5. Contact -->
+  <!-- Contact: WhatsApp and email only; the address is not published (Carl, 19 September 2026) -->
   <Section id="contact" title="Contact">
     <div slot="statement" class="mt-6 grid gap-5 text-facts">
       <p class="voice max-w-[34ch]">WhatsApp is the quickest way. Andreea replies personally, usually the same day.</p>
       <WhatsAppButton />
-      <address class="max-w-[36ch] not-italic">
-        {location.hostClinic && <span class="block">{location.hostClinic}</span>}
-        {addressLines.map((line) => <span class="block">{line}</span>)}
-        {location.makani && <span class="block text-muted tabular-nums">Makani {location.makani}</span>}
-      </address>
-      <dl class="grid gap-1.5 tabular-nums">
-        {
-          SITE.hours.map((h) => (
-            <div class="flex justify-between gap-6 border-b border-linen pb-1.5 md:max-w-[22rem]">
-              <dt class="text-muted">{h.label}</dt>
-              <dd>{h.closed ? "Closed" : `${h.opens} to ${h.closes}`}</dd>
-            </div>
-          ))
-        }
-      </dl>
-      <a href="/contact" class="link-arrow">
-        <span>Directions and the request form</span>
-        <IconArrow class="h-4.5 w-4.5" />
-      </a>
     </div>
-    <MapEmbed />
+    <dl class="border-t border-linen text-facts md:max-w-[30rem]">
+      <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-linen py-3.5">
+        <dt class="text-muted">WhatsApp</dt>
+        <dd>
+          <a href={whatsappLink()} class="text-ink tabular-nums underline hover:text-wine" target="_blank" rel="noopener">
+            {contact.whatsappDisplay}
+          </a>
+        </dd>
+      </div>
+      <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-linen py-3.5">
+        <dt class="text-muted">Email</dt>
+        <dd>
+          <a href={`mailto:${contact.email}`} class="break-all text-ink underline hover:text-wine">{contact.email}</a>
+        </dd>
+      </div>
+    </dl>
+    <p class="mt-5 text-facts text-muted">Based in {location.city}, UAE</p>
+    <a href="/contact" class="link-arrow mt-6">
+      <span>Contact page</span>
+      <IconArrow class="h-4.5 w-4.5" />
+    </a>
   </Section>
 
   <CtaBand />

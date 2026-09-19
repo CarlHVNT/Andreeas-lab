@@ -10,8 +10,8 @@ arrives from Instagram on a phone. The site’s one job is to start a WhatsApp c
 - TypeScript strict, path alias `@/` → `src/`
 - Content collections (Astro content layer, `glob` loader) in `src/content/`
 - Fonts self-hosted from `@fontsource-variable/*`, preloaded in `BaseLayout.astro`
-- Netlify hosting, Netlify Forms for the consultation form (`netlify.toml`)
-- No client framework, no CMS, no database. Two tiny inline scripts (sticky bar, click-to-load map)
+- Netlify hosting, Netlify Forms for the course-interest form (`netlify.toml`)
+- No client framework, no CMS, no database. Two tiny inline scripts (sticky bar, click-to-load video)
 
 ## Commands
 
@@ -71,7 +71,11 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - **Buttons say what happens.** “Message Andreea on WhatsApp”, “Send request”, “Load the map”.
 - **Every WhatsApp button carries context.** Pass `treatment` on treatment pages; the layout
   forwards it to the header button and sticky bar via the `treatment` prop of `BaseLayout`.
-- **Every page ends with `CtaBand`** except the contact page.
+- **Every page ends with `CtaBand`** except the contact page. Its secondary link emails Andreea unless a page
+  passes `contactLinkLabel`/`contactLinkHref`.
+- **Contact details are WhatsApp and email only.** The address is not published: the contact page and the home
+  page say “Based in Dubai, UAE” (Carl, 19 Sep 2026). No request form, map or hours on the pages; the
+  structured data carries city and country only. `SITE.location` still feeds `location.area` in copy.
 - **Site structure (Andreea’s brief, 16 Sep 2026, Consultancy added 19 Sep):** About me,
   Specialisations & qualifications, Treatments with before/after case studies, Consultancy, FAQ,
   Contact. Home is the landing page and mirrors that order. `/results` redirects to `/case-studies`.
@@ -137,7 +141,7 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
 - The FAQ page has two groups, For clients and For beauty professionals (`src/lib/faq-groups.ts`, `group`
   field on each question); an empty group says questions will follow. Questions are Andreea’s words.
 - `robots.txt` is generated from `SITE.url` (`src/pages/robots.txt.ts`). Sitemap via `@astrojs/sitemap`.
-- `/contact/thanks` and `/404` are `noindex` and excluded from the sitemap.
+- `/courses/thanks` and `/404` are `noindex` and excluded from the sitemap.
 
 ## Adding a language (ru, ar)
 

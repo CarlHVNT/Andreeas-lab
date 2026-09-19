@@ -1,5 +1,5 @@
 # Netlify deploy configuration for Andreea’s Lab (static Astro site).
-# Netlify Forms picks up the consultation form automatically from the built HTML.
+# Netlify Forms picks up the course-interest form automatically from the built HTML.
 
 [build]
   command = "npm run build"

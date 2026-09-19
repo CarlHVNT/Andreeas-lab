@@ -1,5 +1,4 @@
 import { SITE } from "@/site.config";
-import { streetAddress } from "@/lib/address";
 
 const BUSINESS_ID = `${SITE.url}/#business`;
 
@@ -17,17 +16,12 @@ export function businessJsonLd() {
     logo: `${SITE.url}/icon-512.png`,
     telephone: contact.phone || contact.whatsappNumber,
     email: contact.email,
+    // The address is not published (Carl, 19 September 2026): city and country only, no coordinates
     address: {
       "@type": "PostalAddress",
-      streetAddress,
       addressLocality: location.city,
       addressRegion: location.city,
       addressCountry: location.countryCode,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: location.geo.latitude,
-      longitude: location.geo.longitude,
     },
     areaServed: { "@type": "City", name: "Dubai" },
     sameAs: [contact.instagramUrl],

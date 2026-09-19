@@ -144,8 +144,7 @@ export const SITE = {
     whatsappDisplay: "+971 56 168 0342",
     /** Leave empty if the phone number is the same as WhatsApp */
     phone: "",
-    /** PLACEHOLDER */
-    email: "hello@andreeaslab.example",
+    email: "andreeaslab888@gmail.com",
     instagramHandle: "andreeaslab",
     instagramUrl: "https://www.instagram.com/andreeaslab/",
   },

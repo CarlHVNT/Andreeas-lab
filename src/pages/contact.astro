@@ -1,31 +1,39 @@
 ---
+/**
+ * Contact, in Andreea’s words (via Carl, 19 September 2026): WhatsApp first,
+ * then email. The address is not published: “Based in Dubai, UAE”. The request
+ * form and the “Where to find me” section came off the same day.
+ */
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Section from "@/components/Section.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
-import ConsultationForm from "@/components/ConsultationForm.astro";
-import MapEmbed from "@/components/MapEmbed.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
 import { photos } from "@/lib/photos";
-import { addressLines } from "@/lib/address";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const { contact, location } = SITE;
 ---
 
 <BaseLayout
   title="Contact"
-  description={`Message Andreea on WhatsApp, send a consultation request, or find the treatment room at ${location.building}, ${location.area}, Dubai. Hours, address and directions.`}
+  description={`Get in touch with Andreea in Dubai on WhatsApp (${contact.whatsappDisplay}) or by email, whether you are looking for the right treatment, need guidance with your skin, or want advice about a career in beauty and aesthetics.`}
   hasHero
 >
   <section class="mx-auto max-w-content px-5 pt-10 md:grid md:grid-cols-12 md:items-start md:gap-6 md:px-6 md:pt-16">
-    <header class="md:col-span-5">
+    <header class="md:col-span-6">
       <Mark class="mb-4" />
-      <h1 class="text-statement">Message Andreea</h1>
-      <p class="voice mt-5">
-        WhatsApp is the quickest way. Say what you would like help with, and Andreea replies personally,
-        usually the same day.
-      </p>
+      <h1 class="text-statement">Let’s connect</h1>
+      <div class="voice mt-5">
+        <p>
+          Whether you are looking for the right treatment, need guidance with your skin, or want professional
+          advice about starting or developing your career in beauty and aesthetics, feel free to get in touch.
+        </p>
+        <p>
+          Tell me briefly what you need help with, and I’ll personally come back to you with the best way to
+          move forward.
+        </p>
+      </div>
       <figure class="arch mt-10 aspect-[4/5] max-w-[18rem] bg-linen">
         <Image
           src={photos.tunic.src}
@@ -38,65 +46,25 @@ const { contact, location } = SITE;
         />
       </figure>
     </header>
-    <div class="mt-8 flex flex-col items-start gap-4 md:col-span-6 md:col-start-7 md:mt-0 md:pt-2">
+    <div class="mt-8 md:col-span-5 md:col-start-8 md:mt-0 md:pt-2">
       <WhatsAppButton id="hero-cta" />
-      <p class="text-facts text-muted">
-        Or call or save the number:
-        <a href={`tel:${contact.whatsappNumber}`} class="text-ink tabular-nums underline hover:text-wine">
-          {contact.whatsappDisplay}
-        </a>
-      </p>
-      {
-        contact.email && (
-          <p class="text-facts text-muted">
-            Email:
-            <a href={`mailto:${contact.email}`} class="text-ink underline hover:text-wine">
-              {contact.email}
+      <dl class="mt-8 border-t border-linen text-facts">
+        <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-linen py-3.5">
+          <dt class="text-muted">WhatsApp</dt>
+          <dd>
+            <a href={whatsappLink()} class="text-ink tabular-nums underline hover:text-wine" target="_blank" rel="noopener">
+              {contact.whatsappDisplay}
             </a>
-          </p>
-        )
-      }
+          </dd>
+        </div>
+        <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-linen py-3.5">
+          <dt class="text-muted">Email</dt>
+          <dd>
+            <a href={`mailto:${contact.email}`} class="break-all text-ink underline hover:text-wine">{contact.email}</a>
+          </dd>
+        </div>
+      </dl>
+      <p class="mt-5 text-facts text-muted">Based in {location.city}, UAE</p>
     </div>
   </section>
-
-  <Section title="Or send a request" tone="blush">
-    <p slot="statement" class="voice mt-4 max-w-[34ch] text-muted">
-      If you would rather not open WhatsApp now, leave your details and Andreea will message you.
-    </p>
-    <ConsultationForm />
-  </Section>
-
-  <Section title="Where to find me">
-    <div slot="statement" class="mt-6 grid gap-6 text-facts">
-      <address class="not-italic">
-        <p class="font-medium">{location.hostClinic || SITE.name}</p>
-        <p class="text-muted">
-          {addressLines.map((line) => <span class="block">{line}</span>)}
-          {location.makani && <span class="block tabular-nums">Makani {location.makani}</span>}
-        </p>
-      </address>
-      <div>
-        <p class="font-medium">Hours</p>
-        <dl class="mt-1.5 grid gap-1.5 tabular-nums">
-          {
-            SITE.hours.map((h) => (
-              <div class="flex justify-between gap-6 border-b border-linen pb-1.5 md:max-w-[22rem]">
-                <dt class="text-muted">{h.label}</dt>
-                <dd>{h.closed ? "Closed" : `${h.opens} to ${h.closes}`}</dd>
-              </div>
-            ))
-          }
-        </dl>
-      </div>
-      <div>
-        <p class="font-medium">Finding the room</p>
-        <p class="max-w-[40ch] text-muted">{location.howToFind}</p>
-      </div>
-      <div>
-        <p class="font-medium">Parking</p>
-        <p class="max-w-[40ch] text-muted">{location.parking}</p>
-      </div>
-    </div>
-    <MapEmbed />
-  </Section>
 </BaseLayout>

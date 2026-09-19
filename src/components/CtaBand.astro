@@ -5,22 +5,26 @@
  */
 import WhatsAppButton from "./WhatsAppButton.astro";
 import IconArrow from "./icons/IconArrow.astro";
+import { SITE } from "@/site.config";
 
 interface Props {
   title?: string;
   text?: string;
   treatment?: string;
-  /** Hide the form link on the contact page itself */
-  showFormLink?: boolean;
-  /** Text of the form link, “Or send a request” by default */
-  formLinkLabel?: string;
+  /** Hide the secondary link, for a page that is itself the contact page */
+  showContactLink?: boolean;
+  /** Text of the secondary link, “Or email Andreea” by default */
+  contactLinkLabel?: string;
+  /** Where the secondary link goes, Andreea’s email by default */
+  contactLinkHref?: string;
 }
 const {
   title = "Ready when you are.",
   text = "Message Andreea with what you would like help with. She replies personally, usually the same day.",
   treatment,
-  showFormLink = true,
-  formLinkLabel = "Or send a request",
+  showContactLink = true,
+  contactLinkLabel = "Or email Andreea",
+  contactLinkHref = `mailto:${SITE.contact.email}`,
 } = Astro.props;
 ---
 
@@ -37,9 +41,9 @@ const {
       <div class="mt-8 flex flex-col items-start gap-4 md:col-span-4 md:col-start-9 md:mt-0 md:pt-2">
         <WhatsAppButton treatment={treatment} />
         {
-          showFormLink && (
-            <a href="/contact" class="link-arrow text-[0.95rem]">
-              <span>{formLinkLabel}</span>
+          showContactLink && (
+            <a href={contactLinkHref} class="link-arrow text-[0.95rem]">
+              <span>{contactLinkLabel}</span>
               <IconArrow class="h-4.5 w-4.5" />
             </a>
           )

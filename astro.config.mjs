@@ -30,7 +30,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => !["/contact/thanks", "/courses/thanks", "/404", "/results"].some((p) => page.includes(p)),
+      filter: (page) => !["/courses/thanks", "/404", "/results"].some((p) => page.includes(p)),
     }),
   ],
 
