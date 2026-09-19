@@ -96,8 +96,6 @@ WhatsApp.
 - [ ] The hero subline, the site description and the FAQ still describe Icoone body programmes. Revisit once
       the body list is decided.
 - [ ] Prices are shown per treatment in AED as given; confirm the VAT position.
-- [ ] The sample testimonials still point at the old treatment slugs, so they show without a treatment
-      name until they are updated or replaced.
 
 ## FAQs (`src/content/faqs/*.md`)
 
@@ -109,9 +107,12 @@ Files marked `needsConfirmation: true` show a “to be confirmed” note on the 
 
 ## Testimonials (`src/content/testimonials/*.md`)
 
-- [ ] **Three invented quotes are live on the site without a label** (`sample-01.md` to `sample-03.md`,
-      initials and areas made up). Replace them with real quotes with written consent before launch,
-      and delete the sample files. Check outcome wording against DHA testimonial rules.
+Not shown anywhere since 19 September 2026: Carl asked for the “In their words” section to come off the
+Before & after page, and no other page uses the collection. The three sample files stay in the collection
+(`placeholder: true`) and `Quote.astro` stays, ready if real testimonials are wanted later.
+
+- [ ] Decide whether client testimonials return (which page, and real quotes with permission). If not,
+      delete `src/content/testimonials/`, `Quote.astro` and `getTestimonials` in `src/lib/content.ts`.
 
 ## Photographs and video (`src/assets/photos/`, listed in `src/lib/photos.ts`; `public/video/`)
 

@@ -70,6 +70,9 @@ Portrait photos (taller than wide) work best for the arched hero shapes; square 
 
 ## Add a testimonial
 
+Testimonials are not shown on the site at the moment (the “In their words” section came off the
+Before & after page on 19 September 2026). The steps below apply if the section comes back.
+
 1. In `src/content/testimonials/`, copy `sample-01.md` and rename it, for example `2026-10-maria.md`.
 2. Change `name` (initials are fine), `area`, `treatmentSlug` (the treatment file name, without `.md`)
    and `date`.

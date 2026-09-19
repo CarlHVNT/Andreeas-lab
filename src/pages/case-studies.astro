@@ -1,20 +1,14 @@
 ---
-import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CaseStudyCard from "@/components/CaseStudyCard.astro";
-import Quote from "@/components/Quote.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Mark from "@/components/Mark.astro";
 import { SITE } from "@/site.config";
-import { getCaseStudiesByGroup, getTestimonials, getTreatments, treatmentPath } from "@/lib/content";
+import { getCaseStudiesByGroup, getTreatments, treatmentPath } from "@/lib/content";
 
 const groups = SITE.results.showBeforeAfters ? await getCaseStudiesByGroup() : [];
 const treatments = await getTreatments();
 const treatmentFor = (slug?: string) => (slug ? treatments.find((t) => t.id === slug) : undefined);
-const testimonials = await getTestimonials();
-const quotes = await Promise.all(
-  testimonials.map(async (q) => ({ q, Content: (await render(q)).Content })),
-);
 ---
 
 <BaseLayout
@@ -71,31 +65,6 @@ const quotes = await Promise.all(
       </section>
     ))
   }
-
-  <section class="pt-18 md:pt-32">
-    <div class="mx-auto max-w-content px-5 md:grid md:grid-cols-12 md:gap-6 md:px-6">
-      <div class="md:col-span-5">
-        <Mark class="mb-4" />
-        <h2 class="text-statement">In their words</h2>
-        <p class="voice mt-4 max-w-[34ch]">What clients say about the experience, not just the result.</p>
-      </div>
-      <div class="mt-8 grid gap-8 md:col-span-6 md:col-start-7 md:mt-0">
-        {
-          quotes.map(({ q, Content }) => (
-            <Quote
-              name={q.data.name}
-              area={q.data.area}
-              treatment={treatmentFor(q.data.treatmentSlug ?? "")?.data.title}
-              date={q.data.date}
-              placeholder={q.data.placeholder}
-            >
-              <Content />
-            </Quote>
-          ))
-        }
-      </div>
-    </div>
-  </section>
 
   <CtaBand
     title="Your turn."
