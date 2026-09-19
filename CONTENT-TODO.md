@@ -225,8 +225,8 @@ but they did not reach the build environment.
 - [ ] **Upload the three facial-massage images** to `src/assets/results/` under exactly those names, replacing
       the stand-ins, then set `placeholderImages: false` in the matching case file. (`npm run placeholders`
       never overwrites an existing file.)
-- [ ] **Massage cases have no facts yet.** Ask Andreea for each: what the client came in with, the treatment,
-      the number of sessions and the dates. Confirm which photograph is before and which is after on the two
+- [ ] **Massage cases have no facts yet.** Ask Andreea for each: the dates (shown under the image), the
+      treatment, and for the record what the client came in with and the number of sessions. Confirm which photograph is before and which is after on the two
       unlabelled images (the alt text assumes before above, or on the left).
 - [ ] **Consent.** Andreea published these cases on Instagram, so they are live at Carl’s request, but
       `consent: false` records that written consent is not yet confirmed on file. Confirm each and set

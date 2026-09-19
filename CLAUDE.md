@@ -84,8 +84,8 @@ npm run placeholders # regenerate placeholder artwork and icons (scripts/generat
   Andreea publishes each case as one composite image, before left, after right, her notes written on it:
   `image` in `src/assets/results/`, shown in a square frame so a row lines up (three across), cropped to
   the case’s `imagePosition` focal point so labels and the treated area stay in view. `before`/`after`
-  pairs are also supported. The card lists the facts as rows (Concern, Plan, transcribed from her notes; a row
-  appears only when its field is filled) and adds no claims. `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
+  pairs are also supported. Under the image the card shows only a small line (group, treatment, dates) and the
+  title; `concern`, `plan` and `summary` stay in the files for the record but are not shown (Carl, 19 Sep 2026). `consent` records that written consent is on file; `SITE.results.showBeforeAfters`
   hides every case at once if DHA approval is withdrawn. While `placeholderImages: true` the card says
   the photograph will follow and prefixes the alt text with “Placeholder for”.
 - **Bands, not one long scroll.** Sections alternate between the ivory page and a tinted band:
