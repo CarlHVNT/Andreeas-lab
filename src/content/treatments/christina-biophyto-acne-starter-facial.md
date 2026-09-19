@@ -6,7 +6,8 @@ title: "Christina BioPhyto Acne Starter Facial"
 promise: "Deep-cleansing facial using professional Christina BioPhyto products, combined with facial massage and LED light therapy."
 duration: "60 min"
 priceFrom: 800
-heroImage: "../../assets/photos/face-sheet-mask.jpg"
+# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/christina-biophyto.jpg
+heroImage: "../../assets/photos/christina-biophyto.jpg"
 heroImageAlt: "A client wearing a sheet mask during a face treatment"
 heroImagePosition: "center 40%"
 order: 1

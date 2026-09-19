@@ -6,7 +6,8 @@ title: "Facial Sculpting + EMS"
 promise: "Facial massage combined with electromuscular stimulation to support muscle tone, firmness and facial definition."
 duration: "40 min"
 priceFrom: 800
-heroImage: "../../assets/photos/treatment-redlight.jpg"
+# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/facial-sculpting-ems.jpg
+heroImage: "../../assets/photos/facial-sculpting-ems.jpg"
 heroImageAlt: "A client with closed eyes while a handpiece moves over her cheek"
 heroImagePosition: "40% center"
 order: 6

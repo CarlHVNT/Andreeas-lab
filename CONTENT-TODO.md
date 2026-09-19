@@ -86,8 +86,12 @@ WhatsApp.
 
 - [ ] Per treatment, still to come from Andreea: who it is for, what a session is like, any programme
       guidance, contraindications and related FAQs. Each section appears only once its field is filled.
-- [ ] Photographs: every treatment uses one of the existing stock or studio photos as a stand-in hero.
-      Real photos of each treatment would be better (`heroImage`, `heroImageAlt`, `heroImagePosition`).
+- [ ] **Photographs.** Each treatment now has its own file in `src/assets/photos/`, currently a copy of a
+      stock or studio photo, so Andreea’s photo can be uploaded over it under the same name and goes live on the
+      next deploy: `christina-biophyto.jpg`, `biorepeel.jpg`, `microneedling.jpg`, `post-smas-lymphatic.jpg`,
+      `facial-sculpting-lift-massage.jpg`, `facial-sculpting-ems.jpg`, `ems-express.jpg`. Carl sent the first
+      three on 19 September, but pasted inline, so they did not arrive; once each real photo is in, rewrite its
+      `heroImageAlt` and check `heroImagePosition` (the thumbnail and hero crop to 4:5, the gallery to a square).
 - [ ] Body treatments: “Body lymphatic drainage & Icoone Medical” is a specialisation, but no body treatment
       is listed. Ask whether a body list follows, with the same facts.
 - [x] The hero, the site description, the treatments page description and the FAQ no longer describe Icoone

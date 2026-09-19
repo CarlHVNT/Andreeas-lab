@@ -6,7 +6,8 @@ title: "EMS Express + Premium Serum"
 promise: "A focused EMS session for facial muscle stimulation and maintenance, combined with a premium exosome-based serum protocol."
 duration: "15–20 min"
 priceFrom: 600
-heroImage: "../../assets/photos/products-pink.jpg"
+# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/ems-express.jpg
+heroImage: "../../assets/photos/ems-express.jpg"
 heroImageAlt: "Skincare products on a marble counter"
 heroImagePosition: "center"
 order: 7

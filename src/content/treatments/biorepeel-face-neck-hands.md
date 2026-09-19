@@ -6,7 +6,8 @@ title: "BioRePeel — Face, Neck & Hands"
 promise: "Professional peel treatment designed to improve texture, brightness and overall skin renewal."
 duration: "30 min"
 priceFrom: 900
-heroImage: "../../assets/photos/consultation-markings.jpg"
+# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/biorepeel.jpg
+heroImage: "../../assets/photos/biorepeel.jpg"
 heroImageAlt: "A practitioner in pink gloves checking a client’s face before a treatment"
 heroImagePosition: "72% center"
 order: 2

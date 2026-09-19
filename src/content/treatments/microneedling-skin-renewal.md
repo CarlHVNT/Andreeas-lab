@@ -6,7 +6,8 @@ title: "Microneedling Skin Renewal"
 promise: "Microneedling combined with a selected professional serum protocol, including exosome-based and vitamin formulations when appropriate."
 duration: "60 min"
 priceFrom: 1500
-heroImage: "../../assets/photos/treatment-forehead.jpg"
+# Stand-in copy of a studio photo until Andreea’s own photograph replaces src/assets/photos/microneedling.jpg
+heroImage: "../../assets/photos/microneedling.jpg"
 heroImageAlt: "Gloved hands guiding a handpiece over a client’s forehead"
 heroImagePosition: "55% 60%"
 order: 3

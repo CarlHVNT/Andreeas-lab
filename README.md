@@ -28,6 +28,14 @@ between the quotes.
 4. The line `priceNote:` is the small text shown under the price table. Change or delete it.
 5. Save. The change appears on the treatment page, and the price in the header of that page.
 
+## Replace a treatment photo
+
+Each treatment has its own photo file in `src/assets/photos/` (for example `christina-biophyto.jpg`; the
+file name is at `heroImage:` in the treatment’s file). Upload the new photo over it with the same name and
+it appears on the treatment page, in the treatment lists and in the gallery. Then update `heroImageAlt:`
+(one sentence describing the photo) and, if the crop is off, `heroImagePosition:` (for example
+`"center top"`).
+
 ## Change a session length or programme
 
 In the same file, change `duration: "60 min"`. If a treatment is planned as a programme, add a line
